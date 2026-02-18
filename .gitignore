@@ -1,8 +1,17 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
-.DS_Store
+
+# Environment
 .env
+.DS_Store
+
+# Outputs (generated, can be reproduced)
 outputs/
+outputs_exp/
 
-
+# IDE
+.idea/
+.vscode/
+.cursor/
