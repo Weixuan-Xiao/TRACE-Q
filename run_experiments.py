@@ -46,8 +46,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--target_k",
-        default="6,5,4",
-        help="Comma-separated target K values for aggregation.",
+        default="auto",
+        help=(
+            "Comma-separated target K values for aggregation, e.g. '6,5,4'. "
+            "Use 'auto' (default) to let pipeline derive from codebook K_max."
+        ),
     )
     args = parser.parse_args()
 
@@ -90,9 +93,10 @@ def main() -> None:
             args.input,
         ]
         
-        # Add target_k only for 'all' or 'aggregate' commands
+        # Pass target_k for commands that need it
         if args.cmd in ("all", "aggregate"):
             cmd_args.extend(["--target_k", args.target_k])
+        # For audit-only runs, target_k is not needed (audit discovers files)
         
         cmd_args.append(args.cmd)
         run(cmd_args)

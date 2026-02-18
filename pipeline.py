@@ -1,7 +1,7 @@
 """
 Q-Matrix Construction Pipeline Runner.
 
-Flow (Bottom-Up + Aggregator):
+Flow:
 1. Solve: Generate step-by-step solutions
 2. Verify: Verify and correct solutions
 3. Codebook: Experts + Supervisor (align → consolidate) create flat codebook (K=3-8)
@@ -10,10 +10,14 @@ Flow (Bottom-Up + Aggregator):
 6. Aggregate: Create multiple K versions by merging
 7. Export: Export Q-matrices and reliability report
 8. Audit: Final quality review
+
+When running "all", target_k for aggregation is auto-computed from codebook K_max
+as [K_max-1, K_max-2, ..., 3]. You can override with --target_k.
 """
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 import subprocess
 import sys
@@ -61,8 +65,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--target_k",
-        default="6,5,4",
-        help="Comma-separated target K values for aggregation.",
+        default="auto",
+        help=(
+            "Comma-separated target K values for aggregation, e.g. '6,5,4'. "
+            "Use 'auto' (default) to derive from codebook: K_max-1 down to 3."
+        ),
     )
     
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -81,6 +88,49 @@ def main() -> None:
     base = [sys.executable]
     outputs_dir = Path(args.outputs_dir)
     prompts_dir = str(args.prompts_dir)
+    codebook_path = outputs_dir / "step3_skill_codebook.json"
+
+    def resolve_target_k() -> str:
+        """
+        Resolve --target_k to a concrete comma-separated string.
+
+        If 'auto', read K_max from the codebook and return 'K_max-1,...,3'.
+        Otherwise return the user-provided value as-is.
+        """
+        if args.target_k != "auto":
+            return args.target_k
+
+        if not codebook_path.exists():
+            print("WARNING: codebook not found, falling back to target_k='6,5,4'")
+            return "6,5,4"
+
+        with open(codebook_path) as f:
+            cb = json.load(f)
+        k_max = len(cb.get("skills", []))
+        if k_max <= 3:
+            # No room to aggregate further
+            print(f"Codebook K_max={k_max}, no aggregation targets possible.")
+            return ""
+        # At most 2 lower levels: K_max-1 and K_max-2 (total ≤ 3 Q-matrices)
+        targets = [k for k in [k_max - 1, k_max - 2] if k >= 3]
+        result = ",".join(str(k) for k in targets)
+        print(f"Auto target_k: K_max={k_max} → targets={result}")
+        return result
+
+    def get_all_k_values() -> list[int]:
+        """
+        Get all K values to audit: [K_max] + aggregation targets.
+
+        Reads K_max from codebook, then derives targets the same way
+        as resolve_target_k().
+        """
+        if not codebook_path.exists():
+            return []
+        with open(codebook_path) as f:
+            k_max = len(json.load(f).get("skills", []))
+        target_k_str = resolve_target_k()
+        targets = [int(k.strip()) for k in target_k_str.split(",") if k.strip()]
+        return [k_max] + targets
 
     # Step 1: Solve
     if args.cmd in ("solve", "all"):
@@ -148,16 +198,20 @@ def main() -> None:
     
     # Step 6: Aggregate (create multiple K versions)
     if args.cmd in ("aggregate", "all"):
-        run(
-            base + [
-                "main_aggregator.py",
-                "--codebook", str(outputs_dir / "step3_skill_codebook.json"),
-                "--dossiers", str(outputs_dir / "step5_judge_adjudicated_dossiers.jsonl"),
-                "--target_k", args.target_k,
-                "--out_dir", str(outputs_dir),
-                "--prompts_dir", prompts_dir,
-            ]
-        )
+        target_k_str = resolve_target_k()
+        if target_k_str:
+            run(
+                base + [
+                    "main_aggregator.py",
+                    "--codebook", str(codebook_path),
+                    "--dossiers", str(outputs_dir / "step5_judge_adjudicated_dossiers.jsonl"),
+                    "--target_k", target_k_str,
+                    "--out_dir", str(outputs_dir),
+                    "--prompts_dir", prompts_dir,
+                ]
+            )
+        else:
+            print("Skipping aggregation: no valid target K values.")
     
     # Step 7: Export reliability report
     if args.cmd in ("export", "all"):
@@ -171,58 +225,50 @@ def main() -> None:
             ]
         )
     
-    # Step 8: Audit all K versions
+    # Step 8: Audit all K versions (K_max + aggregation targets)
     if args.cmd in ("audit", "all"):
-        import json
-        
-        # Load original codebook to get K_max
-        with open(outputs_dir / "step3_skill_codebook.json") as f:
-            original_codebook = json.load(f)
-        k_max = len(original_codebook.get("skills", []))
-        
-        # Build list of K values to audit: [K_max] + target_k values
-        target_k_values = [int(k.strip()) for k in args.target_k.split(",")]
-        all_k_values = [k_max] + target_k_values
-        
-        print(f"\n=== Auditing Q-matrices for K values: {all_k_values} ===")
-        
-        for k_val in all_k_values:
-            print(f"\n--- Auditing K={k_val} ---")
-            
-            # Determine codebook and Q-matrix paths for this K
-            if k_val == k_max:
-                codebook_path = outputs_dir / "step3_skill_codebook.json"
-                q_matrix_path = outputs_dir / f"step6_Q_matrix_K{k_val}.csv"
-            else:
-                codebook_path = outputs_dir / f"step6_codebook_K{k_val}.json"
-                q_matrix_path = outputs_dir / f"step6_Q_matrix_K{k_val}.csv"
-            
-            # Check if files exist
-            if not q_matrix_path.exists():
-                print(f"  Skipping K={k_val}: Q-matrix not found at {q_matrix_path}")
-                continue
-            if not codebook_path.exists():
-                print(f"  Skipping K={k_val}: Codebook not found at {codebook_path}")
-                continue
-            
-            # Output paths for this K version
-            out_review = outputs_dir / f"step8_auditor_review_K{k_val}.jsonl"
-            out_q_matrix = outputs_dir / f"step8_auditor_Q_matrix_K{k_val}_reviewed.csv"
-            out_summary = outputs_dir / f"step8_auditor_summary_K{k_val}.md"
-            
-            run(
-                base + [
-                    "main_auditor.py",
-                    "--dossiers", str(outputs_dir / "step2_verifier_verified_item_dossiers.jsonl"),
-                    "--codebook", str(codebook_path),
-                    "--q_matrix", str(q_matrix_path),
-                    "--reliability", str(outputs_dir / "step7_export_reliability_per_item.csv"),
-                    "--out_review", str(out_review),
-                    "--out_q_matrix", str(out_q_matrix),
-                    "--out_summary", str(out_summary),
-                    "--prompts_dir", prompts_dir,
-                ]
-            )
+        all_k = get_all_k_values()
+
+        if not all_k:
+            print("\n=== Audit: codebook not found. Skipping. ===")
+        else:
+            k_max = all_k[0]
+            print(f"\n=== Auditing Q-matrices for K values: {all_k} ===")
+
+            for k_val in all_k:
+                # K_max uses original codebook; aggregated Ks use step6_codebook
+                if k_val == k_max:
+                    cb_path = codebook_path
+                else:
+                    cb_path = outputs_dir / f"step6_codebook_K{k_val}.json"
+                q_path = outputs_dir / f"step6_Q_matrix_K{k_val}.csv"
+
+                if not q_path.exists():
+                    print(f"\n--- Skipping K={k_val}: {q_path.name} not found ---")
+                    continue
+                if not cb_path.exists():
+                    print(f"\n--- Skipping K={k_val}: {cb_path.name} not found ---")
+                    continue
+
+                print(f"\n--- Auditing K={k_val} ---")
+
+                out_review = outputs_dir / f"step8_auditor_review_K{k_val}.jsonl"
+                out_q_matrix = outputs_dir / f"step8_auditor_Q_matrix_K{k_val}_reviewed.csv"
+                out_summary = outputs_dir / f"step8_auditor_summary_K{k_val}.md"
+
+                run(
+                    base + [
+                        "main_auditor.py",
+                        "--dossiers", str(outputs_dir / "step2_verifier_verified_item_dossiers.jsonl"),
+                        "--codebook", str(cb_path),
+                        "--q_matrix", str(q_path),
+                        "--reliability", str(outputs_dir / "step7_export_reliability_per_item.csv"),
+                        "--out_review", str(out_review),
+                        "--out_q_matrix", str(out_q_matrix),
+                        "--out_summary", str(out_summary),
+                        "--prompts_dir", prompts_dir,
+                    ]
+                )
 
 
 if __name__ == "__main__":
