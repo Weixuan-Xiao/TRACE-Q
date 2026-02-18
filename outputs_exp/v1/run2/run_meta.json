@@ -1,0 +1,9 @@
+{
+  "cmd": "all",
+  "prompt_version": "v1",
+  "prompts_dir": "prompts/v1",
+  "input": "data/items.jsonl",
+  "created_at": "2026-01-17T00:50:56.541362+00:00",
+  "python": "/Users/weixuan/Desktop/Agent-Qmatrix/.venv/bin/python",
+  "run_index": 2
+}
