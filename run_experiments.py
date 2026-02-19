@@ -35,6 +35,12 @@ def main() -> None:
         help="How many repeated runs to execute.",
     )
     parser.add_argument(
+        "--start_run",
+        type=int,
+        default=1,
+        help="Starting run index (use to resume, e.g. --start_run 2 --runs 10 runs run2‑run10).",
+    )
+    parser.add_argument(
         "--base_outputs",
         default="outputs_exp",
         help="Base directory for experiment outputs.",
@@ -73,7 +79,7 @@ def main() -> None:
         "python": sys.executable,
     }
 
-    for i in range(1, args.runs + 1):
+    for i in range(args.start_run, args.runs + 1):
         run_dir = base_outputs / args.prompt_version / f"run{i}"
         run_dir.mkdir(parents=True, exist_ok=True)
 
