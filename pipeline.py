@@ -52,6 +52,41 @@ def clear_outputs(outputs_dir: Path) -> None:
         shutil.rmtree(tv)
 
 
+def _export_q_matrix_from_dossiers(
+    codebook_path: Path, dossiers_path: Path, output_path: Path,
+) -> None:
+    """Generate step6_Q_matrix CSV directly (used when aggregator is skipped)."""
+    import csv
+    with open(codebook_path) as f:
+        codebook = json.load(f)
+    skill_ids = [s.get("skill_id") for s in codebook.get("skills", [])]
+
+    dossiers = []
+    with open(dossiers_path) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                dossiers.append(json.loads(line))
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=["item_id"] + skill_ids)
+        writer.writeheader()
+        for d in dossiers:
+            item_id = str(d.get("item_id", "")).strip()
+            final_skills = set()
+            for s in d.get("judge", {}).get("final_skills", []):
+                sid = str(s.get("skill_id", "") if isinstance(s, dict) else s).strip()
+                if sid:
+                    final_skills.add(sid)
+            row = {"item_id": item_id}
+            for sid in skill_ids:
+                row[sid] = 1 if sid in final_skills else 0
+            writer.writerow(row)
+
+    print(f"Exported Q-matrix: {output_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Q-matrix pipeline runner.")
     parser.add_argument(
@@ -253,6 +288,12 @@ def main() -> None:
     if args.cmd in ("aggregate", "all"):
         if args.target_k_exact:
             print(f"Skipping aggregation: --target_k_exact={args.target_k_exact}")
+            # Generate Q-matrix CSV directly from adjudicated dossiers + codebook
+            _export_q_matrix_from_dossiers(
+                codebook_path=codebook_path,
+                dossiers_path=outputs_dir / "step5_judge_adjudicated_dossiers.jsonl",
+                output_path=outputs_dir / f"step6_Q_matrix_K{args.target_k_exact}.csv",
+            )
         else:
             target_k_str = resolve_target_k()
             if target_k_str:

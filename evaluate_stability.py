@@ -6,18 +6,24 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+_META_COLS = {"item_id", "audit_verdict", "audit_note"}
+
 
 def load_qmatrix(csv_path):
-    """Load Q-matrix CSV -> (item_ids, skill_ids, matrix[row][col])."""
+    """Load Q-matrix CSV -> (item_ids, skill_ids, matrix[row][col]).
+
+    Skill columns are all columns after item_id that are not known metadata.
+    Works with any skill-ID prefix (S01, M01, etc.).
+    """
     with open(csv_path, newline="") as f:
         reader = csv.reader(f)
         header = next(reader)
-        skill_cols = [h for h in header[1:] if h.startswith("S")]
-        n_skills = len(skill_cols)
+        skill_cols = [h for h in header[1:] if h not in _META_COLS]
+        col_indices = [header.index(h) for h in skill_cols]
         items, rows = [], []
         for row in reader:
             items.append(row[0])
-            rows.append([int(row[1 + c].replace("*", "").strip()) for c in range(n_skills)])
+            rows.append([int(row[c].replace("*", "").strip()) for c in col_indices])
     return items, skill_cols, rows
 
 
