@@ -48,12 +48,19 @@ class Expert:
         self,
         llm: LLMClient,
         expert_id: str = "A",
-        prompt_path: str | Path = "prompts/v2/expert.txt",
+        prompt_path: str | Path | None = None,
+        prompt_text: str | None = None,
     ) -> None:
         self.llm = llm
         self.expert_id = expert_id
-        self.prompt_path = str(prompt_path)
-        self._system_prompt = load_text(self.prompt_path)
+        if prompt_text is not None:
+            base_prompt = prompt_text
+        elif prompt_path is not None:
+            base_prompt = load_text(prompt_path)
+        else:
+            raise ValueError("Either prompt_path or prompt_text must be provided")
+        self.prompt_path = str(prompt_path) if prompt_path else None
+        self._system_prompt = base_prompt
 
     def build_codebook(
         self,

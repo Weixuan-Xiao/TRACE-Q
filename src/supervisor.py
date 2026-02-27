@@ -193,11 +193,19 @@ class SupervisorConsolidate:
     def __init__(
         self,
         llm: LLMClient,
-        prompt_path: str | Path = "prompts/v2/supervisor_consolidate.txt",
+        prompt_path: str | Path | None = None,
+        prompt_text: str | None = None,
+        target_k_exact: int | None = None,
     ) -> None:
         self.llm = llm
-        self.prompt_path = str(prompt_path)
-        self._system_prompt = load_text(self.prompt_path)
+        self.target_k_exact = target_k_exact
+        if prompt_text is not None:
+            self._system_prompt = prompt_text
+        elif prompt_path is not None:
+            self.prompt_path = str(prompt_path)
+            self._system_prompt = load_text(self.prompt_path)
+        else:
+            raise ValueError("Either prompt_path or prompt_text must be provided")
 
     def consolidate(
         self,
@@ -265,15 +273,19 @@ class SupervisorConsolidate:
         return summaries
 
     def _validate_skill_count(self, output: JsonDict) -> Optional[str]:
-        """Validate that final codebook has 3-8 skills."""
+        """Validate that final codebook has the correct number of skills."""
         final_codebook = output.get("final_codebook", {})
         skills = final_codebook.get("skills", [])
         n_skills = len(skills)
 
-        if n_skills < 3:
-            return f"Too few skills ({n_skills}). Final codebook MUST have at least 3 skills."
-        if n_skills > 8:
-            return f"Too many skills ({n_skills}). Final codebook MUST have at most 8 skills."
+        if self.target_k_exact:
+            if n_skills != self.target_k_exact:
+                return f"Expected exactly {self.target_k_exact} skills, got {n_skills}."
+        else:
+            if n_skills < 3:
+                return f"Too few skills ({n_skills}). Final codebook MUST have at least 3 skills."
+            if n_skills > 8:
+                return f"Too many skills ({n_skills}). Final codebook MUST have at most 8 skills."
 
         # Check for unique skill IDs
         skill_ids = [s.get("skill_id") for s in skills]

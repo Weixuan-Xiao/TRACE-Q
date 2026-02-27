@@ -47,15 +47,17 @@ def skill_set(vote: JsonDict) -> set[str]:
 
 def compute_skill_level_votes(
     votes_by_tagger: dict[str, JsonDict],
+    include_threshold: int = 4,
+    exclude_threshold: int = 1,
 ) -> JsonDict:
     """
     Compute per-skill vote counts and categorize skills.
 
     Returns dict with:
         skill_counts: {skill_id: int} — how many taggers tagged each skill
-        auto_include: list of skill_ids with count >= 4
-        auto_exclude: list of skill_ids with count <= 1
-        disputed: list of skill_ids with count 2 or 3
+        auto_include: list of skill_ids with count >= include_threshold
+        auto_exclude: list of skill_ids with count <= exclude_threshold
+        disputed: list of skill_ids in between
         has_disputed: bool — whether any skills need Judge adjudication
         n_taggers: int — total number of taggers
     """
@@ -72,11 +74,11 @@ def compute_skill_level_votes(
     disputed: list[str] = []
 
     for sid, count in sorted(skill_counts.items()):
-        if count >= 4:
+        if count >= include_threshold:
             auto_include.append(sid)
-        elif count <= 1:
+        elif count <= exclude_threshold:
             auto_exclude.append(sid)
-        else:  # 2 or 3
+        else:
             disputed.append(sid)
 
     return {
@@ -85,6 +87,41 @@ def compute_skill_level_votes(
         "auto_exclude": sorted(auto_exclude),
         "disputed": sorted(disputed),
         "has_disputed": len(disputed) > 0,
+        "n_taggers": n_taggers,
+    }
+
+
+def compute_majority_votes(votes_by_tagger: dict[str, JsonDict]) -> JsonDict:
+    """Include if > 50% of taggers agree."""
+    n_taggers = len(votes_by_tagger)
+    threshold = n_taggers / 2
+    skill_counts: dict[str, int] = {}
+    for _tid, vote in votes_by_tagger.items():
+        for sid in skill_set(vote):
+            skill_counts[sid] = skill_counts.get(sid, 0) + 1
+    return {
+        "skill_counts": skill_counts,
+        "auto_include": sorted(s for s, c in skill_counts.items() if c > threshold),
+        "auto_exclude": sorted(s for s, c in skill_counts.items() if c <= threshold),
+        "disputed": [],
+        "has_disputed": False,
+        "n_taggers": n_taggers,
+    }
+
+
+def compute_unanimity_votes(votes_by_tagger: dict[str, JsonDict]) -> JsonDict:
+    """Include only if ALL taggers agree."""
+    n_taggers = len(votes_by_tagger)
+    skill_counts: dict[str, int] = {}
+    for _tid, vote in votes_by_tagger.items():
+        for sid in skill_set(vote):
+            skill_counts[sid] = skill_counts.get(sid, 0) + 1
+    return {
+        "skill_counts": skill_counts,
+        "auto_include": sorted(s for s, c in skill_counts.items() if c == n_taggers),
+        "auto_exclude": sorted(s for s, c in skill_counts.items() if c < n_taggers),
+        "disputed": [],
+        "has_disputed": False,
         "n_taggers": n_taggers,
     }
 
@@ -159,6 +196,12 @@ def main() -> None:
         default="prompts/v1",
         help="Directory containing prompt files (judge.txt, etc.)",
     )
+    parser.add_argument("--include_threshold", type=int, default=4)
+    parser.add_argument("--exclude_threshold", type=int, default=1)
+    parser.add_argument(
+        "--consensus_mode", default="threshold",
+        choices=["threshold", "majority", "unanimity"],
+    )
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -169,11 +212,13 @@ def main() -> None:
     dossiers = read_jsonl(args.dossiers)
     codebook = read_json(args.codebook)
 
-    v1 = load_votes(str(Path(args.votes_dir) / "T1.jsonl"))
-    v2 = load_votes(str(Path(args.votes_dir) / "T2.jsonl"))
-    v3 = load_votes(str(Path(args.votes_dir) / "T3.jsonl"))
-    v4 = load_votes(str(Path(args.votes_dir) / "T4.jsonl"))
-    v5 = load_votes(str(Path(args.votes_dir) / "T5.jsonl"))
+    vote_files = sorted(Path(args.votes_dir).glob("T*.jsonl"))
+    if not vote_files:
+        raise RuntimeError(f"No tagger vote files found in {args.votes_dir}")
+    all_votes: dict[str, dict[str, JsonDict]] = {}
+    for vf in vote_files:
+        all_votes[vf.stem] = load_votes(str(vf))
+    print(f"Loaded {len(all_votes)} tagger files: {sorted(all_votes.keys())}")
 
     llm = LLMClient()
     judge = Judge(llm=llm, prompt_path=str(Path(args.prompts_dir) / "judge.txt"))
@@ -189,24 +234,21 @@ def main() -> None:
         if item_id in seen:
             continue
 
-        vote_T1 = v1.get(item_id)
-        vote_T2 = v2.get(item_id)
-        vote_T3 = v3.get(item_id)
-        vote_T4 = v4.get(item_id)
-        vote_T5 = v5.get(item_id)
-        if any(v is None for v in [vote_T1, vote_T2, vote_T3, vote_T4, vote_T5]):
-            raise RuntimeError(
-                f"Missing votes for item_id={item_id}. "
-                f"Ensure T1..T5 vote files are complete."
-            )
-
-        votes_bundle = {
-            "T1": vote_T1, "T2": vote_T2, "T3": vote_T3,
-            "T4": vote_T4, "T5": vote_T5,
-        }
+        votes_bundle: dict[str, JsonDict] = {}
+        for tid, votes_map in all_votes.items():
+            v = votes_map.get(item_id)
+            if v is None:
+                raise RuntimeError(f"Missing vote for {item_id} from {tid}")
+            votes_bundle[tid] = v
 
         # --- Skill-level voting ---
-        vote_stats = compute_skill_level_votes(votes_bundle)
+        if args.consensus_mode == "majority":
+            vote_stats = compute_majority_votes(votes_bundle)
+        elif args.consensus_mode == "unanimity":
+            vote_stats = compute_unanimity_votes(votes_bundle)
+        else:
+            vote_stats = compute_skill_level_votes(
+                votes_bundle, args.include_threshold, args.exclude_threshold)
 
         if not vote_stats["has_disputed"]:
             # All skills are clear — no Judge call needed

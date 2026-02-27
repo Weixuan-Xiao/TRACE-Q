@@ -58,6 +58,19 @@ def main() -> None:
             "Use 'auto' (default) to let pipeline derive from codebook K_max."
         ),
     )
+    parser.add_argument(
+        "--target_k_exact", type=int, default=None,
+        help="Fix K: experts produce exactly this many skills. Skips Aggregator.",
+    )
+    parser.add_argument("--model", default=None, help="Override LLM model for all stages.")
+    parser.add_argument("--n_taggers", type=int, default=5, help="Number of taggers (default: 5).")
+    parser.add_argument(
+        "--consensus_mode", default="threshold",
+        choices=["threshold", "majority", "unanimity"],
+    )
+    parser.add_argument("--include_threshold", type=int, default=4)
+    parser.add_argument("--exclude_threshold", type=int, default=1)
+    parser.add_argument("--skip_stages", default="", help="Comma-separated: verifier,auditor")
     args = parser.parse_args()
 
     prompts_dir = Path("prompts") / args.prompt_version
@@ -75,6 +88,13 @@ def main() -> None:
         "prompts_dir": str(prompts_dir),
         "input": args.input,
         "target_k": args.target_k,
+        "target_k_exact": args.target_k_exact,
+        "model": args.model,
+        "n_taggers": args.n_taggers,
+        "consensus_mode": args.consensus_mode,
+        "include_threshold": args.include_threshold,
+        "exclude_threshold": args.exclude_threshold,
+        "skip_stages": args.skip_stages,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "python": sys.executable,
     }
@@ -102,7 +122,16 @@ def main() -> None:
         # Pass target_k for commands that need it
         if args.cmd in ("all", "aggregate"):
             cmd_args.extend(["--target_k", args.target_k])
-        # For audit-only runs, target_k is not needed (audit discovers files)
+        if args.target_k_exact:
+            cmd_args.extend(["--target_k_exact", str(args.target_k_exact)])
+        if args.model:
+            cmd_args.extend(["--model", args.model])
+        cmd_args.extend(["--n_taggers", str(args.n_taggers)])
+        cmd_args.extend(["--consensus_mode", args.consensus_mode])
+        cmd_args.extend(["--include_threshold", str(args.include_threshold)])
+        cmd_args.extend(["--exclude_threshold", str(args.exclude_threshold)])
+        if args.skip_stages:
+            cmd_args.extend(["--skip_stages", args.skip_stages])
         
         cmd_args.append(args.cmd)
         run(cmd_args)

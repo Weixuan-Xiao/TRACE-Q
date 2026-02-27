@@ -16,6 +16,7 @@ from typing import Any, Dict, List
 
 from dotenv import load_dotenv
 
+from src.agent_utils import load_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_jsonl, write_json
 from src.llm_client import LLMClient
@@ -28,17 +29,21 @@ def run_expert(
     expert_id: str,
     verified_dossiers: List[JsonDict],
     prompts_dir: str,
+    prompt_text: str | None = None,
 ) -> JsonDict:
     """
     Run a single Expert to generate a codebook.
     Each Expert creates its own LLMClient to avoid thread-safety issues.
     """
     llm = LLMClient()
-    expert = Expert(
-        llm=llm,
-        expert_id=expert_id,
-        prompt_path=str(Path(prompts_dir) / "expert.txt"),
-    )
+    if prompt_text is not None:
+        expert = Expert(llm=llm, expert_id=expert_id, prompt_text=prompt_text)
+    else:
+        expert = Expert(
+            llm=llm,
+            expert_id=expert_id,
+            prompt_path=str(Path(prompts_dir) / "expert.txt"),
+        )
     codebook = expert.build_codebook(verified_dossiers=verified_dossiers)
     return {"expert_id": expert_id, "codebook": codebook}
 
@@ -83,6 +88,10 @@ def main() -> None:
         default="prompts/v2",
         help="Directory containing prompt files",
     )
+    parser.add_argument(
+        "--target_k_exact", type=int, default=None,
+        help="Constrain experts to produce exactly this many skills.",
+    )
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -98,6 +107,22 @@ def main() -> None:
     verified = read_jsonl(args.input)
     expert_ids = ["A", "B", "C"]
 
+    # Prepare prompt text override when --target_k_exact is set
+    expert_prompt_text = None
+    if args.target_k_exact:
+        k = args.target_k_exact
+        expert_prompt_text = load_text(str(Path(args.prompts_dir) / "expert.txt"))
+        expert_prompt_text = expert_prompt_text.replace(
+            "between 3 and 8 skills (inclusive)",
+            f"exactly {k} skills"
+        ).replace(
+            "No fewer than 3, no more than 8",
+            f"Exactly {k} — no more, no fewer"
+        ).replace(
+            "You MUST define between 3 and 8 skills",
+            f"You MUST define exactly {k} skills"
+        )
+
     # === Phase 1: Three Experts generate codebooks ===
     print("=== Phase 1: Expert Committee generating codebooks (K=3-8) ===")
 
@@ -107,7 +132,7 @@ def main() -> None:
         print(f"Running {len(expert_ids)} experts in parallel...")
         with ThreadPoolExecutor(max_workers=3) as executor:
             futures = {
-                executor.submit(run_expert, eid, verified, args.prompts_dir): eid
+                executor.submit(run_expert, eid, verified, args.prompts_dir, expert_prompt_text): eid
                 for eid in expert_ids
             }
 
@@ -124,7 +149,7 @@ def main() -> None:
     else:
         for eid in expert_ids:
             print(f"Running Expert {eid}...")
-            result = run_expert(eid, verified, args.prompts_dir)
+            result = run_expert(eid, verified, args.prompts_dir, expert_prompt_text)
             expert_results[result["expert_id"]] = result["codebook"]
             n_skills = len(result["codebook"].get("skills", []))
             print(f"  ✓ Expert {eid} completed: {n_skills} skills")
@@ -162,10 +187,20 @@ def main() -> None:
     # === Phase 2b: Supervisor Consolidate ===
     print("\n=== Phase 2b: Supervisor Consolidate (final codebook) ===")
 
-    consolidator = SupervisorConsolidate(
-        llm=llm,
-        prompt_path=str(Path(args.prompts_dir) / "supervisor_consolidate.txt"),
-    )
+    consolidate_kwargs: Dict[str, Any] = {"llm": llm}
+    if args.target_k_exact:
+        consolidate_prompt_text = load_text(str(Path(args.prompts_dir) / "supervisor_consolidate.txt"))
+        consolidate_prompt_text = consolidate_prompt_text.replace(
+            "3-8 skills", f"exactly {args.target_k_exact} skills"
+        ).replace(
+            "MUST have exactly 3-8 skills", f"MUST have exactly {args.target_k_exact} skills"
+        )
+        consolidate_kwargs["prompt_text"] = consolidate_prompt_text
+        consolidate_kwargs["target_k_exact"] = args.target_k_exact
+    else:
+        consolidate_kwargs["prompt_path"] = str(Path(args.prompts_dir) / "supervisor_consolidate.txt")
+
+    consolidator = SupervisorConsolidate(**consolidate_kwargs)
 
     supervisor_output = consolidator.consolidate(
         alignment=alignment_output,

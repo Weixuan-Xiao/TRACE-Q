@@ -68,6 +68,7 @@ def main() -> None:
     parser.add_argument("--out_dir", default="outputs/step4_tagger_votes", help="Output directory for tagger votes")
     parser.add_argument("--parallel", action="store_true", help="Run taggers in parallel (faster but uses more API calls concurrently)")
     parser.add_argument("--prompts_dir", default="prompts/v1", help="Directory containing prompt files (tagger.txt, etc.)")
+    parser.add_argument("--n_taggers", type=int, default=5, help="Number of taggers to run (default: 5)")
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -77,12 +78,12 @@ def main() -> None:
     dossiers = read_jsonl(args.dossiers)
     codebook = read_json(args.codebook)
 
-    tagger_ids = ["T1", "T2", "T3", "T4", "T5"]
+    tagger_ids = [f"T{i+1}" for i in range(args.n_taggers)]
 
     if args.parallel:
         # Parallel execution: 5 taggers run concurrently
         print(f"Running {len(tagger_ids)} taggers in parallel...")
-        with ThreadPoolExecutor(max_workers=5) as executor:
+        with ThreadPoolExecutor(max_workers=args.n_taggers) as executor:
             futures = {}
             for tid in tagger_ids:
                 out_path = str(Path(args.out_dir) / f"{tid}.jsonl")
