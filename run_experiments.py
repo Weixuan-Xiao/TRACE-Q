@@ -71,6 +71,7 @@ def main() -> None:
     parser.add_argument("--include_threshold", type=int, default=4)
     parser.add_argument("--exclude_threshold", type=int, default=1)
     parser.add_argument("--skip_stages", default="", help="Comma-separated: verifier,auditor")
+    parser.add_argument("--domain_guide", default=None, help="Path to domain_guide.txt (optional)")
     args = parser.parse_args()
 
     prompts_dir = Path("prompts") / args.prompt_version
@@ -95,6 +96,7 @@ def main() -> None:
         "include_threshold": args.include_threshold,
         "exclude_threshold": args.exclude_threshold,
         "skip_stages": args.skip_stages,
+        "domain_guide": args.domain_guide,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "python": sys.executable,
     }
@@ -132,7 +134,9 @@ def main() -> None:
         cmd_args.extend(["--exclude_threshold", str(args.exclude_threshold)])
         if args.skip_stages:
             cmd_args.extend(["--skip_stages", args.skip_stages])
-        
+        if args.domain_guide:
+            cmd_args.extend(["--domain_guide", args.domain_guide])
+
         cmd_args.append(args.cmd)
         run(cmd_args)
 

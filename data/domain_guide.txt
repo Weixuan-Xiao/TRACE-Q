@@ -1,0 +1,65 @@
+## Domain
+
+Arithmetic with fractions and mixed numbers — subtraction and simplification.
+Problems involve subtracting two quantities that may be proper fractions, improper
+fractions, mixed numbers, or whole numbers.  Results should be expressed in lowest
+terms; mixed-number or integer form is acceptable when appropriate.
+
+
+## Solution Method Guidelines
+
+Classify each problem into one of the types below and follow the prescribed method.
+CRITICAL: Always prefer separating whole and fraction parts over converting to
+improper fractions.  Only work with pure fractions (no whole part) when both
+operands are already pure fractions.
+
+### Type A — Same denominator, pure fractions
+Subtract numerators directly, keep denominator, simplify.
+  a/d − b/d  →  (a−b)/d  →  simplify
+
+### Type B — Unlike denominators, pure fractions
+Find LCD, convert both fractions, subtract numerators, simplify.
+  a/m − b/n  →  LCD  →  equivalent fractions  →  subtract  →  simplify
+
+### Type C — Mixed numbers (or mixed minus whole / whole minus mixed), same denominator
+Separate whole parts and fraction parts, subtract each independently.
+If fraction result is negative, borrow 1 from the whole part (1 = d/d) and retry.
+Simplify the final fraction if needed.
+
+### Type D — Mixed numbers, unlike denominators
+Find LCD and convert the fraction parts first, then apply Type C.
+
+### Type E — Whole number minus fraction
+Treat the whole number as "whole + 0/d" where d is the other fraction's
+denominator, then apply Type C with borrowing.
+
+### Borrowing rule
+When the fraction subtraction yields a negative result:
+  1. Subtract 1 from the whole-part difference.
+  2. Add d/d to the first fraction's numerator.
+  3. Redo the fraction subtraction.
+  4. If still negative, repeat (can happen with non-standard mixed numbers
+     whose fraction part exceeds 1).
+
+### Worked example (FAKE data — not from the actual item set)
+Problem: 5 2/7 − 2 5/7
+
+Step1: Separate parts. Whole: 5 − 2 = 3.  Fraction: 2/7 − 5/7 = −3/7 (negative).
+Step2: Borrow 1 from whole: 3 − 1 = 2.  Fraction: (7/7 + 2/7) − 5/7 = 9/7 − 5/7 = 4/7.
+Step3: Combine: 2 4/7.  Already in lowest terms.
+Answer: 2 4/7
+
+
+## Skill Categories
+
+Common cognitive operations a student may exercise in this domain.  These are
+reference categories — the Expert should use them as a starting point but may
+merge, split, or rename based on evidence from the item dossiers.
+
+- Find common denominator (LCD) and convert to equivalent fractions
+- Subtract fractions with like denominators (subtract numerators)
+- Separate a mixed number into whole part and fraction part
+- Borrow / regroup when the fraction subtraction is negative
+- Rewrite a whole number as a fraction with a specified denominator
+- Simplify / reduce a fraction to lowest terms
+- Express the result in appropriate form (mixed number, integer, or fraction)

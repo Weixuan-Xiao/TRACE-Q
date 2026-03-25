@@ -20,6 +20,34 @@ def load_text(path: str | Path) -> str:
     return Path(path).read_text(encoding="utf-8").strip()
 
 
+def extract_guide_sections(guide_text: str, headings: list[str]) -> str:
+    """Extract named ``## `` sections from a domain guide and concatenate them.
+
+    Args:
+        guide_text: Full domain guide content.
+        headings: Section titles to extract (case-insensitive), e.g.
+                  ``["Domain", "Solution Method Guidelines"]``.
+
+    Returns:
+        Concatenated text of the matched sections (empty string if none match).
+    """
+    import re
+
+    # Split on ## headings, keeping the heading line
+    parts = re.split(r"(?=^## )", guide_text, flags=re.MULTILINE)
+    wanted = {h.lower() for h in headings}
+    selected: list[str] = []
+    for part in parts:
+        part = part.strip()
+        if not part:
+            continue
+        first_line = part.split("\n", 1)[0]
+        title = first_line.lstrip("#").strip().lower()
+        if title in wanted:
+            selected.append(part)
+    return "\n\n".join(selected)
+
+
 def try_parse_json(text: str) -> Tuple[Optional[JsonDict], Optional[str]]:
     try:
         return json.loads(text), None

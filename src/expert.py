@@ -52,6 +52,7 @@ class Expert:
         prompt_path: str | Path | None = None,
         prompt_text: str | None = None,
         target_k_exact: int | None = None,
+        domain_guide: str | None = None,
     ) -> None:
         self.llm = llm
         self.expert_id = expert_id
@@ -63,7 +64,10 @@ class Expert:
         else:
             raise ValueError("Either prompt_path or prompt_text must be provided")
         self.prompt_path = str(prompt_path) if prompt_path else None
-        self._system_prompt = base_prompt
+        if domain_guide:
+            self._system_prompt = domain_guide + "\n\n---\n\n" + base_prompt
+        else:
+            self._system_prompt = base_prompt
         self._schema_text = _build_schema_text(target_k_exact)
 
     def build_codebook(

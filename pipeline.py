@@ -139,6 +139,10 @@ def main() -> None:
         "--skip_stages", default="",
         help="Comma-separated stages to skip: verifier,auditor",
     )
+    parser.add_argument(
+        "--domain_guide", default=None,
+        help="Path to domain_guide.txt injected into Solver/Expert/Tagger prompts.",
+    )
     
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("solve", help="Step 1: Solve items")
@@ -212,6 +216,10 @@ def main() -> None:
         targets = [int(k.strip()) for k in target_k_str.split(",") if k.strip()]
         return [k_max] + targets
 
+    # Helper: append --domain_guide when present
+    def _guide_args() -> list[str]:
+        return ["--domain_guide", args.domain_guide] if args.domain_guide else []
+
     # Step 1: Solve
     if args.cmd in ("solve", "all"):
         if args.cmd == "all":
@@ -222,7 +230,7 @@ def main() -> None:
                 "--input", args.input,
                 "--out", str(outputs_dir / "step1_solver_item_dossiers.jsonl"),
                 "--prompts_dir", prompts_dir,
-            ],
+            ] + _guide_args(),
             extra_env=env_overrides or None,
         )
     
@@ -258,6 +266,7 @@ def main() -> None:
         ]
         if args.target_k_exact:
             codebook_cmd.extend(["--target_k_exact", str(args.target_k_exact)])
+        codebook_cmd.extend(_guide_args())
         run(codebook_cmd, extra_env=env_overrides or None)
     
     # Step 4: Tag
@@ -270,7 +279,7 @@ def main() -> None:
             "--out_dir", str(outputs_dir / "step4_tagger_votes"),
             "--prompts_dir", prompts_dir,
             "--n_taggers", str(args.n_taggers),
-        ]
+        ] + _guide_args()
         run(tag_cmd, extra_env=env_overrides or None)
     
     # Step 5: Judge

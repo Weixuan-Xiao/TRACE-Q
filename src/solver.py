@@ -105,10 +105,19 @@ def _is_internally_consistent(solver_out: JsonDict) -> bool:
 
 
 class Solver:
-    def __init__(self, llm: LLMClient, prompt_path: str | Path = "prompts/v1/solver.txt") -> None:
+    def __init__(
+        self,
+        llm: LLMClient,
+        prompt_path: str | Path = "prompts/v1/solver.txt",
+        domain_guide: str | None = None,
+    ) -> None:
         self.llm = llm
         self.prompt_path = str(prompt_path)
-        self._system_prompt = _load_text(self.prompt_path).strip()
+        base = _load_text(self.prompt_path).strip()
+        if domain_guide:
+            self._system_prompt = domain_guide + "\n\n---\n\n" + base
+        else:
+            self._system_prompt = base
 
     def solve_item(self, item: JsonDict, *, max_fix_retries: int = 2) -> JsonDict:
         """

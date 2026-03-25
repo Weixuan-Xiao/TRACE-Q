@@ -19,7 +19,7 @@ from typing import Any, Dict, List
 
 from dotenv import load_dotenv
 
-from src.agent_utils import load_text
+from src.agent_utils import extract_guide_sections, load_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_jsonl, write_json
 from src.llm_client import LLMClient
@@ -34,6 +34,7 @@ def run_expert(
     prompts_dir: str,
     prompt_text: str | None = None,
     target_k_exact: int | None = None,
+    domain_guide: str | None = None,
 ) -> JsonDict:
     """Run a single Expert (each gets its own LLMClient for thread safety)."""
     llm = LLMClient()
@@ -41,12 +42,14 @@ def run_expert(
         expert = Expert(
             llm=llm, expert_id=expert_id,
             prompt_text=prompt_text, target_k_exact=target_k_exact,
+            domain_guide=domain_guide,
         )
     else:
         expert = Expert(
             llm=llm, expert_id=expert_id,
             prompt_path=str(Path(prompts_dir) / "expert.txt"),
             target_k_exact=target_k_exact,
+            domain_guide=domain_guide,
         )
     codebook = expert.build_codebook(verified_dossiers=verified_dossiers)
     return {"expert_id": expert_id, "codebook": codebook}
@@ -96,6 +99,10 @@ def main() -> None:
         "--target_k_exact", type=int, default=None,
         help="Constrain experts to produce exactly this many skills.",
     )
+    parser.add_argument(
+        "--domain_guide", default=None,
+        help="Path to domain_guide.txt (optional)",
+    )
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -110,6 +117,12 @@ def main() -> None:
 
     verified = read_jsonl(args.input)
     expert_ids = ["A", "B", "C"]
+
+    # Load domain guide sections for Expert
+    expert_guide: str | None = None
+    if args.domain_guide and Path(args.domain_guide).exists():
+        raw_guide = load_text(args.domain_guide)
+        expert_guide = extract_guide_sections(raw_guide, ["Domain", "Skill Categories"])
 
     # Prepare prompt text override when --target_k_exact is set
     expert_prompt_text = None
@@ -145,7 +158,7 @@ def main() -> None:
             futures = {
                 executor.submit(
                     run_expert, eid, verified, args.prompts_dir,
-                    expert_prompt_text, args.target_k_exact,
+                    expert_prompt_text, args.target_k_exact, expert_guide,
                 ): eid
                 for eid in expert_ids
             }
@@ -165,7 +178,7 @@ def main() -> None:
             print(f"Running Expert {eid}...")
             result = run_expert(
                 eid, verified, args.prompts_dir,
-                expert_prompt_text, args.target_k_exact,
+                expert_prompt_text, args.target_k_exact, expert_guide,
             )
             expert_results[result["expert_id"]] = result["codebook"]
             n_skills = len(result["codebook"].get("skills", []))

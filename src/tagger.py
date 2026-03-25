@@ -42,12 +42,17 @@ class Tagger:
         *,
         tagger_id: str,
         prompt_path: str | Path = "prompts/v2/tagger.txt",
+        domain_guide: str | None = None,
     ) -> None:
         self.llm = llm
         self.tagger_id = tagger_id
         self.prompt_path = str(prompt_path)
         base_prompt = load_text(self.prompt_path)
-        self._system_prompt = f'You are Tagger "{self.tagger_id}".\n\n{base_prompt}'
+        preamble = f'You are Tagger "{self.tagger_id}".'
+        if domain_guide:
+            self._system_prompt = preamble + "\n\n" + domain_guide + "\n\n---\n\n" + base_prompt
+        else:
+            self._system_prompt = preamble + "\n\n" + base_prompt
 
     def tag(
         self,

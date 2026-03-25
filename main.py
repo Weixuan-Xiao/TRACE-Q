@@ -8,6 +8,7 @@ from typing import Any, Dict
 from dotenv import load_dotenv
 from tqdm import tqdm
 
+from src.agent_utils import extract_guide_sections, load_text
 from src.io_utils import append_jsonl, ensure_dir, read_jsonl
 from src.llm_client import LLMClient
 from src.solver import Solver
@@ -30,6 +31,7 @@ def main() -> None:
     parser.add_argument("--input", default="data/items.jsonl", help="Input JSONL path")
     parser.add_argument("--out", default="outputs/step1_solver_item_dossiers.jsonl", help="Output JSONL path")
     parser.add_argument("--prompts_dir", default="prompts/v1", help="Directory containing prompt files (solver.txt, etc.)")
+    parser.add_argument("--domain_guide", default=None, help="Path to domain_guide.txt (optional)")
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -37,8 +39,17 @@ def main() -> None:
     items = read_jsonl(args.input)
     ensure_dir(str(Path(args.out).parent))
 
+    guide_text = None
+    if args.domain_guide and Path(args.domain_guide).exists():
+        raw_guide = load_text(args.domain_guide)
+        guide_text = extract_guide_sections(raw_guide, ["Domain", "Solution Method Guidelines"])
+
     llm = LLMClient()
-    solver = Solver(llm=llm, prompt_path=str(Path(args.prompts_dir) / "solver.txt"))
+    solver = Solver(
+        llm=llm,
+        prompt_path=str(Path(args.prompts_dir) / "solver.txt"),
+        domain_guide=guide_text,
+    )
 
     # Always from scratch: delete output file if present.
     Path(args.out).unlink(missing_ok=True)
