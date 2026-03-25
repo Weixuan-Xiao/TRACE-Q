@@ -1,11 +1,14 @@
 """
 Taxonomist Stage: Build flat skill codebook using Expert Committee + Supervisor.
 
-1. Three Experts independently generate codebooks (K=3-8 each)
+1. Three Experts independently generate codebooks
 2. Supervisor_Align aligns skills across experts into a standardized candidate list
-3. Supervisor_Consolidate merges/keeps/removes to produce final codebook (K=3-8)
+3. Supervisor_Consolidate merges/keeps/removes to produce final codebook
 
-Prompt version is selected via --prompts_dir (e.g. prompts/v1, prompts/v2).
+By default K is free within 3-8.  When ``--target_k_exact`` is provided, prompts
+and validators are adjusted to enforce exactly that many skills.
+
+Prompt version is selected via --prompts_dir (e.g. prompts/v2_base, prompts/v3_fewshot).
 """
 from __future__ import annotations
 
@@ -30,19 +33,20 @@ def run_expert(
     verified_dossiers: List[JsonDict],
     prompts_dir: str,
     prompt_text: str | None = None,
+    target_k_exact: int | None = None,
 ) -> JsonDict:
-    """
-    Run a single Expert to generate a codebook.
-    Each Expert creates its own LLMClient to avoid thread-safety issues.
-    """
+    """Run a single Expert (each gets its own LLMClient for thread safety)."""
     llm = LLMClient()
     if prompt_text is not None:
-        expert = Expert(llm=llm, expert_id=expert_id, prompt_text=prompt_text)
+        expert = Expert(
+            llm=llm, expert_id=expert_id,
+            prompt_text=prompt_text, target_k_exact=target_k_exact,
+        )
     else:
         expert = Expert(
-            llm=llm,
-            expert_id=expert_id,
+            llm=llm, expert_id=expert_id,
             prompt_path=str(Path(prompts_dir) / "expert.txt"),
+            target_k_exact=target_k_exact,
         )
     codebook = expert.build_codebook(verified_dossiers=verified_dossiers)
     return {"expert_id": expert_id, "codebook": codebook}
@@ -111,8 +115,8 @@ def main() -> None:
     expert_prompt_text = None
     if args.target_k_exact:
         k = args.target_k_exact
-        expert_prompt_text = load_text(str(Path(args.prompts_dir) / "expert.txt"))
-        expert_prompt_text = expert_prompt_text.replace(
+        raw = load_text(str(Path(args.prompts_dir) / "expert.txt"))
+        expert_prompt_text = raw.replace(
             "between 3 and 8 skills (inclusive)",
             f"exactly {k} skills"
         ).replace(
@@ -121,10 +125,17 @@ def main() -> None:
         ).replace(
             "You MUST define between 3 and 8 skills",
             f"You MUST define exactly {k} skills"
+        ).replace(
+            "3-8 skills",
+            f"exactly {k} skills"
         )
+        if expert_prompt_text == raw:
+            print(f"  WARNING: no skill-count phrases were replaced in expert prompt — "
+                  f"prompt may not enforce K={k}")
 
     # === Phase 1: Three Experts generate codebooks ===
-    print("=== Phase 1: Expert Committee generating codebooks (K=3-8) ===")
+    k_label = f"K={args.target_k_exact}" if args.target_k_exact else "K=3-8"
+    print(f"=== Phase 1: Expert Committee generating codebooks ({k_label}) ===")
 
     expert_results: Dict[str, JsonDict] = {}
 
@@ -132,7 +143,10 @@ def main() -> None:
         print(f"Running {len(expert_ids)} experts in parallel...")
         with ThreadPoolExecutor(max_workers=3) as executor:
             futures = {
-                executor.submit(run_expert, eid, verified, args.prompts_dir, expert_prompt_text): eid
+                executor.submit(
+                    run_expert, eid, verified, args.prompts_dir,
+                    expert_prompt_text, args.target_k_exact,
+                ): eid
                 for eid in expert_ids
             }
 
@@ -149,7 +163,10 @@ def main() -> None:
     else:
         for eid in expert_ids:
             print(f"Running Expert {eid}...")
-            result = run_expert(eid, verified, args.prompts_dir, expert_prompt_text)
+            result = run_expert(
+                eid, verified, args.prompts_dir,
+                expert_prompt_text, args.target_k_exact,
+            )
             expert_results[result["expert_id"]] = result["codebook"]
             n_skills = len(result["codebook"].get("skills", []))
             print(f"  ✓ Expert {eid} completed: {n_skills} skills")
@@ -189,14 +206,18 @@ def main() -> None:
 
     consolidate_kwargs: Dict[str, Any] = {"llm": llm}
     if args.target_k_exact:
-        consolidate_prompt_text = load_text(str(Path(args.prompts_dir) / "supervisor_consolidate.txt"))
-        consolidate_prompt_text = consolidate_prompt_text.replace(
-            "3-8 skills", f"exactly {args.target_k_exact} skills"
+        k = args.target_k_exact
+        raw_cons = load_text(str(Path(args.prompts_dir) / "supervisor_consolidate.txt"))
+        consolidate_prompt_text = raw_cons.replace(
+            "3-8 skills", f"exactly {k} skills"
         ).replace(
-            "MUST have exactly 3-8 skills", f"MUST have exactly {args.target_k_exact} skills"
+            "MUST have exactly 3-8 skills", f"MUST have exactly {k} skills"
         )
+        if consolidate_prompt_text == raw_cons:
+            print(f"  WARNING: no skill-count phrases were replaced in consolidate prompt — "
+                  f"prompt may not enforce K={k}")
         consolidate_kwargs["prompt_text"] = consolidate_prompt_text
-        consolidate_kwargs["target_k_exact"] = args.target_k_exact
+        consolidate_kwargs["target_k_exact"] = k
     else:
         consolidate_kwargs["prompt_path"] = str(Path(args.prompts_dir) / "supervisor_consolidate.txt")
 

@@ -1,0 +1,85 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert mixed to improper",
+      "canonical_definition": "Rewrite a mixed number or whole number as an equivalent improper fraction (or as a fraction with a specified denominator) to enable fraction operations.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three describe converting mixed/whole numbers into improper fractions or equivalent fractions with a specified denominator; B names it more broadly but matches the same conversion operation."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator (often via LCM) for unlike fractions to prepare for subtraction.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A separates 'choose common denominator' from scaling, while B and C bundle choosing (often via LCM) with rewriting; this concept captures the denominator-selection/LCM portion."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Scale to equivalent fractions",
+      "canonical_definition": "Rewrite one or more fractions as equivalent fractions by multiplying numerator and denominator to reach a chosen common denominator.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A explicitly isolates scaling to equivalent fractions; B and C include scaling inside their 'find common denominator' skill, so their same skill_id maps one-to-many to both C02 (choose/LCM) and C03 (scaling)."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned fractions",
+      "canonical_definition": "Compute the difference once quantities are in compatible form by subtracting numerators over a common denominator and/or subtracting whole and fractional parts and recombining.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three include the actual subtraction step after alignment; A’s version also mentions simplification, but the core shared concept is performing the subtraction once denominators/forms are compatible."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms and express the final value in an acceptable form such as an integer, irreducible fraction, or mixed number.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B and C explicitly separate simplification/final formatting; A includes these actions inside its subtraction skill, so A:S04 maps to both subtraction (C04) and simplification/formatting (C05)."
+    }
+  ],
+  "alignment_summary": "Across the three codebooks, the shared workflow is: convert mixed/whole numbers as needed, establish a common denominator, scale to equivalent fractions, perform subtraction, then simplify/format. Key granularity differences: A splits common-denominator selection vs scaling, while B and C combine them; A also bundles simplification into its subtraction skill, requiring one-to-many mappings for A:S04 and for B:S01/C:S02."
+}

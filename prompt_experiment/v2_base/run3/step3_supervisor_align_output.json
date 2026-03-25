@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert to improper fractions",
+      "canonical_definition": "Rewrite mixed numbers or whole numbers as equivalent improper fractions (or fractions with a specified denominator) to prepare for subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three describe converting mixed/whole numbers into equivalent improper fractions or equivalent fractions with a specified denominator as a setup step before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common (often least common) denominator for unlike fractions and rewrite each as an equivalent fraction over that denominator.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three explicitly include finding a common denominator/LCM and scaling fractions to equivalent forms with the same denominator."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract rational numbers",
+      "canonical_definition": "Compute the difference of two rational numbers once they are in compatible forms (same denominator or separated whole and fractional parts).",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "Each codebook has a subtraction-execution skill focused on subtracting after alignment (common denominator or whole/fraction decomposition), not on conversion or simplification."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Reduce the computed result to lowest terms and/or express it in an acceptable final form (integer, improper fraction, or mixed number).",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three include post-subtraction reduction and final-form expression (including converting improper to mixed and recognizing integer/zero results)."
+    }
+  ],
+  "alignment_summary": "All skill_ids across A, B, and C align cleanly into four shared concepts with full (3/3) consensus: conversion to improper/compatible fraction forms, finding a common denominator, performing the subtraction, and simplifying/formatting the final result."
+}

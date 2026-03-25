@@ -1,0 +1,186 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Rational number arithmetic (fraction and mixed-number subtraction)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert to fractions",
+        "definition": "Rewrite mixed numbers and/or whole numbers as equivalent fractions (often improper or with a target denominator) to enable fraction operations.",
+        "inclusion_criteria": [
+          "Converting a mixed number a b/c into an improper fraction (ac+b)/c",
+          "Interpreting nonstandard mixed forms (e.g., 1 4/3 as 1 + 4/3) and converting to an improper fraction",
+          "Rewriting an integer n as a fraction (n/1) or as an equivalent fraction with a specified denominator (e.g., 3 = 15/5, 2 = 16/8)"
+        ],
+        "exclusion_criteria": [
+          "Converting two fractions to a shared/common denominator (tag S02 instead)",
+          "Performing the subtraction once forms are compatible (tag S03 instead)",
+          "Reducing/simplifying the computed result or converting the final answer to mixed/integer form (tag S04 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Determine a common (often least common) denominator and convert each fraction to an equivalent fraction with that denominator.",
+        "inclusion_criteria": [
+          "Choosing a common denominator (explicitly via LCM or implicitly) for two fractions",
+          "Scaling numerator and denominator to express fractions over the chosen common denominator (e.g., 5/3 = 20/12, 3/4 = 9/12)"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already equal and no conversion is needed (tag S03 instead)",
+          "Only converting mixed/whole numbers to fractions without the goal of aligning denominators (tag S01 instead)",
+          "Reducing/simplifying after subtraction (tag S04 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract rational numbers",
+        "definition": "Compute the difference of two rational numbers once they are in compatible form (e.g., same denominator or separated whole and fractional parts).",
+        "inclusion_criteria": [
+          "Subtracting numerators over a common denominator (a/b − c/b = (a−c)/b)",
+          "Subtracting when denominators are already the same",
+          "Subtracting mixed numbers by separating whole-part and fractional-part differences"
+        ],
+        "exclusion_criteria": [
+          "Steps whose main purpose is converting inputs to fractions or matching denominators (tag S01 or S02 instead)",
+          "Reducing/simplifying or reformatting the final result (tag S04 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify and format",
+        "definition": "Express the computed result in simplest accepted form by reducing fractions and/or converting between improper fractions, mixed numbers, and integers.",
+        "inclusion_criteria": [
+          "Reducing a fraction by dividing numerator and denominator by a common factor",
+          "Stating a fraction is already in lowest terms",
+          "Rewriting results as integers (e.g., 8/8 = 1, 0/3 = 0) or converting an improper fraction to a mixed number"
+        ],
+        "exclusion_criteria": [
+          "Any conversion done primarily to enable subtraction (tag S01 or S02 instead)",
+          "The subtraction computation itself (tag S03 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS12",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "refine",
+      "details": "Refined C01 into final S01 (Convert to fractions) by explicitly including nonstandard mixed forms and integer-to-target-denominator rewrites.",
+      "reasoning": "C01 had full consensus and is diagnostically distinct from common-denominator work; incorporating Expert B's nonstandard mixed-number note improves coverage and tagging consistency."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C02 as final S02 (Find common denominator) with minor wording harmonization across experts.",
+      "reasoning": "C02 had full consensus and captures a distinct setup operation (LCM/denominator alignment) that should not be conflated with general conversion or subtraction."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C03 as final S03 (Subtract rational numbers).",
+      "reasoning": "C03 had full consensus and represents the core computation step once representations are compatible."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C04 as final S04 (Simplify and format) and clarified that 'already in lowest terms' counts as simplification/formatting.",
+      "reasoning": "C04 had full consensus and is a distinct post-processing operation; explicitly including 'already simplest' supports consistent annotation (e.g., FS06 Step2, FS18 Step3)."
+    }
+  ],
+  "summary": "All aligned candidates had 3/3 expert consensus, so the unified codebook retains four distinct skills corresponding to (1) converting mixed/whole numbers to fractions, (2) finding a common denominator and converting, (3) performing subtraction, and (4) simplifying/formatting the result. Minor refinements were made to S01 and S04 to incorporate edge cases and improve tagging clarity."
+}

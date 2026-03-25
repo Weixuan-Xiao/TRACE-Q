@@ -60,7 +60,7 @@ class FinalCodebook(BaseModel):
 
     version: str = Field(default="v1")
     domain: str = Field(..., min_length=1)
-    skills: List[FinalSkill] = Field(..., min_length=3, max_length=8)
+    skills: List[FinalSkill] = Field(..., min_length=2, max_length=10)
 
 
 class SupervisorOutput(BaseModel):

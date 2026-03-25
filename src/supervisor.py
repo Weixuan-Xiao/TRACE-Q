@@ -5,7 +5,8 @@ Two-phase approach:
   1. SupervisorAlign: Identify semantically equivalent skills across experts,
      producing a standardized candidate skill list.
   2. SupervisorConsolidate: Merge/keep/remove candidates to produce final
-     codebook (3-8 skills).
+     codebook.  When ``target_k_exact`` is set the skill count is pinned to
+     that value; otherwise the default 3-8 range applies.
 
 Prompt version is selected via prompt_path (e.g. prompts/v2/supervisor_align.txt).
 """
@@ -46,30 +47,35 @@ ALIGN_SCHEMA_TEXT = """Return JSON with exactly:
 No extra keys. Every expert skill_id must appear in exactly one candidate.
 """
 
-CONSOLIDATE_SCHEMA_TEXT = """Return JSON with exactly:
-{
-  "final_codebook": {
+_CONSOLIDATE_SCHEMA_TEMPLATE = """Return JSON with exactly:
+{{
+  "final_codebook": {{
     "version": "v1",
     "domain": "...",
     "skills": [
-      {
+      {{
         "skill_id": "S01",
         "name": "...",
         "definition": "...",
         "inclusion_criteria": [...],
         "exclusion_criteria": [...],
-        "examples": [{"item_id": "...", "step_ids": [...]}],
+        "examples": [{{"item_id": "...", "step_ids": [...]}}],
         "prerequisites": [...]
-      }
+      }}
     ]
-  },
+  }},
   "decisions": [
-    {"action": "merge|keep|remove|rename|refine", "details": "...", "reasoning": "..."}
+    {{"action": "merge|keep|remove|rename|refine", "details": "...", "reasoning": "..."}}
   ],
   "summary": "..."
-}
-The final_codebook MUST have exactly 3-8 skills. No extra keys.
+}}
+The final_codebook MUST have exactly {constraint} skills. No extra keys.
 """
+
+
+def _build_consolidate_schema(target_k_exact: int | None) -> str:
+    constraint = str(target_k_exact) if target_k_exact else "3-8"
+    return _CONSOLIDATE_SCHEMA_TEMPLATE.format(constraint=constraint)
 
 # ---------------------------------------------------------------------------
 # Two-phase approach: SupervisorAlign + SupervisorConsolidate
@@ -199,6 +205,7 @@ class SupervisorConsolidate:
     ) -> None:
         self.llm = llm
         self.target_k_exact = target_k_exact
+        self._schema_text = _build_consolidate_schema(target_k_exact)
         if prompt_text is not None:
             self._system_prompt = prompt_text
         elif prompt_path is not None:
@@ -248,7 +255,7 @@ class SupervisorConsolidate:
             system_prompt=self._system_prompt,
             user_json=user_json,
             model_cls=SupervisorConsolidateOutput,
-            required_schema_text=CONSOLIDATE_SCHEMA_TEXT,
+            required_schema_text=self._schema_text,
             extra_validator=self._validate_skill_count,
             max_fix_retries=max_fix_retries,
         )

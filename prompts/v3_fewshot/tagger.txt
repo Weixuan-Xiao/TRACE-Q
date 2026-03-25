@@ -29,3 +29,29 @@ Rules:
 - "optional_skills" may be empty; use it only if a skill might be involved but is not strictly necessary.
 - Do NOT output keys beyond the schema above.
 
+## Worked Example
+
+Codebook:
+- S01 "Find common denominator": Rewrite fractions to share the same denominator
+- S02 "Subtract fractions": Compute the difference once denominators match
+- S03 "Simplify result": Reduce to lowest terms or convert form
+
+Item: "5/6 - 1/3 = ?"
+Solution steps:
+  Step1: Rewrite 1/3 as 2/6 (common denominator = 6)
+  Step2: 5/6 - 2/6 = 3/6
+  Step3: Simplify 3/6 = 1/2. Final answer: 1/2
+
+Correct output:
+{
+  "skills": [
+    {"skill_id": "S01", "evidence_step_ids": ["Step1"], "reasoning": "Step1 rewrites 1/3 as 2/6 to establish common denominator 6."},
+    {"skill_id": "S02", "evidence_step_ids": ["Step2"], "reasoning": "Step2 subtracts numerators: 5-2=3 over denominator 6."},
+    {"skill_id": "S03", "evidence_step_ids": ["Step3"], "reasoning": "Step3 reduces 3/6 to 1/2."}
+  ],
+  "optional_skills": []
+}
+
+Key decisions:
+- S01 is tagged because Step1 explicitly changes the denominator. If the item were "5/6 - 2/6", S01 would NOT be tagged (denominators already match).
+- Every skill has exactly the step_ids where that operation happens — no more, no less.

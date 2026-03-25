@@ -7,7 +7,7 @@ Q_Agent = as.data.frame(Q_Agent)
 NPCDTools::Q.completeness(Q_Agent)
 Q_expert = GDINA::realdata_Tatsuoka1990$Q
 data = GDINA::realdata_Tatsuoka1990$dat
-Q_TSQE = NPCDTools::TSQE(data,K=4)
+Q_TSQE = NPCDTools::TSQE(data,K=4,ref.method = "GDI",GDI.model = "GDINA")
 rownames(Q_TSQE) <- paste0("Item", 1:nrow(Q_TSQE))
 
 result_expert = GDINA(data,Q_expert)
@@ -19,7 +19,7 @@ mf1 <- GDINA::modelfit(result_expert)
 mf2 <- GDINA::modelfit(result_agent)
 mf3 = GDINA::modelfit(result_TSQE)
 
-mf1
+mf1;mf3
 mf2
 mf3
 

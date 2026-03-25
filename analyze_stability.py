@@ -3,6 +3,16 @@
 Compares pre-audit (step6) and post-audit (step8) Q-matrices to quantify
 both pipeline stability and Auditor impact.
 
+Key feature: **permutation alignment** — skill columns are optimally
+reordered before computing any metric so that semantically equivalent
+codebooks with different column orderings are correctly matched.
+When both stages are analysed, the permutations derived from step6 are
+reused for step8 to keep within-run cell comparisons valid.
+
+Step8 data cleaning: auditor annotations (``*`` on modified cells) and
+metadata columns (``audit_verdict``, ``audit_note``) are stripped
+automatically.
+
 Usage
 -----
     python analyze_stability.py [BASE_DIR] [TARGET_K] [--stage {step6,step8,both}]
@@ -22,7 +32,7 @@ import csv
 import json
 import sys
 from collections import Counter
-from itertools import combinations
+from itertools import combinations, permutations
 from pathlib import Path
 
 
@@ -61,6 +71,85 @@ def _load_codebook(json_path: Path) -> list[dict]:
     with open(json_path) as f:
         data = json.load(f)
     return data.get("skills") or data.get("codebook") or data.get("final_codebook", [])
+
+
+# ---------------------------------------------------------------------------
+# Permutation alignment
+# ---------------------------------------------------------------------------
+
+def _find_best_permutation(
+    ref_mat: list[list[int]], other_mat: list[list[int]],
+) -> tuple[tuple[int, ...], int]:
+    """Find the column permutation of *other_mat* minimising Hamming to *ref_mat*.
+
+    Returns ``(perm, hamming)`` where ``perm[j]`` is the column index in
+    *other_mat* that maps to column *j* in the aligned output.
+    Feasible for K ≤ 8 (8! = 40 320 permutations).
+    """
+    n_items = len(ref_mat)
+    n_skills = len(ref_mat[0])
+    identity = tuple(range(n_skills))
+
+    best_h = sum(
+        ref_mat[i][j] != other_mat[i][j]
+        for i in range(n_items)
+        for j in range(n_skills)
+    )
+    best_perm = identity
+    if best_h == 0:
+        return best_perm, 0
+
+    for perm in permutations(range(n_skills)):
+        if perm == identity:
+            continue
+        h = 0
+        for i in range(n_items):
+            for j in range(n_skills):
+                if ref_mat[i][j] != other_mat[i][perm[j]]:
+                    h += 1
+                    if h >= best_h:
+                        break
+            if h >= best_h:
+                break
+        if h < best_h:
+            best_h = h
+            best_perm = perm
+            if best_h == 0:
+                break
+
+    return best_perm, best_h
+
+
+def _apply_perm(mat: list[list[int]], perm: tuple[int, ...]) -> list[list[int]]:
+    """Reorder columns of *mat* according to *perm*."""
+    k = len(perm)
+    return [[row[perm[j]] for j in range(k)] for row in mat]
+
+
+def _align_matrices(
+    all_mats: list[list[list[int]]],
+) -> tuple[list[list[list[int]]], list[tuple[int, ...]]]:
+    """Align every matrix to the first one via optimal column permutation.
+
+    Returns ``(aligned_mats, perms)`` — one permutation per matrix.
+    """
+    if not all_mats:
+        return [], []
+    n_skills = len(all_mats[0][0])
+    identity = tuple(range(n_skills))
+    if len(all_mats) == 1:
+        return list(all_mats), [identity]
+
+    ref = all_mats[0]
+    perms: list[tuple[int, ...]] = [identity]
+    aligned: list[list[list[int]]] = [ref]
+
+    for mat in all_mats[1:]:
+        perm, _ = _find_best_permutation(ref, mat)
+        perms.append(perm)
+        aligned.append(_apply_perm(mat, perm))
+
+    return aligned, perms
 
 
 # ---------------------------------------------------------------------------
@@ -134,18 +223,21 @@ def _analyze_stage(
     ref_items: list[str],
     run_names: list[str],
     label: str,
+    verbose: bool = False,
 ) -> dict:
-    """Run the full suite of stability metrics and print results.
+    """Run the full suite of stability metrics.
 
-    Returns a dict of key metrics for later comparison.
+    Returns a dict of key metrics.  Detailed per-item output is only
+    printed when *verbose* is True.
     """
     n_runs = len(all_mats)
     n_items = len(ref_items)
     n_skills = len(all_mats[0][0])
 
-    print("=" * 60)
-    print(f"  STAGE: {label}")
-    print("=" * 60)
+    if verbose:
+        print("=" * 60)
+        print(f"  STAGE: {label}")
+        print("=" * 60)
 
     # ── Element-wise Agreement ────────────────────────────────────
     majority = _zeros(n_items, n_skills)
@@ -174,10 +266,11 @@ def _analyze_stage(
     perfect_cells = sum(1 for v in flat_agree if v == 1.0)
     min_cell = min(flat_agree)
 
-    print(f"\n  1. Element-wise Agreement Rate")
-    print(f"     Overall:           {overall_agree * 100:.2f}%")
-    print(f"     Min cell:          {min_cell * 100:.1f}%")
-    print(f"     100% agree cells:  {perfect_cells}/{n_items * n_skills}")
+    if verbose:
+        print(f"\n  1. Element-wise Agreement Rate")
+        print(f"     Overall:           {overall_agree * 100:.2f}%")
+        print(f"     Min cell:          {min_cell * 100:.1f}%")
+        print(f"     100% agree cells:  {perfect_cells}/{n_items * n_skills}")
 
     # ── Item-level Perfect Agreement ──────────────────────────────
     item_perfect_count = 0
@@ -189,11 +282,22 @@ def _analyze_stage(
         else:
             vec_counter = Counter(tuple(mat[i]) for mat in all_mats)
             disagreed_items.append(ref_items[i])
-            print(f"     ≠ {ref_items[i]}: {len(vectors)} variants — {dict(vec_counter)}")
+            if verbose:
+                print(f"     ≠ {ref_items[i]}: {len(vectors)} variants — {dict(vec_counter)}")
 
     perfect_rate = item_perfect_count / n_items
-    print(f"\n  2. Item-level Perfect Agreement")
-    print(f"     Perfect items: {item_perfect_count}/{n_items} ({perfect_rate * 100:.1f}%)")
+    if verbose:
+        print(f"\n  2. Item-level Perfect Agreement")
+        print(f"     Perfect items: {item_perfect_count}/{n_items} ({perfect_rate * 100:.1f}%)")
+
+    # ── Whole-matrix Perfect Agreement ────────────────────────────
+    mat_signatures = [tuple(tuple(row) for row in mat) for mat in all_mats]
+    mat_counts = Counter(mat_signatures)
+    best_mat_count = mat_counts.most_common(1)[0][1]
+
+    if verbose:
+        print(f"\n  3. Whole-matrix Perfect Agreement")
+        print(f"     Identical Q-matrices: {best_mat_count}/{n_runs}")
 
     # ── Pairwise Cohen's Kappa & Hamming ──────────────────────────
     hamming_list: list[int] = []
@@ -208,24 +312,24 @@ def _analyze_stage(
     avg_kappa = sum(kappa_list) / len(kappa_list)
     min_kappa = min(kappa_list)
 
-    print(f"\n  3. Pairwise Comparisons")
-    print(f"     Avg Hamming distance: {avg_hamming:.2f} / {n_items * n_skills} cells")
-    print(f"     Avg Cohen's Kappa:    {avg_kappa:.4f}")
-    print(f"     Min Cohen's Kappa:    {min_kappa:.4f}")
+    if verbose:
+        print(f"\n  4. Pairwise Comparisons")
+        print(f"     Avg Hamming distance: {avg_hamming:.2f} / {n_items * n_skills} cells")
+        print(f"     Avg Cohen's Kappa:    {avg_kappa:.4f}")
+        print(f"     Min Cohen's Kappa:    {min_kappa:.4f}")
 
-    # ── Fleiss' Kappa ─────────────────────────────────────────────
-    fk = _fleiss_kappa(all_mats)
-    print(f"\n  4. Fleiss' Kappa:        {fk:.4f}  ({_interpret_kappa(fk)})")
-    print()
+        fk = _fleiss_kappa(all_mats)
+        print(f"\n  5. Fleiss' Kappa:        {fk:.4f}  ({_interpret_kappa(fk)})")
+        print()
 
     return {
         "label": label,
         "overall_agree": overall_agree,
         "perfect_rate": perfect_rate,
+        "perfect_qmatrix": best_mat_count,
         "avg_hamming": avg_hamming,
         "avg_kappa": avg_kappa,
         "min_kappa": min_kappa,
-        "fleiss_kappa": fk,
         "perfect_cells": perfect_cells,
         "total_cells": n_items * n_skills,
         "disagreed_items": disagreed_items,
@@ -351,11 +455,17 @@ def main() -> None:
         default="both",
         help="Which Q-matrix stage to analyze: step6 (pre-audit), step8 (post-audit), or both (default).",
     )
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Print detailed per-item breakdowns and full stage reports.",
+    )
     args = parser.parse_args()
 
     base = Path(args.base_dir)
     target_k: int | None = args.target_k
     stage = args.stage
+    verbose: bool = args.verbose
 
     # Discover runs
     run_dirs = sorted(
@@ -368,31 +478,39 @@ def main() -> None:
         return
 
     # ── K Consistency ─────────────────────────────────────────────
-    print("=" * 60)
-    print("  K CONSISTENCY (K_max per run)")
-    print("=" * 60)
     k_values: dict[str, int] = {}
     for rd in run_dirs:
         cb_path = rd / "step3_skill_codebook.json"
         if cb_path.exists():
             cb = _load_codebook(cb_path)
             k_values[rd.name] = len(cb)
-            print(f"  {rd.name}: K_max = {len(cb)}")
     if not k_values:
         print("  No codebooks found. Aborting.")
         return
     counts = Counter(k_values.values())
     most_common_k, freq = counts.most_common(1)[0]
-    print(f"\n  Most common K = {most_common_k} ({freq}/{len(k_values)} runs)")
-    print(f"  K consistency  = {freq / len(k_values) * 100:.1f}%\n")
+
+    if verbose:
+        print("=" * 60)
+        print("  K CONSISTENCY (K_max per run)")
+        print("=" * 60)
+        for rn in sorted(k_values):
+            print(f"  {rn}: K_max = {k_values[rn]}")
+        print(f"\n  Most common K = {most_common_k} ({freq}/{len(k_values)} runs)")
+        print(f"  K consistency  = {freq / len(k_values) * 100:.1f}%\n")
 
     if target_k is None:
         target_k = most_common_k
-    print(f"→ Analyzing Q-matrices at K = {target_k}\n")
+    print(f"Analyzing K = {target_k}  (K consistency: {freq}/{len(k_values)})\n")
 
     # ── Run analysis per stage ────────────────────────────────────
     stages_to_run = ["step6", "step8"] if stage == "both" else [stage]
     results: dict[str, dict] = {}
+
+    # Shared permutations: derived from the first stage processed, reused
+    # for subsequent stages so that within-run step6↔step8 cell comparisons
+    # remain valid (both stages share the same codebook column ordering).
+    shared_perms: dict[str, tuple[int, ...]] | None = None
 
     for stg in stages_to_run:
         label = f"{stg} ({'Pre-Audit' if stg == 'step6' else 'Post-Audit'})"
@@ -417,18 +535,31 @@ def main() -> None:
         if not valid:
             continue
 
-        print(f"  Loaded {len(matrices)} Q-matrices ({n_skills_actual} skills) for {stg}\n")
-        m = _analyze_stage(all_mats, ref_items, run_names, label)
+        # ── Permutation alignment ──────────────────────────────────
+        if shared_perms is not None and all(rn in shared_perms for rn in run_names):
+            perm_list = [shared_perms[rn] for rn in run_names]
+            aligned_mats = [_apply_perm(m, p) for m, p in zip(all_mats, perm_list)]
+            if verbose:
+                print(f"  Loaded {len(matrices)} Q-matrices ({n_skills_actual} skills) for {stg}")
+                print(f"  Permutation-aligned (reusing alignment from previous stage)\n")
+        else:
+            aligned_mats, perm_list = _align_matrices(all_mats)
+            shared_perms = dict(zip(run_names, perm_list))
+            n_swapped = sum(1 for p in perm_list if p != tuple(range(n_skills_actual)))
+            if verbose:
+                print(f"  Loaded {len(matrices)} Q-matrices ({n_skills_actual} skills) for {stg}")
+                print(f"  Permutation-aligned to {run_names[0]} ({n_swapped}/{len(run_names)} runs required column swap)\n")
+
+        m = _analyze_stage(aligned_mats, ref_items, run_names, label, verbose=verbose)
         m["n_skills"] = n_skills_actual
         m["run_names"] = run_names
         m["ref_items"] = ref_items
         results[stg] = m
 
     # ── Auditor Impact comparison ─────────────────────────────────
-    if "step6" in results and "step8" in results:
+    if verbose and "step6" in results and "step8" in results:
         m6 = results["step6"]
         m8 = results["step8"]
-        # Ensure same runs are compared
         common_runs = sorted(set(m6["run_names"]) & set(m8["run_names"]))
         if len(common_runs) >= 2:
             _compare_stages(m6, m8, common_runs, m6["ref_items"], m6["n_skills"])
@@ -454,10 +585,9 @@ def main() -> None:
             ("Element-wise agree",     lambda m: f"{m['overall_agree'] * 100:.2f}%"),
             ("100% agree cells",       lambda m: f"{m['perfect_cells']}/{m['total_cells']}"),
             ("Item perfect agree",     lambda m: f"{m['perfect_rate'] * 100:.1f}%"),
-            ("Avg Hamming dist",       lambda m: f"{m['avg_hamming']:.2f}"),
+            ("Perfect Q-matrix",       lambda m: f"{m['perfect_qmatrix']}/{len(m['run_names'])}"),
             ("Avg Cohen's Kappa",      lambda m: f"{m['avg_kappa']:.4f}"),
             ("Min Cohen's Kappa",      lambda m: f"{m['min_kappa']:.4f}"),
-            ("Fleiss' Kappa",          lambda m: f"{m['fleiss_kappa']:.4f}"),
         ]
         for name, fn in rows:
             print(f"  {name:<30s}", end="")

@@ -1,0 +1,83 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert mixed to improper",
+      "canonical_definition": "Convert a mixed number (including atypical forms like a + b/c) into an equivalent improper fraction by combining the whole and fractional parts.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three codebooks define the same operation: rewriting mixed/compound whole+fraction forms into a single improper fraction (a·c+b)/c."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Rewrite whole as fraction",
+      "canonical_definition": "Express an integer as an equivalent fraction with a specified denominator (typically to match a denominator needed for fraction subtraction).",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "Expert A separates 'integer to fraction with chosen denominator' from common-denominator work; Expert B includes this action inside its common-denominator skill; Expert C does not explicitly include integer-to-fraction rewriting as a distinct or included action."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator (often via LCM) and rewrite each fraction as an equivalent fraction with that denominator by scaling numerator and denominator.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S03, B:S02, and C:S02 all cover selecting/using a common denominator and converting fractions via equivalent-fraction scaling; B's version also subsumes integer-to-fraction rewriting (captured separately in C02 as a one-to-many mapping from B:S02)."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned fractions",
+      "canonical_definition": "Compute the subtraction once quantities are in compatible form (same denominator and/or separated whole and fractional parts), producing the numeric difference.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B:S03 and C:S03 explicitly define the subtraction step; A bundles subtraction with simplification in A:S04, so A:S04 maps here as well (with simplification captured separately in C05)."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an acceptable final form (e.g., simplified fraction, integer, or mixed number).",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B:S04 and C:S04 directly match; A includes simplification/final-form expectations inside A:S04 ('Subtract and simplify'), so A:S04 maps here too (one-to-many with C04)."
+    }
+  ],
+  "alignment_summary": "Across the three codebooks, four core concepts align cleanly: converting mixed to improper, finding a common denominator, performing the subtraction once aligned, and simplifying/formatting the result. Expert A combines subtraction and simplification into one skill (A:S04), which maps to two canonical concepts (C04 and C05). Expert B combines integer-to-fraction rewriting into its common-denominator skill (B:S02), while Expert A treats it as a separate skill; this yields a distinct 2/3 concept (C02) not explicitly present in Expert C."
+}

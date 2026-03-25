@@ -4,15 +4,19 @@ Q-Matrix Construction Pipeline Runner.
 Flow:
 1. Solve: Generate step-by-step solutions
 2. Verify: Verify and correct solutions
-3. Codebook: Experts + Supervisor (align → consolidate) create flat codebook (K=3-8)
+3. Codebook: Experts + Supervisor (align → consolidate) create flat codebook
 4. Tag: Multiple taggers annotate items
 5. Judge: Adjudicate tagger votes (skill-level voting)
-6. Aggregate: Create multiple K versions by merging
+6. Aggregate: Create multiple K versions by merging skills
 7. Export: Export Q-matrices and reliability report
 8. Audit: Final quality review
 
-When running "all", target_k for aggregation is auto-computed from codebook K_max
-as [K_max-1, K_max-2, ..., 3]. You can override with --target_k.
+K control:
+- Default: Experts produce 3-8 skills freely.  Aggregator creates K_max-1
+  and K_max-2 matrices.
+- ``--target_k_exact K``: Experts + Supervisor are constrained to exactly K
+  skills.  Aggregator is skipped; a single Q-matrix is exported directly.
+  Use this for maximum stability.
 """
 from __future__ import annotations
 

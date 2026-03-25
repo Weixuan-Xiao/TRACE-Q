@@ -49,12 +49,21 @@ Return STRICT JSON with exactly this schema:
 
 6. **Generalizable**: Skills should apply to future problems in the same domain
 
-## Common Skill Categories (for reference)
+## Required Analysis Process
 
-For mathematical problem-solving, skills often fall into:
-- **Preparation skills**: Converting representations, finding common forms
-- **Execution skills**: Performing operations, computing results
-- **Verification skills**: Checking, simplifying, formatting results
+Before defining your codebook, you MUST perform this analysis internally:
+
+Step A — List operations: For each item, identify the distinct cognitive operations shown in its solution steps. Use short labels (e.g., "convert mixed→improper", "find LCD", "subtract numerators", "simplify").
+
+Step B — Build frequency table: Count how many items use each operation. Operations used by 0-1 items are too narrow; operations used by all items may be too broad.
+
+Step C — Group into skills: Merge operations that (a) always co-occur on the same items AND (b) represent the same cognitive process. Each group becomes one skill.
+
+Step D — Verify distinctness: For each pair of candidate skills, check: do they ever appear independently? If two skills ALWAYS co-occur, merge them. If they NEVER co-occur, check if they're truly different concepts.
+
+Step E — Check coverage: Every item must require at least one skill. Every skill must apply to at least 2 items.
+
+Output your codebook only after completing Steps A-E.
 
 ## Format Rules
 - You MUST define between 3 and 8 skills (inclusive)

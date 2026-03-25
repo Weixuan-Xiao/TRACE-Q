@@ -1,0 +1,17 @@
+{
+  "cmd": "all",
+  "prompt_version": "v4_structured",
+  "prompts_dir": "prompts/v4_structured",
+  "input": "data/items.jsonl",
+  "target_k": "auto",
+  "target_k_exact": 4,
+  "model": null,
+  "n_taggers": 5,
+  "consensus_mode": "threshold",
+  "include_threshold": 4,
+  "exclude_threshold": 1,
+  "skip_stages": "",
+  "created_at": "2026-02-28T00:16:43.838214+00:00",
+  "python": "/opt/anaconda3/bin/python",
+  "run_index": 1
+}
