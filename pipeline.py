@@ -61,19 +61,19 @@ def _export_q_matrix_from_dossiers(
 ) -> None:
     """Generate step6_Q_matrix CSV directly (used when aggregator is skipped)."""
     import csv
-    with open(codebook_path) as f:
+    with open(codebook_path, encoding="utf-8") as f:
         codebook = json.load(f)
     skill_ids = [s.get("skill_id") for s in codebook.get("skills", [])]
 
     dossiers = []
-    with open(dossiers_path) as f:
+    with open(dossiers_path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line:
                 dossiers.append(json.loads(line))
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", newline="") as f:
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=["item_id"] + skill_ids)
         writer.writeheader()
         for d in dossiers:
@@ -188,7 +188,7 @@ def main() -> None:
             print("WARNING: codebook not found, falling back to target_k='6,5,4'")
             return "6,5,4"
 
-        with open(codebook_path) as f:
+        with open(codebook_path, encoding="utf-8") as f:
             cb = json.load(f)
         k_max = len(cb.get("skills", []))
         if k_max <= 3:
@@ -210,7 +210,7 @@ def main() -> None:
         """
         if not codebook_path.exists():
             return []
-        with open(codebook_path) as f:
+        with open(codebook_path, encoding="utf-8") as f:
             k_max = len(json.load(f).get("skills", []))
         target_k_str = resolve_target_k()
         targets = [int(k.strip()) for k in target_k_str.split(",") if k.strip()]
@@ -393,6 +393,7 @@ def main() -> None:
         run_config = {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "model": args.model or os.getenv("OPENAI_MODEL", ""),
+            "seed": os.getenv("OPENAI_SEED", None),
             "prompts_dir": args.prompts_dir,
             "target_k_exact": args.target_k_exact,
             "n_taggers": args.n_taggers,

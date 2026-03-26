@@ -39,9 +39,9 @@ Return STRICT JSON with exactly this schema:
 3. **Appropriate granularity**: 
    - Coarse enough: Each skill should apply to multiple items
    - Fine enough: Each skill should be diagnostically meaningful
-   - BAD: Too broad — a single skill covering the entire domain
-   - BAD: Too narrow — a micro-step that applies to only one item
-   - GOOD: A distinct cognitive operation applicable to several items
+   - BAD: "Can do fraction arithmetic" (too broad)
+   - BAD: "Can multiply 3 × 4" (too narrow)
+   - GOOD: "Can find common denominator using LCM"
 
 4. **Clear criteria**: Inclusion/exclusion criteria should be specific enough for consistent annotation
 
@@ -51,33 +51,26 @@ Return STRICT JSON with exactly this schema:
 
 ## Using the Skill Ontology Guide
 
-If a skill ontology guide is provided above, apply its principles (e.g., independence,
+If a skill ontology guide is provided above, use its principles (independence,
 non-redundancy, identifiability, clarity of boundaries) as quality criteria when
 evaluating your candidate skills.
 
-- Use the principles to test whether each skill you define is distinct, necessary, and diagnosable.
 - The guide defines HOW to evaluate skills, not WHICH skills to include.
-- Discover skills purely from the dossier evidence — do not import categories from external sources.
-- Preserve potentially meaningful distinctions when they may be useful for later Q-matrix coding.
-
-Your codebook must be grounded in what the dossiers show, not in any external taxonomy.
+- Discover skills purely from the dossier evidence.
 
 ## Required Analysis Process
 
 Before defining your codebook, you MUST perform this analysis internally:
 
-Step A — List operations: For each item, identify the distinct cognitive operations shown in its solution steps. Use short labels.
+Step A — List operations: For each item, identify the distinct cognitive operations shown in its solution steps. Use short labels (e.g., "convert mixed→improper", "find LCD", "subtract numerators", "simplify").
 
 Step B — Build frequency table: Count how many items use each operation. Operations used by 0-1 items are too narrow; operations used by all items may be too broad.
 
-Step C — Group into skills: Only merge two operations into one skill if they represent the SAME cognitive process. Co-occurrence alone is NOT sufficient reason to merge. Two operations that happen to appear in the same items but involve different mental steps must remain separate skills.
+Step C — Group into skills: Merge operations that (a) always co-occur on the same items AND (b) represent the same cognitive process. Each group becomes one skill.
 
-Step D — Verify independence: For each pair of candidate skills, check: do they ever appear independently (one without the other)? If two skills ALWAYS co-occur across every item AND represent the same cognitive process, merge them. If they always co-occur but are cognitively distinct, keep them separate.
+Step D — Verify distinctness: For each pair of candidate skills, check: do they ever appear independently? If two skills ALWAYS co-occur, merge them. If they NEVER co-occur, check if they're truly different concepts.
 
-Step E — Check coverage and identifiability:
-- Every item must require at least one skill.
-- Every skill must apply to at least 3 items (CDM identifiability requirement).
-- No skill should apply to more than 90% of all items. If a skill covers nearly every item, it has no discriminative power and MUST be split into finer sub-skills.
+Step E — Check coverage: Every item must require at least one skill. Every skill must apply to at least 3 items (CDM identifiability requirement).
 
 Output your codebook only after completing Steps A-E.
 

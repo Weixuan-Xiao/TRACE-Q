@@ -28,6 +28,44 @@ from src.supervisor import SupervisorAlign, SupervisorConsolidate
 JsonDict = Dict[str, Any]
 
 
+def run_supervisor_consolidate(
+    llm: LLMClient,
+    expert_results: Dict[str, JsonDict],
+    alignment_output: JsonDict,
+    verified: List[JsonDict],
+    prompts_dir: str,
+    target_k_exact: int | None,
+    domain_guide: str | None,
+) -> tuple[JsonDict, JsonDict]:
+    """Run Supervisor Consolidate and return (supervisor_output, final_codebook)."""
+    consolidate_kwargs: Dict[str, Any] = {"llm": llm, "domain_guide": domain_guide}
+    if target_k_exact:
+        k = target_k_exact
+        raw_cons = load_text(str(Path(prompts_dir) / "supervisor_consolidate.txt"))
+        consolidate_prompt_text = raw_cons.replace(
+            "3-8 skills", f"exactly {k} skills"
+        ).replace(
+            "MUST have exactly 3-8 skills", f"MUST have exactly {k} skills"
+        )
+        consolidate_kwargs["prompt_text"] = consolidate_prompt_text
+        consolidate_kwargs["target_k_exact"] = k
+    else:
+        consolidate_kwargs["prompt_path"] = str(Path(prompts_dir) / "supervisor_consolidate.txt")
+
+    consolidator = SupervisorConsolidate(**consolidate_kwargs)
+
+    supervisor_output = consolidator.consolidate(
+        alignment=alignment_output,
+        codebook_a=expert_results["A"],
+        codebook_b=expert_results["B"],
+        codebook_c=expert_results["C"],
+        dossiers=verified,
+    )
+
+    final_codebook = supervisor_output.get("final_codebook", {})
+    return supervisor_output, final_codebook
+
+
 def run_expert(
     expert_id: str,
     verified_dossiers: List[JsonDict],
@@ -87,8 +125,8 @@ def main() -> None:
     parser.add_argument(
         "--parallel",
         action="store_true",
-        default=True,
-        help="Run experts in parallel (default: True)",
+        default=False,
+        help="Run experts in parallel (default: False for reproducibility)",
     )
     parser.add_argument(
         "--prompts_dir",
@@ -216,38 +254,15 @@ def main() -> None:
     # === Phase 2b: Supervisor Consolidate ===
     print("\n=== Phase 2b: Supervisor Consolidate (final codebook) ===")
 
-    consolidate_kwargs: Dict[str, Any] = {"llm": llm, "domain_guide": expert_guide}
-    if args.target_k_exact:
-        k = args.target_k_exact
-        raw_cons = load_text(str(Path(args.prompts_dir) / "supervisor_consolidate.txt"))
-        consolidate_prompt_text = raw_cons.replace(
-            "3-8 skills", f"exactly {k} skills"
-        ).replace(
-            "MUST have exactly 3-8 skills", f"MUST have exactly {k} skills"
-        )
-        if consolidate_prompt_text == raw_cons:
-            print(f"  WARNING: no skill-count phrases were replaced in consolidate prompt — "
-                  f"prompt may not enforce K={k}")
-        consolidate_kwargs["prompt_text"] = consolidate_prompt_text
-        consolidate_kwargs["target_k_exact"] = k
-    else:
-        consolidate_kwargs["prompt_path"] = str(Path(args.prompts_dir) / "supervisor_consolidate.txt")
-
-    consolidator = SupervisorConsolidate(**consolidate_kwargs)
-
-    supervisor_output = consolidator.consolidate(
-        alignment=alignment_output,
-        codebook_a=expert_results["A"],
-        codebook_b=expert_results["B"],
-        codebook_c=expert_results["C"],
-        dossiers=verified,
+    supervisor_output, final_codebook = run_supervisor_consolidate(
+        llm, expert_results, alignment_output, verified,
+        args.prompts_dir, args.target_k_exact, expert_guide,
     )
 
     write_json(args.out_supervisor, supervisor_output)
     print(f"Supervisor output saved to: {args.out_supervisor}")
 
-    # Extract and save final codebook
-    final_codebook = supervisor_output.get("final_codebook", {})
+    # Save final codebook
     write_json(args.out, final_codebook)
 
     n_final_skills = len(final_codebook.get("skills", []))
@@ -265,6 +280,14 @@ def main() -> None:
         sid = skill.get("skill_id", "?")
         name = skill.get("name", "?")
         print(f"  {sid}: {name}")
+
+    # Log system_fingerprints for reproducibility auditing
+    if llm.fingerprints:
+        unique_fps = sorted(set(llm.fingerprints))
+        print(f"\nSystem fingerprints (unique): {unique_fps}")
+        if len(unique_fps) > 1:
+            print("  WARNING: Multiple fingerprints detected — OpenAI model snapshot "
+                  "may have changed mid-run. Results may not be fully reproducible.")
 
 
 if __name__ == "__main__":

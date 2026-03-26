@@ -10,6 +10,19 @@ from src.llm_client import LLMClient
 
 JsonDict = Dict[str, Any]
 
+# Fields injected by pipeline stages for tracing — must NOT be sent to LLM
+# (they change between runs, breaking reproducibility).
+_LLM_STRIP_FIELDS = {"created_at", "stage"}
+
+
+def strip_llm_fields(obj: Any) -> Any:
+    """Recursively strip non-deterministic metadata fields before LLM serialization."""
+    if isinstance(obj, dict):
+        return {k: strip_llm_fields(v) for k, v in obj.items() if k not in _LLM_STRIP_FIELDS}
+    if isinstance(obj, list):
+        return [strip_llm_fields(item) for item in obj]
+    return obj
+
 
 FIX_JSON_SYSTEM_PROMPT = """You are a strict JSON repair tool.
 Return ONLY a valid JSON object. Do not include explanations, markdown, or code fences.
@@ -58,7 +71,7 @@ def call_json_with_validation(
     LLM -> strict JSON -> pydantic validate -> optional extra validate.
     If invalid, run up to max_fix_retries repair attempts using the same model (LLM-only).
     """
-    user_text = json.dumps(user_json, ensure_ascii=False)
+    user_text = json.dumps(strip_llm_fields(user_json), ensure_ascii=False)
     raw = llm.chat_completions(
         [
             {"role": "system", "content": system_prompt},
