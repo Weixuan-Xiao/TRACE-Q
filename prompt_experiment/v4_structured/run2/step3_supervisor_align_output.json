@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert mixed to improper",
+      "canonical_definition": "Convert mixed numbers (and whole numbers when needed) into equivalent improper fractions (or equivalent fractions with a specified denominator) to enable subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts define the same conversion operation: rewriting a mixed number a b/c as (a·c+b)/c and optionally rewriting whole numbers as fractions with a chosen denominator."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator (often via LCM) and rewrite fractions as equivalent fractions with that denominator by scaling numerators and denominators.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe selecting/deriving a common denominator for unlike denominators and producing equivalent fractions via scaling; exclusions consistently omit same-denominator cases where no conversion is needed."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract rational numbers",
+      "canonical_definition": "Compute the difference of two rational numbers once expressed with a common denominator (including mixed/whole numbers after rewriting) by subtracting numerators and handling whole-number/zero outcomes.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts focus on the actual subtraction step after denominators match (or after conversion), including cases yielding 0 or an integer and including mixed-number contexts."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms and express it in an appropriate final form such as a simplified fraction, mixed number, or integer.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include reducing by common factors and converting improper fractions to mixed numbers/integers as a post-subtraction finalization step; naming differs slightly ('format' vs 'express') but the concept is the same."
+    }
+  ],
+  "alignment_summary": "Across A, B, and C, the skill sets are structurally identical: (1) convert mixed/whole numbers to improper/equivalent fractions, (2) find a common denominator and create equivalent fractions, (3) perform the subtraction, and (4) simplify and express the final result. Every skill_id from each expert maps cleanly one-to-one to the same four shared concepts, yielding 3/3 consensus for all candidates."
+}

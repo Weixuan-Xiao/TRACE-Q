@@ -1,0 +1,49 @@
+## Solution Method Guidelines
+
+These procedures define the canonical instructional trace format for this pipeline.
+Use them to standardize solution steps for downstream verification and tagging.
+They are preferred trace conventions, not claims about the only valid human solution strategy. Because this mimic student's calculation process, they do the
+calculation by hand, so they want to make simple calculation to reduce calculation burden.
+
+For standardized traces in this pipeline, prefer separating whole and fraction parts over converting to
+improper fractions.  Only work with pure fractions (no whole part) when both
+operands are already pure fractions. 
+### Type A — Same denominator, pure fractions
+Subtract numerators directly, keep denominator, simplify if needed.
+
+  Example: 7/9 − 4/9
+  Step1: Subtract numerators: (7−4)/9 = 3/9.
+  Step2: Simplify: 3/9 = 1/3. Final answer: 1/3
+
+### Type B — Unlike denominators, pure fractions
+Find LCD, convert both fractions to equivalent fractions, subtract, simplify.
+
+  Example: 5/4 − 2/3
+  Step1: Find LCD(4,3) = 12. Convert: 5/4 = 15/12, 2/3 = 8/12.
+  Step2: Subtract: 15/12 − 8/12 = 7/12. Final answer: 7/12
+
+### Type C — Mixed numbers, same denominator (with borrowing if needed)
+Separate whole parts and fraction parts, subtract each independently.
+If fraction result is negative, borrow 1 from whole (1 = d/d) and retry.
+
+  Example: 6 3/11 − 2 7/11
+  Step1: Whole: 6 − 2 = 4. Fraction: 3/11 − 7/11 = −4/11 (negative).
+  Step2: Borrow: whole 4 − 1 = 3. Fraction: (11/11 + 3/11) − 7/11 = 14/11 − 7/11 = 7/11.
+  Step3: Combine: 3 7/11. Final answer: 3 7/11
+
+### Type D — Mixed numbers, unlike denominators
+Find LCD and convert fraction parts first, then apply Type C.
+
+  Example: 5 1/4 − 2 2/3
+  Step1: LCD(4,3) = 12. Convert fractions: 1/4 = 3/12, 2/3 = 8/12.
+  Step2: Whole: 5 − 2 = 3. Fraction: 3/12 − 8/12 = −5/12 (negative).
+  Step3: Borrow: whole 3 − 1 = 2. Fraction: (12/12 + 3/12) − 8/12 = 15/12 − 8/12 = 7/12.
+  Step4: Combine: 2 7/12. Final answer: 2 7/12
+
+### Type E — Whole number minus fraction or mixed number
+Treat the whole as "whole + 0/d", then apply Type C with borrowing.
+
+  Example: 3 − 5/7
+  Step1: Rewrite as 3 + 0/7. Whole: 3 − 0 = 3. Fraction: 0/7 − 5/7 = −5/7 (negative).
+  Step2: Borrow: whole 3 − 1 = 2. Fraction: 7/7 − 5/7 = 2/7.
+  Step3: Combine: 2 2/7. Final answer: 2 2/7

@@ -1,0 +1,42 @@
+## Skill Ontology Principles
+
+These principles guide how skills should be defined for Q-matrix construction
+in Cognitive Diagnostic Models (CDM).  Apply them when building and
+consolidating the skill codebook.
+
+### Independence
+Each skill must be independently testable — there should exist at least one
+item that requires skill A but not skill B, and vice versa.  If two skills
+ALWAYS co-occur across every item in the set, they are not independently
+testable and should be merged into one.
+
+### Non-redundancy
+Do NOT merge two skills solely because they frequently co-occur.
+Co-occurrence is necessary but not sufficient for merging.  Only merge if the
+two operations genuinely represent the same underlying cognitive process.
+Two operations that happen to appear in the same items but involve different
+mental steps (e.g., "find common denominator" and "subtract numerators") must
+remain separate.
+
+### Completeness
+The Q-matrix should be complete: the skill set must cover every observable
+cognitive operation evidenced in the solution steps.  No solution step should
+be left unexplained by the chosen skills.
+
+### Identifiability
+The skill set must produce enough distinct item-skill patterns to support
+diagnostic classification.  Avoid codebooks where most items share the same
+skill vector — this reduces diagnostic resolution.  A good codebook produces
+varied row patterns across items.
+
+### Minimality
+Prefer fewer, broader skills over many narrow ones, as long as each broad
+skill remains a coherent cognitive operation.  Micro-steps that apply to only
+one or two items should be absorbed into a broader skill rather than standing
+alone.
+
+### Clarity of boundaries
+Each skill's inclusion and exclusion criteria must be precise enough that
+independent annotators would agree on tagging decisions.  If a skill boundary
+is ambiguous (annotators consistently disagree), the skill definition needs
+refinement or the skill should be split/merged to resolve the ambiguity.

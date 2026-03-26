@@ -1,0 +1,89 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number or nonstandard mixed number into a subtraction-ready form, such as adding a zero fractional part, converting an improper fractional part to a standard mixed number, or separating whole and fractional parts to set up subtraction.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B:S02 and C:S01 are direct matches in both name and definition. A does not isolate this as a separate preprocessing skill; A folds normalization cases into regrouping (A:S03) when tied to borrowing or improper mixed-number normalization, so it is not aligned here as the same standalone concept."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Match denominators",
+      "canonical_definition": "Find a common denominator and rewrite one or both fractional parts as equivalent fractions so they can be subtracted.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S01, B:S01, and C:S02 all describe the same operation: finding a common denominator/LCD and converting to equivalent fractions before subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with like denominators and/or subtract the whole-number and fractional parts of mixed numbers once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include the same core computation step after setup is complete: subtracting numerators over a shared denominator and subtracting whole parts or aligned mixed-number components."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Regroup for subtraction",
+      "canonical_definition": "Rewrite a quantity during subtraction by borrowing one whole into fractional units, or otherwise regrouping a mixed number, so the fractional subtraction can proceed.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A:S03 isolates regrouping/borrowing as its own concept, including borrowing 1 whole into d/d and related mixed-number restructuring during subtraction. B and C do include borrowing, but only inside their combined regroup-and-simplify skills rather than as a standalone skill, so this concept appears explicitly only in A."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, whole number, or 0.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A:S04 treats simplification and final expression as a separate post-computation skill. B and C include these actions, but only bundled together with regrouping in their S04 rather than as an independent concept."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Borrow one whole when the fractional part is too small to subtract, then reduce or express the result in lowest terms or standard mixed-number/integer form.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B:S04 and C:S04 are near-identical combined skills that bundle borrowing/regrouping with simplification and final expression. A splits these same ideas across A:S03 and A:S04, so no single A skill is equivalent to this combined concept."
+    }
+  ],
+  "alignment_summary": "The three codebooks agree strongly on two core concepts: matching denominators and subtracting aligned parts. B and C also align closely on a standalone normalization skill and on a combined regroup-and-simplify skill. A differs mainly in granularity, separating regrouping from simplification and not treating normalization as an independent skill. Every skill_id from all three experts has been mapped exactly once, with A's finer-grained structure preserved through separate candidate concepts."
+}

@@ -1,0 +1,151 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Rational number arithmetic (fraction and mixed-number subtraction)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert to improper",
+        "definition": "Rewrite mixed numbers and/or whole numbers as equivalent fractions (often improper) with a useful denominator to enable fraction subtraction.",
+        "inclusion_criteria": [
+          "A step rewrites a mixed number a b/c as (a·c+b)/c",
+          "A step rewrites a whole number n as an equivalent fraction n = (n·d)/d to match a target denominator"
+        ],
+        "exclusion_criteria": [
+          "A step only finds/uses a common denominator between two fractions that are already proper fractions (no mixed/whole conversion)",
+          "A step only reduces/simplifies a fraction after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Choose a common denominator (often via LCM) and rewrite fractions as equivalent fractions with that denominator by scaling numerator and denominator.",
+        "inclusion_criteria": [
+          "A step explicitly finds an LCM or selects a common denominator for unlike denominators",
+          "A step scales numerator and denominator to create equivalent fractions with the chosen common denominator"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already equal and no denominator conversion is performed",
+          "A step only converts mixed/whole numbers to fractions without addressing unlike denominators"
+        ],
+        "examples": [
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract rationals",
+        "definition": "Compute the difference of two rational numbers once they are expressed with a common denominator by subtracting numerators (and handling zero/whole-number outcomes).",
+        "inclusion_criteria": [
+          "A step subtracts numerators over a shared denominator (including same-denominator cases)",
+          "A step subtracts after prior conversion to improper fractions and/or a common denominator"
+        ],
+        "exclusion_criteria": [
+          "A step only rewrites numbers (mixed-to-improper or common-denominator conversion) without performing subtraction",
+          "A step only reduces/simplifies or converts the final form after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify final result",
+        "definition": "Reduce the computed fraction to lowest terms and express it in an appropriate final form (simplified fraction, mixed number, or integer).",
+        "inclusion_criteria": [
+          "A step reduces a fraction by dividing numerator and denominator by a common factor",
+          "A step states a fraction is already in lowest terms",
+          "A step converts an improper fraction to a mixed number or simplifies to an integer (e.g., 8/8 = 1)"
+        ],
+        "exclusion_criteria": [
+          "A step only performs the subtraction without any reduction or final-form conversion",
+          "A step only finds a common denominator or converts mixed numbers prior to subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS12",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "refine",
+      "details": "Refined C01 into S01 (kept concept; broadened wording to include whole-number-to-fraction rewriting explicitly).",
+      "reasoning": "C01 had 3/3 consensus and strong diagnostic value; minor wording refinement improves generality and tagging consistency across items involving whole numbers (e.g., writing 2 as 16/8)."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C02 as S02.",
+      "reasoning": "C02 had 3/3 consensus, is distinct from conversion-to-improper, and is necessary for unlike-denominator subtraction."
+    },
+    {
+      "action": "refine",
+      "details": "Refined C03 into S03 (explicitly included same-denominator subtraction and zero/whole-number outcomes).",
+      "reasoning": "C03 had 3/3 consensus; adding these clarifications matches the dossier patterns (e.g., FS06, FS08, FS04) and reduces ambiguity for annotators."
+    },
+    {
+      "action": "rename",
+      "details": "Renamed C04 to S04 ('Simplify and format result' → 'Simplify final result') while keeping the same scope.",
+      "reasoning": "C04 had 3/3 consensus; the new name is shorter and still captures both reduction and final-form expression."
+    }
+  ],
+  "summary": "All aligned candidates had 3/3 expert consensus and mapped one-to-one to the same four-step fraction-subtraction workflow. The final unified codebook keeps all four skills, with light refinements for clarity (especially whole-number rewriting and same-denominator/zero outcomes) and a minor rename for concision."
+}

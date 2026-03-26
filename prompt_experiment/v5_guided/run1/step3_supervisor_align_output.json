@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Align fractional forms",
+      "canonical_definition": "Rewrite quantities so fractional parts are compatible for subtraction by finding a common denominator and converting to equivalent fractions, and when needed expressing a whole number as a whole plus 0 over a denominator.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01 and B.S01 are direct matches on common-denominator/equivalent-fraction preparation. C.S01 covers the same concept and additionally includes rewriting a whole number as a whole plus 0 over a denominator. The canonical framing captures the shared denominator-alignment operation across all three."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize mixed numbers",
+      "canonical_definition": "Convert a nonstandard mixed number with an improper fractional part into an equivalent standard mixed number before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C.S02 isolates normalization of improper mixed numbers. A.S02 and B.S02 include this same concept along with additional rewriting steps. The shared core across all three is normalization of nonstandard mixed numbers."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with like denominators and/or subtract the whole-number and fractional parts of mixed numbers once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts have an essentially identical skill for carrying out subtraction after forms are aligned."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup one whole into fractional units to complete subtraction when the fractional part would otherwise be negative.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C.S04 cleanly names the borrowing/regrouping concept. A.S04 and B.S04 both include this same borrowing operation, though they also bundle simplification with it."
+    }
+  ],
+  "alignment_summary": "The three codebooks share a strong common structure: denominator alignment, operand normalization, direct subtraction, and borrowing/regrouping. The main alignment challenge is granularity mismatch. Experts A and B bundle several preparatory rewrites into their normalization skill, while Expert C splits improper-mixed-number normalization from denominator/whole-number alignment. A and B also bundle simplification with borrowing, whereas C separates borrowing and does not explicitly encode simplification. To satisfy the one-assignment rule, only candidates with actual expert skill assignments are retained, yielding four high-consensus canonical skills."
+}

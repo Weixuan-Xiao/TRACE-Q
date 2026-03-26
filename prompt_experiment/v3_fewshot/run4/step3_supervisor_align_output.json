@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert to equivalent fractions",
+      "canonical_definition": "Convert mixed numbers or integers (and, when needed, pre-simplify a given fraction) into an equivalent fraction form suitable for subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S01 and B:S01 focus on converting mixed/whole numbers to improper/equivalent fractions; C:S01 covers the same conversions and additionally includes pre-simplifying a given fraction representation as part of form conversion."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator (often via LCM) and rewrite fractions as equivalent fractions with that shared denominator.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts define this as selecting a common denominator (typically LCM) and scaling numerators/denominators to create equivalent fractions over that denominator."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract rational numbers",
+      "canonical_definition": "Compute the difference of two rational numbers once they are aligned (same denominator or separated whole and fractional parts).",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the actual subtraction step after alignment, either subtracting numerators over a common denominator or subtracting whole and fractional parts."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Express the computed difference in simplest accepted form by reducing fractions and/or rewriting an improper fraction as a mixed number or integer when appropriate.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include reducing to lowest terms and converting improper results to mixed numbers/integers as the final formatting/simplification step."
+    }
+  ],
+  "alignment_summary": "All skills align cleanly into four shared concepts with full 3/3 consensus. The only notable scope difference is Expert C’s conversion skill, which explicitly includes pre-simplifying a given fraction representation as part of converting number forms; this was aligned with the mixed/integer-to-fraction conversion concept."
+}

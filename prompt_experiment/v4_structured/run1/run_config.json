@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-28T00:21:01.799729+00:00",
+  "model": "",
+  "prompts_dir": "prompts/v4_structured",
+  "target_k_exact": 4,
+  "n_taggers": 5,
+  "consensus_mode": "threshold",
+  "include_threshold": 4,
+  "exclude_threshold": 1,
+  "skip_stages": "",
+  "input": "data/items.jsonl"
+}

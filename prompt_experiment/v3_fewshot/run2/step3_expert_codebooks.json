@@ -1,0 +1,410 @@
+{
+  "A": {
+    "version": "v1",
+    "domain": "Arithmetic with fractions and mixed numbers (subtraction, equivalent fractions, simplification)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert mixed to improper",
+        "definition": "Convert a mixed number (or whole number) into an equivalent improper fraction with a specified denominator.",
+        "inclusion_criteria": [
+          "A step rewrites a mixed number a b/c as (a·c+b)/c",
+          "A step rewrites a whole number as an equivalent fraction n = (n·d)/d to match a denominator"
+        ],
+        "exclusion_criteria": [
+          "Only finding a common denominator between two proper fractions without any mixed/whole-number conversion",
+          "Only simplifying a fraction after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Determine a common denominator (often via LCM) and rewrite fractions as equivalent fractions with that denominator.",
+        "inclusion_criteria": [
+          "A step explicitly finds/uses LCM or otherwise selects a common denominator for unlike denominators",
+          "A step scales numerator and denominator to create equivalent fractions with the chosen common denominator"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already equal and the work proceeds directly to subtract numerators",
+          "Only converting mixed numbers to improper fractions without addressing unlike denominators"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract rational numbers",
+        "definition": "Compute the difference of two rational numbers by subtracting numerators over a common denominator (including cases yielding 0 or an integer).",
+        "inclusion_criteria": [
+          "A step performs the subtraction once fractions share a denominator (e.g., a/b − c/b = (a−c)/b)",
+          "A step subtracts equal fractions or equivalent quantities to obtain 0",
+          "A step subtracts whole and fractional parts (or uses an equivalent decomposition) to get the difference"
+        ],
+        "exclusion_criteria": [
+          "Only setting up equivalent fractions/common denominators without executing the subtraction",
+          "Only simplifying/reducing the final fraction without performing the subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify and format result",
+        "definition": "Reduce a fraction to lowest terms and/or express an improper fraction as a mixed number or integer as an acceptable final form.",
+        "inclusion_criteria": [
+          "A step states the result is in lowest terms or performs reduction (e.g., 21/12 = 7/4)",
+          "A step converts an improper fraction to a mixed number (e.g., 6/5 = 1 1/5) or to an integer (e.g., 3/3 = 1)"
+        ],
+        "exclusion_criteria": [
+          "Only performing the subtraction without any reduction or re-expression",
+          "Only finding a common denominator or converting mixed numbers prior to subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS11",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "B": {
+    "version": "v1",
+    "domain": "Arithmetic with fractions and mixed numbers (subtraction, equivalent fractions, simplification)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert mixed numbers",
+        "definition": "Convert between mixed numbers, improper fractions, and whole numbers written as fractions to enable computation.",
+        "inclusion_criteria": [
+          "A step rewrites a mixed number (e.g., 3 1/2) as an improper fraction (e.g., 7/2)",
+          "A step rewrites a whole number (e.g., 3) as a fraction with a specified denominator (e.g., 15/5)",
+          "A step re-expresses a nonstandard mixed form like 1 4/3 as an improper fraction"
+        ],
+        "exclusion_criteria": [
+          "Only finding a common denominator without converting mixed/whole numbers",
+          "Only subtracting numerators after denominators already match",
+          "Only simplifying/reducing a fraction after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Determine and use a common denominator (often via LCM) to rewrite fractions as equivalent fractions with the same denominator.",
+        "inclusion_criteria": [
+          "A step explicitly finds an LCM or chooses a common denominator for two denominators",
+          "A step scales numerator/denominator to create equivalent fractions with the chosen common denominator"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already the same and no conversion is needed",
+          "Only converting mixed numbers to improper fractions without addressing denominators",
+          "Only performing the subtraction once denominators already match"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract rational numbers",
+        "definition": "Compute the difference of two rational numbers once they are expressed with compatible forms (same denominator or separated whole/fraction parts).",
+        "inclusion_criteria": [
+          "A step subtracts two fractions with the same denominator by subtracting numerators",
+          "A step subtracts two improper fractions after conversion/common denominator",
+          "A step subtracts mixed numbers by subtracting whole parts and fractional parts"
+        ],
+        "exclusion_criteria": [
+          "Only rewriting numbers (conversion) without performing subtraction",
+          "Only simplifying the result after subtraction",
+          "Only selecting a common denominator without subtracting"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify final result",
+        "definition": "Express the computed result in an accepted simplest form (reduce to lowest terms and/or convert between improper fraction and mixed number/whole number).",
+        "inclusion_criteria": [
+          "A step reduces a fraction to lowest terms (e.g., 21/12 to 7/4)",
+          "A step states or checks that a fraction is already in lowest terms",
+          "A step converts an improper fraction to a mixed number or identifies a whole-number result (e.g., 3/3 = 1, or result 0)"
+        ],
+        "exclusion_criteria": [
+          "Only performing subtraction without any reduction or form conversion",
+          "Only finding a common denominator or converting mixed numbers as setup",
+          "Rounding/decimal approximation as the primary operation (not present as a required step here)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS11",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "C": {
+    "version": "v1",
+    "domain": "Rational number arithmetic (fraction and mixed-number subtraction)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert mixed to improper",
+        "definition": "Convert mixed numbers (and whole numbers when needed) into equivalent improper fractions with a specified denominator.",
+        "inclusion_criteria": [
+          "A step rewrites a mixed number a b/c as (a·c+b)/c",
+          "A step rewrites a whole number as an equivalent fraction n = (n·d)/d to match a denominator"
+        ],
+        "exclusion_criteria": [
+          "Only simplifying a fraction (e.g., 21/12 = 7/4) without converting from mixed/whole form",
+          "Only finding a common denominator between two proper fractions without any mixed/whole conversion"
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Determine a common denominator (often via LCM) and rewrite fractions as equivalent fractions over that denominator.",
+        "inclusion_criteria": [
+          "A step explicitly finds an LCM or chooses a common denominator for unlike denominators",
+          "A step scales numerator and denominator to express each fraction with the common denominator"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already equal and the work proceeds directly to subtract numerators",
+          "Only converting mixed/whole numbers to improper fractions without addressing unlike denominators"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract rational numbers",
+        "definition": "Compute the difference of two rational numbers once they are expressed in compatible forms (same denominator or separated whole/fraction parts).",
+        "inclusion_criteria": [
+          "A step subtracts numerators over a common denominator (e.g., a/b − c/b)",
+          "A step subtracts by combining whole and fractional parts (e.g., (A−B)+(a/b−c/b))",
+          "A step recognizes identical quantities subtract to 0"
+        ],
+        "exclusion_criteria": [
+          "Only rewriting/setting up equivalent fractions without performing the subtraction",
+          "Only simplifying the resulting fraction after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify and format result",
+        "definition": "Reduce the computed result to lowest terms and/or express it in an accepted final form (integer, improper fraction, or mixed number).",
+        "inclusion_criteria": [
+          "A step reduces a fraction by dividing numerator and denominator by a common factor",
+          "A step converts an improper fraction to a mixed number (or notes the mixed-number equivalent)",
+          "A step states the result is already in lowest terms"
+        ],
+        "exclusion_criteria": [
+          "Any step whose main purpose is finding a common denominator before subtraction",
+          "Any step that performs the subtraction but does not simplify or format the final value"
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS18",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  }
+}

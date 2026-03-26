@@ -1,0 +1,79 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Equalize denominators",
+      "canonical_definition": "Find a common denominator and rewrite fractional parts as equivalent fractions before subtracting when the original denominators differ.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01 and C.S01 are essentially identical in name and definition. B.S01 overlaps strongly on common-denominator conversion; although it also includes rewriting a whole number as a whole plus 0/d, its core operation is still matching fraction units via common denominators, so it aligns best here."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a common denominator and/or subtract the whole-number and fractional parts of mixed numbers once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include a direct subtraction skill performed after forms are aligned. The wording is nearly identical across A.S02, B.S03, and C.S03."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Normalize mixed form",
+      "canonical_definition": "Rewrite a whole number or nonstandard mixed number into a subtraction-ready form, such as adding a zero fractional part or converting an improper mixed number to a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B.S02 and C.S02 clearly cover normalization/preparation rewrites before subtraction. A.S03 is broader because it also includes borrowing/regrouping, but part of its definition explicitly matches this normalization concept, including normalizing improper mixed-number parts and rewriting whole numbers with fractional parts."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow to regroup",
+      "canonical_definition": "Borrow 1 whole and convert it into fractional units to continue subtraction when the fractional part of the minuend is too small.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "Borrowing/regrouping is explicitly present in B.S04 and C.S04 as a distinct operation. A does not isolate borrowing separately; it embeds it inside A.S03 together with normalization, so no separate A-only skill maps uniquely to this concept without violating one-to-one assignment of skill IDs."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and express",
+      "canonical_definition": "Reduce the result to lowest terms and express it appropriately as a fraction, mixed number, whole number, or zero.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A.S04 isolates final simplification and expression as its own skill. In B and C, simplification is bundled together with regrouping in B.S04 and C.S04 rather than separated into a standalone skill, so no distinct B or C skill maps exclusively to this concept."
+    }
+  ],
+  "alignment_summary": "The three codebooks share strong agreement on common-denominator conversion and direct subtraction after alignment. The main structural difference is granularity around preparatory rewriting, borrowing, and simplification: A separates simplification but combines normalization with borrowing, while B and C separate normalization from subtraction but combine borrowing with simplification. Every skill ID was mapped exactly once, with broad concepts aligned where experts differed in how finely they split the work."
+}

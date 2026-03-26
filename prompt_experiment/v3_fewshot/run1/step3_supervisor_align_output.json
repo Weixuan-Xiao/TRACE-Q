@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert number forms",
+      "canonical_definition": "Convert between mixed numbers, improper fractions, and whole numbers written as fractions (including simplifying a fractional part within a mixed number when needed) to prepare for computation.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three include converting mixed numbers to improper/equivalent fractional forms; A is broader (also mentions whole numbers as fractions and equivalent fraction rewrites), while B explicitly includes simplifying the fractional part within a mixed number as part of conversion."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine and use a common denominator (often via LCM) to rewrite fractions (and sometimes whole numbers) as equivalent fractions with the same denominator.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "Direct match across A/B/C: each focuses on selecting/using a common denominator and scaling to equivalent fractions; all also allow rewriting a whole number to a specified denominator as part of this process."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract rational numbers",
+      "canonical_definition": "Compute the difference of two rational numbers once they are in compatible form (e.g., same denominator or separated whole and fractional parts), including cases that yield zero or negative results.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three describe performing the subtraction after compatibility is established (same denominator or whole/fraction decomposition) and include special outcomes like zero; B explicitly mentions negative intermediate results but the operation is the same."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify and format result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms and express the final value in an acceptable form (integer, irreducible fraction, or mixed number).",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three include simplifying by common factors and formatting the final answer (including improper↔mixed conversion and recognizing integer results)."
+    }
+  ],
+  "alignment_summary": "All skill_ids across A, B, and C align cleanly into four shared concepts with full (3/3) consensus: (1) converting number forms (especially mixed→improper), (2) finding/using a common denominator via equivalent fractions, (3) performing the subtraction once compatible, and (4) simplifying and formatting the final result. Minor scope differences (e.g., A’s broader conversion language; B’s mention of negative intermediates) do not create distinct concepts."
+}

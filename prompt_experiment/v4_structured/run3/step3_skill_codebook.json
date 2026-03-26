@@ -1,0 +1,130 @@
+{
+  "version": "v1",
+  "domain": "Rational number arithmetic (fraction and mixed-number subtraction)",
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Convert to improper",
+      "definition": "Rewrite a mixed number or whole number as an equivalent improper fraction (or as a fraction with a specified denominator) to enable fraction operations.",
+      "inclusion_criteria": [
+        "A step rewrites a mixed number a b/c as (a·c+b)/c",
+        "A step rewrites a whole number n as an equivalent fraction n = (n·d)/d to match a needed denominator"
+      ],
+      "exclusion_criteria": [
+        "Only finding/choosing a common denominator (e.g., LCM) without converting a mixed/whole number",
+        "Only scaling a fraction a/b to an equivalent fraction with a new denominator when no mixed/whole-number conversion is involved",
+        "Only performing subtraction after forms are already compatible"
+      ],
+      "examples": [
+        {
+          "item_id": "FS09",
+          "step_ids": [
+            "Step1",
+            "Step2"
+          ]
+        },
+        {
+          "item_id": "FS07",
+          "step_ids": [
+            "Step1",
+            "Step2"
+          ]
+        }
+      ],
+      "prerequisites": []
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find common denominator",
+      "definition": "Determine a common denominator (often via LCM) for unlike fractions to prepare for subtraction.",
+      "inclusion_criteria": [
+        "A step explicitly computes an LCM or otherwise selects a target common denominator for two different denominators",
+        "A step states the chosen common denominator before (or while) rewriting fractions"
+      ],
+      "exclusion_criteria": [
+        "Denominators are already equal and no denominator-selection work is done",
+        "Only multiplying numerator and denominator to rewrite a fraction after the common denominator has already been chosen",
+        "Only simplifying/reducing after subtraction"
+      ],
+      "examples": [
+        {
+          "item_id": "FS01",
+          "step_ids": [
+            "Step1"
+          ]
+        },
+        {
+          "item_id": "FS03",
+          "step_ids": [
+            "Step1"
+          ]
+        }
+      ],
+      "prerequisites": []
+    },
+    {
+      "skill_id": "S03",
+      "name": "Scale equivalent fractions",
+      "definition": "Rewrite one or more fractions as equivalent fractions by multiplying numerator and denominator to reach a chosen common denominator.",
+      "inclusion_criteria": [
+        "A step rewrites a/b as (a·k)/(b·k) to match a specified common denominator",
+        "A step shows both quantities expressed over the same denominator as a result of scaling"
+      ],
+      "exclusion_criteria": [
+        "Only selecting the common denominator (e.g., computing LCM) without performing the rewriting",
+        "Only converting mixed/whole numbers to improper fractions without scaling to a new denominator",
+        "Only subtracting once denominators already match"
+      ],
+      "examples": [
+        {
+          "item_id": "FS13",
+          "step_ids": [
+            "Step2"
+          ]
+        },
+        {
+          "item_id": "FS01",
+          "step_ids": [
+            "Step1"
+          ]
+        }
+      ],
+      "prerequisites": [
+        "S02"
+      ]
+    },
+    {
+      "skill_id": "S04",
+      "name": "Subtract and simplify",
+      "definition": "Compute the difference once quantities are in compatible form and express the result in an acceptable simplified form.",
+      "inclusion_criteria": [
+        "A step subtracts numerators over a common denominator (x/d − y/d)",
+        "A step subtracts whole and fractional parts separately and recombines",
+        "A step reduces a resulting fraction to lowest terms and/or converts between improper fraction and mixed/whole-number form as the final presentation"
+      ],
+      "exclusion_criteria": [
+        "Only converting inputs (mixed↔improper or choosing/scaling denominators) without computing the difference",
+        "Only choosing a common denominator or scaling to equivalent fractions without subtracting",
+        "Purely restating the final answer with no computation or simplification action"
+      ],
+      "examples": [
+        {
+          "item_id": "FS06",
+          "step_ids": [
+            "Step1",
+            "Step2"
+          ]
+        },
+        {
+          "item_id": "FS10",
+          "step_ids": [
+            "Step2"
+          ]
+        }
+      ],
+      "prerequisites": [
+        "S03"
+      ]
+    }
+  ]
+}

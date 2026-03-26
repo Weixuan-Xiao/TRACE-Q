@@ -1,0 +1,105 @@
+{
+  "config": {
+    "run_dir": "prompt_experiment/v3_fewshot",
+    "k": 4,
+    "dataset": "tatsuoka",
+    "n_runs_evaluated": 5
+  },
+  "quality": {
+    "AIC": {
+      "mean": 9089.7725,
+      "sd": 144.5207,
+      "min": 8923.1066,
+      "max": 9215.7769,
+      "n": 5
+    },
+    "BIC": {
+      "mean": 9577.307,
+      "sd": 120.9697,
+      "min": 9407.2137,
+      "max": 9691.2992,
+      "n": 5
+    },
+    "CAIC": {
+      "mean": 9691.107,
+      "sd": 117.2206,
+      "min": 9520.2137,
+      "max": 9808.2992,
+      "n": 5
+    },
+    "SABIC": {
+      "mean": 9216.0683,
+      "sd": 137.4367,
+      "min": 9048.5145,
+      "max": 9327.8672,
+      "n": 5
+    },
+    "RMSEA2": {
+      "mean": 0.0648,
+      "sd": 0.0042,
+      "min": 0.0606,
+      "max": 0.0698,
+      "n": 5
+    },
+    "SRMSR": {
+      "mean": 0.0725,
+      "sd": 0.0112,
+      "min": 0.0594,
+      "max": 0.0827,
+      "n": 5
+    }
+  },
+  "stability": {
+    "run_dir": "prompt_experiment/v3_fewshot",
+    "k": 4,
+    "n_runs": 5,
+    "n_items": 20,
+    "n_skills": 4,
+    "total_cells": 80,
+    "element_wise_agreement": 0.95,
+    "fleiss_kappa": 0.8185,
+    "n_unique_qmatrices": 5,
+    "modal_qmatrix_frequency": 1,
+    "modal_qmatrix_frequency_pct": 0.2,
+    "aligned": {
+      "element_wise_agreement": 0.95,
+      "fleiss_kappa": 0.8185,
+      "reference_run": 4,
+      "permutations_used": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "n_unique_qmatrices": 5,
+      "modal_qmatrix_frequency": 1,
+      "modal_qmatrix_frequency_pct": 0.2
+    }
+  }
+}

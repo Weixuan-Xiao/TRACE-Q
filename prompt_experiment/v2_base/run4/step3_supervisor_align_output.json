@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Convert mixed to improper",
+      "canonical_definition": "Convert mixed numbers (and whole numbers when needed) into equivalent improper fractions with a specified denominator.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts define the same conversion operation: rewriting mixed numbers a b/c as (a·c+b)/c and optionally rewriting whole numbers as equivalent fractions with a chosen denominator."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common (often least common) denominator for fractions and rewrite each as an equivalent fraction over that denominator.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe selecting a common/LCM denominator and scaling numerators/denominators to produce equivalent fractions with matching denominators."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract rational numbers",
+      "canonical_definition": "Compute the difference once quantities are in compatible form, typically by subtracting numerators over a common denominator and/or subtracting whole and fractional parts and combining the result.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and B explicitly include subtracting mixed numbers by parts as well as common-denominator subtraction; C focuses on fraction subtraction over a common denominator (including already-equal denominators). These are the same core computation step (performing the subtraction), with A/B slightly broader phrasing."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify final result",
+      "canonical_definition": "Express the computed result in simplest accepted form by reducing fractions and/or converting between improper fractions, mixed numbers, and integers when appropriate.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include reducing to lowest terms and normalizing the final form (e.g., converting improper to mixed, recognizing 0/3=0 or 8/8=1)."
+    }
+  ],
+  "alignment_summary": "Across the three codebooks, all skill_ids align cleanly into four shared concepts with full (3/3) consensus: converting mixed/whole numbers to improper fractions, finding a common denominator and generating equivalent fractions, performing the subtraction once forms are compatible, and simplifying/formatting the final result. No extra or unique (1/3) skills were present, and each expert’s S01–S04 mapped one-to-one to the same four concepts."
+}

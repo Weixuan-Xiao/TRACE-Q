@@ -1,0 +1,155 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Rational number arithmetic (fraction and mixed-number subtraction)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Convert to improper",
+        "definition": "Rewrite a mixed number or whole number as an equivalent improper fraction (or as a fraction with a specified denominator) to enable fraction operations.",
+        "inclusion_criteria": [
+          "A step rewrites a mixed number a b/c as (a·c+b)/c",
+          "A step rewrites a whole number n as an equivalent fraction n = (n·d)/d to match a needed denominator"
+        ],
+        "exclusion_criteria": [
+          "Only finding/choosing a common denominator (e.g., LCM) without converting a mixed/whole number",
+          "Only scaling a fraction a/b to an equivalent fraction with a new denominator when no mixed/whole-number conversion is involved",
+          "Only performing subtraction after forms are already compatible"
+        ],
+        "examples": [
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Determine a common denominator (often via LCM) for unlike fractions to prepare for subtraction.",
+        "inclusion_criteria": [
+          "A step explicitly computes an LCM or otherwise selects a target common denominator for two different denominators",
+          "A step states the chosen common denominator before (or while) rewriting fractions"
+        ],
+        "exclusion_criteria": [
+          "Denominators are already equal and no denominator-selection work is done",
+          "Only multiplying numerator and denominator to rewrite a fraction after the common denominator has already been chosen",
+          "Only simplifying/reducing after subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Scale equivalent fractions",
+        "definition": "Rewrite one or more fractions as equivalent fractions by multiplying numerator and denominator to reach a chosen common denominator.",
+        "inclusion_criteria": [
+          "A step rewrites a/b as (a·k)/(b·k) to match a specified common denominator",
+          "A step shows both quantities expressed over the same denominator as a result of scaling"
+        ],
+        "exclusion_criteria": [
+          "Only selecting the common denominator (e.g., computing LCM) without performing the rewriting",
+          "Only converting mixed/whole numbers to improper fractions without scaling to a new denominator",
+          "Only subtracting once denominators already match"
+        ],
+        "examples": [
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Subtract and simplify",
+        "definition": "Compute the difference once quantities are in compatible form and express the result in an acceptable simplified form.",
+        "inclusion_criteria": [
+          "A step subtracts numerators over a common denominator (x/d − y/d)",
+          "A step subtracts whole and fractional parts separately and recombines",
+          "A step reduces a resulting fraction to lowest terms and/or converts between improper fraction and mixed/whole-number form as the final presentation"
+        ],
+        "exclusion_criteria": [
+          "Only converting inputs (mixed↔improper or choosing/scaling denominators) without computing the difference",
+          "Only choosing a common denominator or scaling to equivalent fractions without subtracting",
+          "Purely restating the final answer with no computation or simplification action"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "keep",
+      "details": "Kept C01 as S01 (minor wording refinement to include whole-number-to-fraction with specified denominator).",
+      "reasoning": "C01 has 3/3 consensus and is diagnostically distinct from denominator alignment and subtraction."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C02 as S02 (denominator selection/LCM only).",
+      "reasoning": "C02 has 3/3 consensus and separates the decision of a common denominator from the mechanical scaling step, improving tagger reliability."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C03 as S03 (equivalent-fraction scaling to the chosen denominator).",
+      "reasoning": "C03 has 3/3 consensus and captures a distinct operation that is often a source of errors even when the LCM is known."
+    },
+    {
+      "action": "merge",
+      "details": "Merged C04 + C05 into S04 ('Subtract and simplify').",
+      "reasoning": "Although both had 3/3 consensus, the final codebook must contain exactly 4 skills; subtraction and final simplification/formatting are tightly coupled in these dossiers and can be reliably annotated together as the post-alignment execution phase."
+    }
+  ],
+  "summary": "Consolidated five fully-consensus candidates into exactly four skills by keeping the three preparation skills (conversion, common-denominator selection, and scaling) and merging the two end-stage skills (subtraction and simplify/format) into a single execution skill to satisfy the 4-skill constraint while preserving clear, distinct cognitive operations."
+}
