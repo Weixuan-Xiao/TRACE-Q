@@ -1,0 +1,201 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Align fractional forms",
+        "definition": "Rewrite quantities into compatible forms for subtraction, including finding common denominators, converting to equivalent fractions, rewriting a whole number with a zero fractional part, and normalizing a mixed number with an improper fractional part.",
+        "inclusion_criteria": [
+          "Tag when a step finds an LCD or common denominator before subtraction.",
+          "Tag when a fraction is converted to an equivalent fraction with the new denominator.",
+          "Tag when a whole number is rewritten as a whole plus 0 over a denominator to align with a fraction or mixed number.",
+          "Tag when a mixed number with an improper fractional part is rewritten as an equivalent standard mixed number before subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when denominators are already the same and no preparatory rewriting is performed.",
+          "Do not tag the arithmetic subtraction of already-aligned whole or fractional parts.",
+          "Do not tag borrowing or regrouping after subtraction has begun.",
+          "Do not tag final reduction or formatting of the answer."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Subtract aligned parts",
+        "definition": "Carry out subtraction once the quantities are in compatible form, including subtracting numerators of like-denominator fractions and subtracting whole-number and fractional parts of mixed numbers when no regrouping is performed in that step.",
+        "inclusion_criteria": [
+          "Tag when the solution subtracts numerators of fractions that already share a denominator.",
+          "Tag when the solution subtracts whole-number parts of mixed numbers or rewritten whole numbers.",
+          "Tag when the solution separately subtracts whole and fractional parts after any needed alignment has been completed."
+        ],
+        "exclusion_criteria": [
+          "Do not tag denominator-finding, equivalent-fraction conversion, whole-number rewriting, or mixed-number normalization steps.",
+          "Do not tag borrowing or regrouping steps that adjust the whole and fractional parts after a negative fractional result appears.",
+          "Do not tag simplification or final recombination alone."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Borrow across parts",
+        "definition": "Regroup by taking 1 from the whole-number part and converting it into fractional units so subtraction can continue when the fractional part would otherwise be negative.",
+        "inclusion_criteria": [
+          "Tag when the solution explicitly borrows 1 from the whole part.",
+          "Tag when the borrowed 1 is converted to denominator-over-denominator or equivalent fractional units and added to the existing fractional part.",
+          "Tag when subtraction is recomputed using the regrouped fractional part."
+        ],
+        "exclusion_criteria": [
+          "Do not tag ordinary subtraction when no regrouping is needed.",
+          "Do not tag initial rewriting of a whole number as a whole plus 0 over a denominator unless the step actually performs borrowing.",
+          "Do not tag final simplification or combining of already-computed parts."
+        ],
+        "examples": [
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS15",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS20",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify and express result",
+        "definition": "Reduce the computed difference to lowest terms and present it in an appropriate final form such as a fraction, mixed number, whole number, or 0.",
+        "inclusion_criteria": [
+          "Tag when the solution simplifies a fraction to lowest terms.",
+          "Tag when 0 over a denominator is rewritten as 0 or when a zero fractional part is removed.",
+          "Tag when whole and fractional parts are combined into the final reported mixed number, fraction, whole number, or 0."
+        ],
+        "exclusion_criteria": [
+          "Do not tag the arithmetic subtraction itself.",
+          "Do not tag denominator alignment, equivalent-fraction conversion, or mixed-number normalization steps.",
+          "Do not tag borrowing or regrouping unless the step's main purpose is the final simplified expression."
+        ],
+        "examples": [
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step4",
+              "Step5"
+            ]
+          },
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step5"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "keep",
+      "details": "Kept C01 as S01",
+      "reasoning": "This candidate had 3/3 consensus and captures a broad but coherent preparation process that is independently testable from subtraction, borrowing, and simplification. It also covers multiple observed dossier steps such as common-denominator conversion and rewriting whole numbers with zero fractional parts."
+    },
+    {
+      "action": "merge",
+      "details": "Merged C02 into S01",
+      "reasoning": "Normalize mixed numbers appeared in only 1 expert codebook and fewer than 3-4 items as a distinct operation. In the dossiers, it functions as a special case of preparatory rewriting before subtraction, not a separate downstream process. Keeping it separate would reduce minimality and create a narrow skill with weak identifiability."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C03 as S02",
+      "reasoning": "This candidate had 3/3 consensus and is clearly distinct from preparation, regrouping, and simplification. It is independently testable across many items where subtraction occurs without borrowing or reduction."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C04 as S03",
+      "reasoning": "Although only 2/3 experts separated borrowing, dossier evidence shows it is a distinct cognitive operation that does not always co-occur with simplification. Separating it improves diagnostic resolution because some items require regrouping without any nontrivial reduction, while others require simplification without regrouping."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C05 as S04",
+      "reasoning": "This candidate is distinct from subtraction and regrouping and appears in multiple items as a final reduction or expression step. It supports clarity of boundaries and preserves the A/C distinction between doing the arithmetic and formatting the final answer."
+    },
+    {
+      "action": "remove",
+      "details": "Removed C06 as a standalone candidate",
+      "reasoning": "C06 combines two cognitively different operations: regrouping and final simplification. Because these do not always co-occur and are independently testable in the dossiers, keeping them merged would violate non-redundancy and reduce diagnostic usefulness. Its coverage is preserved by S03 and S04."
+    },
+    {
+      "action": "refine",
+      "details": "Refined all retained skill definitions and criteria to clarify boundaries between alignment, subtraction, borrowing, and final expression",
+      "reasoning": "The expert codebooks differed mainly in granularity and boundary wording. Refinement was needed to ensure independent annotators can consistently distinguish preparatory rewriting from regrouping, and arithmetic subtraction from final simplification."
+    }
+  ],
+  "summary": "The final codebook adopts the four-skill structure most strongly supported by the dossiers and by experts A and C: preparation/alignment, subtraction, borrowing, and simplification. The only major consolidation choice was folding improper mixed-number normalization into alignment, because it is a narrow special case of preparatory rewriting rather than a stable standalone skill. Expert B's combined regroup-and-simplify skill was split conceptually into borrowing and simplification to preserve independence, completeness, and better Q-matrix identifiability."
+}

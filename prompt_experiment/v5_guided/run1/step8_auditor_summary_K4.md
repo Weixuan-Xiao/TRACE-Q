@@ -1,6 +1,6 @@
 # Q-Matrix Audit Summary Report
 
-Generated: 2026-03-26T00:22:41.730109+00:00
+Generated: 2026-03-26T04:15:57.238940+00:00
 
 ## Overview
 
@@ -13,13 +13,13 @@ Generated: 2026-03-26T00:22:41.730109+00:00
 
 | Item ID | Verdict | Add Skills | Remove Skills | Reasoning |
 |---------|---------|------------|---------------|-----------|
-| FS04 | controversial | S04 | - | Step1 explicitly normalizes the nonstandard mixed number 2 3/2 into 3 1/2, so S02 is required. Steps... |
+| FS15 | controversial | - | S03 | The solution explicitly rewrites the whole number as 2 + 0/3, which matches S01. It also borrows 1 f... |
 
 ## Skill Codebook Reference
 
 | Skill ID | Name | Definition |
 |----------|------|------------|
-| S01 | Align fractional forms | Rewrite quantities so their fractional parts are compatible for subtraction by f... |
-| S02 | Normalize mixed numbers | Convert a nonstandard mixed number with an improper fractional part into an equi... |
-| S03 | Subtract aligned parts | Subtract fractions with like denominators and/or subtract the whole-number and f... |
-| S04 | Regroup and simplify | Regroup one whole into fractional units when needed to complete subtraction, and... |
+| S01 | Align fraction forms | Rewrite quantities into compatible fractional forms for subtraction by finding a... |
+| S02 | Normalize mixed numbers | Convert a mixed number with an improper fractional part into an equivalent stand... |
+| S03 | Subtract aligned parts | Subtract like-denominator fractions and/or the whole-number and fractional parts... |
+| S04 | Regroup and simplify | When needed, borrow 1 from the whole part to complete the subtraction and expres... |

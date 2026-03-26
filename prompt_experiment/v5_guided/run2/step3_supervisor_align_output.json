@@ -2,76 +2,84 @@
   "candidate_skills": [
     {
       "canonical_id": "C01",
-      "canonical_name": "Create common denominator",
-      "canonical_definition": "Find a common denominator and rewrite one or more fractional parts as equivalent fractions with matching denominators before subtraction.",
-      "expert_a_skill_ids": [],
+      "canonical_name": "Align fractional forms",
+      "canonical_definition": "Rewrite quantities so their fractional parts are compatible for subtraction by recognizing or creating a common denominator, including rewriting a whole number with a zero fractional part when needed.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
       "expert_b_skill_ids": [
         "S01"
       ],
       "expert_c_skill_ids": [
         "S01"
       ],
-      "consensus": "2/3",
-      "alignment_notes": "B.S01 and C.S01 match directly in name, scope, and exclusions. A does include common-denominator work inside S01, but A.S01 is broader because it also includes rewriting whole numbers and normalizing mixed numbers, so A.S01 is aligned to a broader operand-rewriting concept instead of this narrower denominator-only concept."
+      "consensus": "3/3",
+      "alignment_notes": "A-S01, B-S01, and C-S01 all describe preparing fractions for subtraction through common denominators/equivalent fractions; all also include rewriting whole numbers with 0/n when that serves denominator alignment."
     },
     {
       "canonical_id": "C02",
-      "canonical_name": "Rewrite operand form",
-      "canonical_definition": "Rewrite a whole number or mixed number into a subtraction-ready form, such as adding a zero-fraction part, expressing a whole as whole plus fractional units, or normalizing a nonstandard mixed number.",
-      "expert_a_skill_ids": [
-        "S01"
-      ],
-      "expert_b_skill_ids": [],
-      "expert_c_skill_ids": [
-        "S02"
-      ],
-      "consensus": "2/3",
-      "alignment_notes": "A.S01 and C.S02 both cover preparatory rewriting beyond denominator alignment, including adding fractional parts to whole numbers and normalizing improper mixed numbers. B has no separate skill for this because B.S03 combines normalization with borrowing/regrouping, so no B skill is equivalent at this granularity."
-    },
-    {
-      "canonical_id": "C03",
-      "canonical_name": "Subtract aligned parts",
-      "canonical_definition": "Subtract fractions with a shared denominator and/or subtract whole-number and fractional parts separately once the quantities are in compatible form.",
+      "canonical_name": "Normalize mixed numbers",
+      "canonical_definition": "Convert a mixed number with an improper fractional part into an equivalent standard mixed number before subtracting.",
       "expert_a_skill_ids": [
         "S02"
       ],
       "expert_b_skill_ids": [
         "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts identify normalization of improper mixed-number forms as a distinct preprocessing skill. A-S02 and B-S02 are slightly broader because they also mention rewriting whole numbers into mixed-number structure, but that overlap is handled by the alignment skill in C01/C03; the shared core concept across all three is normalization of improper mixed numbers."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Rewrite composite numbers",
+      "canonical_definition": "Rewrite a whole number or mixed number into a subtraction-ready whole-and-fraction structure, such as expressing a whole number as a whole plus a zero fraction or decomposing a mixed number into parts.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "Only B-S02 explicitly includes a broader restructuring skill beyond normalization, namely rewriting whole numbers as whole + 0/fraction and decomposing mixed numbers into parts as a standalone concept. In A and C, those actions are absorbed into other skills rather than separated."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Carry out the subtraction once forms are compatible, including subtracting numerators of like-denominator fractions and subtracting whole and fractional parts of mixed numbers.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
       ],
       "expert_c_skill_ids": [
         "S03"
       ],
       "consensus": "3/3",
-      "alignment_notes": "All three experts define the same core computation step: perform subtraction after alignment or rewriting is complete, excluding denominator creation, regrouping, and final simplification."
-    },
-    {
-      "canonical_id": "C04",
-      "canonical_name": "Borrow across parts",
-      "canonical_definition": "Regroup one whole into fractional units so subtraction can continue when the fractional part of the minuend is too small.",
-      "expert_a_skill_ids": [
-        "S03"
-      ],
-      "expert_b_skill_ids": [],
-      "expert_c_skill_ids": [],
-      "consensus": "1/3",
-      "alignment_notes": "A.S03 isolates borrowing/regrouping as its own skill. B and C do include borrowing, but only inside broader combined skills that also include other operations, so there is no directly equivalent standalone skill in those codebooks."
+      "alignment_notes": "A-S03, B-S03, and C-S03 all represent the main subtraction operation after any needed rewriting or denominator alignment. C-S03 is slightly broader in allowing combination of parts when no borrowing is involved, but the central concept is the same."
     },
     {
       "canonical_id": "C05",
-      "canonical_name": "Normalize or regroup",
-      "canonical_definition": "Rewrite a quantity either by normalizing a nonstandard mixed number or by regrouping one whole into fractional units so subtraction can proceed correctly.",
-      "expert_a_skill_ids": [],
-      "expert_b_skill_ids": [
-        "S03"
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup one whole as fractional units to continue subtraction when the fractional part of the minuend is too small to subtract directly.",
+      "expert_a_skill_ids": [
+        "S04"
       ],
-      "expert_c_skill_ids": [],
-      "consensus": "1/3",
-      "alignment_notes": "B.S03 uniquely combines two ideas that other experts separate: normalization of improper mixed numbers and borrowing/regrouping. A splits these across A.S01 and A.S03, while C splits them across C.S02 and C.S04, so B.S03 stands as a broader composite concept without a single equivalent elsewhere."
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C-S04 isolates borrowing/regrouping, while A-S04 and B-S04 combine borrowing with simplification. The shared concept present in all three is regrouping across whole and fractional parts during subtraction."
     },
     {
       "canonical_id": "C06",
-      "canonical_name": "Simplify and express",
-      "canonical_definition": "Reduce a subtraction result to lowest terms and express it in an appropriate final form such as a fraction, mixed number, whole number, or zero.",
+      "canonical_name": "Simplify final result",
+      "canonical_definition": "Reduce the subtraction result to lowest terms or an integer form and present the final combined answer.",
       "expert_a_skill_ids": [
         "S04"
       ],
@@ -80,20 +88,8 @@
       ],
       "expert_c_skill_ids": [],
       "consensus": "2/3",
-      "alignment_notes": "A.S04 and B.S04 align closely as final-result processing skills focused on simplification and final expression. C does include simplification, but only bundled together with regrouping in C.S04, so C has no standalone equivalent at this level."
-    },
-    {
-      "canonical_id": "C07",
-      "canonical_name": "Regroup and simplify result",
-      "canonical_definition": "Borrow one whole into fractional units when needed and then express the result in lowest terms or final integer/mixed-number form.",
-      "expert_a_skill_ids": [],
-      "expert_b_skill_ids": [],
-      "expert_c_skill_ids": [
-        "S04"
-      ],
-      "consensus": "1/3",
-      "alignment_notes": "C.S04 uniquely combines borrowing/regrouping with final simplification and expression. A and B separate or differently bundle these operations, so no single A or B skill is equivalent to this exact composite concept."
+      "alignment_notes": "A-S04 and B-S04 explicitly include reducing fractions, simplifying zero fractions, and expressing the final answer as part of the same skill. C does not separate simplification into its own skill and instead limits S04 to borrowing and S03 to subtraction/combining without borrowing."
     }
   ],
-  "alignment_summary": "The three codebooks share strong consensus on the core subtraction operation and partial consensus on preparation and finalization steps, but they differ substantially in granularity. A separates preparation, subtraction, borrowing, and simplification; B separates common denominators and subtraction but combines normalization with regrouping; C separates denominator creation and operand rewriting but combines regrouping with simplification. Every expert skill_id was mapped exactly once, with several 1/3 concepts arising from these different bundling choices rather than from wholly unrelated content."
+  "alignment_summary": "The three codebooks share strong agreement on four core concepts: aligning fractional forms, normalizing improper mixed numbers, subtracting aligned parts, and borrowing/regrouping. The main differences are in granularity: Expert C separates borrowing from simplification, while Experts A and B combine them; Expert B also uses a broader rewrite skill that includes both normalization and expressing whole numbers with zero fractional parts. All skill IDs were mapped exactly once, with one-to-many alignment used where A/B bundled concepts that C split apart."
 }

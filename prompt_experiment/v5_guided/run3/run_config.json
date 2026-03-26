@@ -1,7 +1,8 @@
 {
-  "timestamp": "2026-03-26T00:31:13.949498+00:00",
+  "timestamp": "2026-03-26T04:25:23.170074+00:00",
   "model": "",
-  "prompts_dir": "prompts/v5_guided",
+  "seed": null,
+  "prompts_dir": "prompts\\v5_guided",
   "target_k_exact": 4,
   "n_taggers": 5,
   "consensus_mode": "threshold",

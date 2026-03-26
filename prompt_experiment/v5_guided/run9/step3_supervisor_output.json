@@ -1,0 +1,194 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Subtracting fractions, mixed numbers, and whole numbers with normalization, regrouping, and simplification",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Equalize fraction units",
+        "definition": "Find a common denominator and rewrite one or both fractional parts as equivalent fractions so the quantities are in the same fractional unit before subtraction.",
+        "inclusion_criteria": [
+          "Tag when a step explicitly finds an LCD or common denominator.",
+          "Tag when a step converts one or both fractions to equivalent fractions with the same denominator.",
+          "Tag when mixed-number fractional parts are rewritten to a shared denominator before subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when denominators are already the same and no equivalent-fraction conversion is performed.",
+          "Do not tag normalization of an improper mixed number such as 2 3/2 to 3 1/2.",
+          "Do not tag rewriting a whole number as a whole plus 0 over a denominator unless the step's main purpose is denominator matching."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Normalize subtraction form",
+        "definition": "Rewrite a whole or mixed number into a subtraction-ready structure, such as converting an improper mixed number to standard mixed form or expressing a whole number as a whole plus 0 over a denominator.",
+        "inclusion_criteria": [
+          "Tag when a mixed number with an improper fractional part is converted to an equivalent standard mixed number.",
+          "Tag when a whole number is rewritten as a whole plus 0 over a denominator to prepare for subtracting fractional parts.",
+          "Tag when a quantity is structurally rewritten before subtraction so whole and fractional parts can be compared."
+        ],
+        "exclusion_criteria": [
+          "Do not tag common-denominator conversion unless the main action is structural rewriting of the number.",
+          "Do not tag direct subtraction of already-ready whole and fractional parts.",
+          "Do not tag borrowing/regrouping after subtraction has begun."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract aligned parts",
+        "definition": "Subtract quantities once they are in compatible form, including subtracting numerators of like fractions and subtracting whole and fractional parts of mixed numbers when no regrouping is required in that step.",
+        "inclusion_criteria": [
+          "Tag when like-denominator fractions are subtracted by subtracting numerators.",
+          "Tag when whole parts and fractional parts of mixed numbers are subtracted directly after any needed preparation.",
+          "Tag when a step combines direct subtraction results into a result without borrowing."
+        ],
+        "exclusion_criteria": [
+          "Do not tag steps whose main purpose is finding a common denominator or rewriting number structure before subtraction.",
+          "Do not tag borrowing/regrouping steps where 1 whole is converted into fractional units.",
+          "Do not tag simplification-only steps such as reducing 2/10 to 1/5 or 0/3 to 0."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step2",
+              "Step3",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step1",
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Regroup or simplify",
+        "definition": "Adjust a subtraction result by borrowing one whole into fractional units when needed and/or reduce the resulting fraction, zero, mixed number, or integer to lowest or final form.",
+        "inclusion_criteria": [
+          "Tag when a step borrows 1 from the whole part and converts it into denominator-over-denominator fractional units.",
+          "Tag when subtraction is completed after regrouping.",
+          "Tag when a resulting fraction or zero is simplified to lowest terms or final form.",
+          "Tag when a final result is expressed cleanly as a mixed number, integer, or 0 after subtraction work is complete."
+        ],
+        "exclusion_criteria": [
+          "Do not tag initial denominator-finding or equivalent-fraction conversion steps.",
+          "Do not tag pre-subtraction normalization such as converting 2 4/3 to 3 1/3 or rewriting 2 as 2 + 0/3 before subtraction begins.",
+          "Do not tag direct subtraction cases where no regrouping or simplification/final-expression action occurs."
+        ],
+        "examples": [
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3",
+              "Step4",
+              "Step5"
+            ]
+          },
+          {
+            "item_id": "FS15",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "keep",
+      "details": "Kept C01 as S01",
+      "reasoning": "C01 had 3/3 consensus and is clearly independent from subtraction itself. It is broadly applicable but not universal, so it supports diagnostic separation between like- and unlike-denominator items."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C02 as S03",
+      "reasoning": "C02 had 3/3 consensus and captures the core subtraction operation after preparation is complete. It is distinct from denominator alignment, normalization, and regrouping/simplification."
+    },
+    {
+      "action": "refine",
+      "details": "Refined C03 into S02",
+      "reasoning": "C03 had 2/3 consensus and is supported by multiple dossier patterns: improper mixed-number normalization and rewriting wholes as whole plus 0 over a denominator. Refinement clarified that this is pre-subtraction structural rewriting, not denominator alignment or borrowing."
+    },
+    {
+      "action": "merge",
+      "details": "Merged C04 + C05 + C06 into S04",
+      "reasoning": "Borrowing alone appears in too few items to stand as a stable CDM skill, while simplification alone is also too narrow and not consistently separated by experts. The dossiers show a coherent post-subtraction family of actions: regroup if needed, then simplify and express the result. Merging improves identifiability and respects the observed expert granularity in B and C."
+    },
+    {
+      "action": "remove",
+      "details": "Removed standalone versions of C04 and C06 after merger into S04",
+      "reasoning": "Keeping borrowing-only or simplification-only as separate final skills would violate minimality and likely create sparse or unstable Q-matrix columns. Their cognitive boundaries are clearer and more useful when treated as one post-subtraction adjustment/finalization skill."
+    }
+  ],
+  "summary": "The final codebook preserves the two strongest consensus skills—denominator alignment and direct subtraction—while retaining a distinct pre-subtraction normalization skill and consolidating low-consensus borrowing/simplification candidates into one post-subtraction adjustment skill. This yields exactly four skills with clearer boundaries, better item coverage, and more diagnosable variation across fraction, mixed-number, whole-number, and regrouping cases."
+}

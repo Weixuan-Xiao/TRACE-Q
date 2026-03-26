@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Equalize fraction units",
+      "canonical_definition": "Make fractional parts compatible for subtraction by finding a common denominator and rewriting equivalent fractions, including rewriting a whole number as a whole plus 0 over the needed denominator when necessary.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01, B.S01, and C.S01 all describe the same preparatory operation: creating like denominators and optionally expressing a whole number with 0/d to align fractional parts before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize mixed form",
+      "canonical_definition": "Rewrite a mixed number with an improper fractional part into an equivalent standard whole-plus-proper-fraction form before subtraction.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S02, and C.S02 are direct matches: each isolates normalization of nonstandard mixed numbers such as converting 2 3/2 into 3 1/2 prior to subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract once quantities are in compatible form, including subtracting numerators of like-denominator fractions and subtracting whole and fractional parts of mixed numbers.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S03, B.S03, and C.S03 all cover the core subtraction step after setup. A is narrower in emphasizing no borrowing, while B and C allow a temporary negative fractional result before regrouping, but the shared concept is the direct subtraction operation on already-aligned parts."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Borrow one whole into fractional units when needed to complete subtraction and simplify or express the result in lowest terms or final mixed-number/integer form.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S04, B.S04, and C.S04 all combine regrouping/borrowing with post-subtraction simplification or final-form expression. C is slightly broader in mentioning final mixed-number/integer expression, but the underlying concept aligns across all three."
+    }
+  ],
+  "alignment_summary": "The three codebooks are highly consistent and align one-to-one across all skills. Each expert identified the same four core concepts: denominator alignment, mixed-number normalization, direct subtraction of aligned parts, and regrouping with simplification. No unique 1/3 or partial 2/3 concepts were present, and every skill_id maps cleanly to exactly one shared candidate skill."
+}

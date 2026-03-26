@@ -1,0 +1,89 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Align fractional forms",
+      "canonical_definition": "Rewrite quantities into compatible forms for subtraction, including finding a common denominator, converting to equivalent fractions, rewriting a whole number as a whole plus 0 over a denominator, and in some codebooks normalizing a mixed number with an improper fractional part.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include a broad alignment/preparation skill centered on making forms compatible for subtraction. A and C explicitly include normalizing improper mixed numbers inside this skill, while B limits this skill to denominator/whole-number alignment and separates normalization into its own skill."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize mixed numbers",
+      "canonical_definition": "Rewrite a mixed number with an improper fractional part as an equivalent standard mixed number with a proper fractional part before subtracting.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "Only expert B isolates normalization of improper mixed numbers as a separate concept. In A and C, this operation is absorbed into their broader alignment skill rather than treated as distinct."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Carry out subtraction once the quantities are in compatible form, including subtracting numerators of like-denominator fractions and subtracting whole-number and fractional parts of mixed numbers when no regrouping is required.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "This is a direct 3-way match: each expert has a skill for performing the actual subtraction after alignment, excluding preparatory rewriting and excluding borrowing/regrouping."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup by taking 1 from the whole-number part and converting it into fractional units so subtraction can continue when the fractional part would otherwise be negative.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "A and C both define borrowing/regrouping as its own skill. B includes the same borrowing operation, but folds it together with final simplification inside S04 rather than separating it."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed difference to lowest terms and present it in an appropriate final form such as a fraction, mixed number, whole number, or 0.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "A and C both isolate final simplification and expression of the answer as a separate skill. B includes these same actions, but combines them with borrowing/regrouping in S04."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Borrow or regroup when needed during subtraction and/or simplify the final result into lowest terms or an appropriate final form.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "Expert B uniquely combines two concepts that A and C separate: borrowing/regrouping and final simplification/expression. To preserve exact skill coverage with no orphaned IDs, B's combined skill is represented as its own candidate concept rather than being split across two candidates."
+    }
+  ],
+  "alignment_summary": "The three codebooks agree strongly on the core workflow: align forms, subtract aligned parts, and handle regrouping/simplification. The main structural difference is granularity. Experts A and C use four skills and separate borrowing from final simplification, while expert B uses four skills but splits out normalization of improper mixed numbers and combines borrowing with simplification. All skill IDs were mapped exactly once, preserving one-to-one coverage across the three expert codebooks."
+}

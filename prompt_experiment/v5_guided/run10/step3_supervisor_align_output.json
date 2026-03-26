@@ -1,0 +1,89 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Equalize fraction units",
+      "canonical_definition": "Rewrite quantities so their fractional parts are comparable for subtraction by finding a common denominator, creating equivalent fractions, and when needed rewriting a whole number as a whole plus 0 over the relevant denominator.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the setup step of making fractional parts compatible before subtraction. A and C explicitly include rewriting a whole number as a whole plus 0 over a denominator; B includes this more narrowly, but it is still the same core concept."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize number form",
+      "canonical_definition": "Rewrite a whole number or nonstandard mixed number into a usable subtraction form, such as expressing a whole number with a zero fractional part or converting an improper mixed number to a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A S02 and B S02 both isolate normalization before subtraction as a distinct skill. C does not separate this cleanly; C S03 combines normalization with borrowing/regrouping, so it aligns better to a broader restructuring concept rather than this standalone normalization-only concept."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Perform the subtraction once quantities are in compatible form, including subtracting numerators of like fractions and subtracting whole-number and fractional parts of mixed numbers.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "This is a direct 1-to-1-to-1 match across the three codebooks. All three define the actual subtraction step after alignment/setup is complete."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Regroup or normalize",
+      "canonical_definition": "Restructure a number before or during subtraction by converting a nonstandard mixed number to standard form or by borrowing 1 whole and rewriting it as fractional units when needed.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "C uniquely combines two ideas that A and B keep separate: pre-subtraction normalization and in-process borrowing/regrouping. Because every skill_id must map exactly once, C S03 is treated as its own broader concept rather than being split across A/B concepts."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Borrow from the whole part when fractional subtraction would be negative and/or reduce the resulting fraction or zero form to lowest terms and final mixed-number or integer form.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A S04 and B S04 match closely in combining borrowing/regrouping with simplification/final-form expression. C splits this territory differently, placing regrouping in S03 and simplification/final expression in S04, so no single C skill is equivalent to the combined A/B concept."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, or integer.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "C uniquely separates simplification/final expression from regrouping and from the subtraction step itself. In A and B, these actions are bundled with regrouping in S04 or partially included in subtraction, so there is no standalone equivalent skill."
+    }
+  ],
+  "alignment_summary": "The three codebooks agree strongly on denominator alignment and on the core subtraction step. The main structural difference is in how post-setup transformations are partitioned: A and B separate normalization from subtraction and combine regrouping with simplification, while C combines normalization with regrouping and separates simplification into its own skill. All expert skill_ids were mapped exactly once, preserving these granularity differences without making consolidation decisions."
+}

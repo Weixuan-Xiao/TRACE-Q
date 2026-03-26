@@ -1,36 +1,35 @@
 # Q-Matrix Reliability Report
 
 ## Codebook Summary
-- Domain: Subtracting fractions, mixed numbers, and whole numbers, including denominator alignment, operand rewriting, regrouping, and simplification
+- Domain: Subtracting fractions, mixed numbers, and whole numbers with simplification
 - Number of skills (K): 4
 
 ## Inter-Rater Reliability
 
 - N items: 20
-- Full agreement rate (5/5): 0.850
-- Supermajority rate (>=4/5): 0.900
-- Adjudication rate: 0.100
-- Average pairwise Jaccard: 0.963
+- Full agreement rate (5/5): 0.900
+- Supermajority rate (>=4/5): 0.950
+- Adjudication rate: 0.050
+- Average pairwise Jaccard: 0.977
 
 ## Skill Codebook
 
 | skill_id | name | definition |
 |----------|------|------------|
-| S01 | Create common denominator | Find a common denominator and rewrite one or more fractional parts as equivalent fractions with matching denominators before subtraction. |
-| S02 | Rewrite operand form | Rewrite a whole number, mixed number, or nonstandard mixed number into a subtraction-ready form without performing the subtraction itself. |
-| S03 | Subtract aligned parts | Carry out subtraction once the quantities are in compatible form, including subtracting like-fraction numerators and/or subtracting whole and fractional parts separately. |
-| S04 | Regroup and finalize | When needed, borrow one whole into fractional units and/or express the computed result in lowest terms or final whole-number/mixed-number form. |
+| S01 | Align fractional forms | Rewrite quantities so their fractional parts are compatible for subtraction by finding or recognizing a common denominator, including rewriting a whole number with a zero fractional part when that serves denominator alignment. |
+| S02 | Normalize mixed numbers | Convert a mixed number with an improper fractional part into an equivalent standard mixed number before subtraction. |
+| S03 | Subtract aligned parts | Carry out the subtraction once forms are compatible, including subtracting numerators of like-denominator fractions and subtracting whole and fractional parts when no regrouping is the focus. |
+| S04 | Regroup or simplify | Regroup one whole as fractional units when needed to complete subtraction, and/or simplify the resulting fraction or mixed number to lowest terms or integer form. |
 
 ## Per-Skill Frequency in Final Q
 
 | skill_id | name | count | rate |
 |----------|------|------:|-----:|
-| S01 | Create common denominator | 5 | 0.250 |
-| S02 | Rewrite operand form | 9 | 0.450 |
-| S03 | Subtract aligned parts | 20 | 1.000 |
-| S04 | Regroup and finalize | 15 | 0.750 |
+| S01 | Align fractional forms | 10 | 0.500 |
+| S02 | Normalize mixed numbers | 4 | 0.200 |
+| S03 | Subtract aligned parts | 18 | 0.900 |
+| S04 | Regroup or simplify | 12 | 0.600 |
 
 ## Items Requiring Adjudication
 
-- FS14: T1=['S03']; T2=['S03', 'S04']; T3=['S03', 'S04']; T4=['S03']; T5=['S03', 'S04']
-- FS16: T1=['S03']; T2=['S03']; T3=['S03']; T4=['S03', 'S04']; T5=['S03', 'S04']
+- FS17: T1=['S01', 'S03', 'S04']; T2=['S04']; T3=['S01', 'S04']; T4=['S01', 'S03', 'S04']; T5=['S01', 'S04']
