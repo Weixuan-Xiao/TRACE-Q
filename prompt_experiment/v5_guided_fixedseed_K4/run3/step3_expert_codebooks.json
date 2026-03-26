@@ -1,0 +1,511 @@
+{
+  "A": {
+    "version": "v1",
+    "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification to lowest terms",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Align fractional forms",
+        "definition": "Rewrite quantities so the fractional parts are in a directly comparable form, such as finding a common denominator or expressing a whole number with a matching fractional part.",
+        "inclusion_criteria": [
+          "Tag when the solution finds an LCD/common denominator and converts fractions to equivalent fractions.",
+          "Tag when a whole number is rewritten as a whole plus 0/n to match the denominator used in subtraction.",
+          "Tag when mixed-number fraction parts are converted to equivalent fractions with a shared denominator before subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when denominators already match and no rewriting is performed.",
+          "Do not tag for simplifying a fraction after subtraction.",
+          "Do not tag for normalizing an improper mixed number into a standard mixed number; that belongs to S02."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Normalize mixed numbers",
+        "definition": "Convert a nonstandard mixed number with an improper fractional part into an equivalent standard mixed number before subtracting.",
+        "inclusion_criteria": [
+          "Tag when a mixed number like 2 3/2 or 1 5/3 is rewritten as an equivalent standard mixed number.",
+          "Tag when the solver explicitly states that a mixed number with an improper fraction part is normalized before subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for finding common denominators or equivalent fractions.",
+          "Do not tag for rewriting a whole number as a whole plus 0/n.",
+          "Do not tag for borrowing/regrouping during subtraction."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS11",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS20",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract aligned parts",
+        "definition": "Subtract the relevant whole-number parts and/or fractional numerators once the quantities are already aligned for subtraction.",
+        "inclusion_criteria": [
+          "Tag when the solution subtracts numerators of fractions with the same denominator.",
+          "Tag when the solution subtracts whole parts and fraction parts of mixed numbers without borrowing.",
+          "Tag when the solution combines the already-subtracted whole and fractional results into the final mixed number or integer."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for creating common denominators or rewriting whole numbers to match denominators.",
+          "Do not tag for converting improper mixed numbers to standard mixed numbers.",
+          "Do not tag for borrowing/regrouping when the fractional part would otherwise be negative.",
+          "Do not tag for reducing a nonfinal fraction to lowest terms."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step2",
+              "Step3",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step2",
+              "Step3",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS12",
+            "step_ids": [
+              "Step2",
+              "Step3",
+              "Step4",
+              "Step5"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrow across parts",
+        "definition": "Regroup one whole as fractional units to continue subtraction when the fractional part of the minuend is smaller than the fractional part of the subtrahend.",
+        "inclusion_criteria": [
+          "Tag when the solution shows a negative fractional difference and then borrows 1 from the whole part.",
+          "Tag when 1 whole is converted into n/n and added to the existing fractional part before subtracting.",
+          "Tag when borrowing is used in mixed-number subtraction or whole-minus-fraction subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when subtraction is completed without regrouping.",
+          "Do not tag for merely subtracting aligned parts after borrowing has already been set up; that subtraction itself belongs to S03.",
+          "Do not tag for simplifying the final answer."
+        ],
+        "examples": [
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS17",
+            "step_ids": [
+              "Step4"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "C": {
+    "version": "v1",
+    "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification to lowest terms",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Equalize fraction units",
+        "definition": "Find a common denominator and rewrite fractions as equivalent fractions so they can be subtracted.",
+        "inclusion_criteria": [
+          "Tag when the solution explicitly finds an LCD or common denominator.",
+          "Tag when one or both fractions are converted to equivalent fractions before subtraction.",
+          "Tag for unlike-denominator fraction subtraction within pure fractions or mixed-number fraction parts."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when denominators are already the same and no conversion is performed.",
+          "Do not tag for simplifying a fraction after subtraction.",
+          "Do not tag for rewriting a whole number as a mixed number with 0 over an existing denominator unless no denominator conversion occurs."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Normalize operands",
+        "definition": "Rewrite a whole number or nonstandard mixed number into a compatible standard form before subtraction.",
+        "inclusion_criteria": [
+          "Tag when a mixed number with an improper fraction part is normalized, such as 2 3/2 to 3 1/2.",
+          "Tag when a whole number is rewritten as a mixed number or as a whole plus 0 over a denominator.",
+          "Tag when the setup changes operand form so whole and fractional parts can be aligned for subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for borrowing during subtraction after the initial setup.",
+          "Do not tag for finding a common denominator between unlike fractions.",
+          "Do not tag when the operands are already in usable form and no rewriting occurs."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract aligned parts",
+        "definition": "Subtract fractions with like denominators and/or subtract the whole-number and fractional parts once the quantities are in compatible form.",
+        "inclusion_criteria": [
+          "Tag when numerators are subtracted over a common denominator.",
+          "Tag when whole parts and fraction parts of mixed numbers are subtracted separately.",
+          "Tag when subtraction is carried out after normalization or denominator equalization, including intermediate negative fractional results before borrowing."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for the preparatory rewriting of operands into standard form.",
+          "Do not tag for borrowing or regrouping from the whole part to fix a negative fractional part.",
+          "Do not tag for final simplification such as reducing 9/12 to 3/4 or converting 0/3 to 0."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S04",
+        "name": "Regroup and simplify result",
+        "definition": "Borrow from the whole part when needed and express the final difference in lowest terms or integer/mixed-number form.",
+        "inclusion_criteria": [
+          "Tag when 1 whole is regrouped as denominator-over-denominator and added to the fractional part.",
+          "Tag when a negative fractional part triggers borrowing or regrouping.",
+          "Tag when the result is reduced to lowest terms, converted from a zero fraction to an integer, or combined into final mixed-number form."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for ordinary subtraction that does not require borrowing and does not include simplification beyond direct statement of the result.",
+          "Do not tag for finding common denominators.",
+          "Do not tag for initial operand normalization such as rewriting a whole number as 3 + 0/5."
+        ],
+        "examples": [
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3",
+              "Step5",
+              "Step6"
+            ]
+          },
+          {
+            "item_id": "FS17",
+            "step_ids": [
+              "Step4",
+              "Step5",
+              "Step6"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "B": {
+    "version": "v1",
+    "domain": "Subtracting fractions and mixed numbers, including common denominators, denominator alignment, borrowing, normalization, and simplification",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Align fractional forms",
+        "definition": "Rewrite fractional quantities into a compatible form for subtraction by finding a common denominator or expressing a whole number with a fractional part of the needed denominator.",
+        "inclusion_criteria": [
+          "Tag when the solution finds an LCD/common denominator and converts one or both fractions to equivalent fractions.",
+          "Tag when a whole number is rewritten as a whole plus 0 over a stated denominator to match the fractional part in subtraction.",
+          "Tag when denominator alignment is explicitly performed before subtracting fraction parts."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when fractions already share a denominator and no rewriting is needed.",
+          "Do not tag for simplifying a fraction such as 4/10 to 2/5; that is not denominator alignment for subtraction.",
+          "Do not tag for borrowing/regrouping after subtraction has begun."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Normalize or simplify terms",
+        "definition": "Rewrite a given number into an equivalent simpler standard form before subtraction, such as converting a mixed number with an improper fractional part to a proper mixed number or reducing a fractional part.",
+        "inclusion_criteria": [
+          "Tag when a mixed number with an improper fraction part is normalized, such as 2 3/2 to 3 1/2.",
+          "Tag when a fractional part is simplified before subtraction, such as 4/10 to 2/5.",
+          "Tag when the step explicitly rewrites one operand into an equivalent cleaner form prior to the main subtraction."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for finding a common denominator between unlike fractions; that belongs to denominator alignment.",
+          "Do not tag for simplifying the final answer after subtraction unless the simplification is clearly part of rewriting an operand before subtraction.",
+          "Do not tag for borrowing/regrouping."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract aligned parts",
+        "definition": "Carry out subtraction once forms are compatible, including subtracting numerators of like-denominator fractions and subtracting whole and fractional parts of mixed numbers.",
+        "inclusion_criteria": [
+          "Tag when the solution subtracts numerators of fractions with the same denominator.",
+          "Tag when the solution subtracts whole parts and fraction parts separately in a mixed-number problem.",
+          "Tag when the subtraction step produces an intermediate negative fractional part that may later require borrowing."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for the preparatory rewriting needed to make forms compatible.",
+          "Do not tag for borrowing/regrouping itself.",
+          "Do not tag for final reduction such as turning 9/12 into 3/4."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2",
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01",
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Regroup and finalize",
+        "definition": "Resolve subtraction results by borrowing/regrouping when needed and expressing the final result in simplest valid form, including reducing fractions or writing 0 or an integer when appropriate.",
+        "inclusion_criteria": [
+          "Tag when 1 is borrowed from the whole part and converted into fractional units to continue subtraction.",
+          "Tag when the result is simplified after subtraction, such as 9/12 to 3/4 or 0/3 to 0.",
+          "Tag when whole and fractional parts are combined into the final mixed number, fraction, integer, or zero."
+        ],
+        "exclusion_criteria": [
+          "Do not tag for initial normalization of an operand before subtraction.",
+          "Do not tag for merely performing the raw subtraction of aligned parts without regrouping or final-form processing.",
+          "Do not tag for finding a common denominator."
+        ],
+        "examples": [
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3",
+              "Step5",
+              "Step6"
+            ]
+          },
+          {
+            "item_id": "FS17",
+            "step_ids": [
+              "Step4",
+              "Step5",
+              "Step6"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  }
+}

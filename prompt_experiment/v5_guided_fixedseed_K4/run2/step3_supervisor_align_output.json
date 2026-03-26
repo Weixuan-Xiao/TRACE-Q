@@ -1,0 +1,101 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Match denominators",
+      "canonical_definition": "Find a common denominator and rewrite one or both fractions as equivalent fractions so the fractional parts are directly subtractable.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include the common-denominator/equivalent-fraction operation. A and B bundle this with other rewriting cases, but the shared core across all three is denominator matching for unlike fractions."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize mixed numbers",
+      "canonical_definition": "Convert a mixed number with an improper fractional part into an equivalent standard mixed number before subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A includes normalization inside Equalize fraction forms, B isolates it as its own skill, and C includes it within Regroup or normalize. The concept is clearly the same: carrying whole units out of an improper fractional part in a mixed number."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Rewrite whole as mixed form",
+      "canonical_definition": "Rewrite a whole number as a whole plus a zero-valued fractional part with the needed denominator to support mixed-number subtraction.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A treats rewriting n as n + 0/d as part of regrouping/decomposition, B places it in Equalize fraction forms, and C includes it in Regroup or normalize. Despite different placements, the represented operation is the same."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Perform subtraction once forms are compatible by subtracting numerators of like fractions and/or subtracting whole-number and fractional parts separately in mixed numbers.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "This is a direct three-way match: all experts describe the actual subtraction after alignment, excluding preparation, borrowing, and simplification."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Borrow for subtraction",
+      "canonical_definition": "Regroup during subtraction by borrowing 1 whole from the whole-number part and converting it into denominator-sized fractional units when the fractional part is insufficient.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A's Regroup for subtraction, B's Regroup and simplify, and C's Regroup or normalize all include the borrowing/decomposition step used after a negative or insufficient fractional part appears."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, whole number, or zero.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and C match exactly. B combines simplification with regrouping, so B S04 maps here as well for its simplification/final-expression component."
+    }
+  ],
+  "alignment_summary": "The three codebooks share the same major procedural concepts for fraction and mixed-number subtraction, but differ in granularity. Expert A combines common-denominator work with mixed-number normalization, Expert B combines regrouping with simplification and places whole-to-mixed rewriting under equalization, and Expert C combines normalization, whole-to-mixed rewriting, and borrowing into one broader representation-change skill. To preserve all concepts without losing any skill IDs, the alignment separates six distinct cognitive concepts and maps broader expert skills to multiple canonical concepts where needed."
+}

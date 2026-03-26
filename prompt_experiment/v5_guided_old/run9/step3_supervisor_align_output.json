@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Common denominator conversion",
+      "canonical_definition": "Find a least common denominator (LCD) and rewrite one or both fractions as equivalent fractions with that denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use the same skill name and essentially identical definition focused on finding an LCD/LCM and converting to equivalent fractions with a shared denominator."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract aligned quantities",
+      "canonical_definition": "Subtract once quantities are in compatible form (same denominator and/or separated whole and fractional parts) by subtracting numerators and/or whole-number parts and combining the result.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S02, B:S02, and C:S02 all describe executing the subtraction after alignment (like denominators or separated whole/fraction parts) and combining into a single result."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Regroup/borrow for subtraction",
+      "canonical_definition": "Regroup by borrowing 1 from the whole-number part (or rewriting a whole as a mixed form) to make the fractional subtraction nonnegative, then continue the subtraction.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S03 and B:S03 explicitly include borrowing 1 whole into fractional units to avoid a negative fractional subtraction; C isolates this same borrowing/regrouping operation as S04."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Simplify to lowest terms",
+      "canonical_definition": "Reduce fractions (including zero fractions) to lowest terms and express the final value in simplest acceptable form (integer, proper/improper fraction, or mixed number).",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A:S04 and B:S04 are dedicated simplification skills; C combines rewriting and simplification in S03, but its inclusion criteria explicitly cover reducing fractions and simplifying to integers, matching this concept."
+    }
+  ],
+  "alignment_summary": "Across the three codebooks, four distinct concepts cover the full workflow: (1) converting to a common denominator, (2) performing the subtraction once aligned, (3) borrowing/regrouping from the whole part when needed, and (4) simplifying the result. Expert C splits borrowing into its own skill (S04) but merges simplification with other rewriting actions (S03), which aligns most directly with the simplify-to-lowest-terms concept used by A and B."
+}

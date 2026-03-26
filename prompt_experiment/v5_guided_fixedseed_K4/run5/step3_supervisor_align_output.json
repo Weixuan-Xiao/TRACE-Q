@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a quantity into a subtraction-ready equivalent form before subtracting, such as simplifying a fraction part, converting an improper mixed form, rewriting a whole number with a fractional part, or converting a mixed number to an improper fraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same preparatory rewriting skill with nearly identical scope and examples: making operands workable before subtraction without yet performing denominator alignment, regrouping, or subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Align denominators",
+      "canonical_definition": "Find a least common denominator and rewrite unlike fractions as equivalent fractions with that common denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S02, and C.S02 are direct matches: each covers finding a common denominator/LCD and converting fractions, including fractional parts of mixed numbers, into equivalent forms for subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Carry out the subtraction once forms are aligned, including subtracting numerators for like fractions or subtracting whole and fractional parts of mixed numbers when no regrouping is needed.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "These three skills all represent the core subtraction operation after setup is complete. Wording varies slightly ('parts' vs 'components'), but all exclude denominator conversion and borrowing/regrouping."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow in subtraction",
+      "canonical_definition": "Regroup one whole as an equivalent fractional amount to continue subtraction when the fractional part of the minuend is too small, and in some codebooks this same skill also includes simplifying the resulting answer.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include the borrowing/regrouping concept. A.S04 and C.S04 bundle regrouping with post-subtraction simplification, while B.S04 is narrower and focuses only on borrowing. They still share the same central cognitive concept of regrouping to enable subtraction."
+    }
+  ],
+  "alignment_summary": "The three codebooks are highly aligned structurally: each contains four corresponding skills covering operand normalization, denominator alignment, subtraction after alignment, and regrouping/borrowing. The only notable variation is in the fourth skill, where Experts A and C combine borrowing with simplification, while Expert B isolates borrowing alone. No additional unique skill concepts appeared, and every skill_id maps cleanly to exactly one aligned candidate."
+}

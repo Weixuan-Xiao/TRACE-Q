@@ -1,0 +1,179 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Subtracting fractions and mixed numbers (including regrouping and simplification)",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Common denominator conversion",
+        "definition": "Find a least common denominator (LCD) and rewrite one or both fractions as equivalent fractions with that denominator before subtracting.",
+        "inclusion_criteria": [
+          "Explicitly determines an LCD/LCM for two denominators",
+          "Rewrites one or both fractions (including the fractional parts of mixed numbers) into equivalent fractions with a shared denominator as setup for subtraction"
+        ],
+        "exclusion_criteria": [
+          "Fractions already share a denominator and no conversion is performed",
+          "Only rewrites a whole number as n/n (e.g., 1 = 3/3) without an LCD step or without changing denominators between the two fractions"
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Subtract aligned fractions",
+        "definition": "Subtract fractions once denominators match by subtracting numerators and keeping the common denominator (including within mixed-number subtraction).",
+        "inclusion_criteria": [
+          "Performs fraction subtraction with like denominators (whether originally like or made like via conversion)",
+          "Shows or implies numerator subtraction over a common denominator (a/b − c/b = (a−c)/b), including results of 0 or negative intermediate fraction differences"
+        ],
+        "exclusion_criteria": [
+          "Only subtracts whole-number parts with no fractional subtraction",
+          "Only reduces/simplifies a fraction or converts to a mixed number without performing a subtraction"
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2",
+              "Step4"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S01"
+        ]
+      },
+      {
+        "skill_id": "S03",
+        "name": "Mixed-number regrouping",
+        "definition": "Rewrite or regroup whole and fractional parts (including borrowing 1 as b/b, rewriting a whole number as a mixed number, or converting mixed to improper) to make subtraction possible or to set up the subtraction.",
+        "inclusion_criteria": [
+          "Borrows/regroups from the whole part to the fraction part (e.g., decrease whole by 1 and add b/b to the fractional part) to avoid a negative fractional subtraction",
+          "Rewrites a whole number as a mixed number with a chosen denominator (e.g., 3 as 3 0/5 or 2 as 1 3/3) to enable subtracting a fraction",
+          "Converts between mixed numbers and improper fractions as part of setting up a subtraction (not merely as final formatting)"
+        ],
+        "exclusion_criteria": [
+          "Only finds an LCD and converts fractions to a common denominator (tag S01 instead)",
+          "Only performs the numerator subtraction once the expression is already set up (tag S02 instead)",
+          "Only simplifies/reduces or converts the final result to a mixed number/integer (tag S04 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1",
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS20",
+            "step_ids": [
+              "Step1"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplify and express result",
+        "definition": "Reduce the final fraction to lowest terms and express the final value in an appropriate form (integer, proper fraction, or mixed number).",
+        "inclusion_criteria": [
+          "Reduces a fraction by dividing numerator and denominator by a common factor",
+          "Simplifies 0/b to 0 or otherwise expresses an integer result",
+          "Converts an improper fraction to a mixed number (or combines whole+fraction) as the final answer form"
+        ],
+        "exclusion_criteria": [
+          "Only performs common-denominator conversion or subtraction without any reduction or final-form conversion",
+          "Intermediate conversions/regrouping used to enable subtraction rather than to present the final answer (tag S03 instead)"
+        ],
+        "examples": [
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step4",
+              "Step5"
+            ]
+          },
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS20",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S02"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "keep",
+      "details": "Kept C01 as S01 (Common denominator conversion) with minor wording harmonization across A/B/C.",
+      "reasoning": "3/3 consensus and clearly distinct preparatory operation that is diagnostically important for unlike-denominator subtraction."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C02 as S02 (Subtract aligned fractions) and clarified that negative/zero intermediate results still count.",
+      "reasoning": "3/3 consensus and core computation step separable from denominator conversion and from regrouping/simplification."
+    },
+    {
+      "action": "refine",
+      "details": "Refined C03 into S03 (Mixed-number regrouping) to explicitly include mixed↔improper conversion when used as setup, while excluding final-answer conversion (S04).",
+      "reasoning": "3/3 consensus; experts differed slightly on whether mixed↔improper conversion belongs here, so definition/criteria were tightened to preserve consistent tagging."
+    },
+    {
+      "action": "refine",
+      "details": "Refined C04 into S04 (Simplify and express result) to focus on final reduction and final-form expression, separating it from regrouping/borrowing.",
+      "reasoning": "3/3 consensus; expert B bundled regrouping with simplification, but separating improves distinctness and annotation reliability while preserving the shared concept."
+    }
+  ],
+  "summary": "All aligned candidates had full 3/3 expert consensus, so the unified codebook retains four skills corresponding to: (1) common-denominator conversion, (2) fraction subtraction with aligned denominators, (3) mixed-number regrouping/restructuring to enable subtraction, and (4) final simplification and answer formatting. Minor refinements were made to sharpen boundaries between regrouping (setup) and simplification (final expression)."
+}

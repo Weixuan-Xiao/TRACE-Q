@@ -1,0 +1,85 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Align fractional forms",
+      "canonical_definition": "Rewrite quantities into compatible fractional forms before subtraction by finding a common denominator, converting to equivalent fractions, and/or rewriting a whole number with a fractional part such as 0/d.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include the same preparatory alignment concept: finding common denominators, rewriting equivalent fractions, and expressing whole numbers with 0/d to enable subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize mixed numbers",
+      "canonical_definition": "Convert a mixed number with an improper or otherwise nonstandard fractional part into a standard equivalent mixed number before subtracting.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "Expert A embeds normalization of malformed mixed numbers inside Align fractional forms, while Experts B and C separate it as its own skill. This is a one-to-many alignment from A's broader S01 to B.S02 and C.S02."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Carry out the subtraction once forms are compatible, including subtracting numerators of like fractions and subtracting whole-number and fractional parts of mixed numbers.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02 and C.S03 match directly. B.S03 is broader because it also includes regrouping, but it clearly contains the same core subtraction operation."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup by borrowing 1 from the whole part and converting it into fractional units when the fractional part of the minuend is too small to subtract directly.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S03 is a direct regrouping skill. B.S03 combines subtraction and regrouping, so it maps here as well as to the core subtraction concept. C.S04 includes borrowing/regrouping together with simplification, so it partially aligns here."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and express it appropriately as a fraction, mixed number, whole number, or zero.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S04 and B.S04 match directly. C.S04 is broader because it combines regrouping with final simplification and expression, but it clearly includes this same end-of-solution concept."
+    }
+  ],
+  "alignment_summary": "The three codebooks share the same overall workflow for fraction and mixed-number subtraction: prepare compatible forms, perform subtraction, regroup when needed, and simplify the result. The main structural differences are that Expert A folds mixed-number normalization into alignment, Expert B folds regrouping into subtraction, and Expert C folds regrouping into final simplification. All skills were aligned into five underlying concepts, with several one-to-many mappings required because some experts used broader composite skills."
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-03-25T21:07:18.740467+00:00",
+  "model": "",
+  "prompts_dir": "prompts/v5_guided",
+  "target_k_exact": 4,
+  "n_taggers": 5,
+  "consensus_mode": "threshold",
+  "include_threshold": 4,
+  "exclude_threshold": 1,
+  "skip_stages": "",
+  "input": "data/items.jsonl"
+}

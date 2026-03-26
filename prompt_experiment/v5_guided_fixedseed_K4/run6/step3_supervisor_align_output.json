@@ -1,0 +1,99 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number, fraction, or mixed number into a subtraction-ready equivalent form, such as converting an improper mixed number to standard form or expressing a whole number as a whole plus a fractional part.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B.S01 and C.S01 are essentially identical in name, scope, and examples. A.S01 is broader because it also includes denominator matching and preparatory simplification of fraction parts, so it is not equivalent to this narrower normalization-only concept."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Align fractional units",
+      "canonical_definition": "Create equivalent fractional parts with a common denominator or otherwise equivalent aligned form so the fractions can be directly subtracted.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B.S02 and C.S02 both isolate the common-denominator/equivalent-fraction operation. A does not separate this from other preparatory rewrites; instead A.S01 bundles alignment with normalization and some preparatory simplification."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Combined preparation",
+      "canonical_definition": "Rewrite quantities into subtraction-ready forms by normalizing operands, aligning fractional parts, or simplifying a fraction part before subtraction when these preparatory transformations are treated as one skill.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A.S01 combines content that B and C split across normalization and denominator alignment. To preserve exact coverage and avoid assigning A.S01 to multiple candidates, it is represented as its own bundled concept."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with like denominators and/or subtract the whole-number and fractional parts of mixed-number expressions once the quantities are in compatible forms, without regrouping.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "A.S02 and C.S03 both focus on subtraction after forms are aligned and explicitly exclude borrowing/regrouping. B does not isolate this non-regrouping case because B.S03 combines ordinary subtraction with regrouping."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Subtract with regrouping",
+      "canonical_definition": "Carry out subtraction when borrowing one whole into fractional units is needed, including the regrouping step and the subsequent subtraction.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A.S03 and B.S03 both include borrowing/regrouping as part of the subtraction process. C separates ordinary subtraction from regrouping, so C.S04 is not fully equivalent because it also includes simplification."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Final result simplification",
+      "canonical_definition": "Express the computed difference in valid final form by combining whole and fractional parts as needed and reducing the result to lowest terms or to an integer when appropriate.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A.S04 and B.S04 closely match in focusing on final-form expression and simplification after subtraction. C does not isolate final simplification as a standalone post-subtraction skill."
+    },
+    {
+      "canonical_id": "C07",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Borrow one whole into fractional units when needed for subtraction and simplify the resulting fraction or zero form to lowest terms.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "C.S04 uniquely bundles regrouping with simplification. This does not exactly match A.S03 or B.S03, which focus on regrouping/subtraction, nor A.S04 or B.S04, which focus on final simplification."
+    }
+  ],
+  "alignment_summary": "The three codebooks share a common overall structure but differ in granularity. B and C both split preparation into operand normalization and denominator alignment, while A combines these into one broader preparatory skill. A and C both separate ordinary subtraction from regrouping, whereas B combines them. A and B both isolate final simplification as a separate skill, while C folds simplification into its regrouping skill. All skill IDs were mapped exactly once, preserving each expert's chosen granularity."
+}

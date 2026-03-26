@@ -1,0 +1,69 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Common denominator conversion",
+      "canonical_definition": "Find a least common denominator (LCD/LCM) and rewrite one or both fractions as equivalent fractions with that common denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same operation: determining an LCD/LCM for denominators and converting to equivalent fractions with a shared denominator as a prerequisite to subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract fraction parts",
+      "canonical_definition": "Once denominators match, subtract the numerators and keep the common denominator (including results of 0 or negative fractions).",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "Each codebook includes a skill for executing the actual fraction subtraction with like denominators (numerator subtraction over a fixed denominator), explicitly allowing 0/negative intermediate results."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Rewrite mixed/whole forms",
+      "canonical_definition": "Rewrite mixed numbers or whole numbers into a form suitable for subtraction, such as converting mixed to improper or expressing a whole number as a mixed number with 0 fractional part or as an equivalent fraction with a chosen denominator.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts include a representation-change skill covering mixed-to-improper conversion and rewriting whole numbers into compatible fractional/mixed forms; exclusions consistently separate this from LCD-finding and from borrowing/regrouping."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Regroup and simplify result",
+      "canonical_definition": "When needed, borrow/regroup between whole and fractional parts to avoid a negative fractional part, then express the final answer in simplest appropriate form (reduce and/or convert between improper fractions, mixed numbers, and integers).",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts combine (1) borrowing/regrouping in mixed-number subtraction when the fractional part would be negative and (2) final-form simplification/conversion (reduce, convert improper↔mixed, integer presentation) into a single aligned concept."
+    }
+  ],
+  "alignment_summary": "Across the three codebooks, all skills align one-to-one into four shared concepts with full (3/3) consensus: common-denominator conversion, subtracting with like denominators, rewriting mixed/whole numbers into subtractable forms, and regrouping/borrowing with final simplification. No expert introduced additional unique skills beyond these four, and every skill_id maps cleanly to exactly one concept."
+}

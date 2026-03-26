@@ -1,0 +1,126 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions and mixed numbers (including regrouping and simplification)",
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common denominator conversion",
+      "definition": "Determine a least common denominator (LCD/LCM) and rewrite one or both fractions as equivalent fractions with that common denominator before subtracting.",
+      "inclusion_criteria": [
+        "The work explicitly finds an LCD/LCM for two different denominators",
+        "The work rewrites fractions to equivalent forms with a shared denominator as preparation for subtraction"
+      ],
+      "exclusion_criteria": [
+        "Denominators are already the same and subtraction proceeds without any denominator conversion",
+        "The work only rewrites a whole number as a fraction/mixed number (tag S03 instead)"
+      ],
+      "examples": [
+        {
+          "item_id": "FS01",
+          "step_ids": [
+            "Step1"
+          ]
+        },
+        {
+          "item_id": "FS13",
+          "step_ids": [
+            "Step1"
+          ]
+        }
+      ],
+      "prerequisites": []
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract like-denominator fractions",
+      "definition": "Subtract fractions that already share a denominator by subtracting numerators and keeping the common denominator (allowing 0 or negative intermediate results).",
+      "inclusion_criteria": [
+        "The work performs a/b − c/b = (a−c)/b (including 0/b or negative results)",
+        "The work subtracts the fractional parts within a mixed-number subtraction after denominators are aligned"
+      ],
+      "exclusion_criteria": [
+        "The work only converts to a common denominator without performing the subtraction (tag S01 instead)",
+        "The work only reduces/simplifies or converts the final form without showing the subtraction operation (tag S04 instead)"
+      ],
+      "examples": [
+        {
+          "item_id": "FS06",
+          "step_ids": [
+            "Step1"
+          ]
+        },
+        {
+          "item_id": "FS10",
+          "step_ids": [
+            "Step2"
+          ]
+        }
+      ],
+      "prerequisites": [
+        "S01"
+      ]
+    },
+    {
+      "skill_id": "S03",
+      "name": "Rewrite mixed/whole forms",
+      "definition": "Rewrite mixed numbers or whole numbers into a form suitable for subtraction, such as converting mixed to improper fractions or expressing a whole number as an equivalent fraction/mixed number with a chosen denominator.",
+      "inclusion_criteria": [
+        "Converts a mixed number to an improper fraction (including interpreting nonstandard mixed numbers like 1 4/3 as 1 + 4/3)",
+        "Rewrites a whole number as a mixed number with 0 fractional part (e.g., 2 = 2 0/8) or as an equivalent fraction with a specified denominator (e.g., 4 = 12/3)"
+      ],
+      "exclusion_criteria": [
+        "The work only finds an LCD and converts proper fractions to that denominator (tag S01 instead)",
+        "The work borrows/regroups between whole and fractional parts due to a negative fractional difference (tag S04 instead)"
+      ],
+      "examples": [
+        {
+          "item_id": "FS09",
+          "step_ids": [
+            "Step1"
+          ]
+        },
+        {
+          "item_id": "FS20",
+          "step_ids": [
+            "Step1"
+          ]
+        }
+      ],
+      "prerequisites": []
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regroup and simplify result",
+      "definition": "Regroup/borrow between whole and fractional parts when needed and present the final answer in simplest appropriate form (reduce and/or convert between improper fractions, mixed numbers, and integers).",
+      "inclusion_criteria": [
+        "Borrows 1 from the whole part and converts it to fractional units (adds b/b) to make the fractional subtraction nonnegative",
+        "Reduces a resulting fraction to lowest terms and/or converts an improper fraction to a mixed number or integer as the final presentation"
+      ],
+      "exclusion_criteria": [
+        "The work only performs common-denominator conversion (tag S01 instead)",
+        "The work only performs numerator subtraction with like denominators without any regrouping or final-form simplification (tag S02 instead)"
+      ],
+      "examples": [
+        {
+          "item_id": "FS10",
+          "step_ids": [
+            "Step3",
+            "Step4"
+          ]
+        },
+        {
+          "item_id": "FS17",
+          "step_ids": [
+            "Step3",
+            "Step4",
+            "Step5"
+          ]
+        }
+      ],
+      "prerequisites": [
+        "S02",
+        "S03"
+      ]
+    }
+  ]
+}

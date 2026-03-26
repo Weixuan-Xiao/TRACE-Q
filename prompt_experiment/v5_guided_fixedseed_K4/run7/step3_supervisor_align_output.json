@@ -1,0 +1,101 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number or mixed number into a subtraction-ready equivalent form, such as adding a zero fractional part or converting a mixed number with an improper fractional part to a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01 and B.S01 match directly. C.S03 includes the specific normalization case of rewriting a whole number as a mixed form with 0/n, which is the same cognitive operation for subtraction setup, though C folds it into mixed/whole subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Create common denominator",
+      "canonical_definition": "Find a common denominator and convert one or more fractions to equivalent fractions with matching denominators before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02 and B.S02 are direct matches. C.S01 combines common-denominator conversion with improper-mixed-number normalization, so it maps here as one part of a broader skill."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Normalize improper mixed number",
+      "canonical_definition": "Rewrite a mixed number with an improper fractional part as an equivalent standard mixed number before subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01 and B.S01 explicitly include converting nonstandard mixed numbers to standard mixed numbers. C.S01 also explicitly includes rewriting a mixed number containing an improper fraction part into a standard equivalent mixed number. This is a one-to-many alignment because A/B group it with broader normalization and C groups it with equivalent-form preparation."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned fractions",
+      "canonical_definition": "Subtract fractions once they are expressed with compatible denominators by subtracting numerators over the shared denominator.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C.S02 is the clearest fraction-specific version. A.S03 and B.S03 both include this operation as part of a broader 'aligned parts' subtraction skill."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Subtract mixed/whole parts",
+      "canonical_definition": "Subtract whole-number parts and fractional parts in mixed-number or whole-number subtraction once the quantities are in compatible form, and combine the parts into the stated result.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C.S03 isolates mixed/whole-part subtraction, while A.S03 and B.S03 include it together with aligned fraction subtraction. The shared concept is subtracting and combining whole and fractional parts after setup."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Borrow and simplify",
+      "canonical_definition": "Regroup one whole into fractional units when the fractional part is too small to subtract, and simplify any resulting fraction or zero form to lowest terms.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same combined concept of borrowing/regrouping and simplification after subtraction. Wording differs slightly, but the operation is equivalent across A.S04, B.S04, and C.S04."
+    }
+  ],
+  "alignment_summary": "The three codebooks show strong overall agreement, with all major concepts appearing in all three. The main alignment challenge is granularity: Expert C splits subtraction into fraction-only and mixed/whole-part subtraction, while Experts A and B combine these under a broader subtraction skill; similarly, C combines common-denominator work with improper-mixed-number normalization, while A and B separate denominator work and broader normalization. To preserve exact coverage with no orphaned skill IDs, several skills from A, B, and C map one-to-many across canonical concepts."
+}
