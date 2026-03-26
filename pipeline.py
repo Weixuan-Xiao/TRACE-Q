@@ -140,8 +140,8 @@ def main() -> None:
         help="Comma-separated stages to skip: verifier,auditor",
     )
     parser.add_argument(
-        "--domain_guide", default=None,
-        help="Path to domain_guide.txt injected into Solver/Expert/Tagger prompts.",
+        "--guides_dir", default=None,
+        help="Directory containing guide files (domain_core.txt, solver_method_guide.txt, skill_ontology_guide.txt).",
     )
     
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -216,9 +216,8 @@ def main() -> None:
         targets = [int(k.strip()) for k in target_k_str.split(",") if k.strip()]
         return [k_max] + targets
 
-    # Helper: append --domain_guide when present
     def _guide_args() -> list[str]:
-        return ["--domain_guide", args.domain_guide] if args.domain_guide else []
+        return ["--guides_dir", args.guides_dir] if args.guides_dir else []
 
     # Step 1: Solve
     if args.cmd in ("solve", "all"):
@@ -279,7 +278,7 @@ def main() -> None:
             "--out_dir", str(outputs_dir / "step4_tagger_votes"),
             "--prompts_dir", prompts_dir,
             "--n_taggers", str(args.n_taggers),
-        ] + _guide_args()
+        ]
         run(tag_cmd, extra_env=env_overrides or None)
     
     # Step 5: Judge

@@ -11,8 +11,8 @@
   "include_threshold": 4,
   "exclude_threshold": 1,
   "skip_stages": "",
-  "domain_guide": "data/domain_guide.txt",
-  "created_at": "2026-03-25T20:28:00.878343+00:00",
+  "guides_dir": "guides",
+  "created_at": "2026-03-26T00:18:08.215256+00:00",
   "python": "/opt/anaconda3/bin/python",
   "run_index": 1
 }

@@ -52,6 +52,17 @@ Return STRICT JSON with exactly this structure:
   "summary": "Brief summary of the consolidation process and key decisions"
 }
 
+## Using the Skill Ontology Guide
+
+If a skill ontology guide is provided above, apply its principles (e.g., independence,
+non-redundancy, identifiability, clarity of boundaries) as quality criteria when
+making merge/keep/remove decisions.
+
+- Use the principles to evaluate whether each candidate skill is distinct, necessary, and diagnosable.
+- Final decisions must be based on: (1) expert codebook consensus, (2) dossier evidence, and (3) downstream Q-matrix usefulness.
+- If two candidate skills always co-occur and represent the same cognitive process, merge them (independence principle).
+- If a candidate skill has ambiguous boundaries that would cause tagger disagreement, refine or merge it (clarity principle).
+
 ## Constraints
 
 1. **Final codebook must have 3-8 skills**: This is non-negotiable. The exact number depends on the complexity and diversity of the problems.

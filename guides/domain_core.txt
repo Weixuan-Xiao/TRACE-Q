@@ -1,0 +1,6 @@
+## Domain
+
+Arithmetic with fractions and mixed numbers — subtraction and simplification.
+Problems involve subtracting two quantities that may be proper fractions, improper
+fractions, mixed numbers, or whole numbers.  Results should be expressed in lowest
+terms; mixed-number or integer form is acceptable when appropriate.

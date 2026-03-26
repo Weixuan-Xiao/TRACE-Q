@@ -49,17 +49,30 @@ Return STRICT JSON with exactly this schema:
 
 6. **Generalizable**: Skills should apply to future problems in the same domain
 
+## Using the Skill Ontology Guide
+
+If a skill ontology guide is provided above, apply its principles (e.g., independence,
+non-redundancy, identifiability, clarity of boundaries) as quality criteria when
+evaluating your candidate skills.
+
+- Use the principles to test whether each skill you define is distinct, necessary, and diagnosable.
+- The guide defines HOW to evaluate skills, not WHICH skills to include.
+- Discover skills purely from the dossier evidence — do not import categories from external sources.
+- Preserve potentially meaningful distinctions when they may be useful for later Q-matrix coding.
+
+Your codebook must be grounded in what the dossiers show, not in any external taxonomy.
+
 ## Required Analysis Process
 
 Before defining your codebook, you MUST perform this analysis internally:
 
-Step A — List operations: For each item, identify the distinct cognitive operations shown in its solution steps. Use short labels. If a domain guide with Skill Categories is provided, use those as a starting reference.
+Step A — List operations: For each item, identify the distinct cognitive operations shown in its solution steps. Use short labels.
 
 Step B — Build frequency table: Count how many items use each operation. Operations used by 0-1 items are too narrow; operations used by all items may be too broad.
 
-Step C — Group into skills: Merge operations that (a) always co-occur on the same items AND (b) represent the same cognitive process. Each group becomes one skill.
+Step C — Group into skills: Only merge two operations into one skill if they represent the SAME cognitive process. Co-occurrence alone is NOT sufficient reason to merge. Two operations that happen to appear in the same items but involve different mental steps must remain separate skills.
 
-Step D — Verify distinctness: For each pair of candidate skills, check: do they ever appear independently? If two skills ALWAYS co-occur, merge them. If they NEVER co-occur, check if they're truly different concepts.
+Step D — Verify independence: For each pair of candidate skills, check: do they ever appear independently (one without the other)? If two skills ALWAYS co-occur across every item AND represent the same cognitive process, merge them. If they always co-occur but are cognitively distinct, keep them separate.
 
 Step E — Check coverage: Every item must require at least one skill. Every skill must apply to at least 2 items.
 

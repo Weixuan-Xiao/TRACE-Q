@@ -9,7 +9,6 @@ from typing import Any, Dict, List
 from dotenv import load_dotenv
 from tqdm import tqdm
 
-from src.agent_utils import extract_guide_sections, load_text
 from src.io_utils import append_jsonl, ensure_dir, read_json, read_jsonl
 from src.llm_client import LLMClient
 from src.tagger import Tagger
@@ -24,7 +23,6 @@ def run_one_tagger(
     dossiers: List[JsonDict],
     out_path: str,
     prompts_dir: str,
-    domain_guide: str | None = None,
 ) -> str:
     """Run a single tagger over all dossiers (thread-safe: own LLMClient)."""
     llm = LLMClient()
@@ -36,7 +34,6 @@ def run_one_tagger(
     tagger = Tagger(
         llm=llm, tagger_id=tagger_id,
         prompt_path=str(Path(prompts_dir) / "tagger.txt"),
-        domain_guide=domain_guide,
     )
 
     for d in dossiers:
@@ -69,7 +66,6 @@ def main() -> None:
     parser.add_argument("--parallel", action="store_true", help="Run taggers in parallel (faster but uses more API calls concurrently)")
     parser.add_argument("--prompts_dir", default="prompts/v1", help="Directory containing prompt files (tagger.txt, etc.)")
     parser.add_argument("--n_taggers", type=int, default=5, help="Number of taggers to run (default: 5)")
-    parser.add_argument("--domain_guide", default=None, help="Path to domain_guide.txt (optional)")
     args = parser.parse_args()
 
     load_dotenv(override=False)
@@ -78,11 +74,6 @@ def main() -> None:
 
     dossiers = read_jsonl(args.dossiers)
     codebook = read_json(args.codebook)
-
-    tagger_guide: str | None = None
-    if args.domain_guide and Path(args.domain_guide).exists():
-        raw_guide = load_text(args.domain_guide)
-        tagger_guide = extract_guide_sections(raw_guide, ["Domain", "Skill Categories"])
 
     tagger_ids = [f"T{i+1}" for i in range(args.n_taggers)]
 
@@ -99,7 +90,6 @@ def main() -> None:
                     dossiers=dossiers,
                     out_path=out_path,
                     prompts_dir=args.prompts_dir,
-                    domain_guide=tagger_guide,
                 )
                 futures[future] = tid
 
@@ -124,7 +114,6 @@ def main() -> None:
             tagger = Tagger(
                 llm=llm, tagger_id=tid,
                 prompt_path=str(Path(args.prompts_dir) / "tagger.txt"),
-                domain_guide=tagger_guide,
             )
 
             for d in tqdm(dossiers, desc=f"Tagging {tid}", unit="item"):

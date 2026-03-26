@@ -19,7 +19,7 @@ from typing import Any, Dict, List
 
 from dotenv import load_dotenv
 
-from src.agent_utils import extract_guide_sections, load_text
+from src.agent_utils import load_guides, load_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_jsonl, write_json
 from src.llm_client import LLMClient
@@ -100,8 +100,8 @@ def main() -> None:
         help="Constrain experts to produce exactly this many skills.",
     )
     parser.add_argument(
-        "--domain_guide", default=None,
-        help="Path to domain_guide.txt (optional)",
+        "--guides_dir", default=None,
+        help="Directory containing guide txt files (optional)",
     )
     args = parser.parse_args()
 
@@ -118,11 +118,10 @@ def main() -> None:
     verified = read_jsonl(args.input)
     expert_ids = ["A", "B", "C"]
 
-    # Load domain guide sections for Expert
+    # Load domain core + skill ontology guide for Expert/Supervisor
     expert_guide: str | None = None
-    if args.domain_guide and Path(args.domain_guide).exists():
-        raw_guide = load_text(args.domain_guide)
-        expert_guide = extract_guide_sections(raw_guide, ["Domain", "Skill Categories"])
+    if args.guides_dir:
+        expert_guide = load_guides(args.guides_dir, ["domain_core.txt", "skill_ontology_guide.txt"])
 
     # Prepare prompt text override when --target_k_exact is set
     expert_prompt_text = None
@@ -217,7 +216,7 @@ def main() -> None:
     # === Phase 2b: Supervisor Consolidate ===
     print("\n=== Phase 2b: Supervisor Consolidate (final codebook) ===")
 
-    consolidate_kwargs: Dict[str, Any] = {"llm": llm}
+    consolidate_kwargs: Dict[str, Any] = {"llm": llm, "domain_guide": expert_guide}
     if args.target_k_exact:
         k = args.target_k_exact
         raw_cons = load_text(str(Path(args.prompts_dir) / "supervisor_consolidate.txt"))

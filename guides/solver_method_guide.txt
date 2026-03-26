@@ -1,18 +1,13 @@
-## Domain
-
-Arithmetic with fractions and mixed numbers — subtraction and simplification.
-Problems involve subtracting two quantities that may be proper fractions, improper
-fractions, mixed numbers, or whole numbers.  Results should be expressed in lowest
-terms; mixed-number or integer form is acceptable when appropriate.
-
-
 ## Solution Method Guidelines
 
-Classify each problem into one of the types below and follow the prescribed method.
-CRITICAL: Always prefer separating whole and fraction parts over converting to
-improper fractions.  Only work with pure fractions (no whole part) when both
-operands are already pure fractions.
+These procedures define the canonical instructional trace format for this pipeline.
+Use them to standardize solution steps for downstream verification and tagging.
+They are preferred trace conventions, not claims about the only valid human solution strategy. Because this mimic student's calculation process, they do the
+calculation by hand, so they want to make simple calculation to reduce calculation burden.
 
+For standardized traces in this pipeline, prefer separating whole and fraction parts over converting to
+improper fractions.  Only work with pure fractions (no whole part) when both
+operands are already pure fractions. 
 ### Type A — Same denominator, pure fractions
 Subtract numerators directly, keep denominator, simplify if needed.
 
@@ -52,18 +47,3 @@ Treat the whole as "whole + 0/d", then apply Type C with borrowing.
   Step1: Rewrite as 3 + 0/7. Whole: 3 − 0 = 3. Fraction: 0/7 − 5/7 = −5/7 (negative).
   Step2: Borrow: whole 3 − 1 = 2. Fraction: 7/7 − 5/7 = 2/7.
   Step3: Combine: 2 2/7. Final answer: 2 2/7
-
-
-## Skill Categories
-
-Common cognitive operations a student may exercise in this domain.  These are
-reference categories — the Expert should use them as a starting point but may
-merge, split, or rename based on evidence from the item dossiers.
-
-- Find common denominator (LCD) and convert to equivalent fractions
-- Subtract fractions with like denominators (subtract numerators)
-- Separate a mixed number into whole part and fraction part
-- Borrow / regroup when the fraction subtraction is negative
-- Rewrite a whole number as a fraction with a specified denominator
-- Simplify / reduce a fraction to lowest terms
-- Express the result in appropriate form (mixed number, integer, or fraction)

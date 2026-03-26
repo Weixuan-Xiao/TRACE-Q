@@ -202,17 +202,22 @@ class SupervisorConsolidate:
         prompt_path: str | Path | None = None,
         prompt_text: str | None = None,
         target_k_exact: int | None = None,
+        domain_guide: str | None = None,
     ) -> None:
         self.llm = llm
         self.target_k_exact = target_k_exact
         self._schema_text = _build_consolidate_schema(target_k_exact)
         if prompt_text is not None:
-            self._system_prompt = prompt_text
+            base_prompt = prompt_text
         elif prompt_path is not None:
             self.prompt_path = str(prompt_path)
-            self._system_prompt = load_text(self.prompt_path)
+            base_prompt = load_text(self.prompt_path)
         else:
             raise ValueError("Either prompt_path or prompt_text must be provided")
+        if domain_guide:
+            self._system_prompt = domain_guide + "\n\n---\n\n" + base_prompt
+        else:
+            self._system_prompt = base_prompt
 
     def consolidate(
         self,
