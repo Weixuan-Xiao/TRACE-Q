@@ -1,0 +1,102 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize mixed form",
+      "canonical_definition": "Rewrite a mixed number or whole number into a subtraction-ready form, such as converting an improper mixed number to a standard mixed number or expressing a whole number as a whole plus a zero-fraction part.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02",
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01 and B.S02 are direct matches because both include both subcases: normalizing improper mixed numbers and rewriting whole numbers with a zero fractional part. C splits this broader concept into two skills: C.S02 covers improper-mixed-number normalization, while C.S03 covers setting up aligned whole and fractional parts including rewriting a whole number as a mixed number with 0 over a denominator."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator and rewrite fraction parts as equivalent fractions before subtracting when the denominators are unlike.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S01, and C.S01 all describe the same operation: finding an LCD/common denominator and converting one or both fractions to equivalent fractions before subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a common denominator and/or subtract whole-number and fractional parts once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S03, B.S03, and C.S04 are near-verbatim matches. All refer to carrying out the actual subtraction after setup/alignment has been completed."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow across mixed number",
+      "canonical_definition": "Regroup one whole as fractional units and adjust the whole part when the fractional part of the minuend is too small to continue subtraction.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S04, B.S04, and C.S05 all describe the same regrouping/borrowing process: taking 1 from the whole part and converting it into denominator-sized fractional units."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce a fractional result to lowest terms or convert a zero-fraction result to a whole number or 0.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S05, B.S05, and C.S06 are direct matches. Each covers post-subtraction reduction to lowest terms and simplification of zero fractional parts to whole numbers or zero."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Compose final form",
+      "canonical_definition": "Combine the computed whole and fractional parts and express the result in final form as a mixed number, fraction, integer, or 0.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S07"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S06, B.S06, and C.S07 all refer to recombining already-computed parts into the final presented answer. Wording differs slightly, but the cognitive operation is the same."
+    }
+  ],
+  "alignment_summary": "The three codebooks show very strong overall agreement, with six shared skill concepts across all experts. The main structural difference is that Expert C split A/B's broader 'normalize mixed form' concept into two narrower skills: one for normalizing improper mixed numbers and one for setting up whole and fractional parts, including rewriting whole numbers with a zero fractional part. All other skills align one-to-one across the three codebooks."
+}

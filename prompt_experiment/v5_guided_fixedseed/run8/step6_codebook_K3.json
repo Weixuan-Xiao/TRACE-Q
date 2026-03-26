@@ -1,0 +1,44 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 5,
+  "target_k": 3,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare and align operands",
+      "definition": "Rewrite fractions, mixed numbers, or whole numbers into equivalent subtraction-ready forms, including matching denominators and normalizing operand representations before subtraction.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "This preserves the natural preparation phase from the K=4 level. S01 and S02 both concern representational alignment before any subtraction is performed."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute subtraction with regrouping",
+      "definition": "Perform subtraction on aligned quantities, including subtracting whole and fractional parts and borrowing/regrouping one whole into fractional units when needed.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "At a coarser level, S04 can be merged into S03 because regrouping is an extension of the subtraction execution phase and is prerequisite-linked to it: borrowing only occurs in the course of attempting subtraction. In the dossiers, these often appear as consecutive parts of one execution episode (e.g., FS07, FS10)."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Finalize and simplify answer",
+      "definition": "Express the computed result in simplest acceptable form, including reducing fractions and removing zero fractional parts.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because final simplification remains a distinct end-stage operation even at coarse granularity. It is educationally meaningful to distinguish correct computation from failure to present the answer in simplest form."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03"
+  }
+}

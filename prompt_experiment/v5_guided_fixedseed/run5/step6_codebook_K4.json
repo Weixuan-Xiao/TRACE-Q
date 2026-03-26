@@ -1,0 +1,54 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form before computing, including finding common denominators and normalizing whole numbers or nonstandard mixed numbers.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "Inherited from the K=5 level. These are both preparatory transformations that make operands compatible before subtraction."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute subtraction and regroup if needed",
+      "definition": "Perform subtraction on compatible whole and fractional parts, including direct subtraction and borrowing/regrouping a whole into fractional units when the fractional part is insufficient.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "S04 is a contingent extension of S03 during the execution phase: students first attempt aligned subtraction, and regrouping occurs when that subtraction reveals an insufficient fractional part. These skills are tightly linked in mixed-number subtraction workflows and can be merged at a coarser level while still preserving a meaningful distinction between execution and pre/post-processing."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify result",
+      "definition": "Reduce the computed result to lowest terms or remove zero-valued fractional parts to express a standard numerical result.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification remains diagnostically meaningful and is not always required after subtraction."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Express final answer",
+      "definition": "Assemble the computed result and state it in final mixed-number, fraction, integer, or zero form.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because final answer expression is a distinct post-processing step and may occur with or without simplification."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03",
+    "S06": "M04"
+  }
+}

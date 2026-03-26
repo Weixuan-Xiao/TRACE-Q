@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 5,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Establish compatible fraction form",
+      "definition": "Prepare operands so fraction parts are subtraction-ready by creating a common denominator and/or converting fractions to equivalent forms with matching denominators.",
+      "original_skill_ids": [
+        "S01"
+      ],
+      "merge_rationale": "Kept as a single skill because finding a common denominator is a distinct preparation operation with its own common error patterns and is diagnostically separable from mixed-number normalization and from subtraction itself."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Normalize mixed/whole-number operands",
+      "definition": "Rewrite whole numbers or mixed numbers into a subtraction-ready structure, such as adding a zero-fraction part, normalizing a nonstandard mixed number, or separating whole and fractional parts for later computation.",
+      "original_skill_ids": [
+        "S02"
+      ],
+      "merge_rationale": "Kept as a single skill because operand normalization is a preparation skill, but it is meaningfully different from common-denominator work: students may know how to align denominators yet still fail to rewrite whole or mixed numbers appropriately."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Subtract and regroup aligned parts",
+      "definition": "Subtract whole-number and same-denominator fraction parts once operands are compatible, including regrouping/borrowing across the whole when the fractional part of the minuend is too small.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "Merged because borrowing across the whole is not an independent phase; it is a contingent extension of aligned subtraction that occurs only when direct subtraction produces an insufficient fractional part. In the dossiers, S04 appears immediately after or within S03-based subtraction work, and both belong to the same execution stage."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Simplify result",
+      "definition": "Reduce the resulting fraction or mixed-number expression to lowest terms, or rewrite zero-fraction/whole-valued results in simplest form.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept as a single skill because simplification has distinct error patterns and remains diagnostically useful apart from computation and final formatting."
+    },
+    {
+      "merged_id": "M05",
+      "name": "Express final answer",
+      "definition": "Assemble computed whole and fractional parts into the final mixed number, fraction, or integer form.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept as a single skill because final assembly is a presentation/composition step that can succeed or fail independently of subtraction and simplification."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M02",
+    "S03": "M03",
+    "S04": "M03",
+    "S05": "M04",
+    "S06": "M05"
+  }
+}

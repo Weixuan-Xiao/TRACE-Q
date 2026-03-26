@@ -1,0 +1,120 @@
+{
+  "source_k": 6,
+  "target_k_values": [
+    5,
+    4
+  ],
+  "aggregated_codebooks": [
+    {
+      "target_k": 5,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Normalize operands for subtraction",
+          "definition": "Rewrite given numbers into a subtraction-ready representation, including normalizing improper mixed numbers and expressing whole numbers with a zero fractional part so whole and fractional parts are aligned.",
+          "original_skill_ids": [
+            "S01"
+          ],
+          "merge_rationale": "Kept separate because normalization is a distinct setup skill with different error patterns from denominator matching and from later execution steps."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Establish common denominator",
+          "definition": "Determine and apply a common denominator by rewriting fraction parts as equivalent fractions before subtraction when denominators are unlike.",
+          "original_skill_ids": [
+            "S02"
+          ],
+          "merge_rationale": "Kept separate because denominator matching is an independent preparatory operation with strong diagnostic value and does not always co-occur with normalization."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Subtract and regroup fractional/whole parts",
+          "definition": "Carry out subtraction of aligned whole and fractional parts, including subtracting numerators over a common denominator and regrouping by borrowing across a mixed number when the fractional part of the minuend is insufficient.",
+          "original_skill_ids": [
+            "S03",
+            "S04"
+          ],
+          "merge_rationale": "Merged because borrowing is not a separate phase from subtraction in these items; it is a contingent continuation of the subtraction process when an initial fractional difference is negative or insufficient. S04 also has S03 as a prerequisite, indicating a tight dependency."
+        },
+        {
+          "merged_id": "M04",
+          "name": "Simplify result",
+          "definition": "Reduce a fractional result to lowest terms or convert a zero-fraction result to a whole number or 0 after subtraction.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because simplification has distinct post-subtraction error patterns and does not always occur."
+        },
+        {
+          "merged_id": "M05",
+          "name": "Compose final answer",
+          "definition": "Combine computed whole and fractional parts and express the result in final form as a mixed number, fraction, integer, or 0.",
+          "original_skill_ids": [
+            "S06"
+          ],
+          "merge_rationale": "Kept separate because final composition is a presentation/integration step that is diagnostically different from simplification; some items require one without the other."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M02",
+        "S03": "M03",
+        "S04": "M03",
+        "S05": "M04",
+        "S06": "M05"
+      }
+    },
+    {
+      "target_k": 4,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Prepare numbers for fraction subtraction",
+          "definition": "Put the operands into a subtraction-ready form by normalizing mixed numbers or whole numbers and, when needed, rewriting fraction parts to a common denominator.",
+          "original_skill_ids": [
+            "S01",
+            "S02"
+          ],
+          "merge_rationale": "This is a progressive merge of the two setup skills from K=5. Both are preparatory transformations applied before core subtraction begins, and together they form a coherent 'setup' phase."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Subtract and regroup fractional/whole parts",
+          "definition": "Execute subtraction on aligned whole and fractional parts, including subtracting numerators over a common denominator and borrowing/regrouping across a mixed number when necessary.",
+          "original_skill_ids": [
+            "S03",
+            "S04"
+          ],
+          "merge_rationale": "Retained from K=5 because subtraction and borrowing are tightly coupled execution operations, with borrowing functioning as a special case of subtraction when direct fractional subtraction is not possible."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Simplify result",
+          "definition": "Reduce the resulting fraction to lowest terms or convert a zero-fraction result to a whole number or 0.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because simplification remains diagnostically meaningful and is not guaranteed in every item."
+        },
+        {
+          "merged_id": "M04",
+          "name": "Compose final answer",
+          "definition": "Combine computed parts and state the final answer in the appropriate form as a mixed number, fraction, integer, or 0.",
+          "original_skill_ids": [
+            "S06"
+          ],
+          "merge_rationale": "Kept separate because final composition is a distinct end-stage representation step and can be isolated from simplification."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M01",
+        "S03": "M02",
+        "S04": "M02",
+        "S05": "M03",
+        "S06": "M04"
+      }
+    }
+  ],
+  "aggregation_notes": "The main aggregation decision was to merge S03 (Subtract aligned parts) with S04 (Borrow across mixed number) at K=5 because borrowing is a dependent, in-process extension of subtraction rather than an independent phase. For K=4, the two preparatory skills S01 and S02 were further merged into a broader setup skill, since both occur before execution and transform the operands into compatible form. Simplification (S05) and final composition (S06) were preserved at both coarser levels because they represent different post-subtraction cognitive operations and support different diagnostic feedback."
+}

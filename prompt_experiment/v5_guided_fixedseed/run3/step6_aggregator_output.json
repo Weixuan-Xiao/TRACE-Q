@@ -1,0 +1,120 @@
+{
+  "source_k": 6,
+  "target_k_values": [
+    5,
+    4
+  ],
+  "aggregated_codebooks": [
+    {
+      "target_k": 5,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Establish subtraction-ready representation",
+          "definition": "Prepare quantities for subtraction by rewriting them into a compatible form, including finding a common denominator when needed and normalizing mixed numbers or whole numbers into whole-and-fraction form.",
+          "original_skill_ids": [
+            "S01",
+            "S02"
+          ],
+          "merge_rationale": "S01 and S02 are both preparatory setup skills that occur before the main subtraction. In the dossiers, both serve the same problem-solving phase: making the quantities compatible for subtraction. Although they are not identical operations, they are diagnostically close at a coarser level because both are representation-alignment steps rather than execution or post-processing."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Subtract aligned parts",
+          "definition": "Subtract whole-number parts and/or fraction parts once the quantities are in compatible form.",
+          "original_skill_ids": [
+            "S03"
+          ],
+          "merge_rationale": "Kept separate because this is the core execution step and has distinct error patterns from setup, regrouping, and finalization."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Regroup for subtraction",
+          "definition": "Borrow 1 from the whole-number part and convert it into fractional units when the fractional part of the minuend is too small to subtract.",
+          "original_skill_ids": [
+            "S04"
+          ],
+          "merge_rationale": "Kept separate because regrouping is a major diagnostic breakpoint with distinctive student errors and does not always occur."
+        },
+        {
+          "merged_id": "M04",
+          "name": "Simplify result",
+          "definition": "Reduce a fractional result to lowest terms or convert a zero fractional result to an integer or zero when appropriate.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because simplification is optional in some items and reflects a different cognitive operation from composing the answer."
+        },
+        {
+          "merged_id": "M05",
+          "name": "Compose final answer",
+          "definition": "Combine computed whole-number and fractional parts and express the result in an acceptable final form.",
+          "original_skill_ids": [
+            "S06"
+          ],
+          "merge_rationale": "Kept separate because final recombination/formatting can succeed or fail independently of simplification and subtraction."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M01",
+        "S03": "M02",
+        "S04": "M03",
+        "S05": "M04",
+        "S06": "M05"
+      }
+    },
+    {
+      "target_k": 4,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Establish subtraction-ready representation",
+          "definition": "Prepare quantities for subtraction by rewriting them into a compatible form, including finding a common denominator when needed and normalizing mixed numbers or whole numbers into whole-and-fraction form.",
+          "original_skill_ids": [
+            "S01",
+            "S02"
+          ],
+          "merge_rationale": "Inherited from the K=5 level: both are setup skills that align representations before subtraction."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Execute subtraction and regroup if needed",
+          "definition": "Carry out subtraction of aligned whole and fraction parts, including borrowing/regrouping from the whole-number part when the fractional part is too small to subtract directly.",
+          "original_skill_ids": [
+            "S03",
+            "S04"
+          ],
+          "merge_rationale": "S04 is a conditional extension of S03 during execution. In the dossiers, regrouping only appears in the course of attempting subtraction and is best viewed at this coarser level as part of the subtraction process itself. This is a good merge because regrouping is prerequisite-linked to subtraction and belongs to the same execution phase."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Simplify result",
+          "definition": "Reduce a fractional result to lowest terms or convert a zero fractional result to an integer or zero when appropriate.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because simplification still has independent diagnostic value: students may compute correctly but fail to reduce or clean up zero fractions."
+        },
+        {
+          "merged_id": "M04",
+          "name": "Express final answer",
+          "definition": "Present the computed result in an acceptable final form by combining whole and fractional parts or stating the final integer, fraction, or zero.",
+          "original_skill_ids": [
+            "S06"
+          ],
+          "merge_rationale": "Kept separate because answer composition/formatting remains distinguishable from simplification; some students can simplify but still fail to recombine or present the final form correctly."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M01",
+        "S03": "M02",
+        "S04": "M02",
+        "S05": "M03",
+        "S06": "M04"
+      }
+    }
+  ],
+  "aggregation_notes": "The main aggregation principle was to preserve broad problem-solving phases while reducing granularity. For K=5, the two setup skills (common denominator and normalization) were merged because both are representation-preparation operations that occur before subtraction and are often pedagogically grouped as 'get the numbers ready.' The core subtraction, regrouping, simplification, and final composition were retained because they correspond to distinct error points. For K=4, subtraction and regrouping were merged because regrouping is not an independent phase; it is a conditional execution move triggered during subtraction. Simplification and final answer expression were not merged, since the dossiers show they can occur separately and support different feedback: 'reduce your answer' versus 'state the result in proper final form.'"
+}

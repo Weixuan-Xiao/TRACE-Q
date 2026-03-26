@@ -1,0 +1,101 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator and rewrite fraction parts as equivalent fractions before subtraction when denominators differ.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01, B.S01, and C.S01 have effectively identical names, definitions, inclusions, and exclusions centered on creating like denominators before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize operand form",
+      "canonical_definition": "Rewrite a whole number, fraction-only quantity, or nonstandard mixed number into a compatible form for subtraction, such as adding a 0-fraction part or converting an improper mixed-number fraction part to standard mixed form.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S02, and C.S02 all describe preparatory rewriting of operands into subtraction-ready form; C's definition is slightly broadest and cleanly covers the shared concept."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with like denominators and/or subtract whole-number and fractional parts once the operands are in compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use the same name and nearly identical definitions for the core subtraction step after setup is complete."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow across whole",
+      "canonical_definition": "Regroup one whole as denominator-over-denominator and add it to the fractional part when the fractional subtraction would otherwise be negative.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S04, B.S04, and C.S04 all represent the same regrouping/borrowing operation in mixed-number or whole-minus-fraction subtraction; only wording differs slightly."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms or simplify a zero-fraction result to a whole number or integer.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "The three S05 skills are direct matches covering reduction to lowest terms and simplification of zero-fraction outcomes."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Compose final answer",
+      "canonical_definition": "Combine the computed whole-number and fractional parts and express the result in an acceptable final form such as a mixed number, fraction, or integer.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S06, B.S06, and C.S06 all describe recombining computed parts into the final presented answer; C uses 'form' while A and B use 'answer,' but the concept is the same."
+    }
+  ],
+  "alignment_summary": "The three codebooks are highly consistent and align one-to-one across all six skills. Each expert identified the same six cognitive concepts: denominator matching, operand normalization, subtraction of aligned parts, borrowing/regrouping, simplification, and final recomposition. No one-to-many mappings or orphan skills were needed; every skill_id from A, B, and C maps exactly once to a single shared concept."
+}

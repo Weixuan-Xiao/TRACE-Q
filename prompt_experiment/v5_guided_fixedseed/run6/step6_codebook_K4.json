@@ -1,0 +1,52 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 5,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form by normalizing whole or mixed numbers and/or establishing compatible fractional structure before subtraction.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "S01 and S02 are both preparatory formatting skills applied before the main subtraction. They differ in surface form—common-denominator conversion versus rewriting whole/mixed numbers—but both serve the same phase of work: making operands structurally compatible for subtraction. This preserves a meaningful distinction between preparation and execution while reducing granularity."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Subtract aligned parts",
+      "definition": "Carry out subtraction once quantities are in compatible form, including subtracting numerators over a shared denominator and subtracting whole and fractional parts of mixed numbers.",
+      "original_skill_ids": [
+        "S03"
+      ],
+      "merge_rationale": "Kept separate because it is the core execution step and has distinct error patterns from preparation, regrouping, and simplification."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Regroup to complete subtraction",
+      "definition": "Borrow across the whole-number part by converting one whole into fractional units of the current denominator when the fractional part is insufficient for subtraction.",
+      "original_skill_ids": [
+        "S04"
+      ],
+      "merge_rationale": "Kept separate because borrowing/regrouping is a major diagnostic breakpoint with distinctive misconceptions and is not always required when subtraction is performed."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Simplify result",
+      "definition": "Reduce the resulting fraction or mixed number to lowest terms, including simplifying to a whole number or zero when appropriate.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification is a finalization skill with independent diagnostic value; students may subtract correctly but fail to simplify."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M03",
+    "S05": "M04"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form before executing subtraction, including finding a common denominator for fractional parts and normalizing whole numbers or nonstandard mixed numbers.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "Inherited from the K=5 level. These are both pre-subtraction setup operations that make quantities compatible."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute and regroup subtraction",
+      "definition": "Perform subtraction on aligned whole-number and fractional parts, including borrowing across the whole when the fractional part is insufficient or negative.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "At this coarser level, S04 is merged into S03 because borrowing is not an independent phase in the worked solutions; it is a contingent extension of subtraction when direct subtraction fails. The two skills are tightly linked in mixed-number subtraction workflows."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify result",
+      "definition": "Reduce the resulting fraction or mixed number to lowest terms or convert a zero fractional part into an integer or whole-number result.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification remains diagnostically meaningful and does not always co-occur with final assembly."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Express final answer",
+      "definition": "Write the completed result in final form, including recombining whole and fractional parts into a mixed number, fraction, or integer when shown as a distinct step.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because expressing the final answer is a distinct representational step from both simplification and subtraction."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03",
+    "S06": "M04"
+  }
+}

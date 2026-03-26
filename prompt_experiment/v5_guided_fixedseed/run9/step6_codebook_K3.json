@@ -1,0 +1,44 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 5,
+  "target_k": 3,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form, including finding common denominators, converting to equivalent fractions, and normalizing whole or mixed-number forms without changing value.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "Inherited from the K=4 aggregation because these are both pre-subtraction setup skills."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute subtraction with regrouping",
+      "definition": "Perform subtraction on compatible forms, including subtracting aligned whole and fractional parts and borrowing/regrouping across a whole when needed to resolve an insufficient fractional part.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "S04 is a contingent extension of S03: regrouping only arises during execution of subtraction when direct subtraction produces a negative fractional part. In practice, these steps are tightly coupled within the same execution phase, especially in items like FS07 and FS10."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify and finalize result",
+      "definition": "Reduce the resulting fraction or mixed-number expression to simplest valid form, including simplifying zero-fraction results to whole numbers.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification remains a distinct finalization phase and preserves important diagnostic information even at a coarse level."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03"
+  }
+}

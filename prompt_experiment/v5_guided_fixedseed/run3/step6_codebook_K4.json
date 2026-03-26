@@ -1,0 +1,54 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Establish subtraction-ready representation",
+      "definition": "Prepare quantities for subtraction by rewriting them into a compatible form, including finding a common denominator when needed and normalizing mixed numbers or whole numbers into whole-and-fraction form.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "Inherited from the K=5 level: both are setup skills that align representations before subtraction."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute subtraction and regroup if needed",
+      "definition": "Carry out subtraction of aligned whole and fraction parts, including borrowing/regrouping from the whole-number part when the fractional part is too small to subtract directly.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "S04 is a conditional extension of S03 during execution. In the dossiers, regrouping only appears in the course of attempting subtraction and is best viewed at this coarser level as part of the subtraction process itself. This is a good merge because regrouping is prerequisite-linked to subtraction and belongs to the same execution phase."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify result",
+      "definition": "Reduce a fractional result to lowest terms or convert a zero fractional result to an integer or zero when appropriate.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification still has independent diagnostic value: students may compute correctly but fail to reduce or clean up zero fractions."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Express final answer",
+      "definition": "Present the computed result in an acceptable final form by combining whole and fractional parts or stating the final integer, fraction, or zero.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because answer composition/formatting remains distinguishable from simplification; some students can simplify but still fail to recombine or present the final form correctly."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03",
+    "S06": "M04"
+  }
+}

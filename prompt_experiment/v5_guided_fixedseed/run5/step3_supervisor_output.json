@@ -1,0 +1,303 @@
+{
+  "final_codebook": {
+    "version": "v1",
+    "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Match denominators",
+        "definition": "Find a common denominator and rewrite fraction parts as equivalent fractions before subtraction when the denominators differ.",
+        "inclusion_criteria": [
+          "Tag when a step explicitly finds an LCD, LCM, or other common denominator for unlike fractional denominators.",
+          "Tag when one or both fractions are converted to equivalent fractions so the fractional parts share a denominator before subtraction.",
+          "Tag in mixed-number subtraction when only the fractional parts need denominator alignment."
+        ],
+        "exclusion_criteria": [
+          "Do not tag when denominators are already the same and no equivalent-fraction conversion is performed.",
+          "Do not tag rewriting a whole number as a whole plus 0 over a denominator; that is operand normalization.",
+          "Do not tag borrowing/regrouping a whole into denominator-over-denominator during subtraction; that is regrouping, not denominator matching."
+        ],
+        "examples": [
+          {
+            "item_id": "FS01",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS03",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S02",
+        "name": "Normalize operands",
+        "definition": "Rewrite a whole number or nonstandard mixed number into a subtraction-ready whole-and-fraction form without changing its value.",
+        "inclusion_criteria": [
+          "Tag when a whole number is rewritten as a whole plus 0 over a denominator to align with a fraction or mixed number.",
+          "Tag when a mixed number with an improper fractional part is converted to a standard mixed number.",
+          "Tag when the rewrite is done before subtraction to make whole and fractional parts directly comparable."
+        ],
+        "exclusion_criteria": [
+          "Do not tag ordinary equivalent-fraction conversion whose purpose is only to create a common denominator; that is denominator matching.",
+          "Do not tag borrowing/regrouping after subtraction has produced an insufficient or negative fractional part.",
+          "Do not tag final assembly of the answer after arithmetic is complete."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS09",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS19",
+            "step_ids": [
+              "Step1",
+              "Step2"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S03",
+        "name": "Subtract aligned parts",
+        "definition": "Subtract fractions with a common denominator and/or subtract whole-number and fractional parts once the operands are in compatible form.",
+        "inclusion_criteria": [
+          "Tag when numerators are subtracted over a shared denominator.",
+          "Tag when whole parts and fractional parts of mixed numbers are subtracted directly after setup.",
+          "Tag for same-denominator fraction subtraction that requires no prior denominator matching."
+        ],
+        "exclusion_criteria": [
+          "Do not tag steps whose main purpose is finding a common denominator or rewriting operands.",
+          "Do not tag regrouping/borrowing steps that adjust the whole and fractional parts after a negative or insufficient fractional difference appears.",
+          "Do not tag simplification or final presentation steps by themselves."
+        ],
+        "examples": [
+          {
+            "item_id": "FS06",
+            "step_ids": [
+              "Step1"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS14",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS16",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": []
+      },
+      {
+        "skill_id": "S04",
+        "name": "Regroup whole to fraction",
+        "definition": "Borrow one whole and convert it into fractional units when the minuend’s fractional part is too small to complete the subtraction directly.",
+        "inclusion_criteria": [
+          "Tag when a step explicitly borrows 1 from the whole part because the fractional subtraction would be negative or impossible as written.",
+          "Tag when the borrowed whole is rewritten as denominator-over-denominator and added to the existing fractional part.",
+          "Tag for mixed-number, whole-minus-fraction, or whole-minus-mixed subtraction requiring this regrouping."
+        ],
+        "exclusion_criteria": [
+          "Do not tag direct subtraction when no borrowing/regrouping is needed.",
+          "Do not tag initial rewriting of a whole number as x + 0 over d before subtraction; that is operand normalization.",
+          "Do not tag simplification or final recombination unless the regrouping itself is shown."
+        ],
+        "examples": [
+          {
+            "item_id": "FS07",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS18",
+            "step_ids": [
+              "Step2",
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      },
+      {
+        "skill_id": "S05",
+        "name": "Simplify result",
+        "definition": "Reduce the computed result to lowest terms or remove zero-valued fractional parts to express a standard numerical result.",
+        "inclusion_criteria": [
+          "Tag when a fraction is reduced by a common factor.",
+          "Tag when 0 over a denominator is simplified to 0.",
+          "Tag when a mixed number with 0 fractional part is rewritten as a whole number."
+        ],
+        "exclusion_criteria": [
+          "Do not tag subtraction steps that already produce a lowest-terms nonzero fraction with no explicit simplification shown.",
+          "Do not tag mere assembly of whole and fraction parts unless an actual reduction or standardization occurs.",
+          "Do not tag setup rewrites performed before subtraction."
+        ],
+        "examples": [
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS08",
+            "step_ids": [
+              "Step2"
+            ]
+          },
+          {
+            "item_id": "FS10",
+            "step_ids": [
+              "Step4"
+            ]
+          },
+          {
+            "item_id": "FS12",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      },
+      {
+        "skill_id": "S06",
+        "name": "Compose final answer",
+        "definition": "Assemble the computed whole and fractional parts and state the answer in final mixed-number, fraction, integer, or zero form.",
+        "inclusion_criteria": [
+          "Tag when separate whole and fraction results are combined into one mixed number.",
+          "Tag when a zero whole part is omitted so the result is presented as a fraction only.",
+          "Tag when the solution explicitly states the final answer from previously computed parts."
+        ],
+        "exclusion_criteria": [
+          "Do not tag the arithmetic subtraction itself.",
+          "Do not tag simplification alone unless the step also explicitly assembles or states the final answer form.",
+          "Do not tag operand normalization or denominator matching before subtraction."
+        ],
+        "examples": [
+          {
+            "item_id": "FS04",
+            "step_ids": [
+              "Step3"
+            ]
+          },
+          {
+            "item_id": "FS05",
+            "step_ids": [
+              "Step5"
+            ]
+          },
+          {
+            "item_id": "FS13",
+            "step_ids": [
+              "Step5"
+            ]
+          },
+          {
+            "item_id": "FS17",
+            "step_ids": [
+              "Step3"
+            ]
+          }
+        ],
+        "prerequisites": [
+          "S03"
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "action": "rename",
+      "details": "Renamed C01 'Find common denominator' to S01 'Match denominators'",
+      "reasoning": "All experts agreed on the concept. The revised name is concise and clearly distinguishes denominator alignment from other rewrites such as normalization or borrowing."
+    },
+    {
+      "action": "refine",
+      "details": "Refined C02 into S02 'Normalize operands'",
+      "reasoning": "The candidate was retained but broadened slightly in wording to cover both whole-number-to-0-fraction rewrites and nonstandard mixed-number normalization with clearer boundaries against denominator matching and borrowing."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C03 as S03 'Subtract aligned parts'",
+      "reasoning": "This is the core arithmetic operation and is independently testable on same-denominator items and on mixed-number items after setup. It should remain separate from setup and regrouping steps for diagnostic clarity."
+    },
+    {
+      "action": "rename",
+      "details": "Renamed C04 'Borrow across parts' to S04 'Regroup whole to fraction'",
+      "reasoning": "The new name makes the operation more explicit and less colloquial while preserving the same cognitive process. It remains distinct from normalization because it occurs in response to an insufficient fractional part during subtraction."
+    },
+    {
+      "action": "keep",
+      "details": "Kept C05 as S05 'Simplify result'",
+      "reasoning": "Simplification is a distinct post-computation operation with clear evidence in the dossiers and good diagnostic value, especially on items where subtraction is correct but reduction or zero-fraction cleanup is omitted."
+    },
+    {
+      "action": "rename",
+      "details": "Renamed C06 'Combine final form' to S06 'Compose final answer'",
+      "reasoning": "The concept is retained as a separate presentation/assembly step because some items require combining previously computed whole and fractional parts without additional simplification. Keeping it separate improves completeness and preserves observable step distinctions in the dossiers."
+    }
+  ],
+  "summary": "Because all six aligned candidates had full 3/3 expert consensus and each corresponds to a distinct observable operation in the item dossiers, the final codebook retains all six skills. The main consolidation work was refining boundaries and renaming several skills for clarity: denominator matching, operand normalization, subtraction, regrouping, simplification, and final answer composition remain separate to satisfy independence, completeness, and annotator agreement."
+}

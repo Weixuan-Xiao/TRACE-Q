@@ -102,7 +102,7 @@ def main() -> None:
     }
 
     for i in range(args.start_run, args.runs + 1):
-        run_dir = base_outputs / args.prompt_version / f"run{i}"
+        run_dir = base_outputs / f"run{i}"
         run_dir.mkdir(parents=True, exist_ok=True)
 
         # Store run metadata for reproducibility.

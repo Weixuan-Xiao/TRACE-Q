@@ -1,0 +1,131 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator and rewrite fractional parts as equivalent fractions before subtraction when denominators do not already match.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use essentially the same name and definition for creating equivalent fractions with a shared denominator before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize number form",
+      "canonical_definition": "Rewrite a whole number or mixed number into a subtraction-ready form, such as expressing a whole as a whole plus zero fraction or converting a mixed number with an improper fractional part into a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A, B, and C all describe the same preparatory rewriting step for whole numbers and nonstandard mixed numbers before subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract fraction parts",
+      "canonical_definition": "Subtract fractional quantities once they are in compatible form, including subtracting numerators over a common denominator or subtracting fraction parts within mixed-number expressions.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "Expert C separates fraction-part subtraction into its own skill, while A and B fold this operation into a broader 'subtract aligned parts' skill that also includes whole-part subtraction."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract whole parts",
+      "canonical_definition": "Subtract the whole-number components of mixed numbers or rewritten whole-number expressions as a distinct operation from fraction subtraction.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "Expert C explicitly isolates whole-number subtraction, whereas A and B include whole-part subtraction inside their broader aligned-subtraction skill."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a shared denominator and/or subtract the whole-number parts once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "Experts A and B define a combined subtraction skill covering both fraction-part and whole-part subtraction after setup; Expert C splits this broader concept into two separate skills (C03 and C04), so no single C skill is equivalent to the full combined concept."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup one whole as an equivalent fraction and adjust the whole-number part when the fractional subtraction would otherwise be negative.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same regrouping/borrowing operation from the whole part into the fractional part during mixed-number or whole-minus-fraction subtraction."
+    },
+    {
+      "canonical_id": "C07",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the computed result to lowest terms or to an integer when the fractional part is reducible or equals zero.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A and B treat simplification as a separate post-subtraction skill. In C, simplification is merged with final expression into one combined skill rather than isolated."
+    },
+    {
+      "canonical_id": "C08",
+      "canonical_name": "Compose final form",
+      "canonical_definition": "Combine the computed whole and fractional parts and express the answer in an appropriate final form such as a mixed number, fraction, or integer.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A and B separate final recombination/presentation from simplification. C does not isolate this step and instead combines it with simplification in a single skill."
+    },
+    {
+      "canonical_id": "C09",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, or integer.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "Expert C combines two concepts that A and B keep separate: simplification and final expression of the answer."
+    }
+  ],
+  "alignment_summary": "The three codebooks align strongly on common denominator, normalization, and borrowing/regrouping. The main structural differences are that Expert C splits 'subtract aligned parts' into separate fraction-part and whole-part subtraction skills, while Experts A and B keep them combined; conversely, Expert C combines simplification and final expression into one skill, while A and B separate those into two skills. Every skill_id from all three experts has been mapped exactly once."
+}
