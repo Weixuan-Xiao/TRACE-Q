@@ -1,0 +1,101 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator and rewrite unlike fraction parts as equivalent fractions before subtraction.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use the same skill name and nearly identical definitions focused on creating equivalent fractions with a shared denominator before subtracting."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number or nonstandard mixed number into a subtraction-ready standard form, such as a whole plus zero fraction or a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same preparatory rewriting skill; B's version adds simplifying a mixed number's fractional part before subtraction, but the core concept matches A and C."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract like fractions",
+      "canonical_definition": "Subtract fractions that already share a denominator by subtracting the numerators and keeping the denominator.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "The three codebooks align exactly on same-denominator fraction subtraction, including use within mixed-number problems and after prior conversion or borrowing."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract whole parts",
+      "canonical_definition": "Subtract the whole-number components of mixed numbers or rewritten whole numbers as part of the overall subtraction.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All experts identify the same operation of subtracting whole-number parts separately within mixed-number or whole-number subtraction contexts."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Borrow in mixed subtraction",
+      "canonical_definition": "Regroup one whole as fractional units when the minuend’s fractional part is too small to subtract the subtrahend’s fractional part.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and C call this 'Borrow across mixed number' while B calls it 'Borrow in mixed subtraction,' but all definitions describe the same regrouping action from the whole part into fractional units."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Simplify and express result",
+      "canonical_definition": "Reduce the computed result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, integer, or combined whole-and-fraction result.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same end-of-problem skill: simplifying the result and expressing it in final form; B's 'combine' wording is equivalent to A and C's 'express result.'"
+    }
+  ],
+  "alignment_summary": "The three codebooks are in near-perfect alignment: each expert identifies the same six core skill concepts in the same overall granularity, with only minor wording differences in names and definitions. Every skill_id from A, B, and C maps cleanly to a single shared concept, yielding six candidate skills with full 3/3 consensus and no one-to-many or orphan mappings."
+}

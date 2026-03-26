@@ -1,0 +1,121 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a least common denominator and rewrite unlike fractions as equivalent fractions with that denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same preparatory step of creating equivalent fractions with a shared denominator before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize fractional form",
+      "canonical_definition": "Rewrite a number into a more workable equivalent form, such as converting a mixed number with an improper fraction part into standard mixed-number form or simplifying a starting fraction part before subtraction.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A's broader normalization skill overlaps with B and C's normalization of improper mixed forms and simplified starting fraction forms; the shared core is rewriting an operand into a more workable equivalent form before subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Align mixed-number parts",
+      "canonical_definition": "Represent whole numbers and mixed numbers in aligned whole-part and fraction-part form so corresponding parts can be subtracted.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B and C explicitly separate alignment of whole and fractional parts, especially rewriting a whole number as a whole plus 0 over a denominator. A folds this behavior into its broader normalization skill rather than isolating it."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Carry out subtraction once forms are aligned, including subtracting numerators of like fractions and, in mixed-number problems, subtracting whole parts and fraction parts separately.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A states the operation more broadly, including whole-part subtraction in mixed numbers, while B and C isolate the like-fraction subtraction step. These represent the same core subtraction operation after alignment, with A at slightly broader granularity."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Regroup for subtraction",
+      "canonical_definition": "Borrow 1 from the whole-number part and convert it into fractional units when the fractional subtraction would otherwise be negative or cannot be completed directly.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same borrowing/regrouping process of converting one whole into denominator-over-denominator units to support mixed-number subtraction."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce a fraction or mixed-number result to lowest terms, including recognizing when a zero fractional part simplifies to a whole number or zero.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A separates simplification as its own skill, whereas B and C combine simplification with final composition into a single end-of-solution skill."
+    },
+    {
+      "canonical_id": "C07",
+      "canonical_name": "Compose final result",
+      "canonical_definition": "Combine the computed whole and fractional parts and express the answer in an appropriate final form, including a mixed number, fraction, integer, or zero.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [],
+      "consensus": "1/3",
+      "alignment_notes": "A isolates final recombination/presentation of the answer as a distinct skill, while B and C merge this with final simplification."
+    },
+    {
+      "canonical_id": "C08",
+      "canonical_name": "Compose simplified result",
+      "canonical_definition": "Combine the computed whole and fractional parts and express the final answer in lowest terms, including reducing to an integer or zero when appropriate.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B and C treat final composition and simplification as one integrated end-of-problem skill. A splits this same region into two separate skills, so no single A skill maps exactly to this combined concept."
+    }
+  ],
+  "alignment_summary": "The three codebooks align strongly on common denominator, normalization, subtraction, and regrouping. The main structural difference is granularity: Expert A separates simplification and final composition, while Experts B and C combine them into one finalization skill; B and C also isolate mixed-number alignment as a separate preparatory skill, whereas A includes much of that behavior inside normalization."
+}

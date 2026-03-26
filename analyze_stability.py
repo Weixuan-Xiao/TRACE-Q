@@ -38,7 +38,7 @@ _META_COLS = {"item_id", "audit_verdict", "audit_note"}
 
 def _load_qmatrix(csv_path: Path) -> tuple[list[str], list[str], list[list[int]]]:
     """Load a Q-matrix CSV → (item_ids, skill_ids, matrix[row][col])."""
-    with open(csv_path, newline="") as f:
+    with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         header = next(reader)
         skill_cols = [h for h in header[1:] if h not in _META_COLS]
@@ -52,7 +52,7 @@ def _load_qmatrix(csv_path: Path) -> tuple[list[str], list[str], list[list[int]]
 
 
 def _load_codebook(json_path: Path) -> list[dict]:
-    with open(json_path) as f:
+    with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
     return data.get("skills") or data.get("codebook") or data.get("final_codebook", [])
 

@@ -1,0 +1,100 @@
+{
+  "source_k": 5,
+  "target_k_values": [
+    4,
+    3
+  ],
+  "aggregated_codebooks": [
+    {
+      "target_k": 4,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Prepare operands for subtraction",
+          "definition": "Rewrite operands into a subtraction-ready form by matching denominators and/or normalizing whole or mixed numbers so like parts can be subtracted.",
+          "original_skill_ids": [
+            "S01",
+            "S02"
+          ],
+          "merge_rationale": "S01 and S02 are both preparatory alignment skills that occur before the main subtraction. In the dossiers, both serve the same problem-solving phase: making operands compatible for subtraction. They are distinct at fine grain, but at a coarser level they can be merged without losing the major diagnostic distinction between preparation, execution, regrouping, and finalization."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Subtract aligned parts",
+          "definition": "Carry out the main subtraction once operands are in compatible form, including subtracting like-denominator fractions and/or whole and fractional parts separately.",
+          "original_skill_ids": [
+            "S03"
+          ],
+          "merge_rationale": "Kept separate because it is the core execution step and has distinct error patterns from preparation, borrowing, and finalization."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Regroup during subtraction",
+          "definition": "Borrow or regroup across whole and fractional parts when the fractional part of the minuend is too small to complete the subtraction.",
+          "original_skill_ids": [
+            "S04"
+          ],
+          "merge_rationale": "Kept separate because borrowing is a distinctive mixed-number subtraction difficulty with strong diagnostic value and different common errors than ordinary subtraction."
+        },
+        {
+          "merged_id": "M04",
+          "name": "Finalize and express result",
+          "definition": "Simplify the computed result and express it in the appropriate final form, including combining whole and fractional parts or reducing to 0 when needed.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because simplification/recombination is a finalization phase with its own error patterns and should remain distinguishable from computation."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M01",
+        "S03": "M02",
+        "S04": "M03",
+        "S05": "M04"
+      }
+    },
+    {
+      "target_k": 3,
+      "skills": [
+        {
+          "merged_id": "M01",
+          "name": "Prepare operands for subtraction",
+          "definition": "Rewrite operands into a subtraction-ready form by matching denominators and/or normalizing whole or mixed numbers so like parts can be subtracted.",
+          "original_skill_ids": [
+            "S01",
+            "S02"
+          ],
+          "merge_rationale": "Inherited from the K=4 aggregation. These skills remain a coherent preparation phase."
+        },
+        {
+          "merged_id": "M02",
+          "name": "Execute subtraction with regrouping as needed",
+          "definition": "Perform the subtraction of aligned whole and fractional parts, including borrowing/regrouping when necessary to complete the computation.",
+          "original_skill_ids": [
+            "S03",
+            "S04"
+          ],
+          "merge_rationale": "S04 is a conditional extension of S03 rather than a separate phase in many worked solutions: students begin subtraction, detect an insufficient fractional part, regroup, and continue subtracting. Because borrowing is only invoked within the execution phase and directly supports completion of subtraction, these can be merged at a coarser level while still preserving a meaningful distinction between setup, computation, and finalization."
+        },
+        {
+          "merged_id": "M03",
+          "name": "Finalize and express result",
+          "definition": "Simplify the computed result and express it in the appropriate final form, including combining whole and fractional parts or reducing to 0 when needed.",
+          "original_skill_ids": [
+            "S05"
+          ],
+          "merge_rationale": "Kept separate because final simplification and expression remain diagnostically distinct from both setup and computation, even at a coarse grain."
+        }
+      ],
+      "mapping": {
+        "S01": "M01",
+        "S02": "M01",
+        "S03": "M02",
+        "S04": "M02",
+        "S05": "M03"
+      }
+    }
+  ],
+  "aggregation_notes": "The main aggregation principle was to preserve broad problem-solving phases visible across the fraction-subtraction dossiers: preparation, execution, regrouping, and finalization. For K=4, the most natural merge is S01 (match denominators) with S02 (normalize operands), since both are pre-subtraction transformations that make operands compatible. They differ in surface form but belong to the same cognitive phase and often co-occur in mixed-number and whole-number items. S03, S04, and S05 were retained because they represent distinct execution, regrouping, and finalization operations with different error patterns. For K=3, S03 and S04 were merged because borrowing is best understood as a special-case extension of the subtraction process rather than a wholly separate phase at this coarser level. S05 remained separate throughout because simplification and final expression are educationally meaningful and diagnostically distinct from computing the difference."
+}

@@ -1,0 +1,121 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize nonstandard forms",
+      "canonical_definition": "Rewrite a nonstandard number form into a standard equivalent form before subtraction, such as converting a mixed number with an improper fractional part into a standard mixed number or simplifying a fraction part inside a mixed number.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01, B.S01, and C.S01 all cover pre-subtraction normalization of nonstandard forms like improper mixed-number parts; C states this most cleanly. A and B also include rewriting a whole number as whole plus 0 over a denominator, but C separates that into a distinct skill, so only the overlapping normalization concept is aligned here."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Represent whole as fraction",
+      "canonical_definition": "Rewrite a whole number as a whole plus a zero fractional part using a needed denominator so it can be subtracted componentwise.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "C.S02 isolates the specific act of rewriting a whole number as a mixed or fractional form with 0 in the numerator. In A and B this action is bundled inside their broader normalization skills rather than separated, so there is no standalone equivalent skill to align from those codebooks."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Create common denominator",
+      "canonical_definition": "Find a common denominator and convert fraction parts to equivalent fractions with that denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S02, and C.S03 are direct matches in name and definition, all describing denominator alignment through equivalent-fraction conversion before subtraction."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract fraction parts",
+      "canonical_definition": "Subtract fractional quantities once they are in compatible form, including subtracting numerators of like fractions or the fractional parts of mixed numbers.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A.S03 and B.S03 match closely as a fraction-only subtraction operation after denominators are compatible. C does not separate fraction-part subtraction from whole-part subtraction, instead combining them in C.S04."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Subtract whole parts",
+      "canonical_definition": "Subtract the whole-number components of the quantities, including whole parts of mixed numbers or a whole number minus zero whole parts.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A.S04 and B.S04 are direct equivalents focused specifically on whole-part subtraction in mixed-number or whole-number contexts. C folds this operation into its broader componentwise subtraction skill C.S04."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract quantities once they are in compatible form, including subtracting numerators of like fractions and subtracting whole parts and fraction parts separately in mixed-number problems.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "C.S04 is broader than either A or B's subtraction skills because it combines fraction-part subtraction and whole-part subtraction into one componentwise operation. Since A and B split this into separate skills, C.S04 is kept as its own aligned concept rather than forcing it into only one of those narrower categories."
+    },
+    {
+      "canonical_id": "C07",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup one whole as fractional units and adjust the whole part when the fractional part is too small to subtract directly in a mixed-number or whole-minus-fraction problem.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S05, B.S05, and C.S05 are clear equivalents describing borrowing/regrouping from the whole part into fractional units when direct subtraction would produce a negative or insufficient fractional part."
+    },
+    {
+      "canonical_id": "C08",
+      "canonical_name": "Compose and simplify result",
+      "canonical_definition": "Combine the computed whole and fractional parts into the final answer and reduce any fraction or zero-valued fraction to lowest terms or integer form.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S06, B.S06, and C.S06 all describe final-answer formation and simplification, including reducing fractions, collapsing zero fractional parts, and expressing the result in an appropriate final form."
+    }
+  ],
+  "alignment_summary": "The three codebooks show strong agreement on denominator alignment, borrowing/regrouping, and final simplification/composition, with direct 3-way matches for those concepts. A and B also align closely in splitting subtraction into separate fraction-part and whole-part skills, while C instead combines those into one broader componentwise subtraction skill. C additionally separates rewriting a whole number as a whole plus 0 over a denominator from other normalization, whereas A and B include that action inside a broader normalization skill."
+}

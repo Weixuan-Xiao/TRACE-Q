@@ -1,0 +1,54 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite fractions, whole numbers, or mixed numbers into subtraction-ready forms by establishing common denominators, converting to equivalent fractions, or normalizing operands.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "Inherited from the K=5 merge because these are both operand-preparation skills that occur before subtraction proper."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Execute subtraction and regroup if needed",
+      "definition": "Subtract compatible whole and fractional parts, including borrowing or regrouping across parts when the fractional part is insufficient.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "S04 is a conditional extension of S03 during execution: regrouping occurs only when ordinary subtraction of aligned parts is not directly possible. These skills are tightly linked in solution flow, especially in mixed-number subtraction, and can be meaningfully combined at a coarser level as the core subtraction process."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify result",
+      "definition": "Reduce the computed result to a simpler equivalent form, including reducing fractions and rewriting zero-valued fractions as 0 or an integer when appropriate.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification remains a distinct post-computation operation with independent diagnostic value."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Express final answer",
+      "definition": "Present the computed result in final form by combining whole and fractional parts or omitting zero parts as appropriate.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because final expression of the answer is still distinguishable from simplification; a student may simplify correctly yet fail to compose the final mixed number or integer."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03",
+    "S06": "M04"
+  }
+}

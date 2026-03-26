@@ -1,0 +1,18 @@
+{
+  "cmd": "all",
+  "prompt_version": "v5_guided",
+  "prompts_dir": "prompts\\v5_guided",
+  "input": "data/items.jsonl",
+  "target_k": "auto",
+  "target_k_exact": 6,
+  "model": null,
+  "n_taggers": 5,
+  "consensus_mode": "threshold",
+  "include_threshold": 4,
+  "exclude_threshold": 1,
+  "skip_stages": "",
+  "guides_dir": "guides",
+  "created_at": "2026-03-26T16:00:16.398102+00:00",
+  "python": "C:\\Users\\admin\\miniconda3\\python.exe",
+  "run_index": 3
+}

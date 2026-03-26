@@ -1,0 +1,101 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number or nonstandard mixed number into a subtraction-ready form, such as expressing a whole number as a whole plus a zero fraction or converting a mixed number with an improper fractional part into a standard mixed number.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same preparatory rewriting step before subtraction; B's wording is slightly clearer because it explicitly includes both whole-number rewriting and nonstandard mixed-number normalization."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Common denominator conversion",
+      "canonical_definition": "Find a common denominator and rewrite one or both fractional parts as equivalent fractions with that denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and C use the same name, while B calls the same concept 'Equalize denominators'; all definitions center on denominator alignment via equivalent fractions prior to subtraction."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a common denominator and/or subtract whole-number parts once the operands have been put into compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts identify the same core subtraction operation after setup is complete, excluding denominator finding, borrowing, and simplification."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Borrow across parts",
+      "canonical_definition": "Regroup one whole as an equivalent fraction and adjust the whole part when the fractional part of the minuend is too small to subtract the fractional part of the subtrahend directly.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "The three codebooks match closely on borrowing/regrouping across whole and fractional parts; B's definition most explicitly states the equivalent-fraction regrouping."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms or rewrite a zero-valued fraction as 0 after subtraction.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All experts describe the same post-subtraction reduction step, including both fraction simplification and zero-fraction rewriting."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Compose final form",
+      "canonical_definition": "Combine the computed whole-number and fractional parts into the final mixed number, fraction, or integer answer.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts identify the same final assembly step in which separate parts are recombined into the presented answer."
+    }
+  ],
+  "alignment_summary": "The three codebooks are in near-perfect alignment: all six skill concepts appear in all three expert versions, with only minor naming differences and small wording variations in definitions. Every skill_id from A, B, and C maps cleanly to exactly one shared canonical concept, and no unique 1/3 or partial 2/3 concepts were present."
+}

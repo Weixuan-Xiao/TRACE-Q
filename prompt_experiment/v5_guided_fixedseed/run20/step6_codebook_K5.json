@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with simplification to lowest terms",
+  "source_k": 6,
+  "target_k": 5,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form before executing subtraction, including normalizing whole numbers or nonstandard mixed numbers so whole and fractional parts can be handled consistently.",
+      "original_skill_ids": [
+        "S01"
+      ],
+      "merge_rationale": "Kept as a single skill because operand normalization is a distinct preparation phase with different error patterns from denominator work and from execution."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Align fractional units",
+      "definition": "Establish a common denominator and rewrite fractional parts as equivalent fractions so subtraction can be performed on like units.",
+      "original_skill_ids": [
+        "S02"
+      ],
+      "merge_rationale": "Kept as a single skill because common denominator conversion is diagnostically distinct and often the main source of difficulty in unlike-denominator items."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Execute subtraction and regroup if needed",
+      "definition": "Subtract whole-number and fractional parts once operands are compatible, including borrowing/regrouping across whole and fractional parts when the fractional part of the minuend is too small.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "Merged because borrowing across parts is not an independent preparation or finishing skill; it is a contingent extension of the subtraction process that occurs immediately after an initial subtraction attempt reveals the need to regroup. The dossier shows S04 always embedded within execution after S03."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Simplify result",
+      "definition": "Reduce the resulting fraction to lowest terms or rewrite a zero-valued fraction as 0 after subtraction.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept as a single skill because simplification has clear independent diagnostic value and common student errors differ from those in subtraction or answer formatting."
+    },
+    {
+      "merged_id": "M05",
+      "name": "Compose final form",
+      "definition": "Assemble the computed whole-number and fractional parts into the final mixed number, fraction, or integer answer.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept as a single skill because final composition is a presentation/representation step distinct from arithmetic execution and from simplification."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M02",
+    "S03": "M03",
+    "S04": "M03",
+    "S05": "M04",
+    "S06": "M05"
+  }
+}

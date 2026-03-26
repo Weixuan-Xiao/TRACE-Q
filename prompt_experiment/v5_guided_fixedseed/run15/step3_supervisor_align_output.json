@@ -1,0 +1,99 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number or mixed number in an equivalent form that makes subtraction possible, such as adding a 0-fraction part, converting an improper fractional part to a standard mixed number, or separating whole and fractional parts.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use the same name and nearly identical definitions describing preparatory rewriting of whole numbers or mixed numbers before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Common denominator conversion",
+      "canonical_definition": "Find a common denominator and rewrite one or both fractional parts as equivalent fractions with that denominator before subtracting.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "This is a direct 1-to-1 alignment across all three codebooks; wording differs only slightly around LCD/common denominator phrasing."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a shared denominator and/or subtract whole-number parts once the operands have been put into compatible form.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All experts describe the same core subtraction step after setup is complete, excluding denominator conversion, borrowing, and simplification."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Regroup for subtraction",
+      "canonical_definition": "Borrow 1 from the whole-number part and convert it into fractional units when the fractional part of the minuend is too small to subtract the subtrahend's fractional part.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S04, B.S04, and C.S04 all represent the same borrowing/regrouping operation across the whole-fraction boundary; differences are only in naming detail."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the resulting fraction to lowest terms or rewrite a zero-valued fraction as 0 after subtraction.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts identify the same post-subtraction simplification skill with essentially identical scope."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Compose final form",
+      "canonical_definition": "Combine the computed whole-number and fractional parts into the final answer, including recognizing when the result should be written as a mixed number, pure fraction, or integer.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "Experts A and C both include an explicit final recombination/presentation skill, while Expert B does not separate this from other steps."
+    }
+  ],
+  "alignment_summary": "The three codebooks are highly consistent. Five skill concepts align cleanly across all three experts: operand normalization, common denominator conversion, subtracting aligned parts, regrouping/borrowing, and simplifying the result. A sixth concept, composing the final answer form, appears explicitly in Experts A and C but is absent as a separate skill in Expert B. Every skill_id from each expert maps exactly once, with no ambiguous or orphaned skills."
+}

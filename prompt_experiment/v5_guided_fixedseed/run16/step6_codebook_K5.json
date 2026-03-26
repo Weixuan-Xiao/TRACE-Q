@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification",
+  "source_k": 6,
+  "target_k": 5,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Establish subtraction-ready form",
+      "definition": "Prepare quantities for subtraction by rewriting numbers into a compatible form, including matching denominators and normalizing whole or mixed numbers into subtraction-ready representations.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "S01 and S02 are both preparatory setup skills that occur before core subtraction. In the dossiers, both serve the same problem-solving phase: making the operands subtraction-ready. They are sometimes distinct, but at this coarser level the diagnostic distinction between denominator alignment and number-form normalization is less important than separating setup from execution."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Subtract aligned parts",
+      "definition": "Carry out subtraction once quantities are in compatible form, including subtracting numerators over a common denominator and subtracting whole-number parts in mixed-number problems.",
+      "original_skill_ids": [
+        "S03"
+      ],
+      "merge_rationale": "Kept separate because this is the core execution step and has strong independent diagnostic value. Students may be able to prepare numbers correctly yet still make subtraction errors."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Borrow across parts",
+      "definition": "Regroup one whole as fractional units and adjust the whole-number part when the fractional part of the minuend is too small to continue subtraction.",
+      "original_skill_ids": [
+        "S04"
+      ],
+      "merge_rationale": "Kept separate because borrowing/regrouping produces distinctive error patterns and is not required in all mixed-number or whole-minus-fraction items. It remains diagnostically meaningful apart from ordinary subtraction."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Simplify result",
+      "definition": "Reduce the subtraction result to lowest terms or simplify it to a whole number or zero when appropriate.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because simplification is a post-subtraction transformation with its own common error patterns, such as failing to reduce or mishandling zero."
+    },
+    {
+      "merged_id": "M05",
+      "name": "Compose final answer",
+      "definition": "Assemble the final stated result by combining whole-number and fractional parts or omitting zero parts when appropriate.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because final composition is a distinct answer-formatting step, especially in mixed-number items where students may compute parts correctly but fail to present the final form."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M03",
+    "S05": "M04",
+    "S06": "M05"
+  }
+}

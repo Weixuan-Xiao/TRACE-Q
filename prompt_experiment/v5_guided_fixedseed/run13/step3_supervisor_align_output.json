@@ -1,0 +1,100 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Match denominators",
+      "canonical_definition": "Find a common denominator and rewrite fraction parts as equivalent fractions before subtraction when denominators differ.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S01, B.S01, and C.S01 have essentially identical names, definitions, inclusions, and exclusions focused on creating like denominators before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract fractions with a shared denominator and/or subtract whole-number parts once the quantities are in compatible form.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S02, B.S03, and C.S02 all describe the core subtraction step after setup is complete: subtracting numerators over a common denominator and subtracting whole parts separately."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Regroup for subtraction",
+      "canonical_definition": "Borrow one whole and convert it into denominator-sized fractional units when the fractional part of the minuend is too small to subtract.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S03, B.S04, and C.S03 are direct matches covering borrowing/regrouping across whole and fractional parts, including converting 1 whole into d/d."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Rewrite mixed or whole",
+      "canonical_definition": "Rewrite a mixed number or whole number into a subtraction-ready whole-plus-fraction form, including decomposing mixed numbers, expressing wholes as a whole plus zero fractional part, or normalizing a nonstandard mixed number.",
+      "expert_a_skill_ids": [
+        "S04",
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B.S02 and C.S04 each combine several preparatory rewriting actions into one broader concept: rewriting wholes, decomposing mixed numbers, and normalizing improper/nonstandard mixed numbers. A splits this broader concept into A.S04 (rewrite mixed or whole) and A.S05 (normalize improper mixed), so both A skills map one-to-one into this broader cross-expert concept."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the subtraction result to lowest terms or simplify a zero fractional part to a simpler whole-number or mixed-number form.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A.S06, B.S05, and C.S05 all refer to post-subtraction simplification, including reducing fractions and simplifying zero fractional parts."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Compose final answer",
+      "canonical_definition": "Combine the computed whole-number and fractional parts, or present the result in final acceptable form as a mixed number, fraction, or integer.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "2/3",
+      "alignment_notes": "B.S06 and C.S06 clearly align as a distinct final-presentation skill separate from subtraction and simplification. A does not include a separate skill for composing the final answer, instead leaving that action implicit or folded into other steps."
+    }
+  ],
+  "alignment_summary": "The three codebooks show strong agreement on the main subtraction workflow: matching denominators, subtracting aligned parts, regrouping/borrowing, and simplifying results. The main structural difference is that Expert A separates preparatory rewriting into two skills (general rewriting and normalizing improper mixed numbers), while Experts B and C combine these into one broader rewrite/normalize concept. Experts B and C also include a distinct final-answer composition skill that Expert A does not separate out. All skill IDs from all experts were mapped exactly once."
+}

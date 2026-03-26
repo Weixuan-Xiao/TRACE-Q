@@ -1,0 +1,111 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Find common denominator",
+      "canonical_definition": "Determine a common denominator and rewrite unlike fractions as equivalent fractions before subtracting.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts use essentially identical names and definitions for converting unlike fractions to equivalent fractions with a shared denominator before subtraction."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Normalize operands",
+      "canonical_definition": "Rewrite a whole number, mixed number, or fraction into a subtraction-ready equivalent form without changing its value, such as adding a zero fractional part, standardizing a mixed number, or simplifying a fraction part before subtraction.",
+      "expert_a_skill_ids": [
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and B are identical; C's 'Normalize fractional form' covers the same preparatory rewriting operations, including whole-plus-zero-fraction, standard mixed-number form, and pre-subtraction simplification."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Subtract like fractions",
+      "canonical_definition": "Subtract fractions with a common denominator by subtracting the numerators and keeping the denominator, including fractional parts of mixed numbers once aligned.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "C states the fractional subtraction operation explicitly, while A and B include this within the broader 'Subtract aligned parts'; the overlapping fraction-subtraction component aligns directly here."
+    },
+    {
+      "canonical_id": "C04",
+      "canonical_name": "Subtract whole parts",
+      "canonical_definition": "Subtract the whole-number components of mixed numbers or whole numbers once the operands are in subtraction-ready form.",
+      "expert_a_skill_ids": [],
+      "expert_b_skill_ids": [],
+      "expert_c_skill_ids": [
+        "S04"
+      ],
+      "consensus": "1/3",
+      "alignment_notes": "Only expert C separates whole-part subtraction into its own skill. In A and B, whole-part subtraction is bundled together with fraction subtraction inside 'Subtract aligned parts,' so no exact standalone counterpart exists."
+    },
+    {
+      "canonical_id": "C05",
+      "canonical_name": "Borrow across whole",
+      "canonical_definition": "Regroup one whole as fractional units to continue subtraction when the fractional part of the minuend is too small.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S05"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "All three experts describe the same regrouping/borrowing action from the whole-number part into fractional units; wording differs slightly but the cognitive operation is the same."
+    },
+    {
+      "canonical_id": "C06",
+      "canonical_name": "Simplify result",
+      "canonical_definition": "Reduce the subtraction result to lowest terms or recognize when a fractional result simplifies to a whole number or zero.",
+      "expert_a_skill_ids": [
+        "S05"
+      ],
+      "expert_b_skill_ids": [
+        "S05"
+      ],
+      "expert_c_skill_ids": [],
+      "consensus": "2/3",
+      "alignment_notes": "A and B isolate final reduction as its own skill. C includes this same idea inside a broader combined end-stage skill rather than as a standalone concept."
+    },
+    {
+      "canonical_id": "C07",
+      "canonical_name": "Compose final form",
+      "canonical_definition": "Combine computed whole and fractional parts and present the answer in an appropriate final form such as a fraction, mixed number, whole number, or zero.",
+      "expert_a_skill_ids": [
+        "S06"
+      ],
+      "expert_b_skill_ids": [
+        "S06"
+      ],
+      "expert_c_skill_ids": [
+        "S06"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and B isolate recombination/final formatting, while C's 'Simplify and combine' includes this same final-form composition along with simplification. The shared concept of expressing the final answer in proper form is present in all three."
+    }
+  ],
+  "alignment_summary": "The three codebooks are highly aligned overall. A and B are identical. C matches most concepts but differs in granularity: it splits A/B's 'Subtract aligned parts' into separate fraction and whole-part subtraction skills, and it combines A/B's 'Simplify result' and 'Compose final form' into one broader end-stage skill. All skill IDs from each expert were mapped exactly once, with most concepts showing strong 3/3 consensus and one C-only standalone concept for subtracting whole parts."
+}

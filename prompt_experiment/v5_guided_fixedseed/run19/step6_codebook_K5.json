@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "domain": "Subtraction of fractions, mixed numbers, and whole numbers with simplification to lowest terms",
+  "source_k": 6,
+  "target_k": 5,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Rewrite operands into a subtraction-ready form, including creating common denominators when needed and normalizing whole numbers or nonstandard mixed numbers before subtraction.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "S01 and S02 are both preparatory transformations applied before the main subtraction. In the dossiers, both function as setup skills that make later subtraction possible, and they are closer to each other than to execution or finalization skills. Keeping them separate at K=6 is diagnostically useful, but at K=5 they can be merged into a broader preparation phase without losing the main problem-solving structure."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Subtract aligned fractions",
+      "definition": "Subtract fractions once they are in compatible form, typically by subtracting numerators while keeping the common denominator.",
+      "original_skill_ids": [
+        "S03"
+      ],
+      "merge_rationale": "Kept separate because fraction subtraction is a core execution skill with distinct error patterns from setup, mixed-number partwise subtraction, borrowing, and simplification."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Subtract mixed-number parts",
+      "definition": "Subtract whole-number parts and fractional parts componentwise in mixed-number or whole-number-plus-fraction expressions before any needed regrouping.",
+      "original_skill_ids": [
+        "S04"
+      ],
+      "merge_rationale": "Kept separate because componentwise subtraction in mixed-number contexts is a distinct operation from pure fraction subtraction and from borrowing. Students may succeed at partwise subtraction yet fail at regrouping."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Regroup across whole and fractional parts",
+      "definition": "Borrow one whole and convert it into an equivalent fractional amount when the fractional part is insufficient for subtraction.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate because borrowing/regrouping is a high-value diagnostic skill with characteristic errors and should not be collapsed into ordinary subtraction."
+    },
+    {
+      "merged_id": "M05",
+      "name": "Simplify and express final result",
+      "definition": "Reduce the result to lowest terms and present it in an appropriate final form such as a fraction, mixed number, whole number, or zero.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate because final simplification and formatting are distinct from both setup and subtraction execution, and students often make independent errors here."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M03",
+    "S05": "M04",
+    "S06": "M05"
+  }
+}

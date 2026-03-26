@@ -1,0 +1,54 @@
+{
+  "version": "v1",
+  "domain": "Subtracting fractions, mixed numbers, and whole numbers with regrouping and simplification",
+  "source_k": 6,
+  "target_k": 4,
+  "skills": [
+    {
+      "merged_id": "M01",
+      "name": "Prepare operands for subtraction",
+      "definition": "Set up the numbers in subtraction-ready form by rewriting operands as needed and establishing compatible fractional parts, including common-denominator conversion when required.",
+      "original_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "merge_rationale": "This merges the two preparation skills because both are setup operations that occur before core subtraction and serve the same instructional phase: making operands compatible for subtraction."
+    },
+    {
+      "merged_id": "M02",
+      "name": "Subtract and regroup",
+      "definition": "Compute the difference by subtracting aligned whole and fractional parts and regrouping by borrowing when the fractional part of the minuend is too small.",
+      "original_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "merge_rationale": "Retained as a merged execution cluster because subtraction and borrowing form a single computational phase; borrowing is a conditional extension of subtraction rather than an independent phase."
+    },
+    {
+      "merged_id": "M03",
+      "name": "Simplify result",
+      "definition": "Reduce the computed result to lowest terms or convert zero-valued fractional forms into 0 or an equivalent integer form when appropriate.",
+      "original_skill_ids": [
+        "S05"
+      ],
+      "merge_rationale": "Kept separate at K=4 to preserve the distinction between numerical reduction and answer formatting; students may simplify incorrectly even when they can express the answer form."
+    },
+    {
+      "merged_id": "M04",
+      "name": "Express final answer",
+      "definition": "Present the final value in standard form as an appropriate mixed number, fraction, or integer after computation.",
+      "original_skill_ids": [
+        "S06"
+      ],
+      "merge_rationale": "Kept separate at K=4 to preserve the representational final step, which can vary independently from simplification and remains instructionally meaningful."
+    }
+  ],
+  "mapping": {
+    "S01": "M01",
+    "S02": "M01",
+    "S03": "M02",
+    "S04": "M02",
+    "S05": "M03",
+    "S06": "M04"
+  }
+}
