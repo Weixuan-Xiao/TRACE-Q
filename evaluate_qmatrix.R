@@ -45,6 +45,9 @@ result_list <- list(
   AIC = NULL, BIC = NULL, CAIC = NULL, SABIC = NULL,
   RMSEA2 = NULL, SRMSR = NULL,
   log_likelihood = NULL, n_params = NULL,
+  qval_modification_rate = NULL, qval_n_modified = NULL,
+  qval_method = NULL, qval_eps = NULL,
+  ca_test_level = NULL, ca_per_skill = NULL,
   converged = NULL, error = NULL
 )
 
@@ -70,6 +73,29 @@ tryCatch({
   }, error = function(e) {
     result_list$RMSEA2 <<- NULL
     result_list$SRMSR <<- NULL
+  })
+
+  # Q-validation: fraction of cells the data-driven method would revise
+  tryCatch({
+    qv <- GDINA::Qval(fit)
+    sugQ <- GDINA::extract(qv, "sug.Q")
+    result_list$qval_n_modified <- sum(sugQ != Q)
+    result_list$qval_modification_rate <- mean(sugQ != Q)
+    result_list$qval_method <- qv$method
+    result_list$qval_eps <- qv$eps
+  }, error = function(e) {
+    result_list$qval_modification_rate <<- NULL
+  })
+
+  # Classification accuracy: test-level (tau) and per-skill (tau_k)
+  tryCatch({
+    ca <- GDINA::CA(fit)
+    result_list$ca_test_level <- as.numeric(ca$tau)
+    per_skill <- as.numeric(ca$tau_k)
+    names(per_skill) <- colnames(Q)
+    result_list$ca_per_skill <- as.list(per_skill)
+  }, error = function(e) {
+    result_list$ca_test_level <<- NULL
   })
 
 }, error = function(e) {

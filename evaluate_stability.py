@@ -75,6 +75,17 @@ def element_wise_agreement(all_matrices, n_runs):
     return total_agreement / total_cells
 
 
+def item_perfect_rate(all_matrices):
+    """Fraction of items whose full row is identical across all runs."""
+    n_items = len(all_matrices[0])
+    perfect = 0
+    for i in range(n_items):
+        rows = {tuple(mat[i]) for mat in all_matrices}
+        if len(rows) == 1:
+            perfect += 1
+    return perfect / n_items
+
+
 def _count_agreement(mat_a, mat_b):
     """Count matching cells between two equal-sized matrices."""
     total = 0
@@ -134,32 +145,14 @@ def align_matrices(all_matrices):
     return aligned, ref_idx, perms
 
 
-def compute_stability_metrics(run_dir: str, k: int, align: bool = True) -> dict:
+def compute_stability_from_matrices(all_matrices, align: bool = True) -> dict:
     """
-    Compute stability metrics across all runs in a directory.
-
-    Expects: run_dir/run1/step6_Q_matrix_K{k}.csv, run_dir/run2/..., etc.
-    Falls back to step8_auditor_Q_matrix_K{k}_reviewed.csv if step6 not found.
+    Compute stability metrics over a list of equal-shaped Q-matrices.
 
     If *align* is True (default), columns are permutation-aligned before
     computing metrics so that differently-ordered but conceptually equivalent
     skill columns are matched up.  Raw (unaligned) metrics are also reported.
     """
-    run_dir = Path(run_dir)
-    run_dirs = sorted(
-        [d for d in run_dir.iterdir() if d.is_dir() and d.name.startswith("run")],
-        key=lambda p: int(p.name.removeprefix("run")),
-    )
-
-    all_matrices = []
-    for rd in run_dirs:
-        qm_path = rd / f"step6_Q_matrix_K{k}.csv"
-        if not qm_path.exists():
-            qm_path = rd / f"step8_auditor_Q_matrix_K{k}_reviewed.csv"
-        if qm_path.exists():
-            _, _, matrix = load_qmatrix(qm_path)
-            all_matrices.append(matrix)
-
     n_runs = len(all_matrices)
     if n_runs < 2:
         return {"error": f"Need >= 2 runs, found {n_runs}", "n_runs": n_runs}
@@ -176,14 +169,13 @@ def compute_stability_metrics(run_dir: str, k: int, align: bool = True) -> dict:
     modal_freq = unique_counts.most_common(1)[0][1]
 
     result = {
-        "run_dir": str(run_dir),
-        "k": k,
         "n_runs": n_runs,
         "n_items": n_items,
         "n_skills": n_skills,
         "total_cells": n_items * n_skills,
         "element_wise_agreement": raw_agreement,
         "fleiss_kappa": raw_kappa,
+        "item_perfect_rate": round(item_perfect_rate(all_matrices), 4),
         "n_unique_qmatrices": n_unique,
         "modal_qmatrix_frequency": modal_freq,
         "modal_qmatrix_frequency_pct": round(modal_freq / n_runs, 4),
@@ -202,6 +194,7 @@ def compute_stability_metrics(run_dir: str, k: int, align: bool = True) -> dict:
         result["aligned"] = {
             "element_wise_agreement": aligned_agreement,
             "fleiss_kappa": aligned_kappa,
+            "item_perfect_rate": round(item_perfect_rate(aligned), 4),
             "reference_run": ref_idx + 1,
             "permutations_used": [list(p) for p in perms],
             "n_unique_qmatrices": a_n_unique,
@@ -209,6 +202,33 @@ def compute_stability_metrics(run_dir: str, k: int, align: bool = True) -> dict:
             "modal_qmatrix_frequency_pct": round(a_modal_freq / n_runs, 4),
         }
 
+    return result
+
+
+def compute_stability_metrics(run_dir: str, k: int, align: bool = True) -> dict:
+    """
+    Compute stability metrics across all runs in a directory (legacy layout).
+
+    Expects: run_dir/run1/step6_Q_matrix_K{k}.csv, run_dir/run2/..., etc.
+    Falls back to step8_auditor_Q_matrix_K{k}_reviewed.csv if step6 not found.
+    """
+    run_dir = Path(run_dir)
+    run_dirs = sorted(
+        [d for d in run_dir.iterdir() if d.is_dir() and d.name.startswith("run")],
+        key=lambda p: int(p.name.removeprefix("run")),
+    )
+
+    all_matrices = []
+    for rd in run_dirs:
+        qm_path = rd / f"step6_Q_matrix_K{k}.csv"
+        if not qm_path.exists():
+            qm_path = rd / f"step8_auditor_Q_matrix_K{k}_reviewed.csv"
+        if qm_path.exists():
+            _, _, matrix = load_qmatrix(qm_path)
+            all_matrices.append(matrix)
+
+    result = compute_stability_from_matrices(all_matrices, align=align)
+    result = {"run_dir": str(run_dir), "k": k, **result}
     return result
 
 
