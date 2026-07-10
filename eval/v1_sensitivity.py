@@ -28,7 +28,12 @@ METRIC_DIRECTIONS = {
 
 
 def corrupt(matrix, rate, rng, max_tries=1000):
-    """Flip exactly round(rate * cells) distinct cells; avoid all-zero rows/cols.
+    """Density-preserving corruption: flip round(rate*cells) cells, half 1->0
+    and half 0->1, avoiding all-zero rows/cols.
+
+    Balanced flips isolate "wrong placement" from Q-density: under saturated
+    G-DINA, simply adding 1s increases item parameter counts and can *improve*
+    fit, so unbalanced random flips would confound corruption with density.
 
     Returns (corrupted_matrix, n_resamples).
     """
@@ -36,12 +41,19 @@ def corrupt(matrix, rate, rng, max_tries=1000):
     n_skills = len(matrix[0])
     n_cells = n_items * n_skills
     n_flips = round(rate * n_cells)
+    n_flips -= n_flips % 2  # even count so density is exactly preserved
     if n_flips == 0:
         return [row[:] for row in matrix], 0
 
-    all_cells = [(i, j) for i in range(n_items) for j in range(n_skills)]
+    one_cells = [(i, j) for i in range(n_items) for j in range(n_skills) if matrix[i][j] == 1]
+    zero_cells = [(i, j) for i in range(n_items) for j in range(n_skills) if matrix[i][j] == 0]
+    half = n_flips // 2
+    if half > len(one_cells) or half > len(zero_cells):
+        raise ValueError(f"rate {rate} needs {half} flips per side; "
+                         f"matrix has {len(one_cells)} ones / {len(zero_cells)} zeros")
+
     for attempt in range(max_tries):
-        flips = rng.sample(all_cells, n_flips)
+        flips = rng.sample(one_cells, half) + rng.sample(zero_cells, half)
         corrupted = [row[:] for row in matrix]
         for i, j in flips:
             corrupted[i][j] = 1 - corrupted[i][j]

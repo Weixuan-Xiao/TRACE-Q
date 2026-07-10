@@ -20,8 +20,16 @@ def _count_diffs(a, b):
 
 
 def test_exact_flip_count():
+    n_flips = round(0.2 * 20)
+    n_flips -= n_flips % 2
     corrupted, _ = corrupt(MATRIX, 0.2, random.Random(1))
-    assert _count_diffs(MATRIX, corrupted) == round(0.2 * 20)
+    assert _count_diffs(MATRIX, corrupted) == n_flips
+
+
+def test_density_preserved():
+    for seed in range(10):
+        corrupted, _ = corrupt(MATRIX, 0.2, random.Random(seed))
+        assert sum(map(sum, corrupted)) == sum(map(sum, MATRIX))
 
 
 def test_no_all_zero_rows_or_cols():
