@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python -c \"from src.agent_utils import strip_metadata; d = {''item_id'': ''Q1'', ''item'': {}, ''solver'': {}, ''created_at'': ''2026-03-26T00:00:00'', ''stage'': ''verified'', ''timestamp'': ''123''}; print\\(''before:'', list\\(d.keys\\(\\)\\)\\); print\\(''after: '', list\\(strip_metadata\\(d\\).keys\\(\\)\\)\\)\")",
-      "Bash(python -c \":*)"
+      "Bash(python -c \":*)",
+      "Bash(wc -l /Users/weixuan/Desktop/Agent-Qmatrix/prompts/v2_base/*.txt)",
+      "Bash(wc -c /Users/weixuan/Desktop/Agent-Qmatrix/prompts/v2_base/*.txt)"
     ]
   }
 }

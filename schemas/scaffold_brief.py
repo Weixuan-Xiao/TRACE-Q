@@ -19,7 +19,7 @@ class ScaffoldCluster(BaseModel):
     cluster_id: str = Field(..., pattern=r"^C\d{2,3}$")
     provisional_skill_name: str = Field(..., min_length=1)
     rationale: str = Field(..., min_length=1)
-    operation_tags: List[str] = Field(default_factory=list)
+    distinguishing_terms: List[str] = Field(default_factory=list)
     representative_items: List[ScaffoldExample] = Field(default_factory=list)
     boundary_notes: List[str] = Field(default_factory=list)
     item_ids: List[str] = Field(default_factory=list)

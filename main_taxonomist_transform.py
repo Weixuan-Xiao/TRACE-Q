@@ -17,11 +17,10 @@ from typing import Any, Dict, List
 from dotenv import load_dotenv
 
 from src.agent_utils import load_guides, load_text
-from src.cluster_transformer import transformations_to_prompt_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_json, read_jsonl, write_json
 from src.llm_client import LLMClient
-from src.scaffold_brief import scaffold_brief_to_prompt_text
+from src.prompt_context import build_scaffold_transform_context_text
 from src.supervisor import SupervisorAlign, SupervisorConsolidate
 
 JsonDict = Dict[str, Any]
@@ -32,12 +31,10 @@ def _augment_prompt(
     scaffold_brief: JsonDict | None,
     transform_outputs: List[JsonDict] | None,
 ) -> str:
-    blocks: List[str] = [base_prompt]
-    if scaffold_brief:
-        blocks.append(scaffold_brief_to_prompt_text(scaffold_brief))
-    if transform_outputs:
-        blocks.append(transformations_to_prompt_text(transform_outputs))
-    return "\n\n---\n\n".join(blocks)
+    if scaffold_brief and transform_outputs:
+        context = build_scaffold_transform_context_text(scaffold_brief, transform_outputs)
+        return base_prompt + "\n\n---\n\n" + context
+    return base_prompt
 
 
 def run_expert(
@@ -110,7 +107,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--prompts_dir",
-        default="prompts/v2",
+        default="prompts/v5_guided",
         help="Directory containing prompt files",
     )
     parser.add_argument(

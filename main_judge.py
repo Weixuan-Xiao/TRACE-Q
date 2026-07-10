@@ -193,7 +193,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--prompts_dir",
-        default="prompts/v1",
+        default="prompts/v5_guided",
         help="Directory containing prompt files (judge.txt, etc.)",
     )
     parser.add_argument("--include_threshold", type=int, default=4)
@@ -279,9 +279,6 @@ def main() -> None:
 
         adjudicated = {
             "item_id": item_id,
-            "item": d.get("item", {}),
-            "solver": d.get("solver", {}),
-            "verifier": d.get("verifier", {}),
             "tagger_votes": votes_bundle,
             "judge": judge_out,
             "created_at": datetime.now(timezone.utc).isoformat(),

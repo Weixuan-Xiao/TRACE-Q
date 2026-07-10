@@ -117,7 +117,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--prompts_dir",
-        default="prompts/v2",
+        default="prompts/v5_guided",
         help="Directory containing prompt files",
     )
     args = parser.parse_args()

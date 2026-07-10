@@ -30,7 +30,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run Solver over items.jsonl (no caching; always from scratch).")
     parser.add_argument("--input", default="data/items.jsonl", help="Input JSONL path")
     parser.add_argument("--out", default="outputs/step1_solver_item_dossiers.jsonl", help="Output JSONL path")
-    parser.add_argument("--prompts_dir", default="prompts/v1", help="Directory containing prompt files (solver.txt, etc.)")
+    parser.add_argument("--prompts_dir", default="prompts/v5_guided", help="Directory containing prompt files (solver.txt, etc.)")
     parser.add_argument("--guides_dir", default=None, help="Directory containing guide txt files (optional)")
     args = parser.parse_args()
 

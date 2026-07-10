@@ -19,7 +19,7 @@ from src.agent_utils import load_guides, load_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_json, read_jsonl, write_json
 from src.llm_client import LLMClient
-from src.scaffold_brief import scaffold_brief_to_prompt_text
+from src.prompt_context import build_scaffold_only_context_text
 from src.supervisor import SupervisorAlign, SupervisorConsolidate
 
 JsonDict = Dict[str, Any]
@@ -28,8 +28,8 @@ JsonDict = Dict[str, Any]
 def _prompt_with_scaffold(base_prompt: str, scaffold_brief: JsonDict | None) -> str:
     if not scaffold_brief:
         return base_prompt
-    scaffold_block = scaffold_brief_to_prompt_text(scaffold_brief)
-    return base_prompt + "\n\n---\n\n" + scaffold_block
+    context = build_scaffold_only_context_text(scaffold_brief)
+    return base_prompt + "\n\n---\n\n" + context
 
 
 def run_expert(
@@ -96,7 +96,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--prompts_dir",
-        default="prompts/v2",
+        default="prompts/v5_guided",
         help="Directory containing prompt files",
     )
     parser.add_argument(

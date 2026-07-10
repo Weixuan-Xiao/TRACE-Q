@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from schemas.codebook import Codebook
-from src.agent_utils import call_json_with_validation, load_text, strip_metadata
+from src.agent_utils import call_json_with_validation, load_text, slim_dossier_for_llm
 from src.llm_client import LLMClient
 
 JsonDict = Dict[str, Any]
@@ -77,7 +77,7 @@ class Expert:
         max_fix_retries: int = 2,
     ) -> JsonDict:
         """Generate a flat skill codebook from verified dossiers."""
-        user_json = {"verified_dossiers": [strip_metadata(d) for d in verified_dossiers]}
+        user_json = {"verified_dossiers": [slim_dossier_for_llm(d) for d in verified_dossiers]}
 
         codebook = call_json_with_validation(
             llm=self.llm,

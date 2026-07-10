@@ -28,9 +28,8 @@ def card_to_document(card: JsonDict) -> str:
     stem = str(card.get("stem_text", ""))
     summary = str(card.get("solution_summary", ""))
     steps = " ".join(str(x) for x in card.get("step_texts", []))
-    tags = " ".join(str(x).replace("_", " ") for x in card.get("operation_tags", []))
-    # Slightly upweight steps and operation tags by repetition.
-    return " ".join([stem, summary, steps, steps, tags, tags])
+    # Upweight steps (they carry the most reasoning signal).
+    return " ".join([stem, summary, steps, steps])
 
 
 def build_tfidf_vectors(cards: Sequence[JsonDict]) -> tuple[list[dict[str, float]], list[Counter[str]]]:
@@ -192,6 +191,47 @@ def cluster_top_terms(
     for idx in cluster_members:
         combined.update(raw_counts[idx])
     return [tok for tok, _ in combined.most_common(top_n)]
+
+
+def cluster_distinguishing_terms(
+    cluster_members: Sequence[int],
+    all_raw_counts: Sequence[Counter[str]],
+    all_members: Sequence[Sequence[int]],
+    *,
+    top_n: int = 5,
+) -> list[str]:
+    """Extract terms that distinguish this cluster from all other clusters.
+
+    Uses a TF-IDF-like score: TF (frequency within cluster) weighted by
+    inverse cluster frequency (how many other clusters also use this term).
+    """
+    import math
+
+    # Term frequency within this cluster
+    cluster_tf: Counter[str] = Counter()
+    for idx in cluster_members:
+        cluster_tf.update(all_raw_counts[idx])
+    total_tf = sum(cluster_tf.values()) or 1
+
+    # Cluster frequency: in how many clusters does each term appear?
+    n_clusters = len(all_members)
+    cluster_freq: Counter[str] = Counter()
+    for members in all_members:
+        terms_in_cluster: set[str] = set()
+        for idx in members:
+            terms_in_cluster.update(all_raw_counts[idx].keys())
+        for term in terms_in_cluster:
+            cluster_freq[term] += 1
+
+    # Score: tf * log(n_clusters / cf)
+    scored: list[tuple[str, float]] = []
+    for term, tf in cluster_tf.items():
+        cf = cluster_freq.get(term, 1)
+        idf = math.log((n_clusters + 1) / (cf + 1)) + 1.0
+        scored.append((term, (tf / total_tf) * idf))
+
+    scored.sort(key=lambda x: -x[1])
+    return [term for term, _ in scored[:top_n]]
 
 
 def interpretability_score(labels: Sequence[int], raw_counts: Sequence[Counter[str]]) -> float:

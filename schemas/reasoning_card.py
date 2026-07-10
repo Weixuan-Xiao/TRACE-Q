@@ -12,5 +12,3 @@ class ReasoningCard(BaseModel):
     stem_text: str = Field(default="")
     solution_summary: str = Field(default="")
     step_texts: List[str] = Field(default_factory=list)
-    operation_tags: List[str] = Field(default_factory=list)
-    structural_signature: str = Field(default="")

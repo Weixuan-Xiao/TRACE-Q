@@ -237,7 +237,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--prompts_dir",
-        default="prompts/v1",
+        default="prompts/v5_guided",
         help="Directory containing prompt files (auditor.txt, etc.)",
     )
     args = parser.parse_args()

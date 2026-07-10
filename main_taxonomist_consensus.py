@@ -21,9 +21,8 @@ from src.agent_utils import load_guides, load_text
 from src.expert import Expert
 from src.io_utils import ensure_dir, read_json, read_jsonl, write_json
 from src.llm_client import LLMClient
-from src.scaffold_brief import scaffold_brief_to_prompt_text
+from src.prompt_context import build_unified_context_text
 from src.supervisor import SupervisorAlign, SupervisorConsolidate
-from src.transform_consensus import transform_consensus_to_prompt_text
 
 JsonDict = Dict[str, Any]
 
@@ -33,12 +32,10 @@ def _augment_prompt(
     scaffold_brief: JsonDict | None,
     transform_consensus: JsonDict | None,
 ) -> str:
-    blocks: List[str] = [base_prompt]
-    if scaffold_brief:
-        blocks.append(scaffold_brief_to_prompt_text(scaffold_brief))
-    if transform_consensus:
-        blocks.append(transform_consensus_to_prompt_text(transform_consensus))
-    return "\n\n---\n\n".join(blocks)
+    if scaffold_brief and transform_consensus:
+        context = build_unified_context_text(scaffold_brief, transform_consensus)
+        return base_prompt + "\n\n---\n\n" + context
+    return base_prompt
 
 
 def run_expert(
@@ -76,7 +73,7 @@ def main() -> None:
     parser.add_argument("--out_align", default="outputs/step3_supervisor_align_output_consensus.json", help="Output supervisor alignment result")
     parser.add_argument("--out_supervisor", default="outputs/step3_supervisor_output_consensus.json", help="Output supervisor consolidation details")
     parser.add_argument("--parallel", action="store_true", default=True, help="Run experts in parallel (default: True)")
-    parser.add_argument("--prompts_dir", default="prompts/v2", help="Directory containing prompt files")
+    parser.add_argument("--prompts_dir", default="prompts/v5_guided", help="Directory containing prompt files")
     parser.add_argument("--target_k_exact", type=int, default=None, help="Optional exact final K constraint.")
     parser.add_argument("--guides_dir", default=None, help="Directory containing guide txt files (optional)")
     args = parser.parse_args()

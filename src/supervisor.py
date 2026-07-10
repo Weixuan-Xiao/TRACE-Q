@@ -266,22 +266,20 @@ class SupervisorConsolidate:
         )
 
     def _summarize_dossiers(self, dossiers: List[JsonDict]) -> List[JsonDict]:
-        """Create a compact summary of dossiers."""
+        """Create a compact summary of dossiers via slim_dossier_for_llm."""
+        from src.agent_utils import slim_dossier_for_llm
+
         summaries: List[JsonDict] = []
         for d in dossiers:
-            item = d.get("item", {})
-            solver = d.get("solver", {})
-
-            stem_text = str(item.get("stem_text", ""))
+            slim = slim_dossier_for_llm(d)
+            stem_text = str(slim.get("item", {}).get("stem_text", ""))
             if len(stem_text) > 200:
                 stem_text = stem_text[:200] + "..."
-
             summaries.append({
-                "item_id": str(d.get("item_id", item.get("item_id", ""))).strip(),
+                "item_id": slim["item_id"],
                 "stem_text": stem_text,
-                "solution_steps": solver.get("solution_steps", []),
+                "solution_steps": slim.get("solver", {}).get("solution_steps", []),
             })
-
         return summaries
 
     def _validate_skill_count(self, output: JsonDict) -> Optional[str]:

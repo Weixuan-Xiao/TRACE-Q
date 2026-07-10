@@ -21,6 +21,33 @@ def strip_metadata(obj: JsonDict) -> JsonDict:
     return {k: v for k, v in obj.items() if k not in _METADATA_KEYS}
 
 
+def slim_dossier_for_llm(dossier: JsonDict) -> JsonDict:
+    """Return a compact dossier containing only the fields LLM agents need.
+
+    Keeps: item_id, item.{item_id, stem_text}, solver.solution_steps[].{step_id, text}.
+    Drops: answer_rules, answer_canonical, verifier, created_at, stage, timestamp.
+    """
+    item = dossier.get("item", {}) if isinstance(dossier.get("item"), dict) else {}
+    solver = dossier.get("solver", {}) if isinstance(dossier.get("solver"), dict) else {}
+    steps_raw = solver.get("solution_steps", [])
+    steps = steps_raw if isinstance(steps_raw, list) else []
+
+    return {
+        "item_id": str(dossier.get("item_id", item.get("item_id", ""))).strip(),
+        "item": {
+            "item_id": str(item.get("item_id", "")).strip(),
+            "stem_text": str(item.get("stem_text", "")),
+        },
+        "solver": {
+            "solution_steps": [
+                {"step_id": str(s.get("step_id", "")), "text": str(s.get("text", ""))}
+                for s in steps
+                if isinstance(s, dict)
+            ],
+        },
+    }
+
+
 FIX_JSON_SYSTEM_PROMPT = """You are a strict JSON repair tool.
 Return ONLY a valid JSON object. Do not include explanations, markdown, or code fences.
 """

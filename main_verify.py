@@ -19,7 +19,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run Verifier over solver dossiers.")
     parser.add_argument("--input", default="outputs/step1_solver_item_dossiers.jsonl", help="Input solver dossiers JSONL")
     parser.add_argument("--out", default="outputs/step2_verifier_verified_item_dossiers.jsonl", help="Output verified dossiers JSONL")
-    parser.add_argument("--prompts_dir", default="prompts/v1", help="Directory containing prompt files (verifier.txt, etc.)")
+    parser.add_argument("--prompts_dir", default="prompts/v5_guided", help="Directory containing prompt files (verifier.txt, etc.)")
     args = parser.parse_args()
 
     load_dotenv(override=False)

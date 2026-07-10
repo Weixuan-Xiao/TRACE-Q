@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional, Set
 
 from schemas.judge_output import JudgeOutput
-from src.agent_utils import call_json_with_validation, load_text, strip_metadata
+from src.agent_utils import call_json_with_validation, load_text, slim_dossier_for_llm
 from src.codebook_utils import extract_skill_ids, codebook_to_flat_format
 from src.llm_client import LLMClient
 
@@ -90,7 +90,7 @@ class Judge:
 
         user_json: JsonDict = {
             "codebook": flat_codebook,
-            "dossier": strip_metadata(dossier),
+            "dossier": slim_dossier_for_llm(dossier),
             "votes": votes,
             "constraints": {
                 "allowed_step_ids": sorted(list(allowed_step_ids)),

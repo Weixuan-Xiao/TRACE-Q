@@ -90,27 +90,22 @@ class ClusterTransformer:
 
 
 def summarize_dossiers_for_transform(dossiers: List[JsonDict]) -> List[JsonDict]:
+    """Compact dossier summaries for cluster transformation (extra truncation)."""
+    from src.agent_utils import slim_dossier_for_llm
+
     summaries: List[JsonDict] = []
     for d in dossiers:
-        item = d.get("item", {}) if isinstance(d.get("item"), dict) else {}
-        solver = d.get("solver", {}) if isinstance(d.get("solver"), dict) else {}
-        stem_text = str(item.get("stem_text", item.get("question", "")))
-        step_texts = solver.get("solution_steps", []) if isinstance(solver.get("solution_steps", []), list) else []
-        compact_steps = []
-        for step in step_texts[:3]:
-            if isinstance(step, str):
-                compact_steps.append(step[:120])
-            elif isinstance(step, dict):
-                text = str(step.get("text", step.get("description", "")))
-                if text:
-                    compact_steps.append(text[:120])
-        summaries.append(
-            {
-                "item_id": str(d.get("item_id", item.get("item_id", ""))).strip(),
-                "stem_text": stem_text[:200],
-                "solution_steps": compact_steps,
-            }
-        )
+        slim = slim_dossier_for_llm(d)
+        stem_text = str(slim.get("item", {}).get("stem_text", ""))[:200]
+        steps = slim.get("solver", {}).get("solution_steps", [])
+        compact_steps = [
+            str(s.get("text", ""))[:120] for s in steps[:3] if s.get("text")
+        ]
+        summaries.append({
+            "item_id": slim["item_id"],
+            "stem_text": stem_text,
+            "solution_steps": compact_steps,
+        })
     return summaries
 
 
