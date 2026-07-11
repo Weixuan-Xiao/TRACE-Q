@@ -33,6 +33,22 @@ python -m eval.v1_sensitivity --replicates 10 --seed 42 --out eval_out/v1
 
 # V2: contamination probe (asks LLM to reproduce the expert Q; needs OPENAI_API_KEY)
 python -m eval.v2_contamination --dataset tatsuoka --models gpt-4o-mini --out eval_out/v2
+#   non-OpenAI models: --provider openrouter (needs OPENROUTER_API_KEY)
+
+# Phase 2 baselines (B1 naive / B2 strong-CoT / B3 self-consistency) -> contract run dirs
+python -m eval.baselines --baseline b1 --model gpt-5.5-2026-04-23 --provider openai \
+    --k_condition fixed_4 --runs 10 --out eval_runs/phase2
+#   --provider openrouter for anthropic/claude-sonnet-5, google/gemini-3.5-flash,
+#   deepseek/deepseek-v4-pro; B3: --n_samples N (token-matched to our methods)
+
+# Reference runs (expert Q + TSQE Q as contract dirs; circularity: each
+# reference-based metric must not rank its own reference)
+python -m eval.package_reference --out eval_runs/phase2
+
+# Our methods on a specific model, seed recorded per run:
+python run_experiments.py --cmd all --prompt_version v5_guided --runs 10 \
+    --base_outputs prompt_experiment/<name> --target_k_exact 4 \
+    --model gpt-5.5-2026-04-23 --guides_dir guides --seed_base 100
 
 # Unit tests
 python -m pytest tests/ -q

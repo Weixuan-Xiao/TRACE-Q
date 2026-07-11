@@ -13,6 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from evaluate_stability import load_qmatrix  # noqa: E402
+from eval.baselines import make_client  # noqa: E402
 from eval.expert_agreement import aligned_agreement  # noqa: E402
 from src.llm_client import LLMClient  # noqa: E402
 
@@ -91,18 +92,21 @@ def main():
     parser.add_argument("--expert_q", default="data/expert_q_tatsuoka.csv")
     parser.add_argument("--models", default=None,
                         help="Comma-separated model list (default: OPENAI_MODEL from .env)")
+    parser.add_argument("--provider", default="openai", choices=["openai", "openrouter"])
     parser.add_argument("--out", default="eval_out/v2")
     args = parser.parse_args()
 
     _items, expert_skills, expert_matrix = load_qmatrix(args.expert_q)
-    client = LLMClient()
-    models = args.models.split(",") if args.models else [client.config.model]
+    if args.models:
+        models = [m.strip() for m in args.models.split(",")]
+    else:
+        models = [LLMClient().config.model]
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     for model in models:
-        model = model.strip()
+        client = make_client(args.provider, model)
         print(f"Probing {model} on {args.dataset} ...")
         result = probe_model(client, model, args.dataset, expert_matrix, expert_skills)
         ts = result["timestamp"].replace(":", "").split(".")[0]

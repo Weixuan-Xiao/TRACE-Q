@@ -1,0 +1,56 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Operand form setup",
+      "canonical_definition": "Rewrite operands into subtraction-ready equivalent forms, especially by creating common denominators and, where specified, by normalizing mixed-number or zero-part representations.",
+      "expert_a_skill_ids": [
+        "S01"
+      ],
+      "expert_b_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A's Equivalent-form setup combines common-denominator conversion with mixed-number and zero-part operand preparation. B splits this into Create common denominators and Convert mixed forms, so both B skills map here. C has a clean Common denominator conversion skill; C's mixed-number preparation is bundled with regrouping in C S02, which is mapped under post-subtraction resolution to avoid duplicating skill IDs."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract already aligned fractional numerators and whole-number components, and assemble the component results when that assembly is included in the subtraction process.",
+      "expert_a_skill_ids": [
+        "S02",
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S03"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "B and C both use the name Subtract aligned parts for subtracting like-denominator fractional parts and corresponding whole-number parts. A splits this same operation across Subtract like fractions for numerator subtraction and Handle mixed parts for whole-number subtraction and result assembly."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Regroup and simplify",
+      "canonical_definition": "Resolve post-subtraction or mixed-number boundary issues by borrowing one whole as a fractional unit when needed and simplifying or formatting the final result.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S02",
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A isolates borrowing/regrouping as its own skill. B combines borrowing with simplification in Regroup and simplify. C splits the same broad resolution work across Mixed-number regrouping, which includes borrowing one whole as d/d, and Simplify final form, which covers reduction, zero fractions, and final formatting."
+    }
+  ],
+  "alignment_summary": "The three experts largely agree on three broad phases: preparing operand forms, subtracting aligned components, and resolving regrouping or final-form issues. The main alignment challenge is granularity: A combines denominator and mixed-form setup, B separates setup but combines regrouping with simplification, and C combines mixed-form conversion with borrowing while separating final simplification. Each skill ID is mapped once to the closest broader shared concept."
+}

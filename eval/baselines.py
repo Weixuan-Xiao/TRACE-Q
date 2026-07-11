@@ -209,6 +209,8 @@ def aggregate_b3(samples):
 
 
 def make_client(provider, model):
+    from dotenv import load_dotenv
+    load_dotenv(override=False)
     if provider == "openai":
         api_key = os.getenv("OPENAI_API_KEY", "").strip()
         base_url = None

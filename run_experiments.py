@@ -2,15 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
-def run(cmd: list[str]) -> None:
+def run(cmd: list[str], env: dict | None = None) -> None:
     print(">>>", " ".join(cmd))
-    subprocess.check_call(cmd)
+    subprocess.check_call(cmd, env=env)
 
 
 def main() -> None:
@@ -72,6 +73,10 @@ def main() -> None:
     parser.add_argument("--exclude_threshold", type=int, default=1)
     parser.add_argument("--skip_stages", default="", help="Comma-separated: verifier,auditor")
     parser.add_argument("--guides_dir", default=None, help="Directory containing guide files (optional)")
+    parser.add_argument(
+        "--seed_base", type=int, default=None,
+        help="If set, run i uses OPENAI_SEED = seed_base + i (distinct per run, recorded in run_meta).",
+    )
     args = parser.parse_args()
 
     prompts_dir = Path("prompts") / args.prompt_version
@@ -106,8 +111,10 @@ def main() -> None:
         run_dir.mkdir(parents=True, exist_ok=True)
 
         # Store run metadata for reproducibility.
+        run_seed = args.seed_base + i if args.seed_base is not None else None
         meta = dict(meta_common)
         meta["run_index"] = i
+        meta["seed"] = run_seed
         (run_dir / "run_meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
 
         cmd_args = [
@@ -138,7 +145,10 @@ def main() -> None:
             cmd_args.extend(["--guides_dir", args.guides_dir])
 
         cmd_args.append(args.cmd)
-        run(cmd_args)
+        env = None
+        if run_seed is not None:
+            env = {**os.environ, "OPENAI_SEED": str(run_seed)}
+        run(cmd_args, env=env)
 
 
 if __name__ == "__main__":
