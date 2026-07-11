@@ -55,8 +55,8 @@ def test_rate_zero_identity():
 
 def test_monotonicity_check():
     verdicts = check_monotonicity({
-        "RMSEA2": [(0.0, 0.03), (0.05, 0.05), (0.10, 0.08)],       # up, monotone
-        "ca_test_level": [(0.0, 0.95), (0.05, 0.9), (0.10, 0.92)],  # down, violated
+        "RMSEA2": [(0.0, 0.03), (0.05, 0.05), (0.10, 0.08)],              # up, monotone
+        "tsqe_cell_agreement": [(0.0, 0.95), (0.05, 0.9), (0.10, 0.92)],  # down, violated
     })
     assert verdicts["RMSEA2"]["monotone"] is True
-    assert verdicts["ca_test_level"]["monotone"] is False
+    assert verdicts["tsqe_cell_agreement"]["monotone"] is False

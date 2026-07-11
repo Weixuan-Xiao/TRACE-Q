@@ -1,6 +1,6 @@
 # TRACE-Q Evaluation Framework
 
-**Status:** v1 draft — framework frozen at the structural level; metric details may be fine-tuned before pre-registration freeze.
+**Status:** v1.0 FROZEN (2026-07-11) — metric set calibrated against the V1 sensitivity study and locked. Changes now require an explicit version bump and re-running V1.
 
 ---
 
@@ -35,15 +35,34 @@ The evaluation harness consumes only directories conforming to this contract. Fu
 
 ## 4. Evaluation Dimensions and Core Metrics
 
-One primary metric per dimension (kept deliberately lean):
+One primary metric per dimension (kept deliberately lean). Validity ranges
+follow the V1 sensitivity study (Section 5a):
 
-| # | Dimension | Primary metric | Needs response data | Tool |
-|---|-----------|----------------|---------------------|------|
-| A | Structural validity | Completeness / identifiability checklist (violations count) | No | custom Python |
-| B | Empirical fit | RMSEA2, SRMSR (AIC/BIC/CAIC/SABIC as reference columns) | Yes | GDINA |
-| C | Data adjudication | Qval modification-suggestion rate (% of cells the data would revise) | Yes | GDINA::Qval |
-| D | Convergent validity | Aligned agreement with expert Q (Hungarian column matching; report precision/recall of 1-cells) | No | custom |
-| E | Diagnostic utility | (E1) CA classification accuracy per skill; (E2) ARI between student partitions (full sample, no posterior filtering) | Yes | GDINA::CA, mclust |
+| # | Dimension | Primary metric | Needs response data | Valid K range | Tool |
+|---|-----------|----------------|---------------------|---------------|------|
+| A | Structural validity | Completeness / identifiability checklist (violations count) | No | all K | custom Python |
+| B | Empirical fit | SRMSR (RMSEA2 secondary; AIC/BIC/CAIC/SABIC as reference columns) | Yes | K ≤ 5 (20-item test) | GDINA |
+| C | Data adjudication | Aligned agreement with the TSQE-estimated Q at the method's K (NPCDTools::TSQE, GDI ref method) | Yes | all K | NPCDTools + custom |
+| D | Convergent validity | Aligned agreement with expert Q (column matching; report precision/recall of 1-cells) | No | all K | custom |
+| E | Diagnostic utility | ARI between student partitions (full sample, no posterior filtering) | Yes | all K | mclust |
+
+**Two comparison tracks** (a consequence of the V1 findings):
+
+- **Same-K track** (fixed-K conditions): primary ranking metric = SRMSR, with
+  AIC/BIC as reference. Valid because information criteria and absolute fit are
+  corruption-sensitive when K is small relative to test length.
+- **Cross-K track** (auto-K, and any comparison across different K): information
+  criteria and RMSEA2/SRMSR are NOT comparable. Primary ranking metrics =
+  TSQE agreement (C) and classification ARI (E), both K-agnostic.
+
+**Circularity rules:** metric C is 1.0 by construction for the TSQE baseline and
+must not rank it; metric D likewise for the expert Q. Each reference-based
+metric excludes its own reference from ranking.
+
+Classification accuracy (GDINA::CA) was REMOVED from the framework: the V1
+study showed it is insensitive to Q corruption and can even increase with
+corruption (it measures the model's classification confidence under its own
+assumptions, not Q correctness).
 
 **Stability** (reliability of the construction procedure), measured at four layers across repeated runs:
 
@@ -54,18 +73,32 @@ One primary metric per dimension (kept deliberately lean):
 | Matrix | Aligned Fleiss' kappa; element-wise agreement; item-level perfect agreement |
 | Classification | Between-run ARI on student diagnoses (full sample) |
 
-Interpretation rules for E2/classification-layer ARI:
+Interpretation rules for E/classification-layer ARI (read together with A and C):
 
 - **Hierarchical coarsening** (each group of ours is a union of expert groups): benign granularity difference.
-- **Cross-cutting partitions** (low ARI, normal CA): skill boundaries misaligned with real cognitive differences — the harmful failure mode.
-- **Spurious distinction** (CA ≈ 0.5 for a skill): a skill the data cannot measure. E1 and E2 must therefore be read together.
+- **Cross-cutting partitions** (low ARI despite clean structural checks): skill boundaries misaligned with real cognitive differences — the harmful failure mode.
+- **Spurious distinction** (a skill the data cannot measure): surfaces as duplicate/near-duplicate columns or missing single-attribute items in the structural checklist (A), and as depressed TSQE agreement (C).
 
 ## 5. Framework Validation (prerequisite experiments)
 
 The framework itself is validated before it is used to compare methods:
 
-- **V1 Metric sensitivity simulation.** Flip 5% / 10% / 20% of cells in the expert Q; verify every quality metric degrades monotonically with corruption. Analogous perturbation check for stability metrics.
+- **V1 Metric sensitivity simulation.** Density-preserving corruption of a
+  reference Q (equal 1→0 and 0→1 flips) at 5% / 10% / 20%; verify each quality
+  metric degrades monotonically. Unbalanced random flips are invalid: they raise
+  Q density, which improves saturated G-DINA fit and confounds the study.
 - **V2 Contamination probe.** For each dataset, ask each target LLM to reproduce the published expert Q verbatim. Results archived; if reproduction succeeds, the perturbed item set (Section 7) is promoted from defense to primary experiment.
+
+### 5a. V1 findings on Tatsuoka (2026-07-10/11, basis for the frozen metric table)
+
+- AIC/BIC/CAIC/SABIC: perfectly monotone at K=4; INVERTED at K=8 (20 items vs
+  2^8 latent classes = over-parameterized regime) → K ≤ 5 validity bound.
+- RMSEA2/SRMSR: near-monotone at K=4 (plateau at 20% corruption); RMSEA2 is
+  incomputable at K=8 (M2 statistic undefined).
+- CA (tau): insensitive at K=4 and inverted at K=8 → removed from framework.
+- Expert agreement: monotone by construction (corruption is defined relative to
+  it) — V1 does not independently validate dimension D.
+- Raw archives: eval_out/v1 (balanced), eval_out/v1_unbalanced, eval_out/v1_k4.
 
 ## 6. Baselines
 
@@ -107,7 +140,7 @@ Every newly added dataset first passes the contamination probe (V2).
 | Phase | Content | Depends on |
 |-------|---------|-----------|
 | 0 | Freeze run contract + this spec | — |
-| 1 | Evaluation infrastructure: R evaluator (fit + Qval + CA, persisted), structural checker, 4-layer stability evaluator, unified report generator, V1, V2 | 0 |
+| 1 | Evaluation infrastructure: R evaluator (fit, persisted), TSQE reference, structural checker, 4-layer stability evaluator, unified report generator, V1, V2 | 0 |
 | 2 | Baselines B1/B2/B3, TSQE, expert-Q packaging | 0 |
 | 3 | Perturbed item set; additional dataset onboarding | 0, V2 |
 | 4 | Our methods: conform to contract, formal runs, iterate (each method version only re-runs the harness) | 1–3 |

@@ -16,9 +16,10 @@ python -m eval.convert_legacy --experiment prompt_experiment/v5_guided_fixedseed
 python -m eval.contract eval_runs
 
 # Single-Q tools
-python evaluate_qmatrix.py <Q.csv> tatsuoka          # GDINA fit + Qval + CA (JSON)
+python evaluate_qmatrix.py <Q.csv> tatsuoka          # GDINA fit indices (JSON)
 python -m eval.check_structure <Q.csv>               # data-free structural checks
 python -m eval.expert_agreement --qmatrix <Q.csv>    # aligned agreement vs expert Q
+python -m eval.tsqe --qmatrix <Q.csv>                # aligned agreement vs TSQE Q (same K)
 python -m eval.ari --qmatrix_a <Q.csv> --qmatrix_b <Q.csv>   # classification ARI
 
 # Unified report: quality + 4-layer stability per (method, dataset, k_condition) group

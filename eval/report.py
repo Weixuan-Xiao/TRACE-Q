@@ -19,10 +19,11 @@ from eval.contract import discover_runs, load_run, validate_run  # noqa: E402
 from eval.check_structure import check_structure  # noqa: E402
 from eval.expert_agreement import aligned_agreement  # noqa: E402
 from eval.stability import compute_stability  # noqa: E402
+from eval.tsqe import tsqe_agreement  # noqa: E402
 
 QUALITY_METRICS = [
     "AIC", "BIC", "CAIC", "SABIC", "RMSEA2", "SRMSR",
-    "qval_modification_rate", "ca_test_level",
+    "tsqe_cell_agreement",
     "structural_n_errors", "expert_cell_agreement",
 ]
 
@@ -46,6 +47,12 @@ def evaluate_one_run(run_dir, dataset, expert, cache_dir, force=False):
     structure = check_structure(run["items"], run["skills"], run["matrix"])
     result["structure"] = structure
 
+    try:
+        result["tsqe_agreement"] = tsqe_agreement(
+            run["matrix"], run["skills"], dataset, cache_dir.parent / "tsqe")
+    except RuntimeError as e:
+        result["tsqe_agreement"] = {"error": str(e)[:300]}
+
     if expert is not None:
         expert_skills, expert_matrix = expert
         result["expert_agreement"] = aligned_agreement(
@@ -60,14 +67,16 @@ def _flat_metrics(per_run_result):
     """Flatten one run's results into {metric: value} for aggregation."""
     out = {}
     quality = per_run_result.get("quality", {})
-    for m in ("AIC", "BIC", "CAIC", "SABIC", "RMSEA2", "SRMSR",
-              "qval_modification_rate", "ca_test_level"):
+    for m in ("AIC", "BIC", "CAIC", "SABIC", "RMSEA2", "SRMSR"):
         v = quality.get(m)
         if isinstance(v, (int, float)):
             out[m] = v
     structure = per_run_result.get("structure", {})
     if "n_errors" in structure:
         out["structural_n_errors"] = structure["n_errors"]
+    tsqe = per_run_result.get("tsqe_agreement")
+    if tsqe and isinstance(tsqe.get("cell_agreement"), (int, float)):
+        out["tsqe_cell_agreement"] = tsqe["cell_agreement"]
     expert = per_run_result.get("expert_agreement")
     if expert and isinstance(expert.get("cell_agreement"), (int, float)):
         out["expert_cell_agreement"] = expert["cell_agreement"]
@@ -210,8 +219,7 @@ def main():
         writer.writerow(["group", "method", "dataset", "k_condition", "n_runs",
                          "stability_aligned_fleiss_kappa",
                          "RMSEA2_mean", "RMSEA2_sd", "SRMSR_mean", "SRMSR_sd",
-                         "qval_modification_rate_mean", "qval_modification_rate_sd",
-                         "ca_test_level_mean", "ca_test_level_sd",
+                         "tsqe_cell_agreement_mean", "tsqe_cell_agreement_sd",
                          "expert_cell_agreement_mean"])
         for gid, g in sorted(report["groups"].items()):
             method, dataset, k_condition = gid.split("|")
@@ -223,9 +231,8 @@ def main():
                 aligned.get("fleiss_kappa"),
                 q.get("RMSEA2", {}).get("mean"), q.get("RMSEA2", {}).get("sd"),
                 q.get("SRMSR", {}).get("mean"), q.get("SRMSR", {}).get("sd"),
-                q.get("qval_modification_rate", {}).get("mean"),
-                q.get("qval_modification_rate", {}).get("sd"),
-                q.get("ca_test_level", {}).get("mean"), q.get("ca_test_level", {}).get("sd"),
+                q.get("tsqe_cell_agreement", {}).get("mean"),
+                q.get("tsqe_cell_agreement", {}).get("sd"),
                 q.get("expert_cell_agreement", {}).get("mean"),
             ])
 

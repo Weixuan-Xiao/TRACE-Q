@@ -16,13 +16,13 @@ from evaluate_qmatrix import evaluate as eval_quality  # noqa: E402
 from evaluate_stability import load_qmatrix  # noqa: E402
 from eval.check_structure import check_structure  # noqa: E402
 from eval.expert_agreement import aligned_agreement  # noqa: E402
+from eval.tsqe import tsqe_agreement  # noqa: E402
 
 # Direction each metric moves as the Q-matrix gets worse.
 METRIC_DIRECTIONS = {
     "AIC": "up", "BIC": "up", "CAIC": "up", "SABIC": "up",
     "RMSEA2": "up", "SRMSR": "up",
-    "qval_modification_rate": "up",
-    "ca_test_level": "down",
+    "tsqe_cell_agreement": "down",
     "expert_cell_agreement": "down",
 }
 
@@ -133,12 +133,13 @@ def main():
         quality = eval_quality(str(q_path), args.dataset)
         structure = check_structure(items, skills, matrix)
         agreement = aligned_agreement(matrix, expert_matrix)
+        tsqe = tsqe_agreement(matrix, skills, args.dataset, out_dir / "tsqe")
 
         row = {"rate": rate, "rep": rep, "n_resamples": n_resamples,
                "structural_n_errors": structure["n_errors"],
-               "expert_cell_agreement": agreement["cell_agreement"]}
-        for m in ("AIC", "BIC", "CAIC", "SABIC", "RMSEA2", "SRMSR",
-                  "qval_modification_rate", "ca_test_level"):
+               "expert_cell_agreement": agreement["cell_agreement"],
+               "tsqe_cell_agreement": tsqe["cell_agreement"]}
+        for m in ("AIC", "BIC", "CAIC", "SABIC", "RMSEA2", "SRMSR"):
             v = quality.get(m)
             row[m] = v if isinstance(v, (int, float)) else None
         row["converged"] = quality.get("converged")
