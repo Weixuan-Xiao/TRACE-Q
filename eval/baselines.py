@@ -277,7 +277,11 @@ def run_baseline(args):
                 extras["b3"] = b3_meta
                 with open(out_dir / "b3_samples.json", "w") as f:
                     json.dump(sample_records, f, indent=2)
-        except RuntimeError as e:
+        except Exception as e:
+            if "insufficient_quota" in str(e):
+                print(f"ABORT   {out_dir}: API quota exhausted — top up and rerun "
+                      f"this same command (completed runs are skipped).")
+                sys.exit(2)
             print(f"FAILED  {out_dir}: {e}")
             with open(out_dir / "FAILED.txt", "w") as f:
                 f.write(str(e))
