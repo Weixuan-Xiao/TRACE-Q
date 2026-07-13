@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Direct component subtraction",
+      "definition": "Subtract two aligned numeric values directly \u2014 whole-number parts and/or numerators that already share a common denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Common denominator conversion",
+      "definition": "Find the LCD of two unlike denominators and convert both fractions into equivalent fractions with that denominator before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrow/regroup for subtraction",
+      "definition": "When the fraction-part subtraction would be negative, borrow one whole unit (expressed as denominator/denominator) from the whole part and redo the fraction subtraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify to lowest terms",
+      "definition": "Reduce a resulting fraction by dividing numerator and denominator by their greatest common factor to express the answer in lowest terms."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Normalize improper mixed-number part",
+      "definition": "Convert a mixed number whose fractional part has numerator \u2265 denominator into standard mixed-number form (extracting whole units) before performing the subtraction."
+    }
+  ]
+}

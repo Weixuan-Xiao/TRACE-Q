@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common-denominator fraction subtraction",
+      "definition": "Subtract fractional parts that have a common denominator, keeping the denominator and handling zero numerators when they occur."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Unlike-denominator conversion",
+      "definition": "Find a common denominator for unlike fractional parts and rewrite them as equivalent fractions before subtraction."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Mixed/whole decomposition",
+      "definition": "Represent whole numbers, fractions, and mixed numbers by whole and fractional parts, subtract whole parts, and recombine the result in an appropriate form."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow across whole-fraction boundary",
+      "definition": "When the fractional subtraction is negative, borrow one or more whole units as denominator-over-denominator fractions and adjust the whole part."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify final fraction",
+      "definition": "Reduce non-lowest-term fractional results, including zero fractional parts, to a lowest-term or integer final form."
+    }
+  ]
+}

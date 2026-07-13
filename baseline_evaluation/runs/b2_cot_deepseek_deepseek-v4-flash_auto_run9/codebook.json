@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find common denominator and convert fractions",
+      "definition": "Determine the least common denominator of two fractions and convert each to an equivalent fraction with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions with common denominator",
+      "definition": "Subtract the numerators of two fractions that have the same denominator, keeping the denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrow from whole number",
+      "definition": "When the fraction part of the minuend is less than the fraction part of the subtrahend, decrease the whole number by 1 and add the denominator to the minuend's numerator, or rewrite a whole number as a mixed number with zero fraction and then borrow as needed."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to its lowest terms by dividing numerator and denominator by their greatest common divisor."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Convert improper fraction in mixed number",
+      "definition": "When a mixed number has an improper fraction part (numerator \u2265 denominator), convert it to a proper mixed number by adding the whole number from the fraction to the existing whole part."
+    }
+  ]
+}

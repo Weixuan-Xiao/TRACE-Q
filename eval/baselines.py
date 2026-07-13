@@ -181,6 +181,8 @@ def aggregate_b3(samples):
     takes the codebook from the medoid sample.
     """
     from collections import Counter
+    if not samples:
+        raise RuntimeError("all B3 samples failed; see b3_samples.json")
     k_counts = Counter(len(s) for s, _m in samples)
     modal_k, _ = k_counts.most_common(1)[0]
     kept = [(s, m) for s, m in samples if len(s) == modal_k]
@@ -235,7 +237,7 @@ def run_baseline(args):
               "b3": f"b3_sc{args.n_samples}"}[args.baseline]
 
     n_ok = 0
-    for run_idx in range(1, args.runs + 1):
+    for run_idx in range(args.run_start, args.run_start + args.runs):
         out_dir = Path(args.out) / f"{method}_{model_slug}_{args.k_condition}_run{run_idx}"
         if out_dir.exists() and not validate_run(out_dir):
             print(f"SKIP    {out_dir} (already valid)")
@@ -273,10 +275,11 @@ def run_baseline(args):
                                                "skills": s_skills, "matrix": s_matrix})
                     except RuntimeError as e:
                         sample_records.append({"error": str(e)[:200], "seed": s_seed})
-                skills, matrix, b3_meta = aggregate_b3(samples)
-                extras["b3"] = b3_meta
+                # write sample records first so diagnostics survive aggregation failure
                 with open(out_dir / "b3_samples.json", "w") as f:
                     json.dump(sample_records, f, indent=2)
+                skills, matrix, b3_meta = aggregate_b3(samples)
+                extras["b3"] = b3_meta
         except Exception as e:
             if "insufficient_quota" in str(e):
                 print(f"ABORT   {out_dir}: API quota exhausted — top up and rerun "
@@ -330,6 +333,8 @@ def main():
     parser.add_argument("--provider", default="openai", choices=["openai", "openrouter"])
     parser.add_argument("--k_condition", default="fixed_4")
     parser.add_argument("--runs", type=int, default=10)
+    parser.add_argument("--run_start", type=int, default=1,
+                        help="first run index; lets parallel processes cover disjoint ranges")
     parser.add_argument("--out", required=True)
     parser.add_argument("--items", default="data/items.jsonl")
     parser.add_argument("--dataset", default="tatsuoka")

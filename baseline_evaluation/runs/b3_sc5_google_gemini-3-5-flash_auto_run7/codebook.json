@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract pure fractions",
+      "definition": "Subtract the numerators of fractions sharing a common denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Convert unlike denominators",
+      "definition": "Find a common denominator and convert fractions to equivalent forms."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract whole parts",
+      "definition": "Subtract the integer components of whole or mixed numbers."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow from whole",
+      "definition": "Regroup one unit from the whole number part to the fraction part to resolve a negative fractional difference."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fraction",
+      "definition": "Reduce the resulting fractional component to its simplest form."
+    }
+  ]
+}

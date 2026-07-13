@@ -1,0 +1,30 @@
+{
+  "method": "b3_sc5",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 6,
+  "timestamp": "2026-07-13T07:07:11.049948+00:00",
+  "method_version": "phase2-v1",
+  "model": "deepseek/deepseek-v4-flash",
+  "provider": "openrouter",
+  "temperature": 0.7,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 9590,
+    "output": 88884,
+    "calls": 5
+  },
+  "b3": {
+    "n_samples_total": 5,
+    "k_distribution": {
+      "3": 1,
+      "6": 3,
+      "8": 1
+    },
+    "modal_k": 6,
+    "n_samples_used": 3,
+    "medoid_sample_index": 1
+  }
+}

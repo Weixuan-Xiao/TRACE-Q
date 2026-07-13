@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractions already expressed with a common denominator by subtracting numerators, retaining the denominator, and recognizing zero-numerator results."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Use common denominators",
+      "definition": "Find a common denominator for unlike fractional parts and rewrite the fractions as equivalent fractions before subtraction."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract mixed or whole parts without regrouping",
+      "definition": "Handle mixed-number or whole-number operands when no borrowing is needed by aligning whole and fractional parts, subtracting whole parts, and recombining the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow in mixed or whole subtraction",
+      "definition": "Handle mixed-number or whole-number subtraction when the fractional difference is negative by borrowing one or more wholes and adding denominator-equivalent units to the fractional part."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fractional results",
+      "definition": "Reduce a nonzero fractional part in the final answer to lowest terms."
+    }
+  ]
+}

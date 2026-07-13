@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find LCD and convert fractions",
+      "definition": "Determine the least common denominator for two unlike-denominator fractions and convert both to equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract like-denominator pure fractions",
+      "definition": "Subtract the numerators of two same-denominator fractions that have no whole-number part."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Separate and subtract whole/fraction parts",
+      "definition": "Decompose mixed numbers or whole numbers into whole and fractional components and subtract each component independently."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow across whole/fraction boundary",
+      "definition": "When the fractional subtraction yields a negative result, reduce the whole part by 1 and add a full denominator's worth (d/d) to the fraction before subtracting again."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fraction to lowest terms",
+      "definition": "Reduce a resulting fraction with a common factor greater than 1 between numerator and denominator to its simplest equivalent form."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Normalize improper fractional part",
+      "definition": "Convert a mixed number whose fractional part is improper (numerator \u2265 denominator) into standard mixed-number form before performing subtraction."
+    }
+  ]
+}

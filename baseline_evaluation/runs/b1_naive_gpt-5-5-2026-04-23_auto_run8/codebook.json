@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Like-denominator fraction subtraction",
+      "definition": "Subtract fractions that already have the same denominator by subtracting numerators and keeping the denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Unlike-denominator fraction subtraction",
+      "definition": "Find equivalent fractions with a common denominator in order to subtract fractional quantities with unlike denominators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Mixed-number subtraction without regrouping",
+      "definition": "Subtract mixed or whole-number quantities when the fractional part of the minuend is at least as large as the fractional part being subtracted."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regrouping in fraction subtraction",
+      "definition": "Borrow one whole and convert it to a fractional form when subtracting from a whole number or when the minuend's fractional part is too small."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Normalize improper mixed numerals",
+      "definition": "Interpret and convert mixed-number forms with improper fractional parts, such as 2 4/3, before completing subtraction."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find LCD and convert fractions",
+      "definition": "Determine the least common denominator for two fractions with unlike denominators and rewrite both as equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract numerators (common denominator)",
+      "definition": "Given two fractions that already share a denominator, subtract the numerators to obtain the result fraction, keeping the denominator unchanged."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Separate and subtract whole/fraction parts",
+      "definition": "Decompose mixed numbers (or whole numbers, treated as whole+0/d) into whole and fractional components and subtract the whole parts and fractional parts independently."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow/regroup for negative fraction result",
+      "definition": "When subtracting fractional parts yields a negative value, borrow 1 (expressed as d/d) from the whole part and add it to the minuend's fraction, repeating as necessary, before subtracting again."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fraction to lowest terms",
+      "definition": "Reduce a resulting fraction by dividing numerator and denominator by their greatest common factor to express the answer in lowest terms."
+    }
+  ]
+}

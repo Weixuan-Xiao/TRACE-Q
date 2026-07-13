@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Convert to Common Denominator",
+      "definition": "Convert fractions to a common denominator, including finding the least common denominator and generating equivalent fractions."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract Fractions",
+      "definition": "Subtract fractions with like denominators by subtracting numerators and keeping the denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Simplify Fractions",
+      "definition": "Reduce fractions to lowest terms by dividing numerator and denominator by their greatest common factor."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Handle Mixed Numbers",
+      "definition": "Interpret and manipulate mixed numbers, including separating whole and fraction parts, rewriting whole numbers as mixed numbers with zero fraction, converting improper fraction parts to proper form, and subtracting whole numbers."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Borrow",
+      "definition": "Borrow from the whole part when fraction subtraction yields a negative result, by decreasing the whole by 1 and adding the denominator to the fraction before subtracting."
+    }
+  ]
+}

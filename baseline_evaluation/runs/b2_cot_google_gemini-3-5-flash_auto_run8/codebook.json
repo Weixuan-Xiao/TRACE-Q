@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Basic Fraction Subtraction",
+      "definition": "Subtracting numerators when denominators are identical."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Finding Common Denominators",
+      "definition": "Finding the least common denominator and converting fractions to equivalent fractions."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Whole Number Manipulation",
+      "definition": "Subtracting the whole number components of mixed numbers or whole numbers."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing",
+      "definition": "Borrowing 1 from the whole number part when the fractional subtraction yields a negative value."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplification",
+      "definition": "Reducing the resulting fraction to its lowest terms."
+    }
+  ]
+}

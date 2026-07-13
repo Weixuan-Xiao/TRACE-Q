@@ -139,7 +139,7 @@ Every newly added dataset first passes the contamination probe (V2).
 ## 8. Experimental Design (v1.1)
 
 - **K condition:** single symmetric condition — every method selects K within 3–8 (see v1.1 change 1). Same-K fit comparisons are conditional analyses on modal-K subsets.
-- **Model panel (pinned):** anchor `gpt-5.5-2026-04-23` (direct OpenAI, full B1/B2/B3 + our methods); `anthropic/claude-sonnet-5`, `google/gemini-3.5-flash`, `deepseek/deepseek-v4-pro` via OpenRouter (B2/B3 + our methods). V2 contamination probe runs per model (GPT-5.5: aligned 0.725).
+- **Model panel (pinned):** anchor `gpt-5.5-2026-04-23` (direct OpenAI, full B1/B2/B3 + our methods); `anthropic/claude-sonnet-5`, `google/gemini-3.5-flash`, `deepseek/deepseek-v4-flash` via OpenRouter (B2/B3 + our methods). DeepSeek's open-weight representative is v4-flash (not v4-pro) for cost parity with the other economy-tier models; two superseded v4-pro runs are archived in `baseline_evaluation/superseded_deepseek_v4pro/`. V2 contamination probe runs per model (GPT-5.5: aligned 0.725).
 - **Runs:** ≥10 independent runs per method × model × dataset (expert Q and TSQE enter as single deterministic references).
 - **Statistics:** Mann-Whitney U for between-method comparisons on run-level metrics; bootstrap CIs; distributions reported, not single points.
 - **Cost reporting:** token cost per run reported for all LLM methods (measured on GPT-5.5: our methods ≈ 346.6k tokens/run over 165 calls; B2 ≈ 6.8k; B3 = 5 × B2).

@@ -1,0 +1,842 @@
+[
+  {
+    "k": 5,
+    "seed": null,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Common Denominator Conversion",
+        "definition": "Finding a common denominator and converting fractions with unlike denominators into equivalent fractions."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Basic Fraction Subtraction",
+        "definition": "Subtracting the numerators of fractions that already share a common denominator."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Whole Number Manipulation",
+        "definition": "Separately subtracting whole-number parts when at least one operand is a mixed number or whole number."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrowing",
+        "definition": "Regrouping or borrowing from the whole-number part to resolve a negative fractional difference."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Fraction Simplification",
+        "definition": "Reducing a fraction to its lowest terms or converting equivalent forms after calculation."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": null,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Basic Fraction Subtraction",
+        "definition": "Subtracting the numerators of fractions that already share a common denominator."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Finding Common Denominators & Conversion",
+        "definition": "Finding the least common denominator and converting unlike fractions into equivalent fractions."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Whole Number Operations",
+        "definition": "Separating and subtracting the integer/whole-number components of mixed numbers or whole numbers."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Fraction Borrowing",
+        "definition": "Borrowing one unit from the whole number and converting it to an equivalent fraction to resolve a negative fractional difference."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Fraction Simplification",
+        "definition": "Reducing a proper/improper fraction to its simplest terms, or converting a zero-numerator fraction to an integer."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": null,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Basic fraction subtraction",
+        "definition": "Subtracting numerators of fractions sharing a common denominator."
+      },
+      {
+        "skill_id": "S02",
+        "name": "LCD conversion",
+        "definition": "Finding the Least Common Denominator and converting fractions with unlike denominators."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Whole number subtraction",
+        "definition": "Subtracting the integer parts of mixed numbers or whole numbers."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrowing",
+        "definition": "Regrouping or borrowing from the whole number part to resolve a negative fractional difference."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Simplification",
+        "definition": "Reducing a fraction or mixed number's fractional part to its lowest terms."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": null,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Basic Fraction Subtraction",
+        "definition": "Subtracting the numerators of fractions that already share a common denominator."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Finding Common Denominators",
+        "definition": "Finding the least common denominator and converting unlike fractions to equivalent fractions."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Whole Number Subtraction",
+        "definition": "Subtracting the whole-number components of mixed numbers or whole numbers."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrowing and Regrouping",
+        "definition": "Regrouping one whole unit into fraction form (d/d) to resolve a negative fraction subtraction step."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Fraction Simplification",
+        "definition": "Reducing the fractional part of the result to its lowest terms."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 4,
+    "seed": null,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Fraction subtraction and equivalent conversion",
+        "definition": "Subtracting pure fractions, including finding a common denominator and converting fractions when necessary."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Mixed and whole number subtraction",
+        "definition": "Subtracting expressions involving mixed numbers or whole numbers by separating operations on whole and fraction parts."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Regrouping and borrowing",
+        "definition": "Borrowing from the whole number part to the fractional part to resolve a negative fractional difference."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Simplifying fractions",
+        "definition": "Reducing the final fractional answer to lowest terms."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  }
+]

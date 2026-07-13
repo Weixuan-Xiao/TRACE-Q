@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common denominator conversion",
+      "definition": "Find the LCD of two unlike denominators and convert each fraction to an equivalent fraction with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Numerator subtraction",
+      "definition": "Subtract the numerators of two fractions (or fractional parts of mixed numbers) that already share a common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Whole/fraction decomposition",
+      "definition": "Separate a mixed number (or treat a whole number as integer + 0/d) into whole and fractional parts and subtract the whole-number parts independently."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing/regrouping",
+      "definition": "When the fractional subtraction yields a negative result, regroup one whole unit from the minuend's whole part as d/d added to the fraction part, then re-subtract (repeating if still negative)."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify to lowest terms",
+      "definition": "Reduce the resulting fraction by dividing numerator and denominator by their greatest common factor."
+    }
+  ]
+}

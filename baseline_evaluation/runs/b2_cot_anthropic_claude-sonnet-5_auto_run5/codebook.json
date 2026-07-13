@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common-denominator subtraction",
+      "definition": "Subtract numerators once fractions share a common denominator, keeping that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "LCD conversion",
+      "definition": "Find the least common denominator and convert fractions with unlike denominators into equivalent fractions before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Mixed-number decomposition",
+      "definition": "Separate a mixed number (or treat a whole number as whole+0/d) into whole and fractional parts, subtract each part, and recombine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing/regrouping",
+      "definition": "When the fractional subtraction yields a negative value, borrow one whole unit (expressed as d/d) and redo the fraction subtraction."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplification to lowest terms",
+      "definition": "Reduce a fraction that is not already in lowest terms to its simplest equivalent form."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Improper mixed-number normalization",
+      "definition": "Convert a mixed number whose written fractional part is improper (numerator \u2265 denominator) into a proper mixed number before performing subtraction."
+    }
+  ]
+}

@@ -1,0 +1,842 @@
+[
+  {
+    "k": 4,
+    "seed": 8001,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Subtract same-denominator fractions",
+        "definition": "Subtract fractional quantities once they share a denominator by subtracting numerators, keeping the denominator, and normalizing the fractional result to lowest-term or zero form when needed."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find and use a common denominator",
+        "definition": "Find a common denominator and rewrite unlike-denominator fractional parts as equivalent fractions before subtraction."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Separate and combine mixed-number parts",
+        "definition": "Separate, subtract, and recombine whole-number and fractional parts of mixed or whole-number expressions, treating missing whole or fractional parts as zero when needed."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrow across whole and fraction parts",
+        "definition": "Regroup one or more whole units into denominator-sized fractional units when the minuend's fractional part is too small to subtract the subtrahend's fractional part."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": 8002,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Find LCD and convert fractions",
+        "definition": "Find a least common denominator for unlike denominators and rewrite fractions or mixed-number fraction parts as equivalent fractions with that denominator."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Subtract same-denominator fractions",
+        "definition": "Subtract fractional parts with a common denominator by subtracting numerators and keeping the denominator, including cases with zero or improper numerators."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Separate and combine mixed-number parts",
+        "definition": "Represent whole numbers, fractions, and mixed numbers by separate whole and fractional parts, subtract whole parts, and combine the resulting whole and fraction into a final answer."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrow from whole part",
+        "definition": "Regroup one or more whole units as denominator-over-denominator fractions when the fractional subtraction would otherwise be negative."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Simplify fractional result",
+        "definition": "Reduce a nonzero fractional result to lowest terms before giving the final answer."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": 8003,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Subtract common-denominator fractions",
+        "definition": "Subtract fractional quantities that already have a common denominator by subtracting numerators and keeping the denominator, including recognizing negative or zero fractional differences."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find common denominator",
+        "definition": "Find a common denominator for unlike fractional denominators and convert fractions to equivalent forms before subtraction."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Handle whole and mixed-number parts",
+        "definition": "Represent whole numbers and mixed numbers using separate whole and fractional parts, subtract whole parts, and combine the resulting components into an appropriate final form."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrow from whole part",
+        "definition": "Regroup one or more whole units as fractional units when the fractional subtraction is negative."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Simplify or normalize result",
+        "definition": "Put the computed result into simplest acceptable form by reducing fractions to lowest terms or normalizing zero fractional results as integers or 0."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": 8004,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Find common denominator",
+        "definition": "Find a least common denominator and rewrite unlike-denominator fractional parts as equivalent fractions with a common denominator."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Subtract like-denominator fractions",
+        "definition": "Subtract fractions with a common denominator by subtracting numerators and keeping the denominator."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Simplify or normalize result",
+        "definition": "Reduce fractional results to lowest terms and convert zero or whole-valued fractional parts into appropriate integer or mixed-number form."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Operate with mixed and whole parts",
+        "definition": "Separate, align, subtract, and recombine whole-number and fractional parts of mixed numbers or whole numbers, using zero for missing parts when needed."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Borrow from whole part",
+        "definition": "Regroup one or more whole units into the fractional part when the initial fractional subtraction would be negative."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1,
+        1
+      ]
+    ]
+  },
+  {
+    "k": 5,
+    "seed": 8005,
+    "skills": [
+      {
+        "skill_id": "S01",
+        "name": "Subtract common-denominator fractions",
+        "definition": "Subtract fractional parts that already have a common denominator by subtracting numerators, keeping the denominator, and recognizing zero fractional results."
+      },
+      {
+        "skill_id": "S02",
+        "name": "Find LCD and convert fractions",
+        "definition": "Find a least common denominator for unlike denominators and rewrite fractions as equivalent fractions with that denominator."
+      },
+      {
+        "skill_id": "S03",
+        "name": "Operate with mixed and whole numbers",
+        "definition": "Separate mixed or whole-number operands into whole and fractional parts, subtract whole-number parts, and recombine the final whole and fractional result."
+      },
+      {
+        "skill_id": "S04",
+        "name": "Borrow from the whole part",
+        "definition": "When the fractional subtraction would be negative, borrow one or more whole units and add the corresponding denominator-over-denominator amount to the fractional part."
+      },
+      {
+        "skill_id": "S05",
+        "name": "Simplify fractional result",
+        "definition": "Reduce a nonzero fractional result to lowest terms by dividing numerator and denominator by a common factor."
+      }
+    ],
+    "matrix": [
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0
+      ]
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find common denominator and convert",
+      "definition": "Given two fractions with different denominators, find the least common denominator (LCD) and convert each fraction to an equivalent fraction with the LCD; also includes expressing a whole number as a fraction with a given denominator when subtracting from a mixed number or fraction."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions with same denominator",
+      "definition": "Subtract the numerators of two fractions that have the same denominator, keeping the denominator unchanged."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to its lowest terms by dividing the numerator and denominator by their greatest common factor, or recognize that it is already in simplest form."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Decompose and recompose mixed numbers",
+      "definition": "Separate a mixed number into its whole number and fractional part for subtraction, and after performing fraction subtraction, combine the whole and fractional parts back into a mixed number (or integer if the fraction is zero)."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Borrow from whole number",
+      "definition": "When the fractional part of the minuend is smaller than the fractional part of the subtrahend, borrow 1 from the whole number part, convert it to the equivalent fraction (e.g., d/d), and add it to the fractional part before subtracting."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Normalize mixed numbers",
+      "definition": "Convert a mixed number with an improper fractional part (numerator \u2265 denominator) into an equivalent mixed number with a proper fraction by carrying over to the whole number part."
+    }
+  ]
+}

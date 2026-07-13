@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract same-denominator fractions",
+      "definition": "Subtract numerators when denominators are the same, keeping the denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract unlike-denominator fractions",
+      "definition": "Find the least common denominator, convert both fractions to equivalent fractions, then subtract numerators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Simplify fraction",
+      "definition": "Reduce a fraction to lowest terms by dividing numerator and denominator by their greatest common divisor."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Subtract mixed numbers without borrowing",
+      "definition": "Subtract mixed numbers where the fraction part of the minuend is greater than or equal to that of the subtrahend, involving separating whole and fraction parts, subtracting wholes, subtracting fractions, and combining."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Subtract mixed numbers with borrowing",
+      "definition": "Subtract mixed numbers where the fraction part of the minuend is less than that of the subtrahend, requiring regrouping (borrowing 1 from the whole part) in addition to the steps in S04."
+    }
+  ]
+}

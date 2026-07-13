@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Convert to common denominator",
+      "definition": "Find the least common denominator and convert fractions to equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions",
+      "definition": "Subtract the numerators of fractions with a common denominator, keeping the denominator unchanged."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to its simplest form by dividing numerator and denominator by their greatest common divisor."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Manage mixed numbers",
+      "definition": "Separate whole and fraction parts of mixed numbers, subtract whole numbers, borrow if necessary, and combine the results."
+    }
+  ]
+}

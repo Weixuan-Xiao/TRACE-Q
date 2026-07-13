@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract aligned pure fractions",
+      "definition": "Subtract two pure fractions with the same denominator by subtracting numerators, keeping the denominator, and interpreting zero results when they occur."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find LCD and convert fractions",
+      "definition": "Find a common denominator for unlike denominators and convert the relevant fractions to equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract mixed or whole numbers without regrouping",
+      "definition": "Subtract mixed-number or whole-number quantities by separating whole and fractional parts, subtracting aligned parts when the fractional subtraction is nonnegative, and recombining the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Subtract mixed or whole numbers with regrouping",
+      "definition": "Subtract mixed-number or whole-number quantities when the fractional part would be negative by borrowing one or more wholes, converting each borrowed whole into denominator-over-denominator form, and recombining the result."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Reduce fractional result",
+      "definition": "Simplify a nonzero fractional result to lowest terms by dividing numerator and denominator by a common factor."
+    }
+  ]
+}

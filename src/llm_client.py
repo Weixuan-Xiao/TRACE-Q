@@ -2,13 +2,18 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
-from openai import OpenAI
+from openai import APIConnectionError, OpenAI
 
 Message = Dict[str, str]
+
+
+class _TransientBadResponse(Exception):
+    """Gateway returned a well-formed but unusable response (e.g. empty choices)."""
 
 
 @dataclass(frozen=True)
@@ -65,9 +70,15 @@ class LLMClient:
         if response_format is not None:
             payload["response_format"] = response_format
 
+        last_exc: Optional[Exception] = None
         for _attempt in range(3):
             try:
                 resp = self._client.chat.completions.create(**payload)
+                if not getattr(resp, "choices", None):
+                    # OpenRouter can return 200 with empty choices on upstream
+                    # provider errors; surface the embedded error if present.
+                    raise _TransientBadResponse(
+                        f"response has no choices: {getattr(resp, 'error', None)}")
                 break
             except TypeError:
                 if "response_format" in payload:
@@ -76,6 +87,13 @@ class LLMClient:
                 raise
             except Exception as e:
                 msg = str(e).lower()
+                # Transient transport failures (truncated/non-JSON gateway body,
+                # dropped connection): retry the identical request.
+                if isinstance(e, (json.JSONDecodeError, APIConnectionError,
+                                  _TransientBadResponse)):
+                    last_exc = e
+                    time.sleep(2)
+                    continue
                 # Some models (e.g. GPT-5.x reasoning family) only support their
                 # default temperature; retry without it and record the fallback.
                 if "temperature" in payload and "'temperature'" in msg and "support" in msg:
@@ -88,7 +106,7 @@ class LLMClient:
                     continue
                 raise
         else:
-            raise RuntimeError("chat.completions retries exhausted")
+            raise RuntimeError(f"chat.completions retries exhausted: {last_exc}")
 
         self._record_usage(payload["model"], getattr(resp, "usage", None))
         return (resp.choices[0].message.content or "").strip()

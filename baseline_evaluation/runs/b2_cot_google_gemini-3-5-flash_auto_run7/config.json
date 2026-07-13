@@ -1,0 +1,19 @@
+{
+  "method": "b2_cot",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 5,
+  "timestamp": "2026-07-13T06:10:41.432770+00:00",
+  "method_version": "phase2-v1",
+  "model": "google/gemini-3.5-flash",
+  "provider": "openrouter",
+  "temperature": 0.0,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 8937,
+    "output": 5822,
+    "calls": 2
+  }
+}

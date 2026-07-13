@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional quantities that have the same denominator by subtracting numerators and keeping the denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find LCD and convert fractions",
+      "definition": "Find a least common denominator for unlike denominators and rewrite fractions as equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Handle mixed and whole numbers",
+      "definition": "Separate whole-number and fractional parts, rewrite whole numbers with a zero fractional part when needed, borrow whole units as fractional units when necessary, and recombine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify final result",
+      "definition": "Express the computed result in conventional lowest-term form by reducing fractions or removing a zero fractional part."
+    }
+  ]
+}

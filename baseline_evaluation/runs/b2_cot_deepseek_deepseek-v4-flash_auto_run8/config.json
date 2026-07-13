@@ -1,0 +1,19 @@
+{
+  "method": "b2_cot",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 5,
+  "timestamp": "2026-07-13T06:50:57.752087+00:00",
+  "method_version": "phase2-v1",
+  "model": "deepseek/deepseek-v4-flash",
+  "provider": "openrouter",
+  "temperature": 0.0,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 1918,
+    "output": 15460,
+    "calls": 1
+  }
+}

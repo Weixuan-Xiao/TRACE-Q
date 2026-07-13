@@ -1,0 +1,28 @@
+{
+  "method": "b3_sc5",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 5,
+  "timestamp": "2026-07-13T06:14:20.902905+00:00",
+  "method_version": "phase2-v1",
+  "model": "google/gemini-3.5-flash",
+  "provider": "openrouter",
+  "temperature": 0.7,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 31083,
+    "output": 27109,
+    "calls": 8
+  },
+  "b3": {
+    "n_samples_total": 5,
+    "k_distribution": {
+      "5": 5
+    },
+    "modal_k": 5,
+    "n_samples_used": 5,
+    "medoid_sample_index": 1
+  }
+}

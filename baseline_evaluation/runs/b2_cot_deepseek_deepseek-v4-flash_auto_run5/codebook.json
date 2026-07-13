@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find common denominator and convert",
+      "definition": "Determine a common denominator for two fractions with unlike denominators and convert each to an equivalent fraction with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions with like denominators",
+      "definition": "Subtract the numerators of two fractions that have the same denominator, keeping the denominator unchanged."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract whole numbers",
+      "definition": "Perform subtraction of two whole numbers."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow from whole number",
+      "definition": "When subtracting fractions yields a negative result, reduce the whole number part by 1 and add the denominator to the numerator of the fraction to make the subtraction possible."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to lowest terms by dividing numerator and denominator by their greatest common divisor."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Decompose and compose mixed numbers",
+      "definition": "Represent a mixed number or whole number as a whole part and a fraction part, and combine a whole part and a fraction part to form a mixed number (or integer if fraction part is zero)."
+    }
+  ]
+}

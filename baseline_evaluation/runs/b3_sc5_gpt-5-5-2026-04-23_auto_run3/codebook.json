@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find common denominator",
+      "definition": "Find a least common denominator for unlike fractional parts and convert fractions to equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional parts with the same denominator by subtracting numerators while keeping the denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Handle mixed and whole numbers",
+      "definition": "Separate mixed or whole numbers into whole and fractional parts, subtract whole-number parts, and recombine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow from whole part",
+      "definition": "Regroup one or more wholes into fractional form when the fractional part of the minuend is smaller than the fractional part of the subtrahend."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify final result",
+      "definition": "Reduce a nonzero fractional result to lowest terms or convert a zero fractional part to the appropriate integer or zero form."
+    }
+  ]
+}
