@@ -288,6 +288,7 @@ def run_baseline(args):
             continue
 
         skill_ids = [s["skill_id"] for s in skills]
+        (out_dir / "FAILED.txt").unlink(missing_ok=True)  # clear stale failure marker
         _write_canonical_q(item_ids, skill_ids, matrix, out_dir / "Q.csv")
         with open(out_dir / "codebook.json", "w") as f:
             json.dump({"skills": skills}, f, indent=2)

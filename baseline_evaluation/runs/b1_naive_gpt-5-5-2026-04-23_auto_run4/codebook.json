@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract like-denominator fractions",
+      "definition": "Subtract standalone fractions that already share a denominator by subtracting numerators, including cases with zero differences or improper fractions."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find common denominators",
+      "definition": "Rewrite fractions with unlike denominators as equivalent fractions with a common denominator before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract mixed or whole numbers without regrouping",
+      "definition": "Subtract expressions involving whole-number parts and fractional parts when the shown fractional part of the minuend is large enough and no borrowing is needed."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regroup for subtraction",
+      "definition": "Perform mixed-number or whole-number subtraction when one whole must be borrowed from the minuend and renamed as a fraction."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Handle improper mixed-number parts",
+      "definition": "Interpret and work with mixed-number terms whose fractional part is improper, such as 2 4/3."
+    }
+  ]
+}
