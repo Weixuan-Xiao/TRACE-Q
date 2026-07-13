@@ -1,0 +1,5 @@
+group,n_runs,modal_k,modal_k_fraction,codebook_mean_sim,aligned_fleiss_kappa,aligned_agreement,aligned_item_perfect_rate,mean_ari,min_ari
+b1_naive|tatsuoka|fixed_4,10,4,1.0,,0.6346,0.8625,0.15,0.7675,0.5884
+b2_cot|tatsuoka|fixed_4,8,4,1.0,,0.8199,0.9422,0.35,0.7451,0.5364
+expert|tatsuoka|fixed_8,1,,,,,,,,
+tsqe|tatsuoka|fixed_4,1,,,,,,,,

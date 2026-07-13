@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common-denominator fraction subtraction",
+      "definition": "Subtract fractions that already have a common denominator by subtracting numerators, including proper and improper fractions."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Unlike-denominator conversion",
+      "definition": "Rewrite fractions with unlike denominators as equivalent fractions with a common denominator before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Mixed and whole number representation",
+      "definition": "Interpret, convert, or decompose whole numbers, mixed numbers, and improper fractions for subtraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regrouping or borrowing",
+      "definition": "Rename a whole or mixed number by borrowing from the whole-number part when the fractional part of the minuend is too small."
+    }
+  ]
+}

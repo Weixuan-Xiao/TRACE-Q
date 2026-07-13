@@ -1,0 +1,15 @@
+{
+  "method": "expert",
+  "dataset": "tatsuoka",
+  "k_condition": "fixed_8",
+  "k_selected": 8,
+  "timestamp": "2026-07-13T05:37:59.561677+00:00",
+  "method_version": null,
+  "model": null,
+  "provider": null,
+  "seed": null,
+  "token_cost": null,
+  "source": {
+    "reference_csv": "data/expert_q_tatsuoka.csv"
+  }
+}

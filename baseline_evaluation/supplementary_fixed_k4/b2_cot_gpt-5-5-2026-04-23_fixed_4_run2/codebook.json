@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Fraction equivalence and simplification",
+      "definition": "Use fraction equivalence to find common denominators, scale fractions, or reduce a fractional result to lowest or integer form."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Like-denominator fraction subtraction",
+      "definition": "Subtract fractional quantities with a shared denominator by subtracting numerators and keeping the denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Mixed and whole number management",
+      "definition": "Decompose mixed or whole numbers into whole and fractional parts, handle missing fractional parts as 0/d, subtract whole parts, and recombine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing across whole and fraction parts",
+      "definition": "Regroup by borrowing one or more wholes as denominator-sized fractional units when the fractional subtraction would otherwise be negative."
+    }
+  ]
+}

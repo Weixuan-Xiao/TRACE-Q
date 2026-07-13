@@ -45,7 +45,8 @@ def main():
     parser.add_argument("--out", required=True, help="Runs root for reference dirs")
     parser.add_argument("--dataset", default="tatsuoka")
     parser.add_argument("--expert_q", default="data/expert_q_tatsuoka.csv")
-    parser.add_argument("--tsqe_k", type=int, default=4)
+    parser.add_argument("--tsqe_k", default="auto",
+                        help="'auto' = BIC-optimal K over 3-8 sweep, or an integer")
     parser.add_argument("--tsqe_cache", default="eval_out/tsqe")
     args = parser.parse_args()
 
@@ -55,7 +56,8 @@ def main():
     jobs.append((expert_path, "expert", f"fixed_{len(e_skills)}", "expert_run1"))
 
     tsqe_path = tsqe_q_for(args.dataset, args.tsqe_k, args.tsqe_cache)
-    jobs.append((tsqe_path, "tsqe", f"fixed_{args.tsqe_k}", "tsqe_run1"))
+    tsqe_condition = "auto" if args.tsqe_k == "auto" else f"fixed_{args.tsqe_k}"
+    jobs.append((tsqe_path, "tsqe", tsqe_condition, "tsqe_run1"))
 
     any_bad = False
     for q_csv, method, k_condition, dirname in jobs:

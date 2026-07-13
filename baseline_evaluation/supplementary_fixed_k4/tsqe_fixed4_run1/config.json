@@ -1,0 +1,15 @@
+{
+  "method": "tsqe",
+  "dataset": "tatsuoka",
+  "k_condition": "fixed_4",
+  "k_selected": 4,
+  "timestamp": "2026-07-11T03:29:48.035523+00:00",
+  "method_version": null,
+  "model": null,
+  "provider": null,
+  "seed": null,
+  "token_cost": null,
+  "source": {
+    "reference_csv": "eval_out/tsqe/tsqe_tatsuoka_K4.csv"
+  }
+}

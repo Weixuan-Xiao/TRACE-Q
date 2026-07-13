@@ -1,0 +1,5 @@
+group,method,dataset,k_condition,n_runs,stability_aligned_fleiss_kappa,RMSEA2_mean,RMSEA2_sd,SRMSR_mean,SRMSR_sd,tsqe_cell_agreement_mean,tsqe_cell_agreement_sd,expert_cell_agreement_mean
+b1_naive|tatsuoka|fixed_4,b1_naive,tatsuoka,fixed_4,10,0.6346,0.0527,0.0124,0.0789,0.0152,0.6975,0.0115,0.91
+b2_cot|tatsuoka|fixed_4,b2_cot,tatsuoka,fixed_4,8,0.8199,0.0469,0.0094,0.0641,0.0062,0.6922,0.0176,0.9297
+expert|tatsuoka|fixed_8,expert,tatsuoka,fixed_8,1,,,,0.0706,0.0,0.75,0.0,1.0
+tsqe|tatsuoka|fixed_4,tsqe,tatsuoka,fixed_4,1,,0.0234,0.0,0.0386,0.0,1.0,0.0,0.7125

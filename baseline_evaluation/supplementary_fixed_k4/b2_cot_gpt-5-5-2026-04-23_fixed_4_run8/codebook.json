@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Align unlike denominators",
+      "definition": "Find a common denominator for unlike fraction parts and convert fractions to equivalent forms with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract same-denominator fractions",
+      "definition": "Subtract fraction parts with a common denominator by subtracting numerators, keeping the denominator, and simplifying the fractional result when needed."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Manage mixed and whole numbers",
+      "definition": "Represent whole numbers and mixed numbers as whole-plus-fraction quantities, subtract whole parts, and combine or report the resulting whole and fraction parts."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow across whole and fraction parts",
+      "definition": "When the fractional subtraction is negative, regroup one or more wholes as denominator-over-denominator fractions and adjust the whole part accordingly."
+    }
+  ]
+}

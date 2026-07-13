@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find common denominator",
+      "definition": "Find an LCD for unlike denominators and convert fractions or fractional parts to equivalent fractions with that common denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract and simplify fractions",
+      "definition": "Subtract fractions once they have a common denominator by subtracting numerators, keeping the denominator, and reducing the result to lowest terms when needed."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract mixed or whole numbers without regrouping",
+      "definition": "Separate whole-number and fractional parts, subtract or carry the whole and fractional parts when no borrowing is needed, and combine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regroup in mixed or whole subtraction",
+      "definition": "When the fractional subtraction would be negative, borrow one or more whole units, convert each borrowed unit to denominator-over-denominator form, adjust the whole part, and combine the result."
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "config": {
+    "runs_root": "eval_runs/phase2",
+    "dataset": "tatsuoka",
+    "expert_q": "data/expert_q_tatsuoka.csv",
+    "n_runs_total": 20,
+    "n_runs_valid": 20
+  },
+  "invalid_runs": [],
+  "groups": {
+    "b1_naive|tatsuoka|fixed_4": {
+      "n_runs": 10,
+      "quality": {
+        "AIC": {
+          "mean": 9079.4814,
+          "sd": 124.0343,
+          "min": 8913.3778,
+          "max": 9292.622,
+          "n": 10
+        },
+        "BIC": {
+          "mean": 9532.7428,
+          "sd": 99.0819,
+          "min": 9311.8022,
+          "max": 9609.4897,
+          "n": 10
+        },
+        "CAIC": {
+          "mean": 9638.5428,
+          "sd": 128.6306,
+          "min": 9404.8022,
+          "max": 9750.4897,
+          "n": 10
+        },
+        "SABIC": {
+          "mean": 9196.8988,
+          "sd": 92.6823,
+          "min": 9016.5896,
+          "max": 9353.6612,
+          "n": 10
+        },
+        "RMSEA2": {
+          "mean": 0.0527,
+          "sd": 0.0124,
+          "min": 0.0417,
+          "max": 0.0706,
+          "n": 10
+        },
+        "SRMSR": {
+          "mean": 0.0789,
+          "sd": 0.0152,
+          "min": 0.0657,
+          "max": 0.1026,
+          "n": 10
+        },
+        "tsqe_cell_agreement": {
+          "mean": 0.6975,
+          "sd": 0.0115,
+          "min": 0.6875,
+          "max": 0.725,
+          "n": 10
+        },
+        "structural_n_errors": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0,
+          "n": 10
+        },
+        "expert_cell_agreement": {
+          "mean": 0.91,
+          "sd": 0.0432,
+          "min": 0.85,
+          "max": 0.95,
+          "n": 10
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [],
+        "k_layer": {
+          "k_distribution": {
+            "4": 10
+          },
+          "modal_k": 4,
+          "modal_k_fraction": 1.0
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 10,
+          "n_items": 20,
+          "n_skills": 4,
+          "total_cells": 80,
+          "element_wise_agreement": 0.8625,
+          "fleiss_kappa": 0.6346,
+          "item_perfect_rate": 0.15,
+          "n_unique_qmatrices": 5,
+          "modal_qmatrix_frequency": 5,
+          "modal_qmatrix_frequency_pct": 0.5,
+          "aligned": {
+            "element_wise_agreement": 0.8625,
+            "fleiss_kappa": 0.6346,
+            "item_perfect_rate": 0.15,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "n_unique_qmatrices": 5,
+            "modal_qmatrix_frequency": 5,
+            "modal_qmatrix_frequency_pct": 0.5
+          },
+          "runs_used": [
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run1",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run10",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run2",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run3",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run4",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run5",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run6",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run7",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run8",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run9"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.7675,
+          "min_ari": 0.5884,
+          "sd_ari": 0.1561,
+          "n_pairs": 45,
+          "runs_used": [
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run1",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run10",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run2",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run3",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run4",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run5",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run6",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run7",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run8",
+            "b1_naive_gpt-5-5-2026-04-23_fixed_4_run9"
+          ]
+        }
+      },
+      "runs": [
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run1",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run10",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run2",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run3",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run4",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run5",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run6",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run7",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run8",
+        "b1_naive_gpt-5-5-2026-04-23_fixed_4_run9"
+      ]
+    },
+    "b2_cot|tatsuoka|fixed_4": {
+      "n_runs": 8,
+      "quality": {
+        "AIC": {
+          "mean": 9012.4014,
+          "sd": 87.363,
+          "min": 8813.2804,
+          "max": 9101.2435,
+          "n": 8
+        },
+        "BIC": {
+          "mean": 9563.9837,
+          "sd": 88.0921,
+          "min": 9471.6967,
+          "max": 9713.8747,
+          "n": 8
+        },
+        "CAIC": {
+          "mean": 9692.7337,
+          "sd": 109.746,
+          "min": 9568.6967,
+          "max": 9856.8747,
+          "n": 8
+        },
+        "SABIC": {
+          "mean": 9155.2888,
+          "sd": 69.4929,
+          "min": 9005.2766,
+          "max": 9259.9456,
+          "n": 8
+        },
+        "RMSEA2": {
+          "mean": 0.0469,
+          "sd": 0.0094,
+          "min": 0.0322,
+          "max": 0.0585,
+          "n": 8
+        },
+        "SRMSR": {
+          "mean": 0.0641,
+          "sd": 0.0062,
+          "min": 0.052,
+          "max": 0.0748,
+          "n": 8
+        },
+        "tsqe_cell_agreement": {
+          "mean": 0.6922,
+          "sd": 0.0176,
+          "min": 0.65,
+          "max": 0.7,
+          "n": 8
+        },
+        "structural_n_errors": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0,
+          "n": 8
+        },
+        "expert_cell_agreement": {
+          "mean": 0.9297,
+          "sd": 0.0249,
+          "min": 0.875,
+          "max": 0.95,
+          "n": 8
+        }
+      },
+      "stability": {
+        "n_runs": 8,
+        "exclusions": [],
+        "k_layer": {
+          "k_distribution": {
+            "4": 8
+          },
+          "modal_k": 4,
+          "modal_k_fraction": 1.0
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 8,
+          "n_items": 20,
+          "n_skills": 4,
+          "total_cells": 80,
+          "element_wise_agreement": 0.8547,
+          "fleiss_kappa": 0.531,
+          "item_perfect_rate": 0.2,
+          "n_unique_qmatrices": 5,
+          "modal_qmatrix_frequency": 3,
+          "modal_qmatrix_frequency_pct": 0.375,
+          "aligned": {
+            "element_wise_agreement": 0.9422,
+            "fleiss_kappa": 0.8199,
+            "item_perfect_rate": 0.35,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                1,
+                0,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                1,
+                0,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "n_unique_qmatrices": 4,
+            "modal_qmatrix_frequency": 3,
+            "modal_qmatrix_frequency_pct": 0.375
+          },
+          "runs_used": [
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run1",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run2",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run3",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run4",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run5",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run6",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run7",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run8"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.7451,
+          "min_ari": 0.5364,
+          "sd_ari": 0.1441,
+          "n_pairs": 28,
+          "runs_used": [
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run1",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run2",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run3",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run4",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run5",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run6",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run7",
+            "b2_cot_gpt-5-5-2026-04-23_fixed_4_run8"
+          ]
+        }
+      },
+      "runs": [
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run1",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run2",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run3",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run4",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run5",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run6",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run7",
+        "b2_cot_gpt-5-5-2026-04-23_fixed_4_run8"
+      ]
+    },
+    "expert|tatsuoka|fixed_8": {
+      "n_runs": 1,
+      "quality": {
+        "AIC": {
+          "mean": 9421.6295,
+          "sd": 0.0,
+          "min": 9421.6295,
+          "max": 9421.6295,
+          "n": 1
+        },
+        "BIC": {
+          "mean": 11328.0692,
+          "sd": 0.0,
+          "min": 11328.0692,
+          "max": 11328.0692,
+          "n": 1
+        },
+        "CAIC": {
+          "mean": 11773.0692,
+          "sd": 0.0,
+          "min": 11773.0692,
+          "max": 11773.0692,
+          "n": 1
+        },
+        "SABIC": {
+          "mean": 9915.4926,
+          "sd": 0.0,
+          "min": 9915.4926,
+          "max": 9915.4926,
+          "n": 1
+        },
+        "SRMSR": {
+          "mean": 0.0706,
+          "sd": 0.0,
+          "min": 0.0706,
+          "max": 0.0706,
+          "n": 1
+        },
+        "tsqe_cell_agreement": {
+          "mean": 0.75,
+          "sd": 0.0,
+          "min": 0.75,
+          "max": 0.75,
+          "n": 1
+        },
+        "structural_n_errors": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0,
+          "n": 1
+        },
+        "expert_cell_agreement": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n": 1
+        }
+      },
+      "stability": {
+        "n_runs": 1,
+        "exclusions": [],
+        "error": "Need >= 2 runs, found 1"
+      },
+      "runs": [
+        "expert_run1"
+      ]
+    },
+    "tsqe|tatsuoka|fixed_4": {
+      "n_runs": 1,
+      "quality": {
+        "AIC": {
+          "mean": 8701.5099,
+          "sd": 0.0,
+          "min": 8701.5099,
+          "max": 8701.5099,
+          "n": 1
+        },
+        "BIC": {
+          "mean": 9177.0488,
+          "sd": 0.0,
+          "min": 9177.0488,
+          "max": 9177.0488,
+          "n": 1
+        },
+        "CAIC": {
+          "mean": 9288.0488,
+          "sd": 0.0,
+          "min": 9288.0488,
+          "max": 9288.0488,
+          "n": 1
+        },
+        "SABIC": {
+          "mean": 8824.6982,
+          "sd": 0.0,
+          "min": 8824.6982,
+          "max": 8824.6982,
+          "n": 1
+        },
+        "RMSEA2": {
+          "mean": 0.0234,
+          "sd": 0.0,
+          "min": 0.0234,
+          "max": 0.0234,
+          "n": 1
+        },
+        "SRMSR": {
+          "mean": 0.0386,
+          "sd": 0.0,
+          "min": 0.0386,
+          "max": 0.0386,
+          "n": 1
+        },
+        "tsqe_cell_agreement": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0,
+          "n": 1
+        },
+        "structural_n_errors": {
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0,
+          "n": 1
+        },
+        "expert_cell_agreement": {
+          "mean": 0.7125,
+          "sd": 0.0,
+          "min": 0.7125,
+          "max": 0.7125,
+          "n": 1
+        }
+      },
+      "stability": {
+        "n_runs": 1,
+        "exclusions": [],
+        "error": "Need >= 2 runs, found 1"
+      },
+      "runs": [
+        "tsqe_run1"
+      ]
+    }
+  }
+}

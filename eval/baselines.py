@@ -329,7 +329,8 @@ def main():
     parser.add_argument("--items", default="data/items.jsonl")
     parser.add_argument("--dataset", default="tatsuoka")
     parser.add_argument("--guides_dir", default="guides")
-    parser.add_argument("--n_samples", type=int, default=5, help="B3 sample count")
+    parser.add_argument("--n_samples", type=int, default=5,
+                        help="B3 sample count (default 5: odd, so cell votes never tie)")
     parser.add_argument("--temperature", type=float, default=0.0)
     parser.add_argument("--b3_temperature", type=float, default=0.7)
     parser.add_argument("--seed_base", type=int, default=1)

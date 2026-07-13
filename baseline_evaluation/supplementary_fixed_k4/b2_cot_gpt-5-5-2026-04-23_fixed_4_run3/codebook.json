@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional quantities that already have a common denominator by subtracting numerators, keeping the denominator, and simplifying or normalizing the fractional result when needed."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find LCD and convert fractions",
+      "definition": "Find a least common denominator for unlike denominators and rewrite fractions as equivalent fractions with that common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract mixed or whole numbers without regrouping",
+      "definition": "Decompose mixed or whole-number expressions into whole and fractional parts, subtract the whole-number parts, retain or subtract a nonnegative fractional part, and recombine the result."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regroup in mixed-number subtraction",
+      "definition": "When the fractional part of the minuend is too small, borrow one or more whole units as denominator-sized fractional units and combine the adjusted whole and fraction parts."
+    }
+  ]
+}

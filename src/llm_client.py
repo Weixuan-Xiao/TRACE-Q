@@ -31,12 +31,13 @@ class LLMClient:
             api_key = os.getenv("OPENAI_API_KEY", "").strip()
             model = os.getenv("OPENAI_MODEL", "").strip()
             seed_str = os.getenv("OPENAI_SEED", "").strip()
+            base_url = os.getenv("OPENAI_BASE_URL", "").strip() or None
             if not api_key:
                 raise RuntimeError("Missing OPENAI_API_KEY in environment/.env")
             if not model:
                 raise RuntimeError("Missing OPENAI_MODEL in environment/.env")
             seed = int(seed_str) if seed_str else None
-            config = LLMConfig(api_key=api_key, model=model, seed=seed)
+            config = LLMConfig(api_key=api_key, model=model, seed=seed, base_url=base_url)
 
         self.config = config
         self._client = OpenAI(api_key=self.config.api_key, base_url=self.config.base_url)

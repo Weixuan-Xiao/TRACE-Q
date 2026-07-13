@@ -1,0 +1,19 @@
+{
+  "method": "b1_naive",
+  "dataset": "tatsuoka",
+  "k_condition": "fixed_4",
+  "k_selected": 4,
+  "timestamp": "2026-07-11T03:46:20.579435+00:00",
+  "method_version": "phase2-v1",
+  "model": "gpt-5.5-2026-04-23",
+  "provider": "openai",
+  "temperature": 0.0,
+  "temperature_fallbacks": 1,
+  "seed": 8,
+  "seed_base": 1,
+  "token_cost": {
+    "input": 535,
+    "output": 2695,
+    "calls": 1
+  }
+}

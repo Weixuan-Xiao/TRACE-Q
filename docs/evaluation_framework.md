@@ -1,6 +1,12 @@
 # TRACE-Q Evaluation Framework
 
-**Status:** v1.0 FROZEN (2026-07-11) — metric set calibrated against the V1 sensitivity study and locked. Changes now require an explicit version bump and re-running V1.
+**Status:** v1.1 FROZEN (2026-07-13) — metric set unchanged from v1.0 (calibrated against the V1 sensitivity study). Changes require an explicit version bump; metric changes additionally require re-running V1.
+
+**v1.0 → v1.1 changes** (design amendments made before the definitive comparison matrix ran; metric set untouched):
+1. **Single K condition.** The fixed-K generation condition is removed: K=4 had no principled justification for constraining *generation* (it derived from TSQE's best-fit K, which justifies TSQE's choice only, and it was the worst-scoring candidate in our own structure-discovery evaluation). All methods now run under one symmetric condition: **auto — model/pipeline selects K within 3–8** (band justified by identifiability: 20 items, 2^K latent classes; and by symmetry — the pipeline's internal constraint is 3–8). Same-K fit comparisons (SRMSR/AIC/BIC) become *conditional analyses* on modal-K subsets rather than a designed condition; K-instability and within-modal-K ontology instability are decomposed by stability layers 1 and 3 from the same runs. Completed fixed_4 runs are archived as supplementary material in `baseline_evaluation/supplementary_fixed_k4/`.
+2. **B3 uses N=5 samples** (odd → cell votes never tie, removing the tie-break convention; standard self-consistency range). Measured budget asymmetry recorded: N=5 ≈ 10% of our methods' per-run tokens (346,551 vs ~34,000 on GPT-5.5) — the asymmetry favors the baseline claim either way and is reported, not hidden.
+3. **TSQE reference K is selected by BIC sweep over 3–8** (the data-driven analogue of auto). On Tatsuoka it selects K=4 (BIC: K3 9180.1, K4 9177.0, K5 9225.5, K6 9365.4, K7 9783.1, K8 11657.5), retroactively grounding the legacy K=4 convention.
+4. Temperature/seed policy: temperature 0 where supported; models that reject non-default temperature (GPT-5.x reasoning family) run at model default with the fallback recorded per run (`temperature_fallbacks` in config.json). OpenAI runs use distinct recorded per-run seeds; other providers record `seed: null`.
 
 ---
 
@@ -46,14 +52,16 @@ follow the V1 sensitivity study (Section 5a):
 | D | Convergent validity | Aligned agreement with expert Q (column matching; report precision/recall of 1-cells) | No | all K | custom |
 | E | Diagnostic utility | ARI between student partitions (full sample, no posterior filtering) | Yes | all K | mclust |
 
-**Two comparison tracks** (a consequence of the V1 findings):
+**Two comparison tracks** (a consequence of the V1 findings; v1.1 makes the
+same-K track conditional rather than designed):
 
-- **Same-K track** (fixed-K conditions): primary ranking metric = SRMSR, with
-  AIC/BIC as reference. Valid because information criteria and absolute fit are
-  corruption-sensitive when K is small relative to test length.
-- **Cross-K track** (auto-K, and any comparison across different K): information
-  criteria and RMSEA2/SRMSR are NOT comparable. Primary ranking metrics =
-  TSQE agreement (C) and classification ARI (E), both K-agnostic.
+- **Same-K track** (conditional analysis on modal-K subsets — runs of two
+  methods that happen to share the same K): primary ranking metric = SRMSR,
+  with AIC/BIC as reference. Valid because information criteria and absolute
+  fit are corruption-sensitive when K is small relative to test length.
+- **Cross-K track** (the default: methods select K within 3–8): information
+  criteria and RMSEA2/SRMSR are NOT comparable across K. Primary ranking
+  metrics = TSQE agreement (C) and classification ARI (E), both K-agnostic.
 
 **Circularity rules:** metric C is 1.0 by construction for the TSQE baseline and
 must not rank it; metric D likewise for the expert Q. Each reference-based
@@ -106,8 +114,8 @@ The framework itself is validated before it is used to compare methods:
 |----------|-------------|---------|
 | B1 | Naive single-prompt Q generation | Floor |
 | B2 | Strong CoT single-prompt (same task information as our methods) | Rules out "bad prompt" explanation |
-| B3 | Self-consistency (N samples + vote), **token-budget matched** to our methods | The real competitor: structure vs unstructured ensembling |
-| TSQE | Data-driven Q estimation from response data | Non-LLM reference |
+| B3 | Self-consistency (N=5 samples of B2 at temp 0.7 + modal-K filter + aligned majority vote) | The real competitor: structure vs unstructured ensembling (≈10% of our methods' token budget — asymmetry favors the claim either way) |
+| TSQE | Data-driven Q estimation from response data, K = BIC-optimal over 3–8 | Non-LLM reference |
 | Expert Q | Published expert Q-matrix (single instance, constant reference line) | Convergent target and competing hypothesis |
 
 ## 7. Datasets
@@ -128,12 +136,14 @@ Selection criteria for additional datasets, in priority order:
 
 Every newly added dataset first passes the contamination probe (V2).
 
-## 8. Experimental Design
+## 8. Experimental Design (v1.1)
 
-- **K conditions:** pipeline-selected K, and fixed-K condition(s) matching the expert Q / literature convention. Both pre-declared.
-- **Runs:** ≥10 independent runs per method × condition × dataset (expert Q enters as a single constant).
+- **K condition:** single symmetric condition — every method selects K within 3–8 (see v1.1 change 1). Same-K fit comparisons are conditional analyses on modal-K subsets.
+- **Model panel (pinned):** anchor `gpt-5.5-2026-04-23` (direct OpenAI, full B1/B2/B3 + our methods); `anthropic/claude-sonnet-5`, `google/gemini-3.5-flash`, `deepseek/deepseek-v4-pro` via OpenRouter (B2/B3 + our methods). V2 contamination probe runs per model (GPT-5.5: aligned 0.725).
+- **Runs:** ≥10 independent runs per method × model × dataset (expert Q and TSQE enter as single deterministic references).
 - **Statistics:** Mann-Whitney U for between-method comparisons on run-level metrics; bootstrap CIs; distributions reported, not single points.
-- **Cost reporting:** token cost per run reported for all LLM methods; B3 is compared at matched budget.
+- **Cost reporting:** token cost per run reported for all LLM methods (measured on GPT-5.5: our methods ≈ 346.6k tokens/run over 165 calls; B2 ≈ 6.8k; B3 = 5 × B2).
+- **Results locations:** active runs in `baseline_evaluation/runs/` (contract dirs, git-tracked primary data); reports in `baseline_evaluation/report/`; fixed_4-era supplementary archive in `baseline_evaluation/supplementary_fixed_k4/`.
 
 ## 9. Phased Plan
 

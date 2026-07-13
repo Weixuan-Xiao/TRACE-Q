@@ -1,0 +1,56 @@
+{
+  "candidate_skills": [
+    {
+      "canonical_id": "C01",
+      "canonical_name": "Prepare compatible forms",
+      "canonical_definition": "Rewrite operands into equivalent compatible forms before subtraction, including common-denominator fractions, whole numbers or fractions expressed as mixed-number forms, and normalized mixed numbers.",
+      "expert_a_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "expert_b_skill_ids": [
+        "S01"
+      ],
+      "expert_c_skill_ids": [
+        "S01"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A split preparation into unlike-denominator alignment and general number-form standardization, while C combined both into one preparation skill. B clearly identified the common-denominator preparation component in S01; its mixed-number form preparation is partly bundled elsewhere, but S01 aligns directly with the shared preparation concept."
+    },
+    {
+      "canonical_id": "C02",
+      "canonical_name": "Subtract aligned parts",
+      "canonical_definition": "Subtract aligned fractional and whole-number components by subtracting numerators over a shared denominator and subtracting corresponding whole-number parts when using mixed numbers.",
+      "expert_a_skill_ids": [
+        "S03"
+      ],
+      "expert_b_skill_ids": [
+        "S02",
+        "S03"
+      ],
+      "expert_c_skill_ids": [
+        "S02"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A and C describe the same component-wise subtraction skill, covering both like-denominator numerator subtraction and whole-number subtraction in mixed numbers. B split this across fractional subtraction in S02 and mixed-number structural work, including whole-part subtraction and recombination, in S03."
+    },
+    {
+      "canonical_id": "C03",
+      "canonical_name": "Regroup and finalize",
+      "canonical_definition": "Adjust and express the result in valid final form by borrowing when a fractional difference is negative, reducing fractions, removing zero parts, and combining whole and fractional components.",
+      "expert_a_skill_ids": [
+        "S04"
+      ],
+      "expert_b_skill_ids": [
+        "S04"
+      ],
+      "expert_c_skill_ids": [
+        "S03",
+        "S04"
+      ],
+      "consensus": "3/3",
+      "alignment_notes": "A bundled regrouping and final-answer formatting in one skill. C split this into borrowing/regrouping and final simplification. B explicitly identified the borrowing component in S04, while some final-formatting behavior is bundled into its subtraction and mixed-number structure skills; S04 is the direct alignment for the post-subtraction adjustment portion."
+    }
+  ],
+  "alignment_summary": "The three codebooks largely agree on a three-stage structure: prepare operands into compatible forms, subtract aligned components, and then regroup or finalize the answer. The main differences are granularity and bundling: A combines regrouping with finalization, C separates those two, and B distributes mixed-number structure and some final formatting across multiple skills."
+}
