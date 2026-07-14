@@ -122,14 +122,66 @@ def test_aggregate_b3_modal_k_filter():
     assert len(final[0]) == 2
 
 
-def test_aggregate_b3_tie_breaks_to_zero():
-    m_a = [[1, 0], [1, 0], [1, 0]]
-    m_b = [[1, 0], [0, 1], [1, 0]]  # cell (1,*) disagrees
+def test_aggregate_b3_cell_tie_uses_medoid():
+    m_a = [[1, 0], [0, 1], [1, 0], [0, 1]]
+    m_b = [[1, 0], [0, 1], [0, 1], [1, 0]]
     samples = [(_mk_skills(["a", "b"]), m_a), (_mk_skills(["a", "b"]), m_b)]
-    _skills, final, _meta = aggregate_b3(samples)
-    # 1-1 tie on disputed cells -> 0 (minimal tagging)
-    assert final[1] == [0, 0] or final[1] == [1, 0]  # depends on alignment; row must not be all-1
-    assert final[0] == [1, 0]
+    _skills, final, meta = aggregate_b3(samples)
+    assert final in (m_a, m_b)
+    assert meta["n_cell_vote_ties"] == 4
+    assert meta["cell_vote_tie_breaker"] == "medoid sample value"
+
+
+def test_aggregate_b3_excludes_structural_errors():
+    valid = [[1, 0], [0, 1], [1, 0], [0, 1]]
+    duplicate_columns = [[1, 1], [0, 0], [1, 1], [0, 0]]
+    samples = [
+        (_mk_skills(["a", "b"]), valid),
+        (_mk_skills(["a", "b"]), valid),
+        (_mk_skills(["bad-a", "bad-b"]), duplicate_columns),
+    ]
+    _skills, final, meta = aggregate_b3(samples)
+    assert final == valid
+    assert meta["n_samples_valid"] == 2
+    assert meta["n_samples_excluded_structure"] == 1
+    assert any("identical columns" in error for error in meta["excluded_samples"][0]["errors"])
+
+
+def test_aggregate_b3_tied_modal_k_uses_consensus():
+    k2 = [
+        [1, 0], [1, 0], [1, 0],
+        [0, 1], [0, 1], [0, 1],
+    ]
+    k3_a = [
+        [1, 0, 0], [1, 0, 0], [0, 1, 0],
+        [0, 1, 0], [0, 0, 1], [0, 0, 1],
+    ]
+    k3_b = [
+        [1, 1, 0], [1, 0, 1], [0, 1, 1],
+        [1, 0, 0], [0, 1, 0], [0, 0, 1],
+    ]
+    samples = [
+        (_mk_skills(["a", "b"]), k2),
+        (_mk_skills(["a", "b"]), k2),
+        (_mk_skills(["x", "y", "z"]), k3_a),
+        (_mk_skills(["x", "y", "z"]), k3_b),
+    ]
+    _skills, final, meta = aggregate_b3(samples)
+    assert meta["modal_k_tie"] is True
+    assert meta["modal_k_candidates"] == [2, 3]
+    assert meta["modal_k"] == 2
+    assert final == k2
+
+
+def test_aggregate_b3_is_order_independent():
+    m_a = [[1, 0], [0, 1], [1, 0], [0, 1]]
+    m_b = [[1, 0], [0, 1], [0, 1], [1, 0]]
+    samples = [(_mk_skills(["a", "b"]), m_a), (_mk_skills(["a", "b"]), m_b)]
+    skills_a, final_a, meta_a = aggregate_b3(samples)
+    skills_b, final_b, meta_b = aggregate_b3(list(reversed(samples)))
+    assert skills_a == skills_b
+    assert final_a == final_b
+    assert meta_a["modal_k"] == meta_b["modal_k"]
 
 
 def test_aggregate_b3_too_few_modal_samples():
@@ -141,5 +193,5 @@ def test_aggregate_b3_too_few_modal_samples():
         (_mk_skills(["a", "b", "c"]), m3),
         (_mk_skills(["a", "b", "c", "d"]), m4),
     ]
-    with pytest.raises(RuntimeError, match="modal K"):
+    with pytest.raises(RuntimeError, match="need >= 2"):
         aggregate_b3(samples)

@@ -8,6 +8,7 @@ B3 self-consistency: N samples of B2 at temperature 0.7, modal-K filter,
 """
 import argparse
 import datetime
+import hashlib
 import json
 import os
 import re
@@ -15,7 +16,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from evaluate_stability import _pick_reference, align_matrices  # noqa: E402
+from evaluate_stability import _best_permutation, _count_agreement  # noqa: E402
+from eval.check_structure import check_structure  # noqa: E402
 from eval.contract import validate_run  # noqa: E402
 from eval.convert_legacy import _write_canonical_q  # noqa: E402
 from src.agent_utils import load_guides, try_parse_json  # noqa: E402
@@ -173,39 +175,157 @@ def call_with_repair(client, prompt, item_ids, k_condition, temperature, seed, m
     raise RuntimeError(f"no valid output after {max_tries} tries: {last_error}")
 
 
+def _sample_digest(sample):
+    skills, matrix = sample
+    payload = json.dumps(
+        {"skills": skills, "matrix": matrix}, sort_keys=True, separators=(",", ":")
+    )
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
+def _pairwise_aligned_matches(matrix_a, matrix_b):
+    aligned_b, _perm = _best_permutation(matrix_a, matrix_b)
+    return _count_agreement(matrix_a, aligned_b)
+
+
+def _within_k_consensus(entries):
+    if len(entries) < 2:
+        return 1.0
+    matches = []
+    for i, entry_a in enumerate(entries):
+        for entry_b in entries[i + 1:]:
+            matches.append(
+                _pairwise_aligned_matches(entry_a["matrix"], entry_b["matrix"])
+            )
+    n_cells = len(entries[0]["matrix"]) * len(entries[0]["matrix"][0])
+    return sum(matches) / (len(matches) * n_cells)
+
+
+def _pick_deterministic_medoid(entries):
+    """Choose the most central sample, with a content-hash tie break."""
+    ranked = []
+    for i, entry in enumerate(entries):
+        total = sum(
+            _pairwise_aligned_matches(entry["matrix"], other["matrix"])
+            for j, other in enumerate(entries) if j != i
+        )
+        ranked.append((-total, _sample_digest((entry["skills"], entry["matrix"])), i))
+    return min(ranked)[2]
+
+
 def aggregate_b3(samples):
     """Aggregate B2 samples -> (skills, matrix, meta).
 
-    samples: list of (skills, matrix). Keeps modal-K samples, aligns columns,
-    majority-votes each cell (ties break to 0: minimal-tagging convention),
-    takes the codebook from the medoid sample.
+    Structurally invalid samples are excluded first. A unique modal K is used;
+    tied modal-K candidates are resolved by highest within-K aligned consensus,
+    then by lower K. Columns are aligned to a deterministic medoid. Cell-vote
+    ties use the medoid value instead of a fixed 0, avoiding a sparsity bias.
+    The final codebook comes from that medoid sample.
     """
     from collections import Counter
     if not samples:
         raise RuntimeError("all B3 samples failed; see b3_samples.json")
-    k_counts = Counter(len(s) for s, _m in samples)
-    modal_k, _ = k_counts.most_common(1)[0]
-    kept = [(s, m) for s, m in samples if len(s) == modal_k]
+
+    entries, excluded = [], []
+    for sample_index, (skills, matrix) in enumerate(samples):
+        skill_ids = [skill["skill_id"] for skill in skills]
+        item_ids = [str(i + 1) for i in range(len(matrix))]
+        structure = check_structure(item_ids, skill_ids, matrix)
+        if structure["n_errors"]:
+            excluded.append({
+                "sample_index": sample_index,
+                "sample_number": sample_index + 1,
+                "k": len(skills),
+                "errors": [
+                    violation["detail"] for violation in structure["violations"]
+                    if violation["level"] == "error"
+                ],
+            })
+            continue
+        entries.append({
+            "sample_index": sample_index,
+            "skills": skills,
+            "matrix": matrix,
+        })
+
+    if not entries:
+        raise RuntimeError("all B3 samples failed structural validation")
+
+    input_k_counts = Counter(len(skills) for skills, _matrix in samples)
+    k_counts = Counter(len(entry["skills"]) for entry in entries)
+    max_count = max(k_counts.values())
+    modal_candidates = sorted(k for k, count in k_counts.items() if count == max_count)
+    if max_count < 2:
+        raise RuntimeError(
+            f"only one structurally valid sample per K ({dict(k_counts)}); need >= 2"
+        )
+
+    consensus_by_k = {
+        k: _within_k_consensus([
+            entry for entry in entries if len(entry["skills"]) == k
+        ])
+        for k in modal_candidates
+    }
+    modal_k = min(modal_candidates, key=lambda k: (-consensus_by_k[k], k))
+    kept = [entry for entry in entries if len(entry["skills"]) == modal_k]
     if len(kept) < 2:
         raise RuntimeError(f"only {len(kept)} samples at modal K={modal_k}; need >= 2")
 
-    matrices = [m for _s, m in kept]
-    aligned, ref_idx, perms = align_matrices(matrices)
+    ref_idx = _pick_deterministic_medoid(kept)
+    reference = kept[ref_idx]["matrix"]
+    aligned, perms = [], []
+    for i, entry in enumerate(kept):
+        if i == ref_idx:
+            aligned.append(entry["matrix"])
+            perms.append(tuple(range(modal_k)))
+        else:
+            aligned_matrix, perm = _best_permutation(reference, entry["matrix"])
+            aligned.append(aligned_matrix)
+            perms.append(perm)
+
     n_votes = len(aligned)
     n_items, n_skills = len(aligned[0]), len(aligned[0][0])
-    final = [[1 if sum(mat[i][j] for mat in aligned) * 2 > n_votes else 0
-              for j in range(n_skills)] for i in range(n_items)]
+    medoid_matrix = aligned[ref_idx]
+    n_cell_vote_ties = 0
+    final = []
+    for i in range(n_items):
+        row = []
+        for j in range(n_skills):
+            ones = sum(mat[i][j] for mat in aligned)
+            if ones * 2 > n_votes:
+                value = 1
+            elif ones * 2 < n_votes:
+                value = 0
+            else:
+                value = medoid_matrix[i][j]
+                n_cell_vote_ties += 1
+            row.append(value)
+        final.append(row)
 
-    ref_skills_raw = kept[ref_idx][0]
-    ref_perm = perms[ref_idx]  # identity for the reference
-    skills = [ref_skills_raw[p] for p in ref_perm]
+    skills = kept[ref_idx]["skills"]
 
     meta = {
+        "aggregation_version": "phase2-v2",
         "n_samples_total": len(samples),
+        "n_samples_valid": len(entries),
+        "n_samples_excluded_structure": len(excluded),
+        "excluded_samples": excluded,
+        "input_k_distribution": {str(k): c for k, c in sorted(input_k_counts.items())},
         "k_distribution": {str(k): c for k, c in sorted(k_counts.items())},
+        "modal_k_candidates": modal_candidates,
+        "modal_k_tie": len(modal_candidates) > 1,
+        "modal_k_consensus": {
+            str(k): round(consensus_by_k[k], 6) for k in modal_candidates
+        },
+        "modal_k_tie_breaker": "highest aligned within-K consensus, then lower K",
         "modal_k": modal_k,
         "n_samples_used": len(kept),
-        "medoid_sample_index": ref_idx,
+        "medoid_sample_index": kept[ref_idx]["sample_index"],
+        "medoid_retained_index": ref_idx,
+        "medoid_tie_breaker": "highest aligned agreement, then content hash",
+        "n_cell_vote_ties": n_cell_vote_ties,
+        "cell_vote_tie_breaker": "medoid sample value",
+        "permutations_used": [list(perm) for perm in perms],
     }
     return skills, final, meta
 
