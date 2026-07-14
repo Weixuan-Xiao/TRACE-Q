@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Find LCD & convert",
+      "definition": "Determine the least common denominator for two fractions with different denominators and convert both to equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Direct numerator subtraction",
+      "definition": "Subtract the numerators of two fractions (or fraction parts) that already share a common denominator, with no borrowing required, keeping the denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Simplify fraction",
+      "definition": "Reduce a fraction (intermediate or final result) to lowest terms by dividing numerator and denominator by their greatest common factor."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Separate whole/fraction parts",
+      "definition": "Split a mixed number (or treat a whole number as whole + 0/d) into whole-number and fractional components and subtract the whole-number parts independently."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Borrow/regroup",
+      "definition": "When the fraction-part subtraction would be negative, borrow one whole unit (expressed as d/d) from the whole part, add it to the fraction part, and complete the subtraction."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Normalize improper mixed fraction",
+      "definition": "Convert a mixed number whose fractional part is improper (numerator \u2265 denominator) into standard form by transferring the excess into the whole-number part before subtracting."
+    }
+  ]
+}

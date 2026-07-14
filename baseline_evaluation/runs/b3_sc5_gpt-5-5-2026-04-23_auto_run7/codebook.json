@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Subtract same-denominator fractions",
-      "definition": "Subtract fractional parts with a common denominator by subtracting numerators, keeping the denominator, and handling zero fractional results."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional parts with a common denominator by subtracting numerators and retaining the denominator."
     },
     {
       "skill_id": "S02",
-      "name": "Find common denominator",
-      "definition": "Find a common denominator for unlike fractions and convert fraction parts to equivalent fractions before subtracting."
+      "name": "Convert unlike denominators",
+      "definition": "Find a common denominator or LCD for unlike denominators and rewrite fractions as equivalent fractions with that denominator."
     },
     {
       "skill_id": "S03",
-      "name": "Separate and combine mixed or whole numbers",
-      "definition": "Represent whole numbers, fractions, and mixed numbers in compatible whole-plus-fraction form, subtract whole-number parts, and combine the final whole and fractional parts."
+      "name": "Operate with mixed or whole-number parts",
+      "definition": "Separate mixed or whole-number operands into whole and fractional parts, use implicit zero parts when needed, subtract whole parts, and recombine the final whole and fractional components."
     },
     {
       "skill_id": "S04",
-      "name": "Borrow for fractional subtraction",
-      "definition": "Regroup one or more whole units into fractional units when the minuend fractional part is too small to subtract the subtrahend fractional part."
+      "name": "Borrow across whole and fraction parts",
+      "definition": "Regroup by reducing the whole-number part and adding one or more denominator-over-denominator units to the fractional minuend when the fractional subtraction would be negative."
     },
     {
       "skill_id": "S05",
-      "name": "Simplify fractional result",
-      "definition": "Reduce a nonzero fractional result or mixed-number fractional part to lowest terms."
+      "name": "Simplify or normalize the result",
+      "definition": "Reduce a fractional result to lowest terms or normalize a zero fractional part into an appropriate integer or zero result."
     }
   ]
 }

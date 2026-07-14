@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Subtract aligned pure fractions",
-      "definition": "Subtract two pure fractions with the same denominator by subtracting numerators, keeping the denominator, and interpreting zero results when they occur."
+      "name": "Subtract pure fractions with common denominators",
+      "definition": "Subtract numerator values and keep the common denominator in a pure-fraction subtraction expression once denominators match."
     },
     {
       "skill_id": "S02",
-      "name": "Find LCD and convert fractions",
-      "definition": "Find a common denominator for unlike denominators and convert the relevant fractions to equivalent fractions with that denominator."
+      "name": "Find common denominators and convert fractions",
+      "definition": "Find an LCD or suitable common denominator and rewrite unlike-denominator fractions or fractional parts as equivalent fractions."
     },
     {
       "skill_id": "S03",
       "name": "Subtract mixed or whole numbers without regrouping",
-      "definition": "Subtract mixed-number or whole-number quantities by separating whole and fractional parts, subtracting aligned parts when the fractional subtraction is nonnegative, and recombining the result."
+      "definition": "Separate or rewrite operands into whole and fractional parts, subtract whole and common-denominator fractional parts when the fractional difference is nonnegative, and recombine the result."
     },
     {
       "skill_id": "S04",
-      "name": "Subtract mixed or whole numbers with regrouping",
-      "definition": "Subtract mixed-number or whole-number quantities when the fractional part would be negative by borrowing one or more wholes, converting each borrowed whole into denominator-over-denominator form, and recombining the result."
+      "name": "Regroup in mixed or whole number subtraction",
+      "definition": "When the fractional subtraction would be negative, borrow or regroup one or more whole units into denominator-sized fractional units before subtracting and recombining."
     },
     {
       "skill_id": "S05",
-      "name": "Reduce fractional result",
-      "definition": "Simplify a nonzero fractional result to lowest terms by dividing numerator and denominator by a common factor."
+      "name": "Simplify fractional result",
+      "definition": "Reduce a nonzero fractional result or fractional part to lowest terms."
     }
   ]
 }

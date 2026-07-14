@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract fractions with common denominators",
+      "definition": "Subtract two fractions that already have the same denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions with unlike denominators",
+      "definition": "Subtract two fractions by first finding a common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Convert mixed numbers to improper fractions",
+      "definition": "Rewrite a mixed number as an improper fraction for computation."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow from whole number in subtraction",
+      "definition": "When subtracting a mixed number, borrow 1 from the whole number part to increase the fraction."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to its simplest form."
+    }
+  ]
+}

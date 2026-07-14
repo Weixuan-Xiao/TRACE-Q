@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Finding Common Denominator",
+      "definition": "Determine a common (least) denominator when the two fractions being subtracted have different denominators."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtracting Like Fractions",
+      "definition": "Subtract numerators of two fractions that already share a common denominator to get the fractional part of the result."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrowing/Regrouping",
+      "definition": "Regroup one whole unit into a fraction (borrow) when the fractional part of the minuend is smaller than that of the subtrahend."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Improper Fraction Conversion",
+      "definition": "Convert a mixed number whose fractional part is improper (numerator \u2265 denominator) into standard mixed-number form before subtracting."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Whole Number Operand Handling",
+      "definition": "Perform subtraction when one operand is a pure whole number (no fractional part) and the other is a fraction or mixed number."
+    }
+  ]
+}

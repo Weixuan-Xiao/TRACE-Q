@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract like denominators",
+      "definition": "Subtract fractions that have the same denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract unlike denominators",
+      "definition": "Find a common denominator and convert fractions before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Convert mixed numbers",
+      "definition": "Convert mixed numbers and whole numbers to improper fractions."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify fractions",
+      "definition": "Reduce fractions to lowest terms and convert improper fractions to mixed numbers."
+    }
+  ]
+}

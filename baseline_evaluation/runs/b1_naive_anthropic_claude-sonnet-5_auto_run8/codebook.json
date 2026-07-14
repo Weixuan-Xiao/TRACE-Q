@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common Denominator",
+      "definition": "Finding a common denominator to rewrite fractions with unlike denominators before subtracting."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Numerator Subtraction",
+      "definition": "Subtracting the numerators (and whole-number parts) once the fractions share a common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrowing in Mixed Subtraction",
+      "definition": "Regrouping one whole unit into the fraction part when subtracting two mixed numbers whose minuend fraction is smaller than the subtrahend fraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Improper Fraction Conversion",
+      "definition": "Converting an improper fraction within a mixed number into a whole number plus a proper fraction before subtracting."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Whole-to-Mixed Conversion",
+      "definition": "Rewriting a whole number as an equivalent mixed number by borrowing one unit as a fraction to enable subtraction of a fraction or mixed number."
+    }
+  ]
+}

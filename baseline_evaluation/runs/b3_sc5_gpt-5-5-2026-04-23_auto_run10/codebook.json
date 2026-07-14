@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Find common denominator",
-      "definition": "Find a common denominator for unlike fractional parts and convert fractions to equivalent forms before subtraction."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractions with a common denominator by subtracting numerators and keeping the denominator, including after conversion or regrouping."
     },
     {
       "skill_id": "S02",
-      "name": "Subtract same-denominator fractions",
-      "definition": "Subtract fractional parts with a common denominator by subtracting numerators and retaining the denominator, including cases involving zero fractional parts."
+      "name": "Find LCD and convert fractions",
+      "definition": "Find a least common denominator for unlike denominators and rewrite fractions as equivalent fractions with that denominator."
     },
     {
       "skill_id": "S03",
-      "name": "Work with whole and mixed-number parts",
-      "definition": "Represent whole numbers, fractions, and mixed numbers as whole-plus-fraction parts, subtract whole-number parts, and recombine the result."
+      "name": "Work with mixed and whole numbers",
+      "definition": "Represent mixed numbers and whole numbers as whole-plus-fraction quantities, subtract whole parts separately, and recombine whole and fractional results."
     },
     {
       "skill_id": "S04",
-      "name": "Borrow for fractional subtraction",
-      "definition": "Regroup one or more whole units into fractional units when the minuend fractional part is too small to subtract the subtrahend fractional part."
+      "name": "Borrow from whole part",
+      "definition": "Regroup one or more whole units into denominator-sized fractional units when the fractional subtraction would otherwise be negative."
     },
     {
       "skill_id": "S05",
       "name": "Simplify final result",
-      "definition": "Reduce non-lowest-term fractional results and standardize answers by removing zero fractional parts when appropriate."
+      "definition": "Reduce fractional results to lowest terms and express zero fractional parts as integer or whole-number results when appropriate."
     }
   ]
 }

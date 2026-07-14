@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Basic fraction subtraction",
-      "definition": "Subtracting numerators of fractions sharing a common denominator."
+      "name": "Basic Fraction Subtraction",
+      "definition": "Subtracting the numerators of fractions that already share a common denominator."
     },
     {
       "skill_id": "S02",
-      "name": "LCD conversion",
-      "definition": "Finding the Least Common Denominator and converting fractions with unlike denominators."
+      "name": "Finding Common Denominators",
+      "definition": "Finding the least common denominator and converting unlike fractions to equivalent fractions."
     },
     {
       "skill_id": "S03",
-      "name": "Whole number subtraction",
-      "definition": "Subtracting the integer parts of mixed numbers or whole numbers."
+      "name": "Whole Number Subtraction",
+      "definition": "Subtracting the whole-number components of mixed numbers or whole numbers."
     },
     {
       "skill_id": "S04",
-      "name": "Borrowing",
-      "definition": "Regrouping or borrowing from the whole number part to resolve a negative fractional difference."
+      "name": "Borrowing and Regrouping",
+      "definition": "Regrouping one whole unit into fraction form (d/d) to resolve a negative fraction subtraction step."
     },
     {
       "skill_id": "S05",
-      "name": "Simplification",
-      "definition": "Reducing a fraction or mixed number's fractional part to its lowest terms."
+      "name": "Fraction Simplification",
+      "definition": "Reducing the fractional part of the result to its lowest terms."
     }
   ]
 }

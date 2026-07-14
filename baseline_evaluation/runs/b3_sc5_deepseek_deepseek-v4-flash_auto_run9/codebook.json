@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Subtract fractions with same denominator",
+      "definition": "Subtract the numerators of two fractions with the same denominator, keeping the denominator unchanged."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Subtract fractions with unlike denominators",
+      "definition": "Find the least common denominator, convert both fractions to equivalent fractions with that denominator, then subtract the numerators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Manage mixed numbers",
+      "definition": "Separate whole and fraction parts of mixed numbers (including rewriting whole numbers as mixed), subtract the whole numbers, and combine the results into a mixed number or whole number."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow from whole part",
+      "definition": "When the fraction part of the subtrahend is larger than the fraction part of the minuend, borrow 1 from the whole part by adding the denominator to the fraction numerator and recalculating the subtraction; repeat if necessary."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fractions",
+      "definition": "Reduce a fraction to its lowest terms by dividing numerator and denominator by their greatest common divisor."
+    }
+  ]
+}

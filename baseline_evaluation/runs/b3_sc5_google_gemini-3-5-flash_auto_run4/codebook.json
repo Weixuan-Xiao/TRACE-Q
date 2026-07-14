@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Find common denominator",
-      "definition": "Identify the least common denominator and convert fractions to equivalent fractions with matching denominators."
+      "name": "Find Common Denominators",
+      "definition": "Finding the least common denominator and converting fractions with unlike denominators into equivalent fractions."
     },
     {
       "skill_id": "S02",
-      "name": "Subtract whole numbers",
-      "definition": "Subtract the whole number parts of the operands independently from the fractional parts."
+      "name": "Subtract Mixed Numbers",
+      "definition": "Separating and subtracting whole numbers and fractional parts in mixed numbers or whole numbers."
     },
     {
       "skill_id": "S03",
-      "name": "Subtract numerators",
-      "definition": "Subtract the numerator of the subtrahend from the numerator of the minuend while keeping the denominator constant."
+      "name": "Borrow from Whole Number",
+      "definition": "Regrouping or borrowing from the whole number part to resolve a negative fractional difference during subtraction."
     },
     {
       "skill_id": "S04",
-      "name": "Borrow from whole number",
-      "definition": "Regroup 1 or more wholes into equivalent fraction parts when the fraction subtraction results in a negative value."
+      "name": "Simplify Fractions",
+      "definition": "Reducing the final fractional result to its lowest terms or converting fraction-only results to integers."
     },
     {
       "skill_id": "S05",
-      "name": "Simplify representation",
-      "definition": "Reduce the resulting fraction to its lowest terms or convert it to a clean integer format."
+      "name": "Subtract Pure Fractions",
+      "definition": "Subtracting fractions directly when there are no whole number components in the original problem."
     }
   ]
 }

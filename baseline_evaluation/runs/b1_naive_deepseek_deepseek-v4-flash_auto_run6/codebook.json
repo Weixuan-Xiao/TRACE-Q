@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Convert to improper",
+      "definition": "Convert mixed numbers and whole numbers to improper fractions."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Common denominator",
+      "definition": "Find a common denominator for fractions with unlike denominators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract fractions",
+      "definition": "Subtract fractions with like denominators by subtracting numerators."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify fractions",
+      "definition": "Reduce fractions to lowest terms."
+    }
+  ]
+}

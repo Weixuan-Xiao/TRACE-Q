@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common denominator",
+      "definition": "Find equivalent fractions with a common denominator when the fractions being subtracted have different denominators."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Fraction subtraction",
+      "definition": "Subtract numerators of two fractions that already share the same denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrowing/regrouping",
+      "definition": "Regroup one whole unit into a fraction when the fractional part of the minuend is smaller than that of the subtrahend."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Mixed number operations",
+      "definition": "Correctly handle numbers composed of a whole-number part and a fractional part during subtraction."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Improper fraction handling",
+      "definition": "Interpret and operate on a fractional part whose numerator is greater than or equal to its denominator within a mixed number."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Whole-fraction interaction",
+      "definition": "Perform subtraction between a whole number and a fraction or mixed number."
+    }
+  ]
+}

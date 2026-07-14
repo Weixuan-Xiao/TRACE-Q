@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Find and use common denominators",
-      "definition": "Determine a least common denominator for unlike denominators and rewrite fractions or fractional parts as equivalent fractions with that denominator."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional numerators when the fractions have a common denominator, including after conversion or regrouping, while keeping the denominator."
     },
     {
       "skill_id": "S02",
-      "name": "Subtract common-denominator fractions",
-      "definition": "Subtract fractional parts with a common denominator by subtracting numerators and keeping the denominator, including zero or negative intermediate results."
+      "name": "Find and use a common denominator",
+      "definition": "Find an appropriate common denominator and rewrite unlike-denominator fractions or fractional parts as equivalent fractions."
     },
     {
       "skill_id": "S03",
-      "name": "Separate and subtract whole parts",
-      "definition": "Represent mixed numbers, whole numbers, or pure fractions in aligned whole-part and fractional-part form, including zero missing parts, and subtract or carry whole-number parts."
+      "name": "Separate mixed or whole-number parts",
+      "definition": "Represent mixed numbers, whole numbers, or pure fractions by aligned whole and fractional parts, subtract whole-number parts, and recombine the result."
     },
     {
       "skill_id": "S04",
-      "name": "Borrow from the whole part",
-      "definition": "Regroup one or more whole units as denominator-over-denominator fractional units when the fractional subtraction is negative."
+      "name": "Borrow from the whole number",
+      "definition": "Regroup one or more whole units into denominator-sized fractional units when the fractional subtraction would be negative."
     },
     {
       "skill_id": "S05",
-      "name": "Simplify and normalize final form",
-      "definition": "Reduce fractional results to lowest terms and normalize the final answer by omitting zero whole or fractional parts or writing an all-zero result as 0."
+      "name": "Simplify or normalize the result",
+      "definition": "Put the final answer in standard lowest-term form by reducing fractions and omitting zero whole or zero fractional parts."
     }
   ]
 }

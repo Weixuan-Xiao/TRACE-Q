@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common-denominator subtraction",
+      "definition": "Subtract numerators directly once both fractions share the same denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "LCD conversion",
+      "definition": "Find the least common denominator of two unlike fractions and rewrite both as equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Whole-part subtraction",
+      "definition": "Subtract the whole-number parts of two mixed numbers or integers."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing/regrouping",
+      "definition": "When the fractional subtraction yields a negative value, borrow 1 from the whole part (expressed as d/d) and recompute the fraction subtraction."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fraction",
+      "definition": "Reduce a resulting fraction to its lowest terms when it is not already fully reduced."
+    }
+  ]
+}

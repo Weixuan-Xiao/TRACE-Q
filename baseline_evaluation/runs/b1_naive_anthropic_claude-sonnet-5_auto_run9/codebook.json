@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Like Fraction Subtraction",
+      "definition": "Subtract two fractions that already share the same denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Unlike Fraction Subtraction",
+      "definition": "Find a common denominator and subtract fractions that have different denominators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Whole Number Subtraction",
+      "definition": "Subtract the whole-number parts of mixed numbers or a whole number and a mixed number."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regrouping/Borrowing",
+      "definition": "Regroup one whole unit into a fraction when the minuend's fractional part is smaller than the subtrahend's fractional part."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Improper Fraction Conversion",
+      "definition": "Convert an improper fraction embedded in a mixed number into standard mixed-number form before performing subtraction."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Like-denominator subtraction",
+      "definition": "Subtract numerators (and whole number parts) when the fractions involved already share the same denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Common denominator",
+      "definition": "Find a common denominator and convert unlike fractions before subtracting."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Regrouping/borrowing",
+      "definition": "Borrow one whole unit (converted to the fractional denominator) from the whole-number part when the subtrahend's fraction is larger than the minuend's fraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Improper fraction conversion",
+      "definition": "Convert a mixed number whose fractional part is equal to or greater than one into standard mixed-number form before subtracting."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Whole number minus fraction/mixed number",
+      "definition": "Rewrite a whole number as a mixed number with a fractional part (borrowing) in order to subtract a fraction or mixed number from it."
+    }
+  ]
+}

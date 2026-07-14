@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Basic Fraction Subtraction",
+      "definition": "Subtracting fractions or mixed numbers with common denominators without requiring regrouping or borrowing."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Finding Common Denominators",
+      "definition": "Identifying a common denominator and converting fractions with unlike denominators to equivalent fractions."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Handling Whole Numbers",
+      "definition": "Subtracting whole numbers from mixed numbers, or converting a whole number into a fraction/mixed number to perform subtraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Regrouping/Borrowing",
+      "definition": "Borrowing from the whole number part of a mixed number because the fractional part being subtracted is larger than the starting fractional part."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplifying Improper Fractions in Mixed Numbers",
+      "definition": "Interpreting or converting mixed numbers that contain improper fractions (e.g., 2 3/2 or 1 4/3) into standard form before or during subtraction."
+    }
+  ]
+}

@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Find LCD and convert fractions",
-      "definition": "Find a least common denominator for unlike denominators and rewrite fractions or mixed-number fraction parts as equivalent fractions with that denominator."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractional quantities that already have a common denominator by subtracting numerators and keeping the denominator, including recognizing negative or zero fractional differences."
     },
     {
       "skill_id": "S02",
-      "name": "Subtract same-denominator fractions",
-      "definition": "Subtract fractional parts with a common denominator by subtracting numerators and keeping the denominator, including cases with zero or improper numerators."
+      "name": "Find common denominator",
+      "definition": "Find a common denominator for unlike fractional denominators and convert fractions to equivalent forms before subtraction."
     },
     {
       "skill_id": "S03",
-      "name": "Separate and combine mixed-number parts",
-      "definition": "Represent whole numbers, fractions, and mixed numbers by separate whole and fractional parts, subtract whole parts, and combine the resulting whole and fraction into a final answer."
+      "name": "Handle whole and mixed-number parts",
+      "definition": "Represent whole numbers and mixed numbers using separate whole and fractional parts, subtract whole parts, and combine the resulting components into an appropriate final form."
     },
     {
       "skill_id": "S04",
       "name": "Borrow from whole part",
-      "definition": "Regroup one or more whole units as denominator-over-denominator fractions when the fractional subtraction would otherwise be negative."
+      "definition": "Regroup one or more whole units as fractional units when the fractional subtraction is negative."
     },
     {
       "skill_id": "S05",
-      "name": "Simplify fractional result",
-      "definition": "Reduce a nonzero fractional result to lowest terms before giving the final answer."
+      "name": "Simplify or normalize result",
+      "definition": "Put the computed result into simplest acceptable form by reducing fractions to lowest terms or normalizing zero fractional results as integers or 0."
     }
   ]
 }

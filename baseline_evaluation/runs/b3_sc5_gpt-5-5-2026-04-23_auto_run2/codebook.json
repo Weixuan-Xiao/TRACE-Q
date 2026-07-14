@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Common-denominator fraction subtraction",
-      "definition": "Subtract fractional parts with a shared denominator by subtracting numerators and keeping the denominator."
+      "name": "Find common denominator",
+      "definition": "Find a least common denominator and rewrite unlike-denominator fractions or fraction parts as equivalent fractions with that denominator."
     },
     {
       "skill_id": "S02",
-      "name": "Find and use a common denominator",
-      "definition": "Find an LCD or other common denominator for unlike denominators and convert fraction parts to equivalent fractions."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fractions with a common denominator by subtracting numerators and keeping the denominator."
     },
     {
       "skill_id": "S03",
-      "name": "Mixed/whole part decomposition",
-      "definition": "Represent mixed numbers and whole numbers as separate whole and fractional parts, subtract whole parts, and recombine the result."
+      "name": "Align mixed and whole-number parts",
+      "definition": "Represent mixed numbers, whole numbers, or pure fractions in aligned whole-part and fraction-part form, subtract whole parts, and recombine the result."
     },
     {
       "skill_id": "S04",
-      "name": "Borrow across the whole-fraction boundary",
-      "definition": "Regroup one or more wholes as denominator-over-denominator fractional units when the fractional subtraction would otherwise be negative."
+      "name": "Borrow from the whole part",
+      "definition": "Regroup one or more whole units as d/d into the fractional part when the fractional subtraction would otherwise be negative."
     },
     {
       "skill_id": "S05",
-      "name": "Simplify final fractional form",
-      "definition": "Express the final fractional result in acceptable simplest form by reducing common factors or converting a zero fractional part to an integer."
+      "name": "Simplify final form",
+      "definition": "Normalize the final answer by reducing a fractional part to lowest terms or replacing a zero fractional part with an integer result."
     }
   ]
 }

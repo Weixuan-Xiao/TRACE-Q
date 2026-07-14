@@ -1,0 +1,75 @@
+{
+  "method": "b3_sc5",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 5,
+  "timestamp": "2026-07-13T08:02:40.033547+00:00",
+  "method_version": "phase2-v2",
+  "model": "anthropic/claude-sonnet-5",
+  "provider": "openrouter",
+  "temperature": 0.7,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 14140,
+    "output": 89696,
+    "calls": 5
+  },
+  "b3": {
+    "aggregation_version": "phase2-v2",
+    "n_samples_total": 5,
+    "n_samples_valid": 5,
+    "n_samples_excluded_structure": 0,
+    "excluded_samples": [],
+    "input_k_distribution": {
+      "5": 3,
+      "6": 1,
+      "7": 1
+    },
+    "k_distribution": {
+      "5": 3,
+      "6": 1,
+      "7": 1
+    },
+    "modal_k_candidates": [
+      5
+    ],
+    "modal_k_tie": false,
+    "modal_k_consensus": {
+      "5": 1.0
+    },
+    "modal_k_tie_breaker": "highest aligned within-K consensus, then lower K",
+    "modal_k": 5,
+    "n_samples_used": 3,
+    "medoid_sample_index": 0,
+    "medoid_retained_index": 0,
+    "medoid_tie_breaker": "highest aligned agreement, then content hash",
+    "n_cell_vote_ties": 0,
+    "cell_vote_tie_breaker": "medoid sample value",
+    "permutations_used": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ]
+  },
+  "aggregation_recomputed_at": "2026-07-14T02:25:59.062731+00:00"
+}

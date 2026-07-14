@@ -1,0 +1,29 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common Denominator",
+      "definition": "Find a common denominator and convert fractions with different denominators into equivalent fractions."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Fraction Subtraction",
+      "definition": "Subtract the numerators of two fractions that already share a common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Regrouping/Borrowing",
+      "definition": "Borrow one whole unit from the whole-number part and convert it into a fraction when the subtrahend's fraction exceeds the minuend's fraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Whole Number Subtraction",
+      "definition": "Subtract the whole-number parts of the minuend and subtrahend in a mixed-number subtraction problem."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Improper Fraction Conversion",
+      "definition": "Convert an improper fraction within a mixed number into a whole number plus a proper fraction before performing subtraction."
+    }
+  ]
+}

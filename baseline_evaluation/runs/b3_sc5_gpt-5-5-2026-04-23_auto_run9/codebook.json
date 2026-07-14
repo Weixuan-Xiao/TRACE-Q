@@ -2,28 +2,28 @@
   "skills": [
     {
       "skill_id": "S01",
-      "name": "Subtract like-denominator fractions",
-      "definition": "Subtract fractional quantities with a common denominator by operating on numerators and interpreting zero, positive, or negative interim fractional differences."
+      "name": "Find common denominator",
+      "definition": "Find an appropriate common denominator and rewrite unlike-denominator fractions or fraction parts as equivalent fractions."
     },
     {
       "skill_id": "S02",
-      "name": "Find common denominator",
-      "definition": "Find a least common denominator and rewrite fraction parts as equivalent fractions with that denominator."
+      "name": "Subtract common-denominator fractions",
+      "definition": "Subtract fraction parts once they have a common denominator, including cases with zero numerators or zero fractional parts."
     },
     {
       "skill_id": "S03",
-      "name": "Manage mixed and whole numbers",
-      "definition": "Decompose mixed or whole-number operands into whole and fractional parts, treat missing fractional parts as zero, subtract whole parts, and recombine the result."
+      "name": "Handle whole-number parts",
+      "definition": "Separate mixed or whole quantities into whole-number and fractional parts, subtract the whole-number parts, and recombine or retain the whole-number result with the fraction result."
     },
     {
       "skill_id": "S04",
       "name": "Borrow across whole and fraction parts",
-      "definition": "Regroup one or more whole units as denominator-over-denominator fractions when the fractional subtraction would be negative."
+      "definition": "Regroup one or more whole units as denominator-over-denominator fractions when the fractional minuend is too small to subtract the fractional subtrahend."
     },
     {
       "skill_id": "S05",
       "name": "Simplify fractional result",
-      "definition": "Reduce a nonzero fractional result or the fractional part of a mixed number to lowest terms."
+      "definition": "Reduce a nonzero fractional result to lowest terms after subtraction."
     }
   ]
 }

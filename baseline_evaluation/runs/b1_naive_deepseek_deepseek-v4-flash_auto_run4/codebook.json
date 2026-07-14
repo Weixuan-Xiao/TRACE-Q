@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Convert mixed numbers",
+      "definition": "Convert between mixed numbers and improper fractions, including handling improper fractions within mixed numbers."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Find common denominator",
+      "definition": "Identify and apply a common denominator for fractions with different denominators."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Subtract like fractions",
+      "definition": "Subtract the numerators of fractions with a common denominator and keep the denominator."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrow or regroup",
+      "definition": "Borrow one from the whole number part and convert it to a fraction with the common denominator to allow subtraction when the fraction part of the minuend is smaller."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify fractions",
+      "definition": "Reduce fractions to lowest terms and convert improper fractions to mixed numbers."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Subtract whole numbers",
+      "definition": "Subtract the integer parts of mixed numbers, including cases where the subtrahend has no fraction."
+    }
+  ]
+}

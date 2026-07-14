@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "LCD Conversion",
+      "definition": "Determine the least common denominator for two fractions with different denominators and convert both to equivalent fractions over that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Common-Denominator Fraction Subtraction",
+      "definition": "Subtract the numerators of two fractions or fractional parts that already share the same denominator to obtain the fraction-part result."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Whole-Number Part Subtraction",
+      "definition": "Subtract the whole-number components of mixed numbers (or of a whole number and a mixed number/fraction) separately from the fractional parts."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing for Negative Fraction Result",
+      "definition": "When subtracting the fractional parts yields a negative value, borrow one whole unit (expressed as denominator/denominator) from the whole part and add it to the minuend's fraction before subtracting again."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Simplify to Lowest Terms",
+      "definition": "Reduce a resulting fraction to its simplest equivalent form by dividing numerator and denominator by their greatest common factor."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Improper Mixed-Number Regrouping",
+      "definition": "Recognize a mixed number whose fractional part's numerator is greater than or equal to its denominator and convert/regroup it into standard mixed-number form before completing the subtraction."
+    }
+  ]
+}

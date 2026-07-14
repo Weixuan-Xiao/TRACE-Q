@@ -1,0 +1,19 @@
+{
+  "method": "b1_naive",
+  "dataset": "tatsuoka",
+  "k_condition": "auto",
+  "k_selected": 5,
+  "timestamp": "2026-07-13T12:50:07.837075+00:00",
+  "method_version": "phase2-v1",
+  "model": "anthropic/claude-sonnet-5",
+  "provider": "openrouter",
+  "temperature": 0.0,
+  "temperature_fallbacks": 0,
+  "seed": null,
+  "seed_base": null,
+  "token_cost": {
+    "input": 709,
+    "output": 7629,
+    "calls": 1
+  }
+}

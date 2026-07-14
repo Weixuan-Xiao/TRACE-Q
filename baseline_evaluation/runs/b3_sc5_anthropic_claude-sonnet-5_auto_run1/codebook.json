@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Common Denominator Conversion",
+      "definition": "Find the least common denominator and convert fractions with unlike denominators into equivalent fractions sharing that denominator."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Same-Denominator Numerator Subtraction",
+      "definition": "Subtract numerators directly once two fractions share a common denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Fraction Simplification",
+      "definition": "Reduce a resulting fraction to its lowest terms when the raw subtraction result is not already fully reduced."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Borrowing/Regrouping",
+      "definition": "When subtracting fraction parts yields a negative value, borrow one whole (as denominator/denominator) from the whole-number part and add it to the numerator before subtracting."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Whole-and-Fraction Part Separation",
+      "definition": "Separate the whole-number and fractional components of mixed numbers or whole numbers (treating a whole number as whole+0/d) and subtract each part independently."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Improper Mixed-Number Normalization",
+      "definition": "Recognize a mixed number whose fractional part's numerator is greater than or equal to its denominator and convert it into standard whole-plus-proper-fraction form before/while subtracting."
+    }
+  ]
+}

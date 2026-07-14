@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "skill_id": "S01",
+      "name": "Same-denominator numerator subtraction",
+      "definition": "Subtract the numerators of two fractions that already share a common denominator to get the fraction-part result."
+    },
+    {
+      "skill_id": "S02",
+      "name": "Common denominator conversion",
+      "definition": "Find the LCD of two unlike denominators and convert both fractions into equivalent fractions with that denominator."
+    },
+    {
+      "skill_id": "S03",
+      "name": "Borrowing/regrouping",
+      "definition": "When subtracting fraction parts yields a negative value, borrow one whole unit (as denominator/denominator) from the whole-number part and redo the fraction subtraction."
+    },
+    {
+      "skill_id": "S04",
+      "name": "Simplify to lowest terms",
+      "definition": "Reduce a fraction result (or convert to whole/mixed form) to its simplest equivalent form."
+    },
+    {
+      "skill_id": "S05",
+      "name": "Mixed-number decomposition & recombination",
+      "definition": "Separate a mixed or whole number into whole and fractional parts, subtract the whole-number parts, and recombine the whole and fraction results into the final answer."
+    },
+    {
+      "skill_id": "S06",
+      "name": "Improper fraction-part normalization",
+      "definition": "Recognize when a mixed number's fractional part is improper (numerator \u2265 denominator) and convert it into a proper mixed number by carrying the excess into the whole part before subtracting."
+    }
+  ]
+}
