@@ -1,0 +1,2320 @@
+{
+  "scope": "B1 only; models evaluated separately",
+  "n_runs_found": 40,
+  "n_runs_valid": 40,
+  "invalid_runs": [],
+  "codebook_stability": {
+    "metric": "pairwise Jaccard similarity between canonical skill sets",
+    "annotation_status": {
+      "draft_ai": 196
+    },
+    "is_human_confirmed": false,
+    "canonical_taxonomy": {
+      "C1": "Like-denominator fraction subtraction",
+      "C2": "Unlike-denominator conversion and subtraction",
+      "C3": "Whole-number minuend/operand handling",
+      "C4": "Mixed-number subtraction without regrouping",
+      "C5": "Borrowing/regrouping",
+      "C6": "Improper mixed-number normalization",
+      "C7": "Mixed-number/improper-fraction conversion",
+      "C8": "Fraction simplification/reduction",
+      "C9": "Generic fraction subtraction"
+    },
+    "models": {
+      "anthropic/claude-sonnet-5": {
+        "n_runs": 10,
+        "mean_pairwise_jaccard": 0.8551,
+        "sd_pairwise_jaccard": 0.1595,
+        "min_pairwise_jaccard": 0.5714,
+        "n_pairs": 45,
+        "n_unique_canonical_ontologies": 4,
+        "modal_ontology_frequency": 7,
+        "runs_with_mapping_collisions": 0,
+        "skill_prevalence": {
+          "C1": {
+            "name": "Like-denominator fraction subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C2": {
+            "name": "Unlike-denominator conversion and subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C3": {
+            "name": "Whole-number minuend/operand handling",
+            "runs": 8,
+            "fraction": 0.8
+          },
+          "C4": {
+            "name": "Mixed-number subtraction without regrouping",
+            "runs": 2,
+            "fraction": 0.2
+          },
+          "C5": {
+            "name": "Borrowing/regrouping",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C6": {
+            "name": "Improper mixed-number normalization",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C8": {
+            "name": "Fraction simplification/reduction",
+            "runs": 1,
+            "fraction": 0.1
+          }
+        },
+        "pairwise": [
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "jaccard": 0.7143
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 0.5714
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "run_b": "b1_naive_anthropic_claude-sonnet-5_auto_run9",
+            "jaccard": 1.0
+          }
+        ]
+      },
+      "deepseek/deepseek-v4-flash": {
+        "n_runs": 10,
+        "mean_pairwise_jaccard": 0.8644,
+        "sd_pairwise_jaccard": 0.1209,
+        "min_pairwise_jaccard": 0.6667,
+        "n_pairs": 45,
+        "n_unique_canonical_ontologies": 3,
+        "modal_ontology_frequency": 6,
+        "runs_with_mapping_collisions": 0,
+        "skill_prevalence": {
+          "C1": {
+            "name": "Like-denominator fraction subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C2": {
+            "name": "Unlike-denominator conversion and subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C3": {
+            "name": "Whole-number minuend/operand handling",
+            "runs": 1,
+            "fraction": 0.1
+          },
+          "C5": {
+            "name": "Borrowing/regrouping",
+            "runs": 4,
+            "fraction": 0.4
+          },
+          "C7": {
+            "name": "Mixed-number/improper-fraction conversion",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C8": {
+            "name": "Fraction simplification/reduction",
+            "runs": 10,
+            "fraction": 1.0
+          }
+        },
+        "pairwise": [
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 0.6667
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_deepseek_deepseek-v4-flash_auto_run8",
+            "run_b": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "jaccard": 0.8
+          }
+        ]
+      },
+      "google/gemini-3.5-flash": {
+        "n_runs": 10,
+        "mean_pairwise_jaccard": 0.9289,
+        "sd_pairwise_jaccard": 0.0968,
+        "min_pairwise_jaccard": 0.8,
+        "n_pairs": 45,
+        "n_unique_canonical_ontologies": 2,
+        "modal_ontology_frequency": 8,
+        "runs_with_mapping_collisions": 0,
+        "skill_prevalence": {
+          "C1": {
+            "name": "Like-denominator fraction subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C2": {
+            "name": "Unlike-denominator conversion and subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C3": {
+            "name": "Whole-number minuend/operand handling",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C5": {
+            "name": "Borrowing/regrouping",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C6": {
+            "name": "Improper mixed-number normalization",
+            "runs": 8,
+            "fraction": 0.8
+          }
+        },
+        "pairwise": [
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          },
+          {
+            "run_a": "b1_naive_google_gemini-3-5-flash_auto_run8",
+            "run_b": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "jaccard": 0.8
+          }
+        ]
+      },
+      "gpt-5.5-2026-04-23": {
+        "n_runs": 10,
+        "mean_pairwise_jaccard": 0.9407,
+        "sd_pairwise_jaccard": 0.0807,
+        "min_pairwise_jaccard": 0.8333,
+        "n_pairs": 45,
+        "n_unique_canonical_ontologies": 2,
+        "modal_ontology_frequency": 8,
+        "runs_with_mapping_collisions": 0,
+        "skill_prevalence": {
+          "C1": {
+            "name": "Like-denominator fraction subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C2": {
+            "name": "Unlike-denominator conversion and subtraction",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C3": {
+            "name": "Whole-number minuend/operand handling",
+            "runs": 2,
+            "fraction": 0.2
+          },
+          "C4": {
+            "name": "Mixed-number subtraction without regrouping",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C5": {
+            "name": "Borrowing/regrouping",
+            "runs": 10,
+            "fraction": 1.0
+          },
+          "C6": {
+            "name": "Improper mixed-number normalization",
+            "runs": 10,
+            "fraction": 1.0
+          }
+        },
+        "pairwise": [
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 0.8333
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          },
+          {
+            "run_a": "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "run_b": "b1_naive_gpt-5-5-2026-04-23_auto_run9",
+            "jaccard": 1.0
+          }
+        ]
+      }
+    }
+  },
+  "model_summary": {
+    "anthropic/claude-sonnet-5": {
+      "n_runs": 10,
+      "k_distribution": {
+        "4": 1,
+        "5": 7,
+        "6": 2
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7293,
+          "sd": 0.0379,
+          "min": 0.65,
+          "max": 0.8
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.9233,
+          "sd": 0.0358,
+          "min": 0.8417,
+          "max": 0.97
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 3.4,
+          "sd": 0.9661,
+          "min": 2,
+          "max": 5
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.4173,
+          "sd": 0.0803,
+          "min": 0.2417,
+          "max": 0.51
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 8675.4,
+          "sd": 2585.8523,
+          "min": 4890,
+          "max": 12029
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 709,
+          "sd": 0.0,
+          "min": 709,
+          "max": 709
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 7966.4,
+          "sd": 2585.8523,
+          "min": 4181,
+          "max": 11320
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9068.9769,
+          "sd": 57.9043,
+          "min": 9027.6045,
+          "max": 9198.9261
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9677.324,
+          "sd": 155.024,
+          "min": 9529.6699,
+          "max": 10028.8103
+        },
+        "RMSEA2": {
+          "n": 9,
+          "mean": 0.0481,
+          "sd": 0.0105,
+          "min": 0.0378,
+          "max": 0.0676
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0744,
+          "sd": 0.0081,
+          "min": 0.0605,
+          "max": 0.084
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_anthropic_claude-sonnet-5_auto_run10",
+            "reason": "K=6 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_anthropic_claude-sonnet-5_auto_run3",
+            "reason": "K=6 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_anthropic_claude-sonnet-5_auto_run7",
+            "reason": "K=4 != modal K=5"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "4": 1,
+            "5": 7,
+            "6": 2
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 0.7
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 7,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 0.7671,
+          "fleiss_kappa": 0.3297,
+          "item_perfect_rate": 0.0,
+          "n_unique_qmatrices": 7,
+          "modal_qmatrix_frequency": 1,
+          "modal_qmatrix_frequency_pct": 0.1429,
+          "aligned": {
+            "element_wise_agreement": 0.9214,
+            "fleiss_kappa": 0.7533,
+            "item_perfect_rate": 0.1,
+            "reference_run": 6,
+            "permutations_used": [
+              [
+                1,
+                0,
+                2,
+                3,
+                4
+              ],
+              [
+                1,
+                0,
+                2,
+                4,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                4,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                4,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                1,
+                0,
+                2,
+                4,
+                3
+              ]
+            ],
+            "n_unique_qmatrices": 6,
+            "modal_qmatrix_frequency": 2,
+            "modal_qmatrix_frequency_pct": 0.2857
+          },
+          "runs_used": [
+            "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run9"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.7452,
+          "min_ari": 0.6507,
+          "sd_ari": 0.0973,
+          "n_pairs": 21,
+          "runs_used": [
+            "b1_naive_anthropic_claude-sonnet-5_auto_run1",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run2",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run4",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run5",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run6",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run8",
+            "b1_naive_anthropic_claude-sonnet-5_auto_run9"
+          ]
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash": {
+      "n_runs": 10,
+      "k_distribution": {
+        "4": 6,
+        "5": 3,
+        "6": 1
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7163,
+          "sd": 0.0253,
+          "min": 0.6625,
+          "max": 0.75
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.8715,
+          "sd": 0.0465,
+          "min": 0.8125,
+          "max": 0.9375
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0.2,
+          "sd": 0.4216,
+          "min": 0,
+          "max": 1
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 2.9,
+          "sd": 0.5676,
+          "min": 2,
+          "max": 4
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.5078,
+          "sd": 0.0912,
+          "min": 0.36,
+          "max": 0.675
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 8689.8,
+          "sd": 4517.7753,
+          "min": 1176,
+          "max": 14609
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 535,
+          "sd": 0.0,
+          "min": 535,
+          "max": 535
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 8154.8,
+          "sd": 4517.7753,
+          "min": 641,
+          "max": 14074
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 8978.3936,
+          "sd": 87.8859,
+          "min": 8857.6609,
+          "max": 9130.7852
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9563.6063,
+          "sd": 216.8532,
+          "min": 9423.2388,
+          "max": 10128.9884
+        },
+        "RMSEA2": {
+          "n": 9,
+          "mean": 0.057,
+          "sd": 0.009,
+          "min": 0.0416,
+          "max": 0.0734
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0655,
+          "sd": 0.0111,
+          "min": 0.0531,
+          "max": 0.0909
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_deepseek_deepseek-v4-flash_auto_run3",
+            "reason": "K=5 != modal K=4"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_deepseek_deepseek-v4-flash_auto_run4",
+            "reason": "K=6 != modal K=4"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_deepseek_deepseek-v4-flash_auto_run7",
+            "reason": "K=5 != modal K=4"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_deepseek_deepseek-v4-flash_auto_run9",
+            "reason": "K=5 != modal K=4"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "4": 6,
+            "5": 3,
+            "6": 1
+          },
+          "modal_k": 4,
+          "modal_k_fraction": 0.6
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 6,
+          "n_items": 20,
+          "n_skills": 4,
+          "total_cells": 80,
+          "element_wise_agreement": 0.9125,
+          "fleiss_kappa": 0.7183,
+          "item_perfect_rate": 0.15,
+          "n_unique_qmatrices": 6,
+          "modal_qmatrix_frequency": 1,
+          "modal_qmatrix_frequency_pct": 0.1667,
+          "aligned": {
+            "element_wise_agreement": 0.9208,
+            "fleiss_kappa": 0.7523,
+            "item_perfect_rate": 0.25,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                2,
+                1,
+                0,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "n_unique_qmatrices": 6,
+            "modal_qmatrix_frequency": 1,
+            "modal_qmatrix_frequency_pct": 0.1667
+          },
+          "runs_used": [
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run8"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.715,
+          "min_ari": 0.6201,
+          "sd_ari": 0.066,
+          "n_pairs": 15,
+          "runs_used": [
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run1",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run10",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run2",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run5",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run6",
+            "b1_naive_deepseek_deepseek-v4-flash_auto_run8"
+          ]
+        }
+      }
+    },
+    "google/gemini-3.5-flash": {
+      "n_runs": 10,
+      "k_distribution": {
+        "4": 2,
+        "5": 8
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.708,
+          "sd": 0.0234,
+          "min": 0.675,
+          "max": 0.76
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.919,
+          "sd": 0.0166,
+          "min": 0.91,
+          "max": 0.95
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 3.1,
+          "sd": 0.3162,
+          "min": 3,
+          "max": 4
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.4805,
+          "sd": 0.0283,
+          "min": 0.4,
+          "max": 0.49
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 1578.5,
+          "sd": 52.8062,
+          "min": 1487,
+          "max": 1610
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 586,
+          "sd": 0.0,
+          "min": 586,
+          "max": 586
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 992.5,
+          "sd": 52.8062,
+          "min": 901,
+          "max": 1024
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 8986.9077,
+          "sd": 2.9829,
+          "min": 8985.2567,
+          "max": 8992.4172
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9620.1028,
+          "sd": 118.051,
+          "min": 9425.1148,
+          "max": 9692.1389
+        },
+        "RMSEA2": {
+          "n": 10,
+          "mean": 0.0481,
+          "sd": 0.0062,
+          "min": 0.0363,
+          "max": 0.0516
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0751,
+          "sd": 0.0009,
+          "min": 0.0745,
+          "max": 0.0765
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_google_gemini-3-5-flash_auto_run3",
+            "reason": "K=4 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_google_gemini-3-5-flash_auto_run9",
+            "reason": "K=4 != modal K=5"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "4": 2,
+            "5": 8
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 0.8
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 8,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 0.9812,
+          "fleiss_kappa": 0.9249,
+          "item_perfect_rate": 0.4,
+          "n_unique_qmatrices": 2,
+          "modal_qmatrix_frequency": 7,
+          "modal_qmatrix_frequency_pct": 0.875,
+          "aligned": {
+            "element_wise_agreement": 0.9862,
+            "fleiss_kappa": 0.9449,
+            "item_perfect_rate": 0.45,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                3,
+                2,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "n_unique_qmatrices": 2,
+            "modal_qmatrix_frequency": 7,
+            "modal_qmatrix_frequency_pct": 0.875
+          },
+          "runs_used": [
+            "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "b1_naive_google_gemini-3-5-flash_auto_run8"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.9127,
+          "min_ari": 0.6509,
+          "sd_ari": 0.154,
+          "n_pairs": 28,
+          "runs_used": [
+            "b1_naive_google_gemini-3-5-flash_auto_run1",
+            "b1_naive_google_gemini-3-5-flash_auto_run10",
+            "b1_naive_google_gemini-3-5-flash_auto_run2",
+            "b1_naive_google_gemini-3-5-flash_auto_run4",
+            "b1_naive_google_gemini-3-5-flash_auto_run5",
+            "b1_naive_google_gemini-3-5-flash_auto_run6",
+            "b1_naive_google_gemini-3-5-flash_auto_run7",
+            "b1_naive_google_gemini-3-5-flash_auto_run8"
+          ]
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23": {
+      "n_runs": 10,
+      "k_distribution": {
+        "5": 8,
+        "6": 2
+      },
+      "converged": 10,
+      "stale_failed_markers": 6,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7412,
+          "sd": 0.0217,
+          "min": 0.7,
+          "max": 0.775
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.8688,
+          "sd": 0.0321,
+          "min": 0.83,
+          "max": 0.94
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 1.6,
+          "sd": 0.8433,
+          "min": 1,
+          "max": 3
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.2988,
+          "sd": 0.0911,
+          "min": 0.2167,
+          "max": 0.5
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 4588,
+          "sd": 1075.2344,
+          "min": 3413,
+          "max": 6936
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 534,
+          "sd": 0.0,
+          "min": 534,
+          "max": 534
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 4054,
+          "sd": 1075.2344,
+          "min": 2879,
+          "max": 6402
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9124.6951,
+          "sd": 101.8552,
+          "min": 8997.6682,
+          "max": 9254.4467
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9570.2451,
+          "sd": 64.2909,
+          "min": 9490.3436,
+          "max": 9724.5023
+        },
+        "RMSEA2": {
+          "n": 10,
+          "mean": 0.0593,
+          "sd": 0.008,
+          "min": 0.0489,
+          "max": 0.0725
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0816,
+          "sd": 0.0127,
+          "min": 0.0575,
+          "max": 0.0948
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_gpt-5-5-2026-04-23_auto_run1",
+            "reason": "K=6 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b1_naive_gpt-5-5-2026-04-23_auto_run10",
+            "reason": "K=6 != modal K=5"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "5": 8,
+            "6": 2
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 0.8
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 8,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 0.9363,
+          "fleiss_kappa": 0.7481,
+          "item_perfect_rate": 0.15,
+          "n_unique_qmatrices": 6,
+          "modal_qmatrix_frequency": 3,
+          "modal_qmatrix_frequency_pct": 0.375,
+          "aligned": {
+            "element_wise_agreement": 0.9363,
+            "fleiss_kappa": 0.7481,
+            "item_perfect_rate": 0.15,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "n_unique_qmatrices": 6,
+            "modal_qmatrix_frequency": 3,
+            "modal_qmatrix_frequency_pct": 0.375
+          },
+          "runs_used": [
+            "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run9"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.7748,
+          "min_ari": 0.5672,
+          "sd_ari": 0.1541,
+          "n_pairs": 28,
+          "runs_used": [
+            "b1_naive_gpt-5-5-2026-04-23_auto_run2",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run3",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run4",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run5",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run6",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run7",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run8",
+            "b1_naive_gpt-5-5-2026-04-23_auto_run9"
+          ]
+        }
+      }
+    }
+  },
+  "quality_by_model_k": {
+    "anthropic/claude-sonnet-5|K=4": {
+      "n_runs": 1,
+      "fit_metrics": {
+        "AIC": {
+          "n": 1,
+          "mean": 9198.9261,
+          "sd": 0.0,
+          "min": 9198.9261,
+          "max": 9198.9261
+        },
+        "BIC": {
+          "n": 1,
+          "mean": 9605.9188,
+          "sd": 0.0,
+          "min": 9605.9188,
+          "max": 9605.9188
+        },
+        "RMSEA2": {
+          "n": 1,
+          "mean": 0.0617,
+          "sd": 0.0,
+          "min": 0.0617,
+          "max": 0.0617
+        },
+        "SRMSR": {
+          "n": 1,
+          "mean": 0.0798,
+          "sd": 0.0,
+          "min": 0.0798,
+          "max": 0.0798
+        }
+      }
+    },
+    "anthropic/claude-sonnet-5|K=5": {
+      "n_runs": 7,
+      "fit_metrics": {
+        "AIC": {
+          "n": 7,
+          "mean": 9042.8146,
+          "sd": 10.9762,
+          "min": 9027.6045,
+          "max": 9054.131
+        },
+        "BIC": {
+          "n": 7,
+          "mean": 9635.8612,
+          "sd": 112.1852,
+          "min": 9529.6699,
+          "max": 9780.4534
+        },
+        "RMSEA2": {
+          "n": 7,
+          "mean": 0.0434,
+          "sd": 0.0052,
+          "min": 0.0378,
+          "max": 0.0511
+        },
+        "SRMSR": {
+          "n": 7,
+          "mean": 0.0729,
+          "sd": 0.0085,
+          "min": 0.0605,
+          "max": 0.0813
+        }
+      }
+    },
+    "anthropic/claude-sonnet-5|K=6": {
+      "n_runs": 2,
+      "fit_metrics": {
+        "AIC": {
+          "n": 2,
+          "mean": 9095.5706,
+          "sd": 79.7549,
+          "min": 9039.1753,
+          "max": 9151.9658
+        },
+        "BIC": {
+          "n": 2,
+          "mean": 9858.1464,
+          "sd": 241.3552,
+          "min": 9687.4825,
+          "max": 10028.8103
+        },
+        "RMSEA2": {
+          "n": 1,
+          "mean": 0.0676,
+          "sd": 0.0,
+          "min": 0.0676,
+          "max": 0.0676
+        },
+        "SRMSR": {
+          "n": 2,
+          "mean": 0.0771,
+          "sd": 0.0098,
+          "min": 0.0702,
+          "max": 0.084
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=4": {
+      "n_runs": 6,
+      "fit_metrics": {
+        "AIC": {
+          "n": 6,
+          "mean": 8937.0848,
+          "sd": 55.1041,
+          "min": 8857.6609,
+          "max": 8992.9822
+        },
+        "BIC": {
+          "n": 6,
+          "mean": 9468.3174,
+          "sd": 56.8232,
+          "min": 9423.2388,
+          "max": 9573.1113
+        },
+        "RMSEA2": {
+          "n": 6,
+          "mean": 0.0585,
+          "sd": 0.0027,
+          "min": 0.0549,
+          "max": 0.063
+        },
+        "SRMSR": {
+          "n": 6,
+          "mean": 0.0586,
+          "sd": 0.004,
+          "min": 0.0531,
+          "max": 0.0628
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=5": {
+      "n_runs": 3,
+      "fit_metrics": {
+        "AIC": {
+          "n": 3,
+          "mean": 9010.214,
+          "sd": 94.4292,
+          "min": 8946.765,
+          "max": 9118.734
+        },
+        "BIC": {
+          "n": 3,
+          "mean": 9565.7234,
+          "sd": 128.3221,
+          "min": 9440.682,
+          "max": 9697.0921
+        },
+        "RMSEA2": {
+          "n": 3,
+          "mean": 0.0541,
+          "sd": 0.0169,
+          "min": 0.0416,
+          "max": 0.0734
+        },
+        "SRMSR": {
+          "n": 3,
+          "mean": 0.0776,
+          "sd": 0.0117,
+          "min": 0.0687,
+          "max": 0.0909
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=6": {
+      "n_runs": 1,
+      "fit_metrics": {
+        "AIC": {
+          "n": 1,
+          "mean": 9130.7852,
+          "sd": 0.0,
+          "min": 9130.7852,
+          "max": 9130.7852
+        },
+        "BIC": {
+          "n": 1,
+          "mean": 10128.9884,
+          "sd": 0.0,
+          "min": 10128.9884,
+          "max": 10128.9884
+        },
+        "RMSEA2": null,
+        "SRMSR": {
+          "n": 1,
+          "mean": 0.0709,
+          "sd": 0.0,
+          "min": 0.0709,
+          "max": 0.0709
+        }
+      }
+    },
+    "google/gemini-3.5-flash|K=4": {
+      "n_runs": 2,
+      "fit_metrics": {
+        "AIC": {
+          "n": 2,
+          "mean": 8992.4172,
+          "sd": 0.0,
+          "min": 8992.4172,
+          "max": 8992.4172
+        },
+        "BIC": {
+          "n": 2,
+          "mean": 9425.1148,
+          "sd": 0.0,
+          "min": 9425.1148,
+          "max": 9425.1148
+        },
+        "RMSEA2": {
+          "n": 2,
+          "mean": 0.0363,
+          "sd": 0.0,
+          "min": 0.0363,
+          "max": 0.0363
+        },
+        "SRMSR": {
+          "n": 2,
+          "mean": 0.0765,
+          "sd": 0.0,
+          "min": 0.0765,
+          "max": 0.0765
+        }
+      }
+    },
+    "google/gemini-3.5-flash|K=5": {
+      "n_runs": 8,
+      "fit_metrics": {
+        "AIC": {
+          "n": 8,
+          "mean": 8985.5303,
+          "sd": 0.7739,
+          "min": 8985.2567,
+          "max": 8987.4455
+        },
+        "BIC": {
+          "n": 8,
+          "mean": 9668.8498,
+          "sd": 65.8716,
+          "min": 9505.8258,
+          "max": 9692.1389
+        },
+        "RMSEA2": {
+          "n": 8,
+          "mean": 0.0511,
+          "sd": 0.0002,
+          "min": 0.051,
+          "max": 0.0516
+        },
+        "SRMSR": {
+          "n": 8,
+          "mean": 0.0747,
+          "sd": 0.0006,
+          "min": 0.0745,
+          "max": 0.0762
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23|K=5": {
+      "n_runs": 8,
+      "fit_metrics": {
+        "AIC": {
+          "n": 8,
+          "mean": 9156.2436,
+          "sd": 87.4698,
+          "min": 9000.4836,
+          "max": 9254.4467
+        },
+        "BIC": {
+          "n": 8,
+          "mean": 9586.7991,
+          "sd": 60.7853,
+          "min": 9544.6757,
+          "max": 9724.5023
+        },
+        "RMSEA2": {
+          "n": 8,
+          "mean": 0.0617,
+          "sd": 0.0069,
+          "min": 0.0514,
+          "max": 0.0725
+        },
+        "SRMSR": {
+          "n": 8,
+          "mean": 0.0825,
+          "sd": 0.0143,
+          "min": 0.0575,
+          "max": 0.0948
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23|K=6": {
+      "n_runs": 2,
+      "fit_metrics": {
+        "AIC": {
+          "n": 2,
+          "mean": 8998.5013,
+          "sd": 1.1781,
+          "min": 8997.6682,
+          "max": 8999.3343
+        },
+        "BIC": {
+          "n": 2,
+          "mean": 9504.0291,
+          "sd": 19.3542,
+          "min": 9490.3436,
+          "max": 9517.7146
+        },
+        "RMSEA2": {
+          "n": 2,
+          "mean": 0.0495,
+          "sd": 0.0008,
+          "min": 0.0489,
+          "max": 0.0501
+        },
+        "SRMSR": {
+          "n": 2,
+          "mean": 0.0779,
+          "sd": 0.0008,
+          "min": 0.0773,
+          "max": 0.0785
+        }
+      }
+    }
+  }
+}

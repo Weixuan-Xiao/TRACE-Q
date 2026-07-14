@@ -1,0 +1,1912 @@
+{
+  "scope": "B2 only; models evaluated separately",
+  "n_runs_found": 40,
+  "n_runs_valid": 40,
+  "invalid_runs": [],
+  "codebook_stability": {
+    "review_status": "reviewed_ai_pending_human_confirmation",
+    "counting_rule": "Each raw codebook skill receives one dominant canonical meaning. Embedded secondary operations in broad low-K skills are documented but not double-counted.",
+    "taxonomy": {
+      "like_denominator_subtraction": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+      "common_denominator_conversion": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+      "whole_mixed_component_handling": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+      "borrowing_regrouping": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+      "fraction_simplification": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+      "improper_mixed_normalization": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+      "whole_as_mixed_representation": "\u628a\u7eaf\u6574\u6570\u8868\u793a\u4e3a\u5e26\u96f6\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+      "combine_whole_fraction_result": "\u5408\u5e76\u6574\u6570\u4e0e\u5206\u6570\u7ed3\u679c",
+      "direct_component_subtraction": "\u76f4\u63a5\u76f8\u51cf\u5df2\u5bf9\u9f50\u7684\u6574\u6570\u548c/\u6216\u5206\u6570\u7ec4\u4ef6",
+      "mixed_subtraction_without_borrowing": "\u65e0\u9700\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+      "mixed_subtraction_with_borrowing": "\u9700\u8981\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5"
+    },
+    "models": {
+      "anthropic/claude-sonnet-5": {
+        "n_runs": 10,
+        "raw_skill_instances": 57,
+        "n_unique_canonical_skills": 7,
+        "core_skills_10_of_10": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification"
+        ],
+        "n_core_skills_10_of_10": 3,
+        "modal_skill_set": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification",
+          "improper_mixed_normalization",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "modal_skill_set_frequency": 7,
+        "modal_skill_set_rate": 0.7,
+        "n_distinct_skill_sets": 3,
+        "skill_prevalence": {
+          "borrowing_regrouping": {
+            "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "common_denominator_conversion": {
+            "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "direct_component_subtraction": {
+            "name": "\u76f4\u63a5\u76f8\u51cf\u5df2\u5bf9\u9f50\u7684\u6574\u6570\u548c/\u6216\u5206\u6570\u7ec4\u4ef6",
+            "runs": 1,
+            "rate": 0.1
+          },
+          "fraction_simplification": {
+            "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "improper_mixed_normalization": {
+            "name": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+            "runs": 8,
+            "rate": 0.8
+          },
+          "like_denominator_subtraction": {
+            "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+            "runs": 9,
+            "rate": 0.9
+          },
+          "whole_mixed_component_handling": {
+            "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+            "runs": 9,
+            "rate": 0.9
+          }
+        },
+        "runs": [
+          {
+            "run": 1,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "improper_mixed_normalization",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "whole_mixed_component_handling"
+            ]
+          },
+          {
+            "run": 2,
+            "raw_k": 5,
+            "skills": [
+              "direct_component_subtraction",
+              "common_denominator_conversion",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ],
+            "note": "Direct component subtraction merges numerator and whole-part subtraction."
+          },
+          {
+            "run": 3,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 4,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 5,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 6,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 7,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 8,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 9,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 10,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          }
+        ]
+      },
+      "deepseek/deepseek-v4-flash": {
+        "n_runs": 10,
+        "raw_skill_instances": 53,
+        "n_unique_canonical_skills": 10,
+        "core_skills_10_of_10": [
+          "common_denominator_conversion",
+          "like_denominator_subtraction"
+        ],
+        "n_core_skills_10_of_10": 2,
+        "modal_skill_set": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "modal_skill_set_frequency": 3,
+        "modal_skill_set_rate": 0.3,
+        "n_distinct_skill_sets": 8,
+        "skill_prevalence": {
+          "borrowing_regrouping": {
+            "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+            "runs": 8,
+            "rate": 0.8
+          },
+          "combine_whole_fraction_result": {
+            "name": "\u5408\u5e76\u6574\u6570\u4e0e\u5206\u6570\u7ed3\u679c",
+            "runs": 2,
+            "rate": 0.2
+          },
+          "common_denominator_conversion": {
+            "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "fraction_simplification": {
+            "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+            "runs": 9,
+            "rate": 0.9
+          },
+          "improper_mixed_normalization": {
+            "name": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+            "runs": 2,
+            "rate": 0.2
+          },
+          "like_denominator_subtraction": {
+            "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "mixed_subtraction_with_borrowing": {
+            "name": "\u9700\u8981\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+            "runs": 1,
+            "rate": 0.1
+          },
+          "mixed_subtraction_without_borrowing": {
+            "name": "\u65e0\u9700\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+            "runs": 1,
+            "rate": 0.1
+          },
+          "whole_as_mixed_representation": {
+            "name": "\u628a\u7eaf\u6574\u6570\u8868\u793a\u4e3a\u5e26\u96f6\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+            "runs": 2,
+            "rate": 0.2
+          },
+          "whole_mixed_component_handling": {
+            "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+            "runs": 8,
+            "rate": 0.8
+          }
+        },
+        "runs": [
+          {
+            "run": 1,
+            "raw_k": 6,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "whole_as_mixed_representation"
+            ]
+          },
+          {
+            "run": 2,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 3,
+            "raw_k": 7,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "fraction_simplification",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "improper_mixed_normalization",
+              "whole_as_mixed_representation"
+            ]
+          },
+          {
+            "run": 4,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "combine_whole_fraction_result"
+            ],
+            "note": "Simplification is embedded in the fraction-subtraction definition rather than a separate skill."
+          },
+          {
+            "run": 5,
+            "raw_k": 6,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "combine_whole_fraction_result"
+            ]
+          },
+          {
+            "run": 6,
+            "raw_k": 5,
+            "skills": [
+              "whole_mixed_component_handling",
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 7,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "fraction_simplification",
+              "mixed_subtraction_without_borrowing",
+              "mixed_subtraction_with_borrowing"
+            ]
+          },
+          {
+            "run": 8,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "fraction_simplification",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping"
+            ]
+          },
+          {
+            "run": 9,
+            "raw_k": 5,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "borrowing_regrouping",
+              "fraction_simplification",
+              "improper_mixed_normalization"
+            ]
+          },
+          {
+            "run": 10,
+            "raw_k": 4,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "fraction_simplification",
+              "whole_mixed_component_handling"
+            ],
+            "note": "Manage mixed numbers embeds borrowing and result combination in one broad skill."
+          }
+        ]
+      },
+      "google/gemini-3.5-flash": {
+        "n_runs": 10,
+        "raw_skill_instances": 50,
+        "n_unique_canonical_skills": 5,
+        "core_skills_10_of_10": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "n_core_skills_10_of_10": 5,
+        "modal_skill_set": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "modal_skill_set_frequency": 10,
+        "modal_skill_set_rate": 1.0,
+        "n_distinct_skill_sets": 1,
+        "skill_prevalence": {
+          "borrowing_regrouping": {
+            "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "common_denominator_conversion": {
+            "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "fraction_simplification": {
+            "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "like_denominator_subtraction": {
+            "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "whole_mixed_component_handling": {
+            "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+            "runs": 10,
+            "rate": 1.0
+          }
+        },
+        "runs": [
+          {
+            "run": 1,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 2,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 3,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 4,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 5,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 6,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 7,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 8,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 9,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 10,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          }
+        ]
+      },
+      "gpt-5.5-2026-04-23": {
+        "n_runs": 10,
+        "raw_skill_instances": 48,
+        "n_unique_canonical_skills": 5,
+        "core_skills_10_of_10": [
+          "common_denominator_conversion",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "n_core_skills_10_of_10": 3,
+        "modal_skill_set": [
+          "borrowing_regrouping",
+          "common_denominator_conversion",
+          "fraction_simplification",
+          "like_denominator_subtraction",
+          "whole_mixed_component_handling"
+        ],
+        "modal_skill_set_frequency": 8,
+        "modal_skill_set_rate": 0.8,
+        "n_distinct_skill_sets": 3,
+        "skill_prevalence": {
+          "borrowing_regrouping": {
+            "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+            "runs": 9,
+            "rate": 0.9
+          },
+          "common_denominator_conversion": {
+            "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "fraction_simplification": {
+            "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+            "runs": 9,
+            "rate": 0.9
+          },
+          "like_denominator_subtraction": {
+            "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+            "runs": 10,
+            "rate": 1.0
+          },
+          "whole_mixed_component_handling": {
+            "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+            "runs": 10,
+            "rate": 1.0
+          }
+        },
+        "runs": [
+          {
+            "run": 1,
+            "raw_k": 4,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "fraction_simplification"
+            ],
+            "note": "Whole/mixed handling embeds borrowing in one broad skill."
+          },
+          {
+            "run": 2,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 3,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 4,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 5,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 6,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 7,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 8,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          },
+          {
+            "run": 9,
+            "raw_k": 4,
+            "skills": [
+              "common_denominator_conversion",
+              "like_denominator_subtraction",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping"
+            ],
+            "note": "Fraction subtraction embeds simplification in one combined skill."
+          },
+          {
+            "run": 10,
+            "raw_k": 5,
+            "skills": [
+              "like_denominator_subtraction",
+              "common_denominator_conversion",
+              "whole_mixed_component_handling",
+              "borrowing_regrouping",
+              "fraction_simplification"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "model_summary": {
+    "anthropic/claude-sonnet-5": {
+      "n_runs": 10,
+      "k_distribution": {
+        "5": 3,
+        "6": 7
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7355,
+          "sd": 0.023,
+          "min": 0.7,
+          "max": 0.7667
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.9235,
+          "sd": 0.0181,
+          "min": 0.8917,
+          "max": 0.9417
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 4.5,
+          "sd": 0.527,
+          "min": 4,
+          "max": 5
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.4347,
+          "sd": 0.0688,
+          "min": 0.325,
+          "max": 0.52
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 26711,
+          "sd": 5065.7452,
+          "min": 19663,
+          "max": 34413
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 3838.3,
+          "sd": 1631.2227,
+          "min": 2828,
+          "max": 6470
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 22872.7,
+          "sd": 4709.1344,
+          "min": 16835,
+          "max": 31585
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9180.0012,
+          "sd": 27.1447,
+          "min": 9147.5525,
+          "max": 9245.1237
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9994.8435,
+          "sd": 186.2058,
+          "min": 9705.4021,
+          "max": 10269.0318
+        },
+        "RMSEA2": {
+          "n": 5,
+          "mean": 0.0532,
+          "sd": 0.0126,
+          "min": 0.0396,
+          "max": 0.065
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0754,
+          "sd": 0.0024,
+          "min": 0.0729,
+          "max": 0.0788
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_anthropic_claude-sonnet-5_auto_run2",
+            "reason": "K=5 != modal K=6"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_anthropic_claude-sonnet-5_auto_run3",
+            "reason": "K=5 != modal K=6"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_anthropic_claude-sonnet-5_auto_run9",
+            "reason": "K=5 != modal K=6"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "5": 3,
+            "6": 7
+          },
+          "modal_k": 6,
+          "modal_k_fraction": 0.7
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 7,
+          "n_items": 20,
+          "n_skills": 6,
+          "total_cells": 120,
+          "element_wise_agreement": 0.8226,
+          "fleiss_kappa": 0.4253,
+          "item_perfect_rate": 0.0,
+          "n_unique_qmatrices": 5,
+          "modal_qmatrix_frequency": 3,
+          "modal_qmatrix_frequency_pct": 0.4286,
+          "aligned": {
+            "element_wise_agreement": 0.9619,
+            "fleiss_kappa": 0.8678,
+            "item_perfect_rate": 0.25,
+            "reference_run": 2,
+            "permutations_used": [
+              [
+                0,
+                1,
+                5,
+                3,
+                4,
+                2
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                1,
+                0,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                1,
+                0,
+                2,
+                3,
+                4,
+                5
+              ],
+              [
+                0,
+                5,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                1,
+                0,
+                2,
+                3,
+                4,
+                5
+              ]
+            ],
+            "n_unique_qmatrices": 3,
+            "modal_qmatrix_frequency": 4,
+            "modal_qmatrix_frequency_pct": 0.5714
+          },
+          "runs_used": [
+            "b2_cot_anthropic_claude-sonnet-5_auto_run1",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run10",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run4",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run5",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run6",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run7",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run8"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.7685,
+          "min_ari": 0.5556,
+          "sd_ari": 0.1539,
+          "n_pairs": 21,
+          "runs_used": [
+            "b2_cot_anthropic_claude-sonnet-5_auto_run1",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run10",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run4",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run5",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run6",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run7",
+            "b2_cot_anthropic_claude-sonnet-5_auto_run8"
+          ]
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash": {
+      "n_runs": 10,
+      "k_distribution": {
+        "4": 1,
+        "5": 6,
+        "6": 2,
+        "7": 1
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7177,
+          "sd": 0.0483,
+          "min": 0.63,
+          "max": 0.8
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.906,
+          "sd": 0.0514,
+          "min": 0.83,
+          "max": 0.9625
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0.3,
+          "sd": 0.483,
+          "min": 0,
+          "max": 1
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 3.8,
+          "sd": 1.3166,
+          "min": 1,
+          "max": 5
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.4674,
+          "sd": 0.1123,
+          "min": 0.24,
+          "max": 0.65
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 15963.1,
+          "sd": 7590.0106,
+          "min": 5650,
+          "max": 29245
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 1919.7,
+          "sd": 5.3759,
+          "min": 1918,
+          "max": 1935
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 14043.4,
+          "sd": 7592.5787,
+          "min": 3715,
+          "max": 27327
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9208.8805,
+          "sd": 124.1933,
+          "min": 9071.9481,
+          "max": 9467.5525
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 10040.0025,
+          "sd": 469.2471,
+          "min": 9538.9187,
+          "max": 10902.7374
+        },
+        "RMSEA2": {
+          "n": 6,
+          "mean": 0.0502,
+          "sd": 0.0157,
+          "min": 0.0283,
+          "max": 0.0647
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0757,
+          "sd": 0.0101,
+          "min": 0.056,
+          "max": 0.097
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_deepseek_deepseek-v4-flash_auto_run1",
+            "reason": "K=6 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_deepseek_deepseek-v4-flash_auto_run10",
+            "reason": "K=4 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_deepseek_deepseek-v4-flash_auto_run3",
+            "reason": "K=7 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_deepseek_deepseek-v4-flash_auto_run5",
+            "reason": "K=6 != modal K=5"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "4": 1,
+            "5": 6,
+            "6": 2,
+            "7": 1
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 0.6
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 6,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 0.7333,
+          "fleiss_kappa": 0.1868,
+          "item_perfect_rate": 0.0,
+          "n_unique_qmatrices": 6,
+          "modal_qmatrix_frequency": 1,
+          "modal_qmatrix_frequency_pct": 0.1667,
+          "aligned": {
+            "element_wise_agreement": 0.8733,
+            "fleiss_kappa": 0.5813,
+            "item_perfect_rate": 0.0,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                1,
+                2,
+                0,
+                3,
+                4
+              ],
+              [
+                1,
+                0,
+                3,
+                4,
+                2
+              ],
+              [
+                0,
+                1,
+                3,
+                4,
+                2
+              ],
+              [
+                0,
+                3,
+                1,
+                2,
+                4
+              ]
+            ],
+            "n_unique_qmatrices": 5,
+            "modal_qmatrix_frequency": 2,
+            "modal_qmatrix_frequency_pct": 0.3333
+          },
+          "runs_used": [
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run2",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run4",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run6",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run7",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run8",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run9"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.6677,
+          "min_ari": 0.5616,
+          "sd_ari": 0.1021,
+          "n_pairs": 15,
+          "runs_used": [
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run2",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run4",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run6",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run7",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run8",
+            "b2_cot_deepseek_deepseek-v4-flash_auto_run9"
+          ]
+        }
+      }
+    },
+    "google/gemini-3.5-flash": {
+      "n_runs": 10,
+      "k_distribution": {
+        "5": 10
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7,
+          "sd": 0.0,
+          "min": 0.7,
+          "max": 0.7
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.94,
+          "sd": 0.0,
+          "min": 0.94,
+          "max": 0.94
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 4,
+          "sd": 0.0,
+          "min": 4,
+          "max": 4
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.52,
+          "sd": 0.0,
+          "min": 0.52,
+          "max": 0.52
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 14445.2,
+          "sd": 661.5485,
+          "min": 13190,
+          "max": 14759
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 8796,
+          "sd": 297.2541,
+          "min": 8232,
+          "max": 8937
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 5649.2,
+          "sd": 364.2944,
+          "min": 4958,
+          "max": 5822
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9147.5525,
+          "sd": 0.0,
+          "min": 9147.5525,
+          "max": 9147.5525
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9897.2759,
+          "sd": 0.0,
+          "min": 9897.2759,
+          "max": 9897.2759
+        },
+        "RMSEA2": {
+          "n": 10,
+          "mean": 0.0449,
+          "sd": 0.0,
+          "min": 0.0449,
+          "max": 0.0449
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0757,
+          "sd": 0.0,
+          "min": 0.0757,
+          "max": 0.0757
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [],
+        "k_layer": {
+          "k_distribution": {
+            "5": 10
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 1.0
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 10,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 1.0,
+          "fleiss_kappa": 1.0,
+          "item_perfect_rate": 1.0,
+          "n_unique_qmatrices": 1,
+          "modal_qmatrix_frequency": 10,
+          "modal_qmatrix_frequency_pct": 1.0,
+          "aligned": {
+            "element_wise_agreement": 1.0,
+            "fleiss_kappa": 1.0,
+            "item_perfect_rate": 1.0,
+            "reference_run": 1,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "n_unique_qmatrices": 1,
+            "modal_qmatrix_frequency": 10,
+            "modal_qmatrix_frequency_pct": 1.0
+          },
+          "runs_used": [
+            "b2_cot_google_gemini-3-5-flash_auto_run1",
+            "b2_cot_google_gemini-3-5-flash_auto_run10",
+            "b2_cot_google_gemini-3-5-flash_auto_run2",
+            "b2_cot_google_gemini-3-5-flash_auto_run3",
+            "b2_cot_google_gemini-3-5-flash_auto_run4",
+            "b2_cot_google_gemini-3-5-flash_auto_run5",
+            "b2_cot_google_gemini-3-5-flash_auto_run6",
+            "b2_cot_google_gemini-3-5-flash_auto_run7",
+            "b2_cot_google_gemini-3-5-flash_auto_run8",
+            "b2_cot_google_gemini-3-5-flash_auto_run9"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 1,
+          "min_ari": 1,
+          "sd_ari": 0.0,
+          "n_pairs": 45,
+          "runs_used": [
+            "b2_cot_google_gemini-3-5-flash_auto_run1",
+            "b2_cot_google_gemini-3-5-flash_auto_run10",
+            "b2_cot_google_gemini-3-5-flash_auto_run2",
+            "b2_cot_google_gemini-3-5-flash_auto_run3",
+            "b2_cot_google_gemini-3-5-flash_auto_run4",
+            "b2_cot_google_gemini-3-5-flash_auto_run5",
+            "b2_cot_google_gemini-3-5-flash_auto_run6",
+            "b2_cot_google_gemini-3-5-flash_auto_run7",
+            "b2_cot_google_gemini-3-5-flash_auto_run8",
+            "b2_cot_google_gemini-3-5-flash_auto_run9"
+          ]
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23": {
+      "n_runs": 10,
+      "k_distribution": {
+        "4": 2,
+        "5": 8
+      },
+      "converged": 10,
+      "stale_failed_markers": 0,
+      "metrics": {
+        "tsqe_cell_agreement": {
+          "n": 10,
+          "mean": 0.7052,
+          "sd": 0.0296,
+          "min": 0.66,
+          "max": 0.76
+        },
+        "expert_cell_agreement": {
+          "n": 10,
+          "mean": 0.9235,
+          "sd": 0.0211,
+          "min": 0.89,
+          "max": 0.95
+        },
+        "structural_n_errors": {
+          "n": 10,
+          "mean": 0,
+          "sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "structural_warnings": {
+          "n": 10,
+          "mean": 3.2,
+          "sd": 0.6325,
+          "min": 2,
+          "max": 4
+        },
+        "density": {
+          "n": 10,
+          "mean": 0.5288,
+          "sd": 0.0667,
+          "min": 0.41,
+          "max": 0.6125
+        },
+        "total_tokens": {
+          "n": 10,
+          "mean": 7515.2,
+          "sd": 798.817,
+          "min": 6385,
+          "max": 8860
+        },
+        "input_tokens": {
+          "n": 10,
+          "mean": 1922,
+          "sd": 0.0,
+          "min": 1922,
+          "max": 1922
+        },
+        "output_tokens": {
+          "n": 10,
+          "mean": 5593.2,
+          "sd": 798.817,
+          "min": 4463,
+          "max": 6938
+        },
+        "AIC": {
+          "n": 10,
+          "mean": 9051.2011,
+          "sd": 71.9595,
+          "min": 8905.1931,
+          "max": 9151.3841
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9769.222,
+          "sd": 173.7283,
+          "min": 9440.7099,
+          "max": 10029.388
+        },
+        "RMSEA2": {
+          "n": 9,
+          "mean": 0.0432,
+          "sd": 0.0148,
+          "min": 0.0123,
+          "max": 0.0609
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0598,
+          "sd": 0.0117,
+          "min": 0.043,
+          "max": 0.0795
+        }
+      },
+      "stability": {
+        "n_runs": 10,
+        "exclusions": [
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_gpt-5-5-2026-04-23_auto_run1",
+            "reason": "K=4 != modal K=5"
+          },
+          {
+            "layer": "matrix+classification",
+            "run": "b2_cot_gpt-5-5-2026-04-23_auto_run9",
+            "reason": "K=4 != modal K=5"
+          }
+        ],
+        "k_layer": {
+          "k_distribution": {
+            "4": 2,
+            "5": 8
+          },
+          "modal_k": 5,
+          "modal_k_fraction": 0.8
+        },
+        "codebook_layer": {
+          "skipped": "embeddings disabled (--skip-embeddings)"
+        },
+        "matrix_layer": {
+          "n_runs": 8,
+          "n_items": 20,
+          "n_skills": 5,
+          "total_cells": 100,
+          "element_wise_agreement": 0.9125,
+          "fleiss_kappa": 0.7027,
+          "item_perfect_rate": 0.2,
+          "n_unique_qmatrices": 8,
+          "modal_qmatrix_frequency": 1,
+          "modal_qmatrix_frequency_pct": 0.125,
+          "aligned": {
+            "element_wise_agreement": 0.9475,
+            "fleiss_kappa": 0.8428,
+            "item_perfect_rate": 0.3,
+            "reference_run": 6,
+            "permutations_used": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                1,
+                0,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "n_unique_qmatrices": 7,
+            "modal_qmatrix_frequency": 2,
+            "modal_qmatrix_frequency_pct": 0.25
+          },
+          "runs_used": [
+            "b2_cot_gpt-5-5-2026-04-23_auto_run10",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run2",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run3",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run4",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run5",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run6",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run7",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run8"
+          ]
+        },
+        "classification_layer": {
+          "mean_ari": 0.6985,
+          "min_ari": 0.5551,
+          "sd_ari": 0.1094,
+          "n_pairs": 28,
+          "runs_used": [
+            "b2_cot_gpt-5-5-2026-04-23_auto_run10",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run2",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run3",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run4",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run5",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run6",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run7",
+            "b2_cot_gpt-5-5-2026-04-23_auto_run8"
+          ]
+        }
+      }
+    }
+  },
+  "quality_by_model_k": {
+    "anthropic/claude-sonnet-5|K=5": {
+      "n_runs": 3,
+      "fit_metrics": {
+        "AIC": {
+          "n": 3,
+          "mean": 9163.565,
+          "sd": 27.7345,
+          "min": 9147.5525,
+          "max": 9195.5901
+        },
+        "BIC": {
+          "n": 3,
+          "mean": 9833.318,
+          "sd": 110.7784,
+          "min": 9705.4021,
+          "max": 9897.2759
+        },
+        "RMSEA2": {
+          "n": 3,
+          "mean": 0.0473,
+          "sd": 0.0133,
+          "min": 0.0396,
+          "max": 0.0627
+        },
+        "SRMSR": {
+          "n": 3,
+          "mean": 0.0767,
+          "sd": 0.0018,
+          "min": 0.0757,
+          "max": 0.0788
+        }
+      }
+    },
+    "anthropic/claude-sonnet-5|K=6": {
+      "n_runs": 7,
+      "fit_metrics": {
+        "AIC": {
+          "n": 7,
+          "mean": 9187.0453,
+          "sd": 25.6104,
+          "min": 9177.2927,
+          "max": 9245.1237
+        },
+        "BIC": {
+          "n": 7,
+          "mean": 10064.0688,
+          "sd": 171.1204,
+          "min": 9824.4156,
+          "max": 10269.0318
+        },
+        "RMSEA2": {
+          "n": 2,
+          "mean": 0.0621,
+          "sd": 0.0042,
+          "min": 0.0591,
+          "max": 0.065
+        },
+        "SRMSR": {
+          "n": 7,
+          "mean": 0.0749,
+          "sd": 0.0026,
+          "min": 0.0729,
+          "max": 0.0783
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=4": {
+      "n_runs": 1,
+      "fit_metrics": {
+        "AIC": {
+          "n": 1,
+          "mean": 9071.9481,
+          "sd": 0.0,
+          "min": 9071.9481,
+          "max": 9071.9481
+        },
+        "BIC": {
+          "n": 1,
+          "mean": 9538.9187,
+          "sd": 0.0,
+          "min": 9538.9187,
+          "max": 9538.9187
+        },
+        "RMSEA2": {
+          "n": 1,
+          "mean": 0.056,
+          "sd": 0.0,
+          "min": 0.056,
+          "max": 0.056
+        },
+        "SRMSR": {
+          "n": 1,
+          "mean": 0.0731,
+          "sd": 0.0,
+          "min": 0.0731,
+          "max": 0.0731
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=5": {
+      "n_runs": 6,
+      "fit_metrics": {
+        "AIC": {
+          "n": 6,
+          "mean": 9197.3705,
+          "sd": 92.7766,
+          "min": 9091.0961,
+          "max": 9357.2435
+        },
+        "BIC": {
+          "n": 6,
+          "mean": 9885.688,
+          "sd": 335.28,
+          "min": 9558.4458,
+          "max": 10518.2439
+        },
+        "RMSEA2": {
+          "n": 5,
+          "mean": 0.049,
+          "sd": 0.0172,
+          "min": 0.0283,
+          "max": 0.0647
+        },
+        "SRMSR": {
+          "n": 6,
+          "mean": 0.0801,
+          "sd": 0.0089,
+          "min": 0.0741,
+          "max": 0.097
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=6": {
+      "n_runs": 2,
+      "fit_metrics": {
+        "AIC": {
+          "n": 2,
+          "mean": 9293.5544,
+          "sd": 246.0705,
+          "min": 9119.5563,
+          "max": 9467.5525
+        },
+        "BIC": {
+          "n": 2,
+          "mean": 10488.8278,
+          "sd": 585.3566,
+          "min": 10074.9182,
+          "max": 10902.7374
+        },
+        "RMSEA2": null,
+        "SRMSR": {
+          "n": 2,
+          "mean": 0.074,
+          "sd": 0.0025,
+          "min": 0.0722,
+          "max": 0.0757
+        }
+      }
+    },
+    "deepseek/deepseek-v4-flash|K=7": {
+      "n_runs": 1,
+      "fit_metrics": {
+        "AIC": {
+          "n": 1,
+          "mean": 9245.5247,
+          "sd": 0.0,
+          "min": 9245.5247,
+          "max": 9245.5247
+        },
+        "BIC": {
+          "n": 1,
+          "mean": 10569.3222,
+          "sd": 0.0,
+          "min": 10569.3222,
+          "max": 10569.3222
+        },
+        "RMSEA2": null,
+        "SRMSR": {
+          "n": 1,
+          "mean": 0.056,
+          "sd": 0.0,
+          "min": 0.056,
+          "max": 0.056
+        }
+      }
+    },
+    "google/gemini-3.5-flash|K=5": {
+      "n_runs": 10,
+      "fit_metrics": {
+        "AIC": {
+          "n": 10,
+          "mean": 9147.5525,
+          "sd": 0.0,
+          "min": 9147.5525,
+          "max": 9147.5525
+        },
+        "BIC": {
+          "n": 10,
+          "mean": 9897.2759,
+          "sd": 0.0,
+          "min": 9897.2759,
+          "max": 9897.2759
+        },
+        "RMSEA2": {
+          "n": 10,
+          "mean": 0.0449,
+          "sd": 0.0,
+          "min": 0.0449,
+          "max": 0.0449
+        },
+        "SRMSR": {
+          "n": 10,
+          "mean": 0.0757,
+          "sd": 0.0,
+          "min": 0.0757,
+          "max": 0.0757
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23|K=4": {
+      "n_runs": 2,
+      "fit_metrics": {
+        "AIC": {
+          "n": 2,
+          "mean": 8955.3099,
+          "sd": 70.8759,
+          "min": 8905.1931,
+          "max": 9005.4268
+        },
+        "BIC": {
+          "n": 2,
+          "mean": 9525.0998,
+          "sd": 119.3453,
+          "min": 9440.7099,
+          "max": 9609.4897
+        },
+        "RMSEA2": {
+          "n": 2,
+          "mean": 0.0434,
+          "sd": 0.0021,
+          "min": 0.0419,
+          "max": 0.0449
+        },
+        "SRMSR": {
+          "n": 2,
+          "mean": 0.0586,
+          "sd": 0.01,
+          "min": 0.0515,
+          "max": 0.0657
+        }
+      }
+    },
+    "gpt-5.5-2026-04-23|K=5": {
+      "n_runs": 8,
+      "fit_metrics": {
+        "AIC": {
+          "n": 8,
+          "mean": 9075.1738,
+          "sd": 51.537,
+          "min": 9025.6814,
+          "max": 9151.3841
+        },
+        "BIC": {
+          "n": 8,
+          "mean": 9830.2525,
+          "sd": 124.4424,
+          "min": 9628.7189,
+          "max": 10029.388
+        },
+        "RMSEA2": {
+          "n": 7,
+          "mean": 0.0432,
+          "sd": 0.017,
+          "min": 0.0123,
+          "max": 0.0609
+        },
+        "SRMSR": {
+          "n": 8,
+          "mean": 0.0601,
+          "sd": 0.0127,
+          "min": 0.043,
+          "max": 0.0795
+        }
+      }
+    }
+  }
+}

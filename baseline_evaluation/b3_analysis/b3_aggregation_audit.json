@@ -1,0 +1,232 @@
+{
+  "aggregation_version": "phase2-v2",
+  "rules": {
+    "structure": "exclude constituent samples with structural errors",
+    "modal_k": "highest frequency, then highest aligned within-K consensus, then lower K",
+    "medoid": "highest aligned agreement, then content hash",
+    "cell_vote_tie": "use the aligned medoid sample value"
+  },
+  "runs": 40,
+  "samples_expected": 200,
+  "samples_successful": 200,
+  "samples_excluded_structure": 4,
+  "runs_with_tied_modal_k": 1,
+  "runs_with_even_retained_samples": 19,
+  "runs_with_cell_vote_ties": 12,
+  "total_cell_vote_ties": 86,
+  "order_independence_checks": 40,
+  "order_independence_failures": 0,
+  "recomputation": {
+    "final_qmatrix_mismatches": 0,
+    "final_codebook_mismatches": 0
+  },
+  "models": {
+    "anthropic/claude-sonnet-5": {
+      "runs": 10,
+      "samples_expected": 50,
+      "samples_successful": 50,
+      "samples_valid": 50,
+      "samples_excluded_structure": 0,
+      "samples_retained": 39,
+      "runs_with_tied_modal_k": [],
+      "runs_with_even_retained_samples": [
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run1",
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run4",
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run5"
+      ],
+      "cell_vote_ties_by_run": {
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run1": 2,
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run4": 2,
+        "b3_sc5_anthropic_claude-sonnet-5_auto_run5": 4
+      },
+      "successful_api_calls": 52,
+      "temperature_fallbacks": 0,
+      "input_k_distribution": {
+        "5": 7,
+        "6": 37,
+        "7": 6
+      },
+      "valid_k_distribution": {
+        "5": 7,
+        "6": 37,
+        "7": 6
+      },
+      "final_k_distribution": {
+        "5": 1,
+        "6": 9
+      },
+      "samples_retained_rate": 0.78
+    },
+    "deepseek/deepseek-v4-flash": {
+      "runs": 10,
+      "samples_expected": 50,
+      "samples_successful": 50,
+      "samples_valid": 46,
+      "samples_excluded_structure": 4,
+      "samples_retained": 28,
+      "runs_with_tied_modal_k": [
+        {
+          "run_id": "b3_sc5_deepseek_deepseek-v4-flash_auto_run6",
+          "candidates": [
+            4,
+            5
+          ],
+          "selected_k": 4,
+          "consensus": {
+            "4": 1.0,
+            "5": 0.76
+          }
+        }
+      ],
+      "runs_with_even_retained_samples": [
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run1",
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run3",
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run6",
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run7",
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run8",
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run9"
+      ],
+      "cell_vote_ties_by_run": {
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run3": 2,
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run8": 25,
+        "b3_sc5_deepseek_deepseek-v4-flash_auto_run9": 5
+      },
+      "successful_api_calls": 50,
+      "temperature_fallbacks": 0,
+      "input_k_distribution": {
+        "3": 2,
+        "4": 4,
+        "5": 23,
+        "6": 15,
+        "7": 5,
+        "8": 1
+      },
+      "valid_k_distribution": {
+        "3": 2,
+        "4": 4,
+        "5": 23,
+        "6": 11,
+        "7": 5,
+        "8": 1
+      },
+      "final_k_distribution": {
+        "4": 1,
+        "5": 7,
+        "6": 2
+      },
+      "samples_retained_rate": 0.56
+    },
+    "google/gemini-3.5-flash": {
+      "runs": 10,
+      "samples_expected": 50,
+      "samples_successful": 50,
+      "samples_valid": 50,
+      "samples_excluded_structure": 0,
+      "samples_retained": 47,
+      "runs_with_tied_modal_k": [],
+      "runs_with_even_retained_samples": [
+        "b3_sc5_google_gemini-3-5-flash_auto_run6",
+        "b3_sc5_google_gemini-3-5-flash_auto_run7",
+        "b3_sc5_google_gemini-3-5-flash_auto_run9"
+      ],
+      "cell_vote_ties_by_run": {
+        "b3_sc5_google_gemini-3-5-flash_auto_run6": 4
+      },
+      "successful_api_calls": 75,
+      "temperature_fallbacks": 0,
+      "input_k_distribution": {
+        "4": 3,
+        "5": 47
+      },
+      "valid_k_distribution": {
+        "4": 3,
+        "5": 47
+      },
+      "final_k_distribution": {
+        "5": 10
+      },
+      "samples_retained_rate": 0.94
+    },
+    "gpt-5.5-2026-04-23": {
+      "runs": 10,
+      "samples_expected": 50,
+      "samples_successful": 50,
+      "samples_valid": 50,
+      "samples_excluded_structure": 0,
+      "samples_retained": 43,
+      "runs_with_tied_modal_k": [],
+      "runs_with_even_retained_samples": [
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run1",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run2",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run4",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run5",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run7",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run8",
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run9"
+      ],
+      "cell_vote_ties_by_run": {
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run1": 24,
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run2": 4,
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run4": 5,
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run7": 5,
+        "b3_sc5_gpt-5-5-2026-04-23_auto_run8": 4
+      },
+      "successful_api_calls": 50,
+      "temperature_fallbacks": 50,
+      "input_k_distribution": {
+        "4": 7,
+        "5": 43
+      },
+      "valid_k_distribution": {
+        "4": 7,
+        "5": 43
+      },
+      "final_k_distribution": {
+        "5": 10
+      },
+      "samples_retained_rate": 0.86
+    }
+  },
+  "structural_exclusions": [
+    {
+      "model": "deepseek/deepseek-v4-flash",
+      "run_id": "b3_sc5_deepseek_deepseek-v4-flash_auto_run10",
+      "sample_index": 4,
+      "sample_number": 5,
+      "k": 6,
+      "errors": [
+        "skills S02 and S06 have identical columns"
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-flash",
+      "run_id": "b3_sc5_deepseek_deepseek-v4-flash_auto_run3",
+      "sample_index": 2,
+      "sample_number": 3,
+      "k": 6,
+      "errors": [
+        "skills S03 and S06 have identical columns"
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-flash",
+      "run_id": "b3_sc5_deepseek_deepseek-v4-flash_auto_run3",
+      "sample_index": 3,
+      "sample_number": 4,
+      "k": 6,
+      "errors": [
+        "skills S01 and S03 have identical columns"
+      ]
+    },
+    {
+      "model": "deepseek/deepseek-v4-flash",
+      "run_id": "b3_sc5_deepseek_deepseek-v4-flash_auto_run9",
+      "sample_index": 3,
+      "sample_number": 4,
+      "k": 6,
+      "errors": [
+        "skills S03 and S06 have identical columns"
+      ]
+    }
+  ]
+}

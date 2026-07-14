@@ -1,0 +1,279 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "B3 Self-Consistency Evaluation — Revised Aggregation",
+    "description": "Recomputed technical evaluation of four models across ten B3 runs using deterministic phase2-v2 aggregation.",
+    "generatedAt": "2026-07-14T02:21:07Z",
+    "sources": [
+      {
+        "id": "report_snapshot_sql",
+        "label": "Verified B3 report snapshot query",
+        "path": "baseline_evaluation/b3_analysis/b3_report_tables.sql"
+      },
+      {
+        "id": "b3_analysis",
+        "label": "B3 run-level and model-level analysis",
+        "path": "baseline_evaluation/b3_analysis/b3_analysis.json"
+      },
+      {
+        "id": "aggregation_audit",
+        "label": "B3 five-sample aggregation audit",
+        "path": "baseline_evaluation/b3_analysis/b3_aggregation_audit.json"
+      },
+      {
+        "id": "skill_review",
+        "label": "Reviewed B3 skill stability",
+        "path": "baseline_evaluation/b3_analysis/skill_stability_reviewed.json"
+      },
+      {
+        "id": "b3_method",
+        "label": "B3 implementation",
+        "path": "eval/baselines.py"
+      }
+    ],
+    "charts": [
+      {
+        "id": "stability_chart",
+        "title": "B3 stability metrics by model",
+        "subtitle": "Final runs; matrix and classification metrics use each model's modal-K subset",
+        "type": "bar",
+        "dataset": "stability_chart_data",
+        "sourceId": "report_snapshot_sql",
+        "valueFormat": "percent",
+        "encodings": {
+          "x": {"field": "model", "type": "nominal", "label": "Model"},
+          "y": {"field": "value", "type": "quantitative", "label": "Rate or agreement"},
+          "color": {"field": "metric", "type": "nominal", "label": "Metric"},
+          "tooltip": [
+            {"field": "metric", "type": "nominal", "label": "Metric"},
+            {"field": "value", "type": "quantitative", "label": "Value", "format": "percent"},
+            {"field": "runs_used", "type": "quantitative", "label": "Runs used"}
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "quality_table",
+        "title": "Cross-K quality and resource use",
+        "subtitle": "Mean across ten final B3 runs per model; agreement values include sample standard deviations",
+        "dataset": "quality_summary",
+        "sourceId": "report_snapshot_sql",
+        "defaultSort": {"field": "tsqe_mean", "direction": "desc"},
+        "columns": [
+          {"field": "model", "label": "Model", "type": "text"},
+          {"field": "k_distribution", "label": "Final K distribution", "type": "text"},
+          {"field": "tsqe_mean", "label": "TSQE mean", "format": "number"},
+          {"field": "tsqe_sd", "label": "TSQE SD", "format": "number"},
+          {"field": "expert_mean", "label": "Expert agreement mean", "format": "number"},
+          {"field": "structural_errors", "label": "Final structural errors", "format": "number"},
+          {"field": "warnings_mean", "label": "Warnings mean", "format": "number"},
+          {"field": "tokens_mean", "label": "Mean tokens", "format": "number"}
+        ]
+      },
+      {
+        "id": "stability_table",
+        "title": "Final-output stability",
+        "subtitle": "Aligned Q and ARI are calculated only among final runs sharing each model's modal K",
+        "dataset": "stability_summary",
+        "sourceId": "report_snapshot_sql",
+        "defaultSort": {"field": "aligned_kappa", "direction": "desc"},
+        "columns": [
+          {"field": "model", "label": "Model", "type": "text"},
+          {"field": "modal_k", "label": "Modal K", "format": "number"},
+          {"field": "modal_k_runs", "label": "Modal-K runs", "format": "number"},
+          {"field": "aligned_kappa", "label": "Aligned Fleiss κ", "format": "number"},
+          {"field": "element_agreement", "label": "Element agreement", "format": "number"},
+          {"field": "mean_ari", "label": "Mean ARI", "format": "number"},
+          {"field": "min_ari", "label": "Minimum ARI", "format": "number"},
+          {"field": "aligned_unique_q", "label": "Aligned Q variants", "format": "number"},
+          {"field": "modal_q_rate", "label": "Modal Q rate", "format": "percent"}
+        ]
+      },
+      {
+        "id": "aggregation_table",
+        "title": "Within-run self-consistency and aggregation audit",
+        "subtitle": "Fifty constituent samples per model; structurally valid modal-K samples enter the final vote",
+        "dataset": "aggregation_summary",
+        "sourceId": "report_snapshot_sql",
+        "defaultSort": {"field": "medoid_tie_cells", "direction": "desc"},
+        "columns": [
+          {"field": "model", "label": "Model", "type": "text"},
+          {"field": "sample_k_distribution", "label": "Sample K distribution", "type": "text"},
+          {"field": "samples_retained", "label": "Samples retained", "format": "number"},
+          {"field": "retained_rate", "label": "Retained rate", "format": "percent"},
+          {"field": "tied_modal_k_runs", "label": "Tied modal-K runs", "format": "number"},
+          {"field": "even_vote_runs", "label": "Even-vote runs", "format": "number"},
+          {"field": "medoid_tie_runs", "label": "Runs with tied cells", "format": "number"},
+          {"field": "medoid_tie_cells", "label": "Cells resolved by medoid", "format": "number"},
+          {"field": "successful_calls", "label": "Successful calls", "format": "number"},
+          {"field": "temperature_fallbacks", "label": "Temperature fallbacks", "format": "number"},
+          {"field": "samples_excluded_structure", "label": "Samples excluded", "format": "number"}
+        ]
+      },
+      {
+        "id": "skill_table",
+        "title": "Reviewed final-codebook stability",
+        "subtitle": "One dominant canonical meaning per raw skill; broad skills are not double-counted",
+        "dataset": "skill_summary",
+        "sourceId": "report_snapshot_sql",
+        "defaultSort": {"field": "modal_set_rate", "direction": "desc"},
+        "columns": [
+          {"field": "model", "label": "Model", "type": "text"},
+          {"field": "raw_skill_instances", "label": "Raw skill instances", "format": "number"},
+          {"field": "canonical_skills", "label": "Canonical skills", "format": "number"},
+          {"field": "core_skills", "label": "10/10 core skills", "format": "number"},
+          {"field": "modal_set_runs", "label": "Modal set runs", "format": "number"},
+          {"field": "modal_set_rate", "label": "Modal set rate", "format": "percent"},
+          {"field": "distinct_sets", "label": "Distinct sets", "format": "number"}
+        ]
+      },
+      {
+        "id": "fit_table",
+        "title": "K=5 conditional fit",
+        "subtitle": "Only final K=5 matrices; lower values are preferred and unequal run counts limit comparison",
+        "dataset": "fit_k5",
+        "sourceId": "report_snapshot_sql",
+        "defaultSort": {"field": "aic", "direction": "asc"},
+        "columns": [
+          {"field": "model", "label": "Model", "type": "text"},
+          {"field": "runs", "label": "K=5 runs", "format": "number"},
+          {"field": "aic", "label": "AIC", "format": "number"},
+          {"field": "bic", "label": "BIC", "format": "number"},
+          {"field": "rmsea2", "label": "RMSEA2", "format": "number"},
+          {"field": "rmsea_runs", "label": "RMSEA2 runs", "format": "number"},
+          {"field": "srmsr", "label": "SRMSR", "format": "number"}
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# B3 Self-Consistency Evaluation — Revised Aggregation"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## Technical summary\n\n- **All 40 B3 outputs were rebuilt with deterministic phase2-v2 aggregation from the existing 200 samples.** Structurally invalid samples are excluded, tied modal K is resolved by within-K aligned consensus with a lower-K fallback, and tied Q cells take the aligned medoid value instead of being forced to 0. Forty forward/reverse order checks produced identical Q-matrices and codebooks.\n- **Claude has the strongest final quality and stability profile.** Its mean TSQE agreement is 0.738, aligned Q κ is 0.948, and mean diagnostic-classification ARI is 0.858. It is also the most expensive model at about 106.9k provider-reported tokens per outer run.\n- **DeepSeek improves materially after invalid-sample filtering and deterministic K selection.** Seven final runs now use K=5; aligned Q κ is 0.832 and mean ARI is 0.818. Its constituent generation remains the least concentrated, retaining 56% of samples after structural and modal-K filtering.\n- **Gemini has the most stable ontology; GPT is the most resource-efficient.** Gemini recovers the same five canonical skills in 10/10 codebooks. GPT averages 36.4k tokens and has the strongest K=5 AIC, RMSEA2, and SRMSR, but all 50 GPT calls fell back from requested temperature 0.7 to the provider default."
+      },
+      {
+        "id": "scope_definitions",
+        "type": "markdown",
+        "body": "## Scope and metric definitions\n\nThe analysis covers B3 only: four models, ten outer runs per model, and five generated samples per outer run. TSQE agreement is the primary cross-K Q-matrix quality measure because each final matrix is compared with a TSQE reference at the same K after exact column alignment. Expert agreement is supplementary because the expert Q has K=8 and unmatched expert columns are not penalized. Final-output matrix and ARI stability are computed only within each model's modal-K subset. Skill stability is based on reviewed final medoid codebooks rather than embeddings. Token totals are provider-reported successful-call tokens and are only approximate across model families."
+      },
+      {
+        "id": "experimental_design",
+        "type": "markdown",
+        "sourceId": "b3_method",
+        "body": "## B3 generates five candidates, validates them, then aggregates within modal K\n\nEach constituent sample receives the B2 solve–codebook–tag prompt. Phase2-v2 first excludes samples with structural errors. It then selects the most frequent K; an exact frequency tie is resolved by the highest mean pairwise aligned cell agreement, followed by lower K if consensus also ties. Within the selected K, the medoid maximizes total pairwise aligned cell matches, with a content hash as the final deterministic tie-break. Cells use strict majority, and exact vote ties take the aligned medoid value. The final codebook also comes from that medoid. All 200 samples completed successfully; four DeepSeek samples were excluded before aggregation."
+      },
+      {
+        "id": "stability_finding",
+        "type": "markdown",
+        "body": "## Claude leads final-output stability\n\nClaude is strongest on aligned Q agreement (κ = 0.948) and downstream diagnostic-classification agreement (mean ARI = 0.858). DeepSeek is second on ARI at 0.818 despite using only seven modal-K runs. Gemini and GPT both select K=5 in all ten runs; their aligned Q κ values are similar (0.846 and 0.842), while Gemini has the higher ARI (0.733 versus 0.699). Matrix and ARI comparisons remain conditional on each model's modal-K subset."
+      },
+      {"id": "stability_chart_block", "type": "chart", "chartId": "stability_chart"},
+      {"id": "stability_table_block", "type": "table", "tableId": "stability_table"},
+      {
+        "id": "quality_finding",
+        "type": "markdown",
+        "body": "## Claude leads TSQE; GPT leads resource efficiency\n\nClaude has the highest mean TSQE agreement (0.738), followed by DeepSeek (0.722), Gemini (0.710), and GPT (0.697). DeepSeek has the highest mean expert agreement (0.928), but expert agreement should not be used as a standalone rank because lower-K outputs are aligned to the best subset of the K=8 expert matrix. All 40 rebuilt final matrices converge under GDINA and none has a structural error. GPT uses about one third of Claude's provider-reported successful-call tokens."
+      },
+      {"id": "quality_table_block", "type": "table", "tableId": "quality_table"},
+      {
+        "id": "aggregation_finding",
+        "type": "markdown",
+        "body": "## The revised aggregation removes order and zero-tie bias\n\nModal-K filtering still leaves two or four retained samples in 19 outer runs, producing 86 tied cells across 12 runs. Phase2-v2 resolves those cells with the aligned medoid instead of systematically assigning 0. Four structurally invalid DeepSeek samples are excluded before K selection. Only DeepSeek run 6 has a tied modal K after validation: K=4 is selected because its within-K aligned consensus is 1.00 versus 0.76 for K=5. Recomputing each run from the saved samples produced zero Q-matrix or codebook mismatches, and reversing sample order produced identical outputs in all 40 runs."
+      },
+      {"id": "aggregation_table_block", "type": "table", "tableId": "aggregation_table"},
+      {
+        "id": "skill_finding",
+        "type": "markdown",
+        "body": "## Gemini has a perfectly stable five-skill ontology\n\nGemini uses the same five canonical skills in 10/10 final medoid codebooks. Claude's six-skill set and GPT's common five-skill set each appear in 9/10 runs; DeepSeek reaches its modal set in 6/10. This section follows the established manual-review workflow: each raw skill receives one dominant canonical meaning, and secondary operations embedded in broad skills are noted but not double-counted. Human confirmation remains advisable before publication."
+      },
+      {"id": "skill_table_block", "type": "table", "tableId": "skill_table"},
+      {
+        "id": "fit_finding",
+        "type": "markdown",
+        "body": "## GPT leads most K=5 fit indices\n\nGPT has the lowest K=5 AIC, RMSEA2, and SRMSR; Gemini has the lowest BIC, narrowly ahead of DeepSeek. Claude has only one K=5 run, so it cannot support a stable same-K fit comparison. One GPT run lacks RMSEA2, making that mean a nine-run statistic. These indices describe model fit, not semantic correctness or codebook stability."
+      },
+      {"id": "fit_table_block", "type": "table", "tableId": "fit_table"},
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## Limitations and robustness assessment\n\n**Overall assessment: Ready to use with protocol caveats.** The aggregation defects identified in the first analysis are corrected: all final artifacts pass the run contract, invalid inputs are filtered, all 40 outputs are reproducible from the saved samples, and all 40 order-independence checks pass. The main remaining comparability issue is sampling control: GPT rejected temperature 0.7 on every constituent call and used provider-default temperature with explicit sample seeds, while OpenRouter models accepted 0.7 without explicit seeds. DeepSeek also retains only 56% of generated samples, so its final result is based on a more selective and less stable candidate pool. Expert agreement is a partial cross-K alignment measure, and the canonical skill review still awaits human confirmation."
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## Recommended next steps\n\n1. Use phase2-v2 as the fixed aggregation specification for future B3 runs and retain its order-independence regression tests.\n2. Make sampling controls comparable across providers: use a temperature supported by all models and either provide seeds for every provider or omit them for every provider.\n3. Ask a human reviewer to confirm the canonical skill mapping before publication.\n4. Report both candidate retention and final-output stability, especially for models such as DeepSeek whose modal-K filtering discards many samples.\n5. Treat same-K fit, cross-K TSQE agreement, and manually reviewed ontology stability as complementary outcomes rather than combining them into one rank."
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## Further questions\n\n- Should a future B3 protocol require all five valid samples to share K, or is modal-K filtering an intended part of self-consistency?\n- Should the final codebook remain a medoid sample or be semantically consolidated across retained samples?\n- Would GPT's and DeepSeek's relative stability change under matched temperature and seed controls?"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-14T02:21:07Z",
+    "status": "ready",
+    "datasets": {
+      "stability_chart_data": [
+        {"model": "Claude", "metric": "Modal-K rate", "value": 0.9, "runs_used": 10},
+        {"model": "Claude", "metric": "Aligned Q kappa", "value": 0.9476, "runs_used": 9},
+        {"model": "Claude", "metric": "Mean ARI", "value": 0.8578, "runs_used": 9},
+        {"model": "DeepSeek", "metric": "Modal-K rate", "value": 0.7, "runs_used": 10},
+        {"model": "DeepSeek", "metric": "Aligned Q kappa", "value": 0.832, "runs_used": 7},
+        {"model": "DeepSeek", "metric": "Mean ARI", "value": 0.8175, "runs_used": 7},
+        {"model": "Gemini", "metric": "Modal-K rate", "value": 1.0, "runs_used": 10},
+        {"model": "Gemini", "metric": "Aligned Q kappa", "value": 0.8461, "runs_used": 10},
+        {"model": "Gemini", "metric": "Mean ARI", "value": 0.7328, "runs_used": 10},
+        {"model": "GPT", "metric": "Modal-K rate", "value": 1.0, "runs_used": 10},
+        {"model": "GPT", "metric": "Aligned Q kappa", "value": 0.8421, "runs_used": 10},
+        {"model": "GPT", "metric": "Mean ARI", "value": 0.6989, "runs_used": 10}
+      ],
+      "quality_summary": [
+        {"model": "Claude Sonnet 5", "k_distribution": "K5:1, K6:9", "tsqe_mean": 0.7375, "tsqe_sd": 0.0246, "expert_mean": 0.9198, "structural_errors": 0, "warnings_mean": 4.9, "tokens_mean": 106928.7},
+        {"model": "DeepSeek V4 Flash", "k_distribution": "K4:1, K5:7, K6:2", "tsqe_mean": 0.7217, "tsqe_sd": 0.0254, "expert_mean": 0.9276, "structural_errors": 0, "warnings_mean": 3.6, "tokens_mean": 98045.9},
+        {"model": "Gemini 3.5 Flash", "k_distribution": "K5:10", "tsqe_mean": 0.7100, "tsqe_sd": 0.0211, "expert_mean": 0.9230, "structural_errors": 0, "warnings_mean": 3.6, "tokens_mean": 54153.8},
+        {"model": "GPT-5.5", "k_distribution": "K5:10", "tsqe_mean": 0.6970, "tsqe_sd": 0.0279, "expert_mean": 0.9220, "structural_errors": 0, "warnings_mean": 3.1, "tokens_mean": 36393.7}
+      ],
+      "stability_summary": [
+        {"model": "Claude Sonnet 5", "modal_k": 6, "modal_k_runs": 9, "aligned_kappa": 0.9476, "element_agreement": 0.9870, "mean_ari": 0.8578, "min_ari": 0.6345, "aligned_unique_q": 4, "modal_q_rate": 0.6667},
+        {"model": "DeepSeek V4 Flash", "modal_k": 5, "modal_k_runs": 7, "aligned_kappa": 0.8320, "element_agreement": 0.9571, "mean_ari": 0.8175, "min_ari": 0.6063, "aligned_unique_q": 3, "modal_q_rate": 0.7143},
+        {"model": "Gemini 3.5 Flash", "modal_k": 5, "modal_k_runs": 10, "aligned_kappa": 0.8461, "element_agreement": 0.9520, "mean_ari": 0.7328, "min_ari": 0.5546, "aligned_unique_q": 5, "modal_q_rate": 0.6000},
+        {"model": "GPT-5.5", "modal_k": 5, "modal_k_runs": 10, "aligned_kappa": 0.8421, "element_agreement": 0.9550, "mean_ari": 0.6989, "min_ari": 0.5540, "aligned_unique_q": 6, "modal_q_rate": 0.4000}
+      ],
+      "aggregation_summary": [
+        {"model": "Claude Sonnet 5", "sample_k_distribution": "K5:7, K6:37, K7:6", "samples_retained": 39, "retained_rate": 0.78, "tied_modal_k_runs": 0, "even_vote_runs": 3, "medoid_tie_runs": 3, "medoid_tie_cells": 8, "successful_calls": 52, "temperature_fallbacks": 0, "samples_excluded_structure": 0},
+        {"model": "DeepSeek V4 Flash", "sample_k_distribution": "K3:2, K4:4, K5:23, K6:15, K7:5, K8:1", "samples_retained": 28, "retained_rate": 0.56, "tied_modal_k_runs": 1, "even_vote_runs": 6, "medoid_tie_runs": 3, "medoid_tie_cells": 32, "successful_calls": 50, "temperature_fallbacks": 0, "samples_excluded_structure": 4},
+        {"model": "Gemini 3.5 Flash", "sample_k_distribution": "K4:3, K5:47", "samples_retained": 47, "retained_rate": 0.94, "tied_modal_k_runs": 0, "even_vote_runs": 3, "medoid_tie_runs": 1, "medoid_tie_cells": 4, "successful_calls": 75, "temperature_fallbacks": 0, "samples_excluded_structure": 0},
+        {"model": "GPT-5.5", "sample_k_distribution": "K4:7, K5:43", "samples_retained": 43, "retained_rate": 0.86, "tied_modal_k_runs": 0, "even_vote_runs": 7, "medoid_tie_runs": 5, "medoid_tie_cells": 42, "successful_calls": 50, "temperature_fallbacks": 50, "samples_excluded_structure": 0}
+      ],
+      "skill_summary": [
+        {"model": "Claude Sonnet 5", "raw_skill_instances": 59, "canonical_skills": 6, "core_skills": 5, "modal_set_runs": 9, "modal_set_rate": 0.9, "distinct_sets": 2},
+        {"model": "DeepSeek V4 Flash", "raw_skill_instances": 51, "canonical_skills": 9, "core_skills": 3, "modal_set_runs": 6, "modal_set_rate": 0.6, "distinct_sets": 5},
+        {"model": "Gemini 3.5 Flash", "raw_skill_instances": 50, "canonical_skills": 5, "core_skills": 5, "modal_set_runs": 10, "modal_set_rate": 1.0, "distinct_sets": 1},
+        {"model": "GPT-5.5", "raw_skill_instances": 50, "canonical_skills": 7, "core_skills": 3, "modal_set_runs": 9, "modal_set_rate": 0.9, "distinct_sets": 2}
+      ],
+      "fit_k5": [
+        {"model": "Claude Sonnet 5", "runs": 1, "aic": 9147.5525, "bic": 9897.2759, "rmsea2": 0.0449, "rmsea_runs": 1, "srmsr": 0.0757},
+        {"model": "DeepSeek V4 Flash", "runs": 7, "aic": 9145.5829, "bic": 9827.9842, "rmsea2": 0.0389, "rmsea_runs": 7, "srmsr": 0.0787},
+        {"model": "Gemini 3.5 Flash", "runs": 10, "aic": 9130.7594, "bic": 9812.7935, "rmsea2": 0.0498, "rmsea_runs": 10, "srmsr": 0.0756},
+        {"model": "GPT-5.5", "runs": 10, "aic": 9067.6497, "bic": 9842.2211, "rmsea2": 0.0377, "rmsea_runs": 9, "srmsr": 0.0602}
+      ]
+    }
+  },
+  "sources": [
+    {"id": "report_snapshot_sql", "label": "Verified B3 report snapshot query", "path": "baseline_evaluation/b3_analysis/b3_report_tables.sql"},
+    {"id": "b3_analysis", "label": "B3 run-level and model-level analysis", "path": "baseline_evaluation/b3_analysis/b3_analysis.json"},
+    {"id": "aggregation_audit", "label": "B3 five-sample aggregation audit", "path": "baseline_evaluation/b3_analysis/b3_aggregation_audit.json"},
+    {"id": "skill_review", "label": "Reviewed B3 skill stability", "path": "baseline_evaluation/b3_analysis/skill_stability_reviewed.json"},
+    {"id": "b3_method", "label": "B3 implementation", "path": "eval/baselines.py"}
+  ]
+}
