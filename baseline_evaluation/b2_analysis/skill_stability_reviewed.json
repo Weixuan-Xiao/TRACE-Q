@@ -1,0 +1,709 @@
+{
+  "review_status": "reviewed_ai_pending_human_confirmation",
+  "counting_rule": "Each raw codebook skill receives one dominant canonical meaning. Embedded secondary operations in broad low-K skills are documented but not double-counted.",
+  "taxonomy": {
+    "like_denominator_subtraction": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+    "common_denominator_conversion": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+    "whole_mixed_component_handling": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+    "borrowing_regrouping": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+    "fraction_simplification": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+    "improper_mixed_normalization": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+    "whole_as_mixed_representation": "\u628a\u7eaf\u6574\u6570\u8868\u793a\u4e3a\u5e26\u96f6\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+    "combine_whole_fraction_result": "\u5408\u5e76\u6574\u6570\u4e0e\u5206\u6570\u7ed3\u679c",
+    "direct_component_subtraction": "\u76f4\u63a5\u76f8\u51cf\u5df2\u5bf9\u9f50\u7684\u6574\u6570\u548c/\u6216\u5206\u6570\u7ec4\u4ef6",
+    "mixed_subtraction_without_borrowing": "\u65e0\u9700\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+    "mixed_subtraction_with_borrowing": "\u9700\u8981\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5"
+  },
+  "models": {
+    "anthropic/claude-sonnet-5": {
+      "n_runs": 10,
+      "raw_skill_instances": 57,
+      "n_unique_canonical_skills": 7,
+      "core_skills_10_of_10": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification"
+      ],
+      "n_core_skills_10_of_10": 3,
+      "modal_skill_set": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification",
+        "improper_mixed_normalization",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "modal_skill_set_frequency": 7,
+      "modal_skill_set_rate": 0.7,
+      "n_distinct_skill_sets": 3,
+      "skill_prevalence": {
+        "borrowing_regrouping": {
+          "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "common_denominator_conversion": {
+          "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "direct_component_subtraction": {
+          "name": "\u76f4\u63a5\u76f8\u51cf\u5df2\u5bf9\u9f50\u7684\u6574\u6570\u548c/\u6216\u5206\u6570\u7ec4\u4ef6",
+          "runs": 1,
+          "rate": 0.1
+        },
+        "fraction_simplification": {
+          "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "improper_mixed_normalization": {
+          "name": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+          "runs": 8,
+          "rate": 0.8
+        },
+        "like_denominator_subtraction": {
+          "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+          "runs": 9,
+          "rate": 0.9
+        },
+        "whole_mixed_component_handling": {
+          "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+          "runs": 9,
+          "rate": 0.9
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "improper_mixed_normalization",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "whole_mixed_component_handling"
+          ]
+        },
+        {
+          "run": 2,
+          "raw_k": 5,
+          "skills": [
+            "direct_component_subtraction",
+            "common_denominator_conversion",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ],
+          "note": "Direct component subtraction merges numerator and whole-part subtraction."
+        },
+        {
+          "run": 3,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 4,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 5,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 6,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 7,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 8,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 9,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 10,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        }
+      ]
+    },
+    "deepseek/deepseek-v4-flash": {
+      "n_runs": 10,
+      "raw_skill_instances": 53,
+      "n_unique_canonical_skills": 10,
+      "core_skills_10_of_10": [
+        "common_denominator_conversion",
+        "like_denominator_subtraction"
+      ],
+      "n_core_skills_10_of_10": 2,
+      "modal_skill_set": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "modal_skill_set_frequency": 3,
+      "modal_skill_set_rate": 0.3,
+      "n_distinct_skill_sets": 8,
+      "skill_prevalence": {
+        "borrowing_regrouping": {
+          "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+          "runs": 8,
+          "rate": 0.8
+        },
+        "combine_whole_fraction_result": {
+          "name": "\u5408\u5e76\u6574\u6570\u4e0e\u5206\u6570\u7ed3\u679c",
+          "runs": 2,
+          "rate": 0.2
+        },
+        "common_denominator_conversion": {
+          "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "fraction_simplification": {
+          "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+          "runs": 9,
+          "rate": 0.9
+        },
+        "improper_mixed_normalization": {
+          "name": "\u89c4\u8303\u5316\u5e26\u6709\u5047\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+          "runs": 2,
+          "rate": 0.2
+        },
+        "like_denominator_subtraction": {
+          "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "mixed_subtraction_with_borrowing": {
+          "name": "\u9700\u8981\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+          "runs": 1,
+          "rate": 0.1
+        },
+        "mixed_subtraction_without_borrowing": {
+          "name": "\u65e0\u9700\u501f\u4f4d\u7684\u5e26\u5206\u6570\u51cf\u6cd5",
+          "runs": 1,
+          "rate": 0.1
+        },
+        "whole_as_mixed_representation": {
+          "name": "\u628a\u7eaf\u6574\u6570\u8868\u793a\u4e3a\u5e26\u96f6\u5206\u6570\u90e8\u5206\u7684\u5e26\u5206\u6570",
+          "runs": 2,
+          "rate": 0.2
+        },
+        "whole_mixed_component_handling": {
+          "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+          "runs": 8,
+          "rate": 0.8
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "raw_k": 6,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "whole_as_mixed_representation"
+          ]
+        },
+        {
+          "run": 2,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 3,
+          "raw_k": 7,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "fraction_simplification",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "improper_mixed_normalization",
+            "whole_as_mixed_representation"
+          ]
+        },
+        {
+          "run": 4,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "combine_whole_fraction_result"
+          ],
+          "note": "Simplification is embedded in the fraction-subtraction definition rather than a separate skill."
+        },
+        {
+          "run": 5,
+          "raw_k": 6,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "combine_whole_fraction_result"
+          ]
+        },
+        {
+          "run": 6,
+          "raw_k": 5,
+          "skills": [
+            "whole_mixed_component_handling",
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 7,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "fraction_simplification",
+            "mixed_subtraction_without_borrowing",
+            "mixed_subtraction_with_borrowing"
+          ]
+        },
+        {
+          "run": 8,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "fraction_simplification",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping"
+          ]
+        },
+        {
+          "run": 9,
+          "raw_k": 5,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "borrowing_regrouping",
+            "fraction_simplification",
+            "improper_mixed_normalization"
+          ]
+        },
+        {
+          "run": 10,
+          "raw_k": 4,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "fraction_simplification",
+            "whole_mixed_component_handling"
+          ],
+          "note": "Manage mixed numbers embeds borrowing and result combination in one broad skill."
+        }
+      ]
+    },
+    "google/gemini-3.5-flash": {
+      "n_runs": 10,
+      "raw_skill_instances": 50,
+      "n_unique_canonical_skills": 5,
+      "core_skills_10_of_10": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "n_core_skills_10_of_10": 5,
+      "modal_skill_set": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "modal_skill_set_frequency": 10,
+      "modal_skill_set_rate": 1.0,
+      "n_distinct_skill_sets": 1,
+      "skill_prevalence": {
+        "borrowing_regrouping": {
+          "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "common_denominator_conversion": {
+          "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "fraction_simplification": {
+          "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "like_denominator_subtraction": {
+          "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "whole_mixed_component_handling": {
+          "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+          "runs": 10,
+          "rate": 1.0
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 2,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 3,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 4,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 5,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 6,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 7,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 8,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 9,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 10,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        }
+      ]
+    },
+    "gpt-5.5-2026-04-23": {
+      "n_runs": 10,
+      "raw_skill_instances": 48,
+      "n_unique_canonical_skills": 5,
+      "core_skills_10_of_10": [
+        "common_denominator_conversion",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "n_core_skills_10_of_10": 3,
+      "modal_skill_set": [
+        "borrowing_regrouping",
+        "common_denominator_conversion",
+        "fraction_simplification",
+        "like_denominator_subtraction",
+        "whole_mixed_component_handling"
+      ],
+      "modal_skill_set_frequency": 8,
+      "modal_skill_set_rate": 0.8,
+      "n_distinct_skill_sets": 3,
+      "skill_prevalence": {
+        "borrowing_regrouping": {
+          "name": "\u4ece\u6574\u6570\u90e8\u5206\u501f\u4f4d\u5e76\u91cd\u7ec4\u5206\u6570",
+          "runs": 9,
+          "rate": 0.9
+        },
+        "common_denominator_conversion": {
+          "name": "\u5bfb\u627e\u516c\u5206\u6bcd\u5e76\u8f6c\u6362\u5f02\u5206\u6bcd\u5206\u6570",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "fraction_simplification": {
+          "name": "\u5c06\u7ed3\u679c\u5206\u6570\u7ea6\u81f3\u6700\u7b80\u5f62\u5f0f",
+          "runs": 9,
+          "rate": 0.9
+        },
+        "like_denominator_subtraction": {
+          "name": "\u540c\u5206\u6bcd\u5206\u6570/\u5206\u5b50\u51cf\u6cd5",
+          "runs": 10,
+          "rate": 1.0
+        },
+        "whole_mixed_component_handling": {
+          "name": "\u6574\u6570\u4e0e\u5e26\u5206\u6570\u90e8\u5206\u7684\u5206\u89e3\u3001\u76f8\u51cf\u548c\u91cd\u7ec4",
+          "runs": 10,
+          "rate": 1.0
+        }
+      },
+      "runs": [
+        {
+          "run": 1,
+          "raw_k": 4,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "fraction_simplification"
+          ],
+          "note": "Whole/mixed handling embeds borrowing in one broad skill."
+        },
+        {
+          "run": 2,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 3,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 4,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 5,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 6,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 7,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 8,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        },
+        {
+          "run": 9,
+          "raw_k": 4,
+          "skills": [
+            "common_denominator_conversion",
+            "like_denominator_subtraction",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping"
+          ],
+          "note": "Fraction subtraction embeds simplification in one combined skill."
+        },
+        {
+          "run": 10,
+          "raw_k": 5,
+          "skills": [
+            "like_denominator_subtraction",
+            "common_denominator_conversion",
+            "whole_mixed_component_handling",
+            "borrowing_regrouping",
+            "fraction_simplification"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "review_status": "reviewed_ai_pending_human_confirmation",
+  "counting_rule": "Each raw codebook skill receives one dominant canonical meaning. Embedded secondary operations in broad low-K skills are documented but not double-counted.",
+  "taxonomy": {
+    "like_denominator_subtraction": "同分母分数/分子减法",
+    "common_denominator_conversion": "寻找公分母并转换异分母分数",
+    "whole_mixed_component_handling": "整数与带分数部分的分解、相减和重组",
+    "borrowing_regrouping": "从整数部分借位并重组分数",
+    "fraction_simplification": "将结果分数约至最简形式",
+    "improper_mixed_normalization": "规范化带有假分数部分的带分数",
+    "whole_as_mixed_representation": "把纯整数表示为带零分数部分的带分数",
+    "combine_whole_fraction_result": "合并整数与分数结果",
+    "direct_component_subtraction": "直接相减已对齐的整数和/或分数组件",
+    "mixed_subtraction_without_borrowing": "无需借位的带分数减法",
+    "mixed_subtraction_with_borrowing": "需要借位的带分数减法"
+  },
+  "models": {
+    "anthropic/claude-sonnet-5": [
+      {"run": 1, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "improper_mixed_normalization", "borrowing_regrouping", "fraction_simplification", "whole_mixed_component_handling"]},
+      {"run": 2, "raw_k": 5, "skills": ["direct_component_subtraction", "common_denominator_conversion", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"], "note": "Direct component subtraction merges numerator and whole-part subtraction."},
+      {"run": 3, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 4, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 5, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 6, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 7, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 8, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 9, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 10, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]}
+    ],
+    "deepseek/deepseek-v4-flash": [
+      {"run": 1, "raw_k": 6, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "whole_as_mixed_representation"]},
+      {"run": 2, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 3, "raw_k": 7, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "fraction_simplification", "whole_mixed_component_handling", "borrowing_regrouping", "improper_mixed_normalization", "whole_as_mixed_representation"]},
+      {"run": 4, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "combine_whole_fraction_result"], "note": "Simplification is embedded in the fraction-subtraction definition rather than a separate skill."},
+      {"run": 5, "raw_k": 6, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification", "combine_whole_fraction_result"]},
+      {"run": 6, "raw_k": 5, "skills": ["whole_mixed_component_handling", "common_denominator_conversion", "like_denominator_subtraction", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 7, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "fraction_simplification", "mixed_subtraction_without_borrowing", "mixed_subtraction_with_borrowing"]},
+      {"run": 8, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "fraction_simplification", "whole_mixed_component_handling", "borrowing_regrouping"]},
+      {"run": 9, "raw_k": 5, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "borrowing_regrouping", "fraction_simplification", "improper_mixed_normalization"]},
+      {"run": 10, "raw_k": 4, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "fraction_simplification", "whole_mixed_component_handling"], "note": "Manage mixed numbers embeds borrowing and result combination in one broad skill."}
+    ],
+    "google/gemini-3.5-flash": [
+      {"run": 1, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 2, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 3, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 4, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 5, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 6, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 7, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 8, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 9, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 10, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]}
+    ],
+    "gpt-5.5-2026-04-23": [
+      {"run": 1, "raw_k": 4, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "fraction_simplification"], "note": "Whole/mixed handling embeds borrowing in one broad skill."},
+      {"run": 2, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 3, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 4, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 5, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 6, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 7, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 8, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]},
+      {"run": 9, "raw_k": 4, "skills": ["common_denominator_conversion", "like_denominator_subtraction", "whole_mixed_component_handling", "borrowing_regrouping"], "note": "Fraction subtraction embeds simplification in one combined skill."},
+      {"run": 10, "raw_k": 5, "skills": ["like_denominator_subtraction", "common_denominator_conversion", "whole_mixed_component_handling", "borrowing_regrouping", "fraction_simplification"]}
+    ]
+  }
+}
